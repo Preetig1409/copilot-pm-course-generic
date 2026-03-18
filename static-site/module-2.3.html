@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 2.3: Product Strategy &amp; Roadmapping — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 2: Strategic PM with AI &rsaquo; Module 2.3
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">35 min</span>
+        <span class="meta-tag level">Level 2: Strategic PM with AI</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 2.3: Product Strategy &amp; Roadmapping</h1>
+<p><strong>Duration:</strong> 35 minutes
+<strong>Prerequisites:</strong> Modules 0.3, 2.1</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ol>
+<li>Distinguish product strategy from a feature list by applying the &quot;does it help me say no?&quot; test</li>
+<li>Evaluate strategic initiatives using Gibson Biddle&#39;s DHM model (Delight, Hard-to-copy, Margin-enhancing)</li>
+<li>Choose the right roadmap format (time-based, outcome-based, Now/Next/Later) based on your organizational context</li>
+<li>Use AI to stress-test your strategy by identifying its weakest assumptions, competitive vulnerabilities, and failure modes</li>
+</ol>
+<hr>
+<h2>Strategy Is the Framework for Saying No</h2>
+<p>Gibson Biddle, former VP of Product at Netflix, distilled product strategy into a memorable model: every strategic initiative should Delight users in ways that are Hard-to-copy and Margin-enhancing. It&#39;s simple. It&#39;s practical. And it forces a discipline that most product &quot;strategies&quot; lack.</p>
+<p>Here&#39;s the uncomfortable truth: most product strategies aren&#39;t strategies. They&#39;re prioritized feature lists dressed up with a vision statement. You know you have a real strategy when it helps you say no to a feature request that sounds perfectly reasonable.</p>
+<p>&quot;We should add a Slack integration to KnowledgeHub&quot; sounds reasonable. Everyone uses Slack. But if your strategy is <em>&quot;become the single source of truth for institutional knowledge through AI-powered discovery that no external tool can replicate&quot;</em> — then a Slack integration might be a distraction from the hard, differentiated work of building the AI search layer. Your strategy gives you a reason to say &quot;not now&quot; that isn&#39;t just &quot;we&#39;re busy.&quot;</p>
+<p>If your strategy doesn&#39;t help you reject good ideas in favor of great ones, it&#39;s not a strategy. It&#39;s a wish list.</p>
+<hr>
+<h2>Gibson Biddle&#39;s DHM Model</h2>
+<p>The DHM model gives you a concrete scoring framework for evaluating strategic directions. For each initiative, ask three questions:</p>
+<h3>Delight: Does It Make Users Measurably Happier?</h3>
+<p>Not &quot;users might like this.&quot; Measurably happier — NPS increase, task completion time reduction, unsolicited positive feedback, reduced support tickets.</p>
+<p>The key word is <em>measurably</em>. If you can&#39;t define how you&#39;d measure the delight, you don&#39;t understand the initiative well enough to commit to it.</p>
+<p><strong>KnowledgeHub example:</strong> AI-powered search that reduces average search time from 8 minutes to 2 minutes. That&#39;s measurable delight. Users will feel the difference every time they search.</p>
+<h3>Hard-to-Copy: What&#39;s the Moat?</h3>
+<p>This is where enterprise internal products have a surprising advantage. External competitors (Confluence, Notion, SharePoint) can build better features, better UI, better performance. What they can&#39;t replicate: your deep integration with internal systems, your understanding of internal knowledge structures, and the organizational data that makes your AI search smarter the more people use it.</p>
+<p>Hard-to-copy doesn&#39;t always mean technically difficult. It can mean:</p>
+<ul>
+<li><strong>Data advantage</strong> — you have data competitors don&#39;t (internal project data, org structure, usage patterns)</li>
+<li><strong>Integration advantage</strong> — you&#39;re embedded in workflows competitors can&#39;t access</li>
+<li><strong>Switching cost</strong> — the cost of moving to a competitor increases over time</li>
+<li><strong>Network effects</strong> — the product gets better as more people in the organization use it</li>
+</ul>
+<h3>Margin-Enhancing: Does It Improve Unit Economics?</h3>
+<p>For enterprise internal products, &quot;margin-enhancing&quot; translates to: does this reduce cost-per-user, increase productivity-per-dollar-spent, or reduce the need for expensive alternatives?</p>
+<p>If AI search costs $5/user/month in LLM fees but saves $50/user/month in productivity — that&#39;s margin-enhancing. If it costs $50 and saves $5 — it&#39;s not, no matter how much users love it.</p>
+<h3>Scoring Strategic Directions</h3>
+<p>Every initiative should score well on at least 2 of 3 dimensions. An initiative that delights users and is hard-to-copy but destroys margins is a charity project. One that&#39;s hard-to-copy and margin-enhancing but doesn&#39;t delight anyone is an internal tool nobody uses. You need at least two.</p>
+<p>The ideal initiative scores on all three. Those are rare — and when you find one, it should go to the top of your roadmap.</p>
+<hr>
+<h2>Roadmapping Reality</h2>
+<p>You have a strategy. Now you need a roadmap. The format matters more than most PMs realize, because different formats create different expectations.</p>
+<h3>Time-Based Roadmap (Q1 / Q2 / Q3 / Q4)</h3>
+<p><strong>When to use it:</strong> When stakeholders need predictability. When you&#39;re coordinating with other teams on dependencies. When leadership wants to plan budgets and headcount against deliverables.</p>
+<p><strong>The upside:</strong> Clear expectations. Easy to communicate. Aligns with business planning cycles.</p>
+<p><strong>The trap:</strong> Every item on a time-based roadmap feels like a promise. When Q2 arrives and you haven&#39;t shipped the Q2 item because you learned something in Q1 that changed your plan — stakeholders feel misled, even if your decision was correct.</p>
+<p><strong>The rule:</strong> Never put discovery work on a time-based roadmap. You can commit to &quot;ship AI search improvements in Q2&quot; only if the discovery is done and you&#39;re confident in the solution. If you&#39;re still exploring, use a different format.</p>
+<h3>Outcome-Based Roadmap (Goals, Not Features)</h3>
+<p><strong>When to use it:</strong> When you need flexibility. When the problem is clear but the solution isn&#39;t. When you want to empower your team to find the best path.</p>
+<p><strong>Format:</strong> &quot;Increase KnowledgeHub WAU from 43% to 50%&quot; instead of &quot;Build AI search.&quot; The team figures out <em>how</em>.</p>
+<p><strong>The upside:</strong> Focuses on results. Allows pivoting when you learn something new. Empowers the team.</p>
+<p><strong>The trap:</strong> Some stakeholders hear &quot;we don&#39;t know what we&#39;re building&quot; and get nervous. Outcome-based roadmaps require high organizational trust.</p>
+<h3>Now / Next / Later</h3>
+<p><strong>When to use it:</strong> When you want to be honest about decreasing certainty over time.</p>
+<p><strong>Format:</strong></p>
+<ul>
+<li><strong>Now</strong> (this quarter): Committed. In progress or about to start. High confidence.</li>
+<li><strong>Next</strong> (next quarter): Planned. Scope is roughly defined. Medium confidence.</li>
+<li><strong>Later</strong> (6+ months): Directional. We believe this matters but haven&#39;t designed it. Low confidence.</li>
+</ul>
+<p><strong>The upside:</strong> Honest about uncertainty. Allows you to communicate direction without making false promises. Stakeholders can see the trajectory without holding you to specific dates on uncertain work.</p>
+<p><strong>The trap:</strong> &quot;Later&quot; items can become a graveyard for ideas that never get prioritized. Review and prune regularly.</p>
+<h3>Choosing Your Format</h3>
+<p>In practice, most enterprise PMs use a hybrid: time-based for committed work (this quarter), outcome-based for the next horizon, and Now/Next/Later when presenting to leadership. The format should match the audience and the decision being made.</p>
+<hr>
+<h2>Stress-Testing with AI</h2>
+<p>A strategy you haven&#39;t tried to break is a strategy you don&#39;t understand. Copilot is an excellent sparring partner for this because it has no political stake in your strategy succeeding.</p>
+<p><strong>Four stress tests to run:</strong></p>
+<ol>
+<li><p><strong>Weakest link:</strong> &quot;What&#39;s the weakest part of this strategy? What assumption, if wrong, would cause the entire plan to fail?&quot;</p>
+</li>
+<li><p><strong>Competitive threat:</strong> &quot;What competitor move — from an external tool or an internal alternative — would make this strategy irrelevant within 12 months?&quot;</p>
+</li>
+<li><p><strong>Resource reality:</strong> &quot;Given a team of [X] engineers and [Y] budget, is this strategy achievable in the proposed timeline? What would you cut first?&quot;</p>
+</li>
+<li><p><strong>Stakeholder objection:</strong> &quot;If a skeptical VP asked &#39;why should we invest in this instead of [alternative],&#39; what&#39;s the strongest argument against my strategy?&quot;</p>
+</li>
+</ol>
+<p>The goal isn&#39;t to find a strategy with no weaknesses — that doesn&#39;t exist. The goal is to <em>know</em> your weaknesses so you can mitigate them, address them proactively in reviews, or adjust the plan.</p>
+<p>A strategy you&#39;ve stress-tested and still believe in is ten times more credible than one you&#39;ve never challenged.</p>
+<hr>
+<h2>Exercise 1: Evaluate Strategic Directions with DHM</h2>
+<p><strong>Context:</strong> You need to choose a strategic direction for KnowledgeHub that will drive WAU from 43% to 60%. Three options are on the table, and you need a rigorous framework for evaluating them.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>I need to build a product strategy for KnowledgeHub. Context: 43% WAU (target 60%), competing with external tools like Confluence and Notion that employees already know, key differentiator is integration with internal systems. Using Gibson Biddle&#39;s DHM model, help me evaluate three strategic directions:
+
+(1) AI-powered search and discovery — use LLMs to make finding internal knowledge fast and accurate
+(2) Social/community features — comments, likes, expert tagging, discussion threads
+(3) Deep integration with project tools — connect KnowledgeHub with ProjectPulse and other internal systems
+
+Score each on Delight (does it measurably improve user experience?), Hard-to-copy (what&#39;s the moat vs. external tools?), Margin-enhancing (does it improve productivity per dollar spent?). Give each dimension a score of Low/Medium/High with rationale. Then recommend which direction to lead with and why.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Does Copilot give meaningfully different scores across the three options, or does everything score &quot;Medium&quot;?</li>
+<li>Does it identify that AI search scores highest on Delight (8 min → 2 min is dramatic)?</li>
+<li>Does it recognize that deep integration is the strongest on Hard-to-copy (external tools can&#39;t replicate internal system access)?</li>
+<li>Does it flag that social features score lowest on Hard-to-copy (Confluence and Notion already have these)?</li>
+<li>Does the recommendation include a rationale for sequencing — which to do first, second, third?</li>
+</ul>
+<hr>
+<h2>Exercise 2: Build and Stress-Test a Roadmap</h2>
+<p><strong>Context:</strong> Based on your strategic direction, you need a roadmap that communicates your plan to leadership while being honest about what&#39;s certain and what&#39;s not.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Build a Now/Next/Later roadmap for KnowledgeHub based on this strategy: lead with AI-powered search (highest Delight and Margin-enhancing scores), followed by deep integration with project tools (highest Hard-to-copy score). Social features are deprioritized.
+
+Now (this quarter, high confidence): committed work already in progress or ready to start.
+Next (next quarter, medium confidence): planned but scope is flexible.
+Later (6+ months, low confidence): directional bets we believe in but haven&#39;t fully designed.
+
+Include 3-4 items in each bucket. For each item, note which DHM dimension it primarily serves. Then stress-test: What&#39;s the biggest risk in this roadmap? What assumption, if wrong, would force us to rethink? What competitor move would we need to respond to?
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Do &quot;Now&quot; items feel concrete and achievable (e.g., &quot;Launch AI search pilot with Engineering department&quot;)?</li>
+<li>Do &quot;Next&quot; items feel planned but appropriately flexible (e.g., &quot;Expand AI search to 3 departments based on pilot learnings&quot;)?</li>
+<li>Do &quot;Later&quot; items feel directional without false specificity (e.g., &quot;Explore ProjectPulse integration for cross-product knowledge surfacing&quot;)?</li>
+<li>Does the stress test identify real risks — like LLM costs exceeding budget, or the pilot failing to show results?</li>
+<li>Does it identify the key assumption to monitor — likely that AI search quality is good enough to drive adoption?</li>
+</ul>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>Does your product have a clear strategy? Can you explain it in 2 sentences? Does it help you say no to reasonable feature requests?</li>
+<li>What format is your current roadmap in? Does it match your audience&#39;s needs and your level of certainty?</li>
+<li>When was the last time you said no to a feature request because of strategy, not just capacity?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>My product is [PRODUCT NAME]. Our strategic context: [CURRENT STATE — key metrics, competitive position, user base]. Our business goal: [TARGET OUTCOME WITH METRICS]. We&#39;re considering these strategic directions: [OPTION 1], [OPTION 2], [OPTION 3].
+
+Using Gibson Biddle&#39;s DHM model (Delight, Hard-to-copy, Margin-enhancing), evaluate each option. Then build a Now/Next/Later roadmap for the winning strategy. Finally, stress-test: what&#39;s the biggest risk, what assumption is most fragile, and what external change would force a pivot?
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>A DHM evaluation of your strategic options with clear scoring rationale</li>
+<li>A recommended strategic direction with a sequencing rationale</li>
+<li>A Now/Next/Later roadmap that&#39;s honest about certainty levels</li>
+<li>A stress-test that identifies the key risks and assumptions to monitor</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>Product strategy is the framework that tells you what NOT to do — if it doesn&#39;t help you say no to reasonable requests, it&#39;s a feature list, not a strategy.</li>
+<li>Gibson Biddle&#39;s DHM model (Delight, Hard-to-copy, Margin-enhancing) gives you a concrete framework for evaluating strategic directions — aim for at least 2 of 3.</li>
+<li>Choose your roadmap format to match your audience: time-based for committed work, outcome-based for flexibility, Now/Next/Later for honest communication about uncertainty.</li>
+<li>Stress-test your strategy with AI before presenting it — know your weakest assumption, your competitive vulnerability, and your resource constraints.</li>
+</ul>
+<hr>
+<h2>What&#39;s Next</h2>
+<p>You have a strategy and a roadmap. Now you need to present them to leadership and get approval. In <strong>Module 2.4: Running Effective Product Reviews</strong>, you&#39;ll learn to build a narrative arc, pre-generate the toughest questions, and drive the one decision that matters in every review meeting.</p>
+</div>
+    <div class="nav-footer"><a href="module-2.2.html" class="nav-btn prev">&larr; 2.2 Data-Driven Decisions with AI</a><a href="index.html" class="nav-btn home">Home</a><a href="module-2.4.html" class="nav-btn next">2.4 Running Effective Product Reviews &rarr;</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

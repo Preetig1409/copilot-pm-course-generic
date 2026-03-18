@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 0.5: Agile in Practice — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 0: The PM Craft &rsaquo; Module 0.5
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">20 min</span>
+        <span class="meta-tag level">Level 0: The PM Craft</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 0.5: Agile in Practice — What Scrum Gets Right and Wrong</h1>
+<p><strong>Duration:</strong> 20 minutes
+<strong>Prerequisites:</strong> Module 0.4 (Writing Requirements That Engineers Love)</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<p>By the end of this module, you will:</p>
+<ol>
+<li>Evaluate each Scrum ceremony honestly — which earn their time and which become theater — and know how to fix the broken ones</li>
+<li>Treat the backlog as a prioritized list of hypotheses, not a to-do list</li>
+<li>Explain dual-track agile and why delivery without discovery builds the wrong things efficiently</li>
+<li>Approach sprint planning as a negotiation about value, not a commitment ceremony</li>
+</ol>
+<hr>
+<h2>The Agile Honesty Problem</h2>
+<p>Marty Cagan has a provocation that should bother every PM working in Scrum: <strong>most agile teams are not agile. They are just doing waterfall in 2-week increments.</strong></p>
+<p>Here is what he means. The team gets a roadmap from leadership. The PM translates it into user stories. The stories go into a backlog. The team pulls stories into sprints. They build, they ship, they demo. The process feels agile — there are standups and retros and a Jira board with swim lanes. But the decisions about <em>what</em> to build were made months ago by someone who never talked to a user. The team is efficiently delivering output that may or may not solve real problems.</p>
+<p>Real agility means the team can change direction based on what they learn. That requires two things most Scrum implementations lack: continuous discovery (Module 0.2) and the organizational trust to pivot when evidence says you should.</p>
+<p>This module is not an argument against Scrum. It is an argument for practicing it honestly — keeping what works, fixing what does not, and pairing delivery with discovery.</p>
+<hr>
+<h2>Scrum Ceremonies — The Honest Assessment</h2>
+<table>
+<thead>
+<tr>
+<th>Ceremony</th>
+<th>The Point</th>
+<th>When It Works</th>
+<th>When It Becomes Theater</th>
+<th>How to Fix It</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Daily Standup</strong> (15 min)</td>
+<td>Surface blockers fast. Sync the team.</td>
+<td>Under 10 minutes. People share blockers, not status. Conversations happen after.</td>
+<td>30+ minutes. People give detailed status updates nobody listens to. It becomes a performance for the PM or scrum master.</td>
+<td>Strict timebox: 10 minutes max. Three questions only: What&#39;s blocked? What do you need? Anything the team should know? Status goes in Slack/Teams.</td>
+</tr>
+<tr>
+<td><strong>Sprint Planning</strong> (1-2 hours)</td>
+<td>Agree on what the team will build this sprint and why.</td>
+<td>Team understands the &quot;why&quot; behind each story. Negotiation about trade-offs. Capacity is realistic.</td>
+<td>PM reads tickets aloud while engineers look at their laptops. No discussion of trade-offs. Team commits to more than they can deliver because saying no feels political.</td>
+<td>Start with the sprint goal (one sentence: what outcome are we targeting?). Then fill with stories that serve the goal. If a story does not serve the goal, it does not go in the sprint.</td>
+</tr>
+<tr>
+<td><strong>Sprint Review / Demo</strong> (1 hour)</td>
+<td>Show stakeholders what shipped. Get feedback.</td>
+<td>Real stakeholders attend. Feedback is captured and acted on. Demo focuses on user value, not technical implementation.</td>
+<td>Only the team attends. Demo is a checkbox. Nobody gives real feedback because the feature already shipped.</td>
+<td>Invite at least one stakeholder from outside the team. Ask specific questions: &quot;Does this solve the problem you described?&quot; Demo from the user&#39;s perspective, not the developer&#39;s.</td>
+</tr>
+<tr>
+<td><strong>Retrospective</strong> (1 hour)</td>
+<td>Improve the process. Address team friction.</td>
+<td>Produces 2-3 concrete action items. Action items are assigned and tracked. Someone follows up next retro.</td>
+<td>Same complaints every sprint. Sticky notes go on a board and are never mentioned again. People are afraid to raise real issues.</td>
+<td>New format every 3-4 retros to prevent staleness. Require exactly 3 action items with owners and due dates. Start each retro by reviewing last retro&#39;s action items.</td>
+</tr>
+<tr>
+<td><strong>Backlog Refinement</strong> (1 hour)</td>
+<td>Ensure upcoming stories are well-understood and estimated.</td>
+<td>Stories for next sprint are discussed. Ambiguities are resolved. Engineers ask clarifying questions.</td>
+<td>PM reads stories aloud and asks &quot;any questions?&quot; in a tone that discourages them. Stories are estimated without understanding.</td>
+<td>Engineers lead the discussion, not the PM. PM presents the problem; engineers discuss the approach. If a story generates more than 5 minutes of debate, it is not ready — pull it.</td>
+</tr>
+</tbody></table>
+<p><strong>The meta-principle:</strong> Every ceremony should end with someone doing something different than they would have otherwise. If standup does not surface a blocker that gets resolved, it was a waste. If the retro does not produce an action that changes behavior, it was theater.</p>
+<hr>
+<h2>Your Backlog Is Not a To-Do List</h2>
+<p>Most backlogs are graveyards of feature requests. Someone asked for something 9 months ago, a PM wrote a ticket, and now it sits at position #147, never to be built but never formally killed. The backlog grows forever because adding tickets is easy and removing them feels confrontational.</p>
+<p><strong>A healthy backlog has three zones:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Position</th>
+<th>State</th>
+<th>PM&#39;s Job</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Top (next 1-2 sprints)</strong></td>
+<td>#1-10</td>
+<td>Well-understood. Refined. Estimated. Ready to pull.</td>
+<td>Keep these sharp. Answer engineering questions. Ensure acceptance criteria are clear.</td>
+</tr>
+<tr>
+<td><strong>Middle (next 1-3 months)</strong></td>
+<td>#11-30</td>
+<td>Direction is clear but details are fuzzy. Not estimated.</td>
+<td>This is where PM work happens. Discovery, one-pagers, user research. Moving items from fuzzy to clear so they can enter the top zone.</td>
+</tr>
+<tr>
+<td><strong>Bottom (someday / maybe)</strong></td>
+<td>#31+</td>
+<td>Raw ideas. Feature requests. Things someone mentioned once.</td>
+<td>Review quarterly. Kill anything that has sat here for 6+ months without anyone asking about it. If nobody missed it, nobody needs it.</td>
+</tr>
+</tbody></table>
+<p><strong>The backlog grooming discipline:</strong> Once a quarter, go through positions #31+ and delete anything that no longer matters. This is uncomfortable — the person who requested it might notice. But a 300-item backlog where 250 items will never be built is not a plan. It is an anxiety list.</p>
+<p><strong>Hypotheses, not commitments:</strong> Items in the middle zone are hypotheses: &quot;We believe that [feature] will improve [metric] for [user segment].&quot; They are not promises. As you learn more (through discovery, experiments, or changing business context), hypotheses get validated, invalidated, or replaced. A backlog that never changes is a sign you are not learning.</p>
+<hr>
+<h2>Dual-Track Agile: Discovery Alongside Delivery</h2>
+<p>The biggest gap in most Scrum implementations is the absence of a discovery track. The delivery track (build, test, ship) runs on a sprint cadence. But where does the thinking happen? Where do you figure out <em>what</em> to build before you build it?</p>
+<p><strong>Dual-track agile runs two parallel tracks:</strong></p>
+<pre><code>DISCOVERY TRACK                    DELIVERY TRACK
+(PM + Design + 1 Engineer)         (Full engineering team)
+
+ ┌─────────────┐                    ┌─────────────┐
+ │  Research    │                    │  Sprint N    │
+ │  &amp; ideate   │ ──── validated ──→ │  Build &amp;     │
+ │  this week  │     solutions      │  ship        │
+ └─────────────┘                    └─────────────┘
+        │                                  │
+   Interview users                    Ship features
+   Run experiments                    Fix bugs
+   Validate assumptions               Reduce tech debt
+   Prototype solutions                Demo to stakeholders
+</code></pre>
+<p><strong>What discovery work looks like in practice:</strong></p>
+<ul>
+<li>User interviews (Module 0.2): 2-3 per week, 30 minutes each</li>
+<li>Prototype testing: Paper sketches or low-fidelity prototypes tested with 3-5 users before committing to a sprint</li>
+<li>Data analysis: Reviewing metrics to validate or invalidate hypotheses about user behavior</li>
+<li>Assumption testing: &quot;We believe users abandon search because results are irrelevant&quot; — how can we test that this week?</li>
+</ul>
+<p><strong>Why most teams only do delivery:</strong> Discovery feels slow. It does not produce visible output. Nobody demos an insight at sprint review. Stakeholders ask &quot;what did you build?&quot; not &quot;what did you learn?&quot; But teams that skip discovery build the wrong things faster. They have great velocity and poor outcomes.</p>
+<p><strong>The NovaTech example:</strong> KnowledgeHub has 43% WAU. A delivery-only team would look at the feature request list and start building. A dual-track team would first ask: &quot;Why is WAU at 43%? What are the top 3 reasons users disengage?&quot; They might discover that the #1 issue is not a missing feature but a confusing onboarding flow that never explains the product&#39;s value. That insight is worth more than the next 5 features on the backlog.</p>
+<hr>
+<h2>Sprint Planning as Negotiation</h2>
+<p>Sprint planning is not a ceremony where the PM announces what will be built. It is a negotiation between what the business needs and what the team can deliver.</p>
+<p><strong>The negotiation frame:</strong></p>
+<blockquote>
+<p>&quot;We can do A or B this sprint, not both. Which creates more value?&quot;</p>
+</blockquote>
+<p>This reframe changes the dynamic entirely. Instead of the PM pushing scope and the team pushing back, both sides are working together to maximize value within a constraint.</p>
+<p><strong>Velocity as a planning tool, not a performance metric:</strong></p>
+<p>Velocity (story points completed per sprint) tells you roughly how much the team can take on next sprint. That is its only legitimate use.</p>
+<table>
+<thead>
+<tr>
+<th>Healthy use of velocity</th>
+<th>Toxic use of velocity</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&quot;We averaged 38 points last 3 sprints, so let&#39;s plan for 35-40.&quot;</td>
+<td>&quot;Your velocity dropped from 42 to 36. What happened?&quot;</td>
+</tr>
+<tr>
+<td>&quot;This sprint has 45 points of requests but 38 of capacity — what do we cut?&quot;</td>
+<td>Comparing velocity across teams. (&quot;Team A does 50 points, Team B does 30.&quot;)</td>
+</tr>
+<tr>
+<td>Using velocity trends to identify systemic issues (consistent decline = team problem).</td>
+<td>Setting velocity targets. (&quot;We need 45 points this sprint.&quot;)</td>
+</tr>
+</tbody></table>
+<p><strong>Velocity is not productivity.</strong> A team that delivers 25 high-leverage points is outperforming a team that delivers 50 points of Neutral work. The unit of value is outcome, not output.</p>
+<p><strong>The sprint planning checklist:</strong></p>
+<ol>
+<li>State the sprint goal in one sentence. What outcome matters most?</li>
+<li>Pull stories that serve the sprint goal. Resist scope creep.</li>
+<li>Check capacity. Account for PTO, on-call rotations, meetings.</li>
+<li>Identify dependencies. Flag anything that requires another team.</li>
+<li>Leave 15-20% buffer for unplanned work. Bugs will appear. Production issues will happen. If you plan to 100% capacity, you are planning to fail.</li>
+</ol>
+<hr>
+<h2>Exercise 1: Prepare for Sprint Planning</h2>
+<p><strong>Context:</strong> You are the PM for KnowledgeHub. Your team has 5 developers, 2-week sprints, and averages about 40 story points per sprint. You have a prioritized backlog of 10 items that need to be sequenced into the next sprint.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Help me prepare for sprint planning. Here&#39;s my context:
+
+Team: 5 developers, 2-week sprint, ~40 story points average velocity
+Sprint goal: Improve search result quality to increase search completion rate
+One developer is on PTO for 3 days this sprint.
+
+Top 10 backlog items:
+1. Search relevance scoring algorithm (13 pts) — depends on item #5
+2. Relevance indicators on result cards (5 pts)
+3. &quot;Frequently referenced&quot; badge for popular docs (3 pts)
+4. Search analytics dashboard for PM (8 pts)
+5. Search infrastructure API upgrade (8 pts) — no dependencies
+6. User feedback widget on results page (5 pts)
+7. Saved search functionality (8 pts)
+8. Mobile search improvements (13 pts) — depends on item #5
+9. Search suggestion autocomplete (5 pts)
+10. Content freshness indicators (3 pts)
+
+Identify dependencies and flag risks. Given the sprint goal and capacity (reduced by one developer&#39;s PTO), recommend what fits in this sprint. Explain what you&#39;d cut and why. If there&#39;s a dependency that changes the order, call it out.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Accounts for PTO reducing capacity (roughly 35 points instead of 40). Identifies the dependency chain (#1 and #8 depend on #5). Prioritizes items that serve the sprint goal. Cuts items that don&#39;t serve the goal even if they&#39;re small. Flags the risk of the 13-point stories.</li>
+<li>Bad response: Tries to fit everything in. Ignores dependencies. Does not account for PTO. Treats all items as equally important.</li>
+</ul>
+<hr>
+<h2>Exercise 2: Fix Your Retros</h2>
+<p><strong>Context:</strong> Your team&#39;s retrospectives have gone stale. The same complaints come up every sprint — &quot;too many meetings,&quot; &quot;unclear requirements,&quot; &quot;technical debt&quot; — but nothing changes. People have stopped engaging.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Our team retrospectives are stale — same complaints every sprint, no real action items, people have stopped engaging. Team of 10 (5 devs, 2 designers, 1 PM, 1 scrum master, 1 QA).
+
+Design a retro format that:
+1. Breaks the staleness pattern — something different from the usual Start/Stop/Continue
+2. Surfaces real issues, not surface-level complaints
+3. Produces exactly 2-3 concrete action items with owners and due dates
+4. Takes no more than 60 minutes
+5. Includes a mechanism to review last retro&#39;s action items first
+
+Bonus: give me 3 different formats I can rotate through over the next quarter so retros don&#39;t become stale again.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Formats are genuinely different from standard Start/Stop/Continue. Each format has a specific mechanism for producing action items (not just collecting feedback). The review of previous action items is built in, not an afterthought. Formats are practical for a 10-person team and fit in 60 minutes.</li>
+<li>Bad response: Repackaged Start/Stop/Continue with different labels. No mechanism for accountability on action items. Formats that require expensive materials or facilitator training.</li>
+</ul>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What is your biggest frustration with your current sprint process? Is it a ceremony problem, a people problem, or a structural problem?</li>
+<li>When was the last time your team changed direction mid-sprint based on something they learned? If it has never happened, you might not be agile.</li>
+<li>Does your team have a discovery track? If not, where does the &quot;what should we build?&quot; thinking happen?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>I&#39;m a PM on a [TEAM SIZE]-person team running [SPRINT LENGTH]-week sprints. My biggest frustration with our current process is: [SPECIFIC FRUSTRATION].
+
+Help me diagnose whether this is a ceremony problem, a people problem, or a structural problem. Then give me 3 specific changes I can propose at our next retrospective — each change should be concrete enough to implement next sprint and measurable enough to evaluate after 2-3 sprints.
+
+If the issue is that we&#39;re doing delivery without discovery, help me propose a lightweight discovery track that doesn&#39;t require reorganizing the team — just 3-4 hours per week of structured PM + design + engineer time.
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>A diagnosis of your current process friction and its root cause</li>
+<li>3 concrete, implementable improvements to propose at your next retro</li>
+<li>A plan for introducing discovery work alongside delivery (if applicable)</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>Scrum ceremonies are tools, not rituals. Each one should end with someone doing something differently than they would have otherwise. If it does not, fix the format or drop the ceremony.</li>
+<li>A healthy backlog has three zones: ready (top), being refined (middle), and someday (bottom). Quarterly, delete items from the bottom that nobody missed. A 300-item backlog is not a plan.</li>
+<li>Dual-track agile pairs continuous discovery with sprint delivery. Teams that skip discovery build the wrong things efficiently — great velocity, poor outcomes.</li>
+</ul>
+<hr>
+<h2>What&#39;s Next</h2>
+<p>Module 0.6 covers the unwritten PM skill: stakeholder management. You will learn why keeping stakeholders informed is the bare minimum, how to build political capital for the decisions that matter, and how to use Shreyas Doshi&#39;s pre-mortem technique to anticipate failure before it happens.</p>
+</div>
+    <div class="nav-footer"><a href="module-0.4.html" class="nav-btn prev">&larr; 0.4 Writing Requirements That Engineers Love</a><a href="index.html" class="nav-btn home">Home</a><a href="module-0.6.html" class="nav-btn next">0.6 Stakeholder Management — The Unwritten PM Skill &rarr;</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 1.6: Deep Research with Agents — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 1: Copilot as Teammate &rsaquo; Module 1.6
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">25 min</span>
+        <span class="meta-tag level">Level 1: Copilot as Teammate</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 1.6: Deep Research with Agents</h1>
+<p><strong>Duration:</strong> 25 minutes
+<strong>Prerequisites:</strong> Module 1.1</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<p>By the end of this module, you will:</p>
+<ol>
+<li>Understand the difference between Researcher and Analyst agents and when to use each</li>
+<li>Map your PM research needs (competitive intel, market sizing, tech trends) to the right agent</li>
+<li>Chain agents together — Researcher finds, you filter, Analyst processes, you decide</li>
+<li>Detect hallucinations, recency issues, and source quality problems in AI-generated research</li>
+</ol>
+<hr>
+<h2>Competitive Analysis Shouldn&#39;t Eat Your Entire Friday</h2>
+<p>Every PM has a backlog of research questions they never get to:</p>
+<ul>
+<li>&quot;What&#39;s Confluence doing with AI features?&quot;</li>
+<li>&quot;How big is the knowledge management market in 2026?&quot;</li>
+<li>&quot;What adoption strategies worked for similar enterprise tools?&quot;</li>
+<li>&quot;What are the technical trends in semantic search that might affect our roadmap?&quot;</li>
+</ul>
+<p>Each of these is a 2-4 hour rabbit hole of Google searches, analyst reports, blog posts, and LinkedIn stalking. Important work that gets perpetually deprioritized because the day-to-day is louder.</p>
+<p>Copilot&#39;s agents change the economics. A competitive landscape that took a Friday afternoon now takes 30 minutes. Market sizing that required buying a Gartner report takes 15 minutes (with caveats — we&#39;ll cover those). Technology trend analysis that required reading 20 blog posts takes 20 minutes.</p>
+<p>The catch: AI research is fast but not automatically trustworthy. This module teaches you how to use agents effectively <em>and</em> how to know when the output is garbage.</p>
+<h2>Researcher vs. Analyst: Two Different Tools</h2>
+<h3>The Researcher Agent</h3>
+<p><strong>What it does:</strong> Searches the web with depth. Finds, synthesizes, and compares information from multiple sources.</p>
+<p><strong>Best for:</strong></p>
+<ul>
+<li>Competitive intelligence (features, pricing, positioning)</li>
+<li>Market sizing and trends</li>
+<li>Technology landscape analysis</li>
+<li>&quot;What&#39;s happening in [space]?&quot; questions</li>
+<li>Finding examples, case studies, benchmarks</li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li>Knowledge may lag recent events by days or weeks</li>
+<li>Sources aren&#39;t always authoritative</li>
+<li>Can confuse popular opinion with expert analysis</li>
+<li>May present outdated information as current</li>
+</ul>
+<h3>The Analyst Agent</h3>
+<p><strong>What it does:</strong> Reasons over data and documents you provide. Finds patterns, builds arguments, generates frameworks.</p>
+<p><strong>Best for:</strong></p>
+<ul>
+<li>Analyzing your internal data (usage metrics, survey results, financial models)</li>
+<li>Processing documents (contracts, reports, transcripts)</li>
+<li>Building strategic arguments from evidence you provide</li>
+<li>&quot;What does this data tell us?&quot; questions</li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li>Only as good as the data you provide</li>
+<li>Can find patterns in noise (false correlations)</li>
+<li>May overfit to small sample sizes</li>
+<li>Doesn&#39;t know what it doesn&#39;t know</li>
+</ul>
+<h3>The Decision Rule</h3>
+<ul>
+<li><strong>Need information you don&#39;t have?</strong> → Researcher</li>
+<li><strong>Need analysis of information you do have?</strong> → Analyst</li>
+<li><strong>Need both?</strong> → Chain them: Researcher finds → you filter → Analyst processes</li>
+</ul>
+<h2>The PM Research Stack</h2>
+<p>Here&#39;s how typical PM research needs map to agents:</p>
+<table>
+<thead>
+<tr>
+<th>Research Need</th>
+<th>Agent</th>
+<th>Your Role</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Competitive landscape</td>
+<td>Researcher</td>
+<td>Validate claims, check dates, add insider knowledge</td>
+</tr>
+<tr>
+<td>Market sizing</td>
+<td>Researcher → Analyst</td>
+<td>Researcher finds data, Analyst builds model, you validate assumptions</td>
+</tr>
+<tr>
+<td>Tech trend analysis</td>
+<td>Researcher</td>
+<td>Filter signal from noise, assess relevance to your stack</td>
+</tr>
+<tr>
+<td>Customer sentiment</td>
+<td>Analyst</td>
+<td>Provide the data (reviews, tickets, surveys), interpret the synthesis</td>
+</tr>
+<tr>
+<td>Strategic positioning</td>
+<td>Researcher → Analyst</td>
+<td>Researcher gathers competitive data, Analyst helps you frame positioning</td>
+</tr>
+<tr>
+<td>Business case building</td>
+<td>Analyst</td>
+<td>Provide assumptions and data, have Analyst stress-test the logic</td>
+</tr>
+</tbody></table>
+<h2>Chaining Agents: Human in the Loop</h2>
+<p>The most powerful research pattern isn&#39;t a single prompt — it&#39;s a chain with you in the middle:</p>
+<p><strong>Step 1: Researcher finds raw material</strong></p>
+<blockquote>
+<p>&quot;Research the competitive landscape for enterprise knowledge management platforms.&quot;</p>
+</blockquote>
+<p><strong>Step 2: You filter</strong>
+Review the output. Remove outdated information. Add context Copilot doesn&#39;t have (&quot;Actually, Notion&#39;s enterprise pricing changed last month.&quot; &quot;We already evaluated Guru and rejected it for X reason.&quot;).</p>
+<p><strong>Step 3: Analyst processes</strong></p>
+<blockquote>
+<p>&quot;Given this competitive landscape [paste filtered research] and our product&#39;s position [describe KnowledgeHub], where is our defensible advantage? Where are we most vulnerable?&quot;</p>
+</blockquote>
+<p><strong>Step 4: You decide</strong>
+The Analyst&#39;s output is a starting point for your strategic thinking, not the conclusion.</p>
+<p>This chain produces output that&#39;s both broadly researched <em>and</em> specifically tailored to your situation — something neither agent can do alone.</p>
+<h2>BS Detection: When NOT to Trust the Output</h2>
+<p>AI research has specific failure modes. Learn these and you&#39;ll catch problems before they reach your stakeholders.</p>
+<h3>Hallucinated Statistics</h3>
+<p><strong>Pattern:</strong> Precise numbers with no source citation.</p>
+<blockquote>
+<p>&quot;The enterprise knowledge management market is valued at $47.3 billion...&quot;</p>
+</blockquote>
+<p><strong>Response:</strong> Ask &quot;What&#39;s your source for that number? When was it published?&quot; If Copilot can&#39;t cite a specific report and date, treat the number as directional at best.</p>
+<h3>Recency Issues</h3>
+<p><strong>Pattern:</strong> Information presented as current that&#39;s actually 1-2 years old.</p>
+<blockquote>
+<p>&quot;Confluence&#39;s latest feature release includes...&quot;</p>
+</blockquote>
+<p><strong>Response:</strong> Check dates explicitly. Ask &quot;When was this information last confirmed? What&#39;s the most recent source you&#39;re drawing from?&quot;</p>
+<h3>Confident Fabrication</h3>
+<p><strong>Pattern:</strong> Detailed, authoritative-sounding claims about specific companies that feel too clean.</p>
+<blockquote>
+<p>&quot;Tettra reports 65% year-over-year enterprise adoption growth...&quot;</p>
+</blockquote>
+<p><strong>Response:</strong> If a claim seems suspiciously specific or favorable, verify independently. Copilot sometimes generates plausible-sounding metrics that don&#39;t exist.</p>
+<h3>The 3-Question Verification</h3>
+<p>For any important claim in AI-generated research, ask:</p>
+<ol>
+<li><strong>&quot;What&#39;s your source?&quot;</strong> — If it can&#39;t cite one, the claim is unreliable</li>
+<li><strong>&quot;When is this from?&quot;</strong> — If older than 6 months, verify it&#39;s still current</li>
+<li><strong>&quot;How confident are you?&quot;</strong> — Copilot will sometimes admit uncertainty when directly asked</li>
+</ol>
+<hr>
+<h2>Exercise 1: Competitive Landscape Research</h2>
+<p><strong>Context:</strong> Your quarterly product review is coming up, and Jennifer Walsh has asked for a competitive landscape analysis of the knowledge management space. You need to position KnowledgeHub relative to key competitors.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Use the Researcher agent to research the competitive landscape for internal enterprise knowledge management platforms.
+
+Compare these 4 competitors to help me position KnowledgeHub:
+1. Confluence (Atlassian)
+2. Notion
+3. Guru
+4. Tettra
+
+For each competitor, provide:
+- PRICING MODEL: How they charge, approximate enterprise pricing, any free tier
+- KEY DIFFERENTIATORS: What they do better than anyone else (2-3 points)
+- ENTERPRISE ADOPTION: Notable enterprise customers, approximate market penetration
+- WEAKNESSES: Known pain points, common complaints, where they fall short (2-3 points)
+- AI CAPABILITIES: What AI features they&#39;ve launched or announced
+
+Then synthesize:
+- Where does an internal enterprise KM platform like KnowledgeHub have a DEFENSIBLE advantage? (Consider: it&#39;s built into our enterprise ecosystem, customized for our workflows, no data leaves our tenant)
+- Where is KnowledgeHub most VULNERABLE? (Where competitors are clearly better)
+- What&#39;s the ONE competitive move we should be most worried about in the next 12 months?
+
+Important: Cite your sources. For any specific statistic, tell me where it comes from and when it was published. If you&#39;re uncertain about a claim, say so.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li><strong>Good response:</strong> Specific differentiators (not generic &quot;easy to use&quot;), pricing that&#39;s roughly accurate, weaknesses that match what you&#39;ve heard from users, AI capabilities that reflect recent announcements</li>
+<li><strong>Weak response:</strong> Generic comparisons that could have been written about any SaaS category, no source citations, suspiciously precise market share numbers</li>
+<li><strong>Verification step:</strong> Pick 2-3 specific claims and verify them with a quick web search. How accurate was Copilot? Track your hit rate — it calibrates your trust level.</li>
+</ul>
+<hr>
+<h2>Exercise 2: Adoption Strategy Analysis</h2>
+<p><strong>Context:</strong> KnowledgeHub is at 43% WAU against a 60% target. You need to understand what has worked for competitors facing similar adoption challenges.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Use the Analyst agent for this analysis:
+
+SITUATION:
+KnowledgeHub (NovaTech&#39;s internal knowledge management platform) has 43% weekly active usage vs. a 60% target. Our top competitor Confluence reports approximately 65% adoption in enterprises of similar size.
+
+RESEARCH QUESTIONS:
+1. ADOPTION STRATEGIES: What strategies have enterprise knowledge management platforms used to drive adoption from the 40-60% range? Look for specific tactics, not generic advice like &quot;improve UX.&quot; I want examples of what companies actually did.
+
+2. ADOPTION BARRIERS: What are the most common reasons enterprise KM tools plateau at 40-50% adoption? Map each barrier to a potential mitigation strategy.
+
+3. DEPARTMENT VARIANCE: Our adoption ranges from 22% (HR) to 67% (Engineering). What explains this kind of departmental variance in KM tool adoption? What have other companies done to close the gap?
+
+4. COMPETITIVE LESSON: If Confluence achieves ~65% adoption, what specifically do they do that drives higher engagement? What can we learn without just copying their features?
+
+5. 90-DAY PLAN: Given all the above, recommend a 90-day adoption improvement plan for KnowledgeHub. Prioritize by effort-to-impact ratio. Be specific about tactics, not just strategies.
+
+For each recommendation, tell me: What&#39;s the evidence this works? What could go wrong? What would we need to be true for this to succeed?
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li><strong>Good response:</strong> Specific adoption tactics (e.g., &quot;mandatory onboarding workflows,&quot; &quot;department champion programs,&quot; &quot;integration with existing tools&quot;), evidence-based recommendations, honest assessment of what could go wrong</li>
+<li><strong>Weak response:</strong> Generic advice (&quot;improve user experience,&quot; &quot;get executive sponsorship&quot;), no examples or evidence, recommendations without risk assessment</li>
+<li><strong>Key test:</strong> Show the 90-day plan to a colleague. Does it feel actionable and grounded, or does it feel like it was generated by an AI that doesn&#39;t know your company?</li>
+</ul>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What research question have you been putting off because it feels like a full-day project?</li>
+<li>When was the last time you presented competitive intelligence to a stakeholder? How old was the data?</li>
+<li>How would your product strategy change if you could get competitive landscape updates monthly instead of quarterly?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>RESEARCHER: Research [TOPIC/COMPETITIVE LANDSCAPE/MARKET TREND].
+
+For each [competitor/trend/data point]:
+- [Specific dimension 1]
+- [Specific dimension 2]
+- [Specific dimension 3]
+
+Synthesize:
+- What does this mean for [MY PRODUCT]?
+- Where are we strong/vulnerable?
+- What should we do about it in the next [TIMEFRAME]?
+
+Cite sources. Flag uncertainty. Tell me what you don&#39;t know.
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>A competitive landscape analysis you can refine and present</li>
+<li>An adoption improvement plan grounded in external evidence</li>
+<li>A calibrated sense of when to trust AI research output and when to verify</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>Researcher agents find information you don&#39;t have; Analyst agents process information you do have. Chain them for the best results.</li>
+<li>The most powerful pattern: Researcher finds → you filter → Analyst processes → you decide. Never remove yourself from the loop.</li>
+<li>AI research is fast but not automatically trustworthy. Always ask: &quot;What&#39;s your source? When is this from? How confident are you?&quot;</li>
+<li>Hallucinated statistics are the biggest risk. Precise numbers without source citations should be treated as unreliable until verified.</li>
+<li>The goal isn&#39;t to replace your strategic thinking — it&#39;s to compress the research phase so you spend more time on judgment and less on gathering.</li>
+</ul>
+<h2>What&#39;s Next</h2>
+<p>You&#39;ve been giving Copilot context in every conversation. But what if it remembered your product, your stakeholders, and your priorities automatically? In <strong>Module 1.7: Building Context &amp; Memory</strong>, you&#39;ll build persistent context that makes every Copilot interaction faster and more relevant.</p>
+</div>
+    <div class="nav-footer"><a href="module-1.5.html" class="nav-btn prev">&larr; 1.5 Copilot Across M365</a><a href="index.html" class="nav-btn home">Home</a><a href="module-1.7.html" class="nav-btn next">1.7 Building Context &amp; Memory &rarr;</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

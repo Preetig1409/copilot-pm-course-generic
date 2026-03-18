@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 0.6: Stakeholder Management — The Unwritten PM Skill — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 0: The PM Craft &rsaquo; Module 0.6
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">25 min</span>
+        <span class="meta-tag level">Level 0: The PM Craft</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 0.6: Stakeholder Management — The Unwritten PM Skill</h1>
+<p><strong>Duration:</strong> 25 minutes
+<strong>Prerequisites:</strong> Module 0.5 (Agile in Practice)</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<p>By the end of this module, you will:</p>
+<ol>
+<li>Distinguish between stakeholder communication (keeping people informed) and stakeholder management (building political capital to make good decisions)</li>
+<li>Build a power/interest grid that maps hidden motivations, not just org chart positions</li>
+<li>Write concise upward updates that give executives confidence without turning you into a status machine</li>
+<li>Run a pre-mortem that surfaces risks your team is too optimistic to see</li>
+</ol>
+<hr>
+<h2>Stakeholder Management Is Not What You Think</h2>
+<p>Most PMs treat stakeholder management as a communication exercise: send the weekly update, present at the steering committee, respond to emails promptly. Keep people informed. Do not surprise anyone.</p>
+<p>That is the bare minimum. It is table stakes. And it is not stakeholder management — it is stakeholder notification.</p>
+<p>Real stakeholder management is about <strong>building enough political capital to make good product decisions without getting overruled by the loudest voice in the room.</strong> It is the skill that determines whether your carefully prioritized roadmap survives contact with a VP who has a pet feature, or whether your data-informed &quot;no&quot; gets respected instead of steamrolled.</p>
+<p>Shreyas Doshi frames it well: the PM&#39;s job is to influence without authority. You do not control budgets, you do not hire engineers, you do not sign contracts. Your power comes from three things: trust, credibility, and the perception that you understand the business better than anyone else in the room.</p>
+<p>This module teaches you to build all three.</p>
+<hr>
+<h2>The Real Power/Interest Grid</h2>
+<p>You have probably seen the standard power/interest grid: High Power / High Interest gets &quot;Manage Closely.&quot; Low Power / Low Interest gets &quot;Monitor.&quot; It is a fine starting framework and completely insufficient for real stakeholder management.</p>
+<p>The standard grid tells you <em>how much</em> to engage. It does not tell you <em>how</em> to engage — which depends on what stakeholders actually care about. And what they say they care about is often different from what they actually care about.</p>
+<p><strong>The enhanced power/interest grid:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Stakeholder</th>
+<th>Formal Power</th>
+<th>Real Power</th>
+<th>Stated Interest</th>
+<th>Hidden Motivation</th>
+<th>Engagement Approach</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Richard Thorne (VP Knowledge &amp; Innovation)</td>
+<td>Can approve/kill KnowledgeHub initiatives</td>
+<td>Influences CEO&#39;s view of innovation investments</td>
+<td>&quot;Cross-team knowledge sharing&quot;</td>
+<td>Wants to be seen as the executive who brought AI to the company. Fears being bypassed by a competitor initiative.</td>
+<td>Lead with innovation narrative. Frame features as AI-enabled. Give him credit publicly.</td>
+</tr>
+<tr>
+<td>Maya Patel (VP People Ops)</td>
+<td>Controls ProjectPulse budget</td>
+<td>Strong influence on change management resources</td>
+<td>&quot;Reduce manager administrative burden&quot;</td>
+<td>Worried about headcount justification. If ProjectPulse automates reporting, does her team shrink?</td>
+<td>Address the headcount concern directly. Frame automation as &quot;freeing managers to do higher-value work,&quot; not &quot;replacing managers.&quot;</td>
+</tr>
+<tr>
+<td>David Kim (Director Engineering)</td>
+<td>Assigns engineering resources</td>
+<td>Technical credibility with the team; engineers trust his judgment</td>
+<td>&quot;Build it right, not just fast&quot;</td>
+<td>Burned by a previous initiative that shipped half-baked and created 6 months of tech debt. Scope creep anxiety.</td>
+<td>Tight scope. Clear technical constraints in one-pagers. Involve him early in approach decisions. Never surprise him with scope changes.</td>
+</tr>
+<tr>
+<td>Sarah Mitchell (Director Product Strategy)</td>
+<td>Influences roadmap direction</td>
+<td>Owns the metrics framework everyone reports against</td>
+<td>&quot;Data-driven roadmap decisions&quot;</td>
+<td>Building a case for her own promotion by demonstrating strategic impact. Wants to align your work with her narrative.</td>
+<td>Share data generously. Frame your roadmap in terms of her strategic framework. Make her look good to her boss.</td>
+</tr>
+</tbody></table>
+<p><strong>How to uncover hidden motivations:</strong></p>
+<ul>
+<li>Listen to what they ask about repeatedly. If someone always asks about timeline, their hidden concern is risk, not curiosity.</li>
+<li>Notice what they push back on. Resistance reveals fear. &quot;I&#39;m not sure about that approach&quot; often means &quot;that approach threatens something I care about.&quot;</li>
+<li>Pay attention to their stakeholders. What does Richard&#39;s boss care about? Richard&#39;s behavior is shaped by what he needs to deliver upward.</li>
+<li>Ask directly, in a 1:1: &quot;What would make this initiative a win for you personally?&quot; Most people will tell you if you ask.</li>
+</ul>
+<hr>
+<h2>Managing Up Without Becoming a Status Machine</h2>
+<p>Your VP does not want a 30-minute meeting to hear everything you did this week. They want three things:</p>
+<ol>
+<li><strong>Confidence that things are on track</strong> — or early warning that they are not</li>
+<li><strong>Enough context to answer their boss&#39;s questions</strong> — they are managing up too</li>
+<li><strong>A heads-up before anything becomes a surprise</strong> — no stakeholder likes learning bad news in a meeting they did not call</li>
+</ol>
+<p><strong>The 5-line weekly update format:</strong></p>
+<pre><code>Subject: KnowledgeHub Weekly — [Date]
+
+PROGRESS: [One sentence on what moved forward]
+METRIC: [One key number with trend arrow]
+RISK: [One risk with your mitigation plan, or &quot;None this week&quot;]
+DECISION NEEDED: [One decision you need from them, or &quot;None this week&quot;]
+NEXT WEEK: [One thing they should know about]
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code>Subject: KnowledgeHub Weekly — March 18
+
+PROGRESS: Search relevance scoring shipped to 10% of users (A/B test running through Friday).
+METRIC: WAU 44.1% (up from 43% — early signal from search improvements, not yet statistically significant).
+RISK: Search infrastructure API upgrade delayed 1 week due to platform team dependency. Mitigation: pulled forward relevance indicators work that doesn&#39;t depend on the upgrade.
+DECISION NEEDED: None this week.
+NEXT WEEK: A/B test results Friday — will share preliminary data Monday.
+</code></pre>
+<p>Five lines. Takes 3 minutes to write. Gives your VP everything they need. If they want more detail, they will ask — and that is a conversation worth having. The 5-line format also forces you to distill what actually matters, which clarifies your own thinking.</p>
+<p><strong>When to escalate vs. handle yourself:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Escalate</th>
+<th>Handle Yourself</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Timeline risk greater than 2 weeks</td>
+<td>Timeline risk under 1 week with a mitigation plan</td>
+</tr>
+<tr>
+<td>Stakeholder conflict you cannot resolve</td>
+<td>Stakeholder disagreement where you have a clear recommendation</td>
+</tr>
+<tr>
+<td>Resource request that requires budget approval</td>
+<td>Resource trade-offs within your existing team</td>
+</tr>
+<tr>
+<td>Bad news that will reach your VP through other channels</td>
+<td>Bad news that is contained and being addressed</td>
+</tr>
+<tr>
+<td>A decision that sets a precedent for other teams</td>
+<td>A decision that only affects your product</td>
+</tr>
+</tbody></table>
+<p><strong>The escalation principle:</strong> If your VP is going to hear about it from someone else, they should hear about it from you first. Always.</p>
+<hr>
+<h2>The Pre-Mortem: The Most Underused PM Tool</h2>
+<p>A post-mortem asks &quot;what went wrong?&quot; after failure. A pre-mortem asks &quot;what could go wrong?&quot; before you start. The difference is everything — one produces lessons learned for next time, the other produces preventive actions for this time.</p>
+<p><strong>How to run a pre-mortem:</strong></p>
+<ol>
+<li><p><strong>Set the scene</strong> (2 minutes): &quot;It is 6 months from now. This project has failed. Not a partial disappointment — a clear failure. The feature launched but users hate it, or it never launched at all, or it launched and broke something else.&quot;</p>
+</li>
+<li><p><strong>Silent brainstorm</strong> (5 minutes): Everyone writes down reasons the project failed. No discussion. The silence matters — it prevents groupthink and lets the skeptics speak.</p>
+</li>
+<li><p><strong>Share and cluster</strong> (10 minutes): Go around the room. Each person shares one reason. No rebuttals. Keep going until all reasons are on the board. Cluster similar ones.</p>
+</li>
+<li><p><strong>Vote</strong> (3 minutes): Everyone gets 3 votes. Put them on the failure reasons you think are most likely.</p>
+</li>
+<li><p><strong>Mitigate</strong> (15 minutes): For the top 3-5 failure reasons, discuss: What is one thing we can do THIS MONTH to reduce this risk?</p>
+</li>
+</ol>
+<p><strong>Why pre-mortems work when other risk exercises do not:</strong></p>
+<ul>
+<li>They give people permission to be pessimistic. In a planning meeting, saying &quot;this might fail because...&quot; feels negative. In a pre-mortem, it is the entire point.</li>
+<li>They surface risks that optimistic teams overlook. The person who has been quietly worried about a dependency now has an invitation to say so.</li>
+<li>They produce action items, not just a risk register that nobody reads.</li>
+</ul>
+<p><strong>The psychological trick:</strong> Framing the project as already having failed activates different thinking than asking &quot;what could go wrong?&quot; When it has already failed, people think more concretely and creatively about causes.</p>
+<hr>
+<h2>Influence Without Authority — The Daily Practice</h2>
+<p>Beyond the grid and the updates, stakeholder management is a daily practice of small actions that build trust over time.</p>
+<p><strong>Trust-building moves:</strong></p>
+<ul>
+<li><strong>Follow through on small things.</strong> If you said you would send the data by Thursday, send it by Wednesday. Reliability in small moments creates trust for big moments.</li>
+<li><strong>Share credit generously.</strong> &quot;Maya&#39;s team flagged this insight&quot; costs you nothing and earns you an ally.</li>
+<li><strong>Bring bad news with a plan.</strong> Never say &quot;we have a problem&quot; without &quot;here is what I recommend.&quot; The PM who identifies problems is annoying. The PM who identifies problems and proposes solutions is invaluable.</li>
+<li><strong>Ask for input before decisions, not after.</strong> Stakeholders who feel consulted support the decision even if they disagree. Stakeholders who feel surprised oppose it even if they agree.</li>
+<li><strong>Remember what matters to them.</strong> If David Kim mentioned his daughter&#39;s soccer tournament last week, ask how it went. Humans trust humans, not role descriptions.</li>
+</ul>
+<p><strong>Trust-destroying moves:</strong></p>
+<ul>
+<li>Surprising stakeholders with bad news in public forums</li>
+<li>Committing to timelines without consulting engineering</li>
+<li>Saying &quot;the data says...&quot; when you actually mean &quot;I think...&quot;</li>
+<li>Going around someone to their boss without talking to them first</li>
+<li>Treating stakeholder concerns as obstacles to manage rather than perspectives to integrate</li>
+</ul>
+<hr>
+<h2>Exercise 1: Build a Stakeholder Map</h2>
+<p><strong>Context:</strong> You own ProjectPulse, NovaTech&#39;s project delivery platform. You are about to propose a major initiative to improve capacity visibility from 67% to 95%. This will require buy-in from multiple stakeholders with different motivations.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>I&#39;m the PM for ProjectPulse, an internal project delivery platform at NovaTech Solutions (5,000-person enterprise SaaS company). I need to build a stakeholder engagement strategy for a major initiative: improving capacity visibility from 67% to 95%.
+
+Key stakeholders:
+- Richard Thorne (VP Knowledge &amp; Innovation) — wants cross-team visibility into project health. Champions innovation initiatives. Reports to the CEO.
+- Maya Patel (VP People Ops) — wants reduced administrative burden for managers. Concerned about headcount justification if tools automate her team&#39;s work. Controls change management resources.
+- David Kim (Director Engineering) — worried about scope creep. Burned by a previous initiative that shipped half-baked. Engineers trust his technical judgment.
+- Sarah Mitchell (Director Product Strategy) — wants data-driven roadmap decisions. Building a case for her own promotion through demonstrating strategic impact.
+
+Build a power/interest grid. For each stakeholder:
+1. Assess their formal power and real influence
+2. Identify their stated interest AND likely hidden motivation
+3. Draft a specific engagement strategy that addresses the hidden motivation
+4. Suggest one specific action I should take this week for each person
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Hidden motivations go beyond job descriptions — they address personal career concerns, past experiences, and political dynamics. Engagement strategies are specific and different for each stakeholder (not &quot;keep them informed&quot; for everyone). Weekly actions are concrete and achievable.</li>
+<li>Bad response: Power/interest grid uses only formal org chart positions. Hidden motivations are just restatements of stated interests. All engagement strategies say &quot;regular updates.&quot; No specific actions.</li>
+</ul>
+<hr>
+<h2>Exercise 2: Run a Pre-Mortem</h2>
+<p><strong>Context:</strong> KnowledgeHub is about to launch AI-powered search — the biggest feature release in a year. It has been in development for 3 months and is scheduled to ship in 4 weeks. The team is optimistic. You are less sure.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Run a pre-mortem for KnowledgeHub&#39;s AI-powered search launch. Context:
+
+- KnowledgeHub is an internal knowledge management platform at a 5,000-person enterprise company
+- Current state: 43% WAU, target 60%. Search is the #1 pain point (8 min avg, 33% abandonment)
+- AI search has been in development for 3 months, shipping in 4 weeks
+- Team of 5 developers, dependencies on platform team&#39;s search infrastructure
+- Key stakeholders: VP who wants to showcase AI innovation, engineering director worried about quality
+
+It&#39;s 6 months after launch. The project has failed. Give me the top 7 reasons it failed. Be creative and brutally honest — include technical, organizational, user adoption, and political risks.
+
+For each failure reason, suggest one specific preventive action I can take THIS MONTH (not next quarter, not &quot;we should generally be aware of this&quot; — a concrete action with a deliverable).
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Failure reasons span multiple categories (technical, organizational, political, user behavior). They are specific to the KnowledgeHub context, not generic project risks. Preventive actions are things you can actually do in the next 30 days. At least one risk is something the team probably has not discussed.</li>
+<li>Bad response: Generic project failure reasons (&quot;the project ran over budget&quot;). All risks are technical. Preventive actions are vague (&quot;communicate better&quot;). No creative or non-obvious risks.</li>
+</ul>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>Who is the stakeholder you struggle with most? Not the one who is difficult — the one where your relationship is not working despite effort. What do they actually care about that you might be missing?</li>
+<li>When was the last time a stakeholder surprised you with a concern? What would you have done differently if you had known earlier?</li>
+<li>If your current project failed in 6 months, what is the most likely reason — and is anyone talking about it?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>I&#39;m a PM working on [YOUR PRODUCT/INITIATIVE]. My most challenging stakeholder is [ROLE/NAME] who [BRIEF DESCRIPTION OF THE DYNAMIC].
+
+Help me:
+1. Identify their likely hidden motivation based on their behavior (they [SPECIFIC BEHAVIORS YOU&#39;VE OBSERVED])
+2. Draft a 5-line weekly update template customized for my initiative
+3. Run a quick pre-mortem: top 5 reasons my current initiative could fail in 6 months, with one preventive action for each
+4. Suggest 3 trust-building actions I can take this week that cost me nothing but might shift the dynamic
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>A hypothesis about your challenging stakeholder&#39;s hidden motivation</li>
+<li>A weekly update template you can start using immediately</li>
+<li>A pre-mortem with 5 preventive actions for your current initiative</li>
+<li>3 concrete trust-building actions for this week</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>Stakeholder management is not communication — it is building political capital to make good product decisions. The PM who sends perfect weekly updates but cannot influence a roadmap decision has not managed stakeholders; they have notified them.</li>
+<li>Hidden motivations drive stakeholder behavior more than stated interests. Uncover them by listening to what people push back on, asking what success looks like for them personally, and paying attention to what they ask about repeatedly.</li>
+<li>The pre-mortem is the most underused tool in PM. It gives teams permission to be pessimistic, surfaces risks that optimism hides, and produces preventive actions instead of post-hoc lessons learned.</li>
+</ul>
+<hr>
+<h2>What&#39;s Next</h2>
+<p>You have completed Level 0: PM Fundamentals. You now have a foundation in the core craft of product management — risk reduction, user understanding, prioritization, requirements, agile delivery, and stakeholder management.</p>
+<p>Level 1 builds on this foundation by introducing Microsoft Copilot as your AI-augmented teammate. You will take every skill from Level 0 and learn how to do it faster, deeper, and with less manual effort — starting with Module 1.1: Welcome to Microsoft Copilot for Product Managers.</p>
+</div>
+    <div class="nav-footer"><a href="module-0.5.html" class="nav-btn prev">&larr; 0.5 Agile in Practice</a><a href="index.html" class="nav-btn home">Home</a><a href="module-1.1.html" class="nav-btn next">1.1 Your AI Working Environment &rarr;</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

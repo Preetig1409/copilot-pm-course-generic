@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 1.8: Teams &amp; Outlook Mastery — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 1: Copilot as Teammate &rsaquo; Module 1.8
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">25 min</span>
+        <span class="meta-tag level">Level 1: Copilot as Teammate</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 1.8: Teams &amp; Outlook Mastery</h1>
+<p><strong>Duration:</strong> 25 minutes
+<strong>Prerequisites:</strong> Module 1.1</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<p>By the end of this module, you will:</p>
+<ol>
+<li>Use Copilot in Teams beyond meetings — channel catch-up, chat intelligence, PTO recovery</li>
+<li>Use Copilot in Outlook beyond drafting — inbox triage, thread summarization, priority filtering</li>
+<li>Build a Monday morning catch-up routine that processes your weekend backlog in 10 minutes</li>
+<li>Design a daily PM rhythm with Copilot woven into morning, midday, and end-of-day workflows</li>
+</ol>
+<hr>
+<h2>Teams and Outlook Feel Like a Toy — Until They Don&#39;t</h2>
+<p>You&#39;ve tried Copilot in Teams. You asked it &quot;summarize this meeting&quot; and got a reasonable but unremarkable summary. You tried it in Outlook. It suggested a reply that sounded like a chatbot. You went back to doing things manually.</p>
+<p>Here&#39;s what you missed: the surface-level features are the demo. The real power is in the workflows — chaining Copilot capabilities together to compress hours of information processing into minutes.</p>
+<p>A PM&#39;s Monday morning without Copilot: 60-90 minutes scanning Teams channels, triaging 47 emails, reading through 3 meeting chat threads, and building a mental model of what happened while you were gone.</p>
+<p>A PM&#39;s Monday morning with Copilot: 10 minutes. Same coverage. Better prioritization. Written summary you can reference all day.</p>
+<p>This module builds the habits that make that difference permanent.</p>
+<h2>Teams Beyond Meetings: Channel Intelligence</h2>
+<p>Copilot in Teams does far more than meeting summaries. Here&#39;s what matters for PMs:</p>
+<h3>Channel Catch-Up</h3>
+<p>When you&#39;ve been away — a day off, a heads-down focus block, or just a busy morning — catching up on active Teams channels is a time sink. Copilot compresses it:</p>
+<blockquote>
+<p>&quot;What happened in #knowledgehub-dev in the last 24 hours? Summarize key discussions, decisions, and anything that needs my attention.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;In #product-leadership, what were the main topics discussed this week? Were any decisions made that affect KnowledgeHub or ProjectPulse?&quot;</p>
+</blockquote>
+<h3>Chat Thread Intelligence</h3>
+<p>Long chat threads where decisions get buried in banter:</p>
+<blockquote>
+<p>&quot;Summarize this chat thread. What was decided? What&#39;s still unresolved? Who owes what to whom?&quot;</p>
+</blockquote>
+<h3>PTO Recovery</h3>
+<p>The most dreaded moment: returning from 3-5 days off to 200+ unread messages and channels full of context you missed:</p>
+<blockquote>
+<p>&quot;I&#39;ve been out since last Wednesday. Across all my Teams channels, summarize: (1) Any decisions made that affect my products, (2) Any questions or requests directed at me, (3) Anything I should know before my meetings today.&quot;</p>
+</blockquote>
+<h3>How to Access</h3>
+<ul>
+<li>In any Teams channel or chat, click the <strong>Copilot</strong> icon</li>
+<li>In the Teams sidebar, open the Copilot chat for cross-channel queries</li>
+<li>Use natural language — &quot;What did I miss?&quot; works</li>
+</ul>
+<h2>Outlook Beyond Drafting: Inbox Intelligence</h2>
+<p>Most PMs treat Copilot in Outlook as a writing tool. But the bigger value is <em>reading</em> — processing high volumes of email intelligently.</p>
+<h3>Email Prioritization</h3>
+<p>When you open Outlook to 47 unread emails on a Monday morning:</p>
+<blockquote>
+<p>&quot;Which of my unread emails need a response today? Prioritize by: (1) someone waiting on me for a decision, (2) time-sensitive items, (3) FYI-only that I can batch-read later.&quot;</p>
+</blockquote>
+<h3>Thread Summarization</h3>
+<p>That 14-email thread about the sprint scope change:</p>
+<blockquote>
+<p>&quot;Summarize this email thread. What&#39;s the current status? What was decided? What&#39;s my action item?&quot;</p>
+</blockquote>
+<h3>Smart Reply Drafting</h3>
+<p>Don&#39;t just draft — draft with awareness of the full thread:</p>
+<blockquote>
+<p>&quot;Draft a reply to this thread. I agree with Sarah&#39;s timeline proposal but want to add that we need the UX review completed before sprint planning. Keep my tone aligned with how I&#39;ve written in this thread before.&quot;</p>
+</blockquote>
+<h3>Scheduling Intelligence</h3>
+<blockquote>
+<p>&quot;Looking at my calendar this week, when do I have a 30-minute block to meet with David Kim? Suggest 3 options. Avoid the days I already have 4+ meetings.&quot;</p>
+</blockquote>
+<h3>How to Access</h3>
+<ul>
+<li>Click the <strong>Copilot</strong> icon in the Outlook toolbar</li>
+<li>In an open email, Copilot appears in the reading pane</li>
+<li>For drafting: click &quot;Draft with Copilot&quot; when composing</li>
+</ul>
+<h2>The Monday Morning Catch-Up: 10 Minutes, Full Coverage</h2>
+<p>Here&#39;s the routine that replaces 60-90 minutes of manual triage:</p>
+<h3>Minutes 0-3: Teams Channel Scan</h3>
+<p>Open Copilot in Teams. Run these prompts:</p>
+<pre><code>1. &quot;Summarize #knowledgehub-dev from Friday to now. Key: any blockers, any decisions, anything waiting on me.&quot;
+2. &quot;Summarize #product-leadership from Friday to now. Key: strategic decisions, new priorities, anything that changes my plans.&quot;
+3. &quot;Summarize #projectpulse-support from Friday to now. Key: escalations, customer issues, anything I need to be aware of.&quot;
+</code></pre>
+<p>Read the summaries. Star anything that needs a response. Move on.</p>
+<h3>Minutes 3-6: Outlook Inbox Triage</h3>
+<p>Open Copilot in Outlook:</p>
+<pre><code>&quot;I have [X] unread emails. Categorize them:
+- URGENT: Need my response or decision today
+- THIS WEEK: Important but not time-critical
+- FYI: Read when I have time
+- SKIP: Newsletters, automated notifications, CC-only threads
+
+For the URGENT items, give me a one-sentence summary of each and what response is needed.&quot;
+</code></pre>
+<p>Respond to urgent items immediately. Schedule time blocks for the rest.</p>
+<h3>Minutes 6-10: Meeting Prep</h3>
+<p>Check today&#39;s calendar. For each meeting:</p>
+<pre><code>&quot;I have 3 meetings today:
+1. Standup at 9:30 — What should I flag from the weekend activity?
+2. 1:1 with Jennifer Walsh at 11 — Based on recent context, what should I bring up? What might she ask about?
+3. KnowledgeHub sprint review at 2pm — What do I need to prepare? What metrics should I have ready?&quot;
+</code></pre>
+<p>By minute 10, you have: full awareness of what happened, clear priorities for the day, and prep notes for every meeting.</p>
+<h2>The Daily PM Rhythm: Habitual AI Augmentation</h2>
+<p>The Monday routine is the most dramatic. But the daily rhythm is where Copilot becomes invisible infrastructure — something you&#39;d miss immediately if it disappeared.</p>
+<h3>Morning (15-20 minutes)</h3>
+<p><strong>Goal:</strong> Full awareness, clear priorities</p>
+<ol>
+<li><strong>Inbox triage</strong> — Copilot categorizes, you decide</li>
+<li><strong>Channel scan</strong> — Copilot summarizes overnight activity</li>
+<li><strong>Calendar review</strong> — Copilot preps talking points for each meeting</li>
+<li><strong>Priority check</strong> — &quot;Based on what came in overnight, should my priorities for today change?&quot;</li>
+</ol>
+<h3>Midday (10 minutes)</h3>
+<p><strong>Goal:</strong> Process morning meetings, adjust course</p>
+<ol>
+<li><strong>Meeting follow-up</strong> — Copilot extracts actions from morning meetings</li>
+<li><strong>Email responses</strong> — Copilot drafts replies you&#39;ve been putting off</li>
+<li><strong>Blocker check</strong> — &quot;Anything in my channels that&#39;s waiting on me?&quot;</li>
+</ol>
+<h3>End of Day (10 minutes)</h3>
+<p><strong>Goal:</strong> Close loops, prepare for tomorrow</p>
+<ol>
+<li><strong>Action audit</strong> — &quot;What did I commit to today that I haven&#39;t done yet?&quot;</li>
+<li><strong>Tomorrow prep</strong> — &quot;What&#39;s on my calendar tomorrow? What should I prepare tonight?&quot;</li>
+<li><strong>Status draft</strong> — &quot;Draft a quick end-of-day update for [stakeholder] on today&#39;s progress&quot;</li>
+<li><strong>Memory update</strong> — &quot;Remember that [new decision/priority change/context update]&quot;</li>
+</ol>
+<h3>The Habit Formation Trick</h3>
+<p>Don&#39;t try to adopt the full rhythm in week one. Start with just the Monday morning routine. Once that&#39;s automatic (2-3 weeks), add the daily morning scan. Then midday. Then EOD. Each layer compounds on the previous one.</p>
+<hr>
+<h2>Exercise 1: Monday Morning Catch-Up</h2>
+<p><strong>Context:</strong> It&#39;s Monday morning at NovaTech. You were out on Friday. Your inbox has 47 unread emails, three Teams channels have been active, and you have three meetings today: standup at 9:30, 1:1 with Jennifer Walsh at 11:00, and KnowledgeHub sprint review at 2:00 PM.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>It&#39;s Monday morning. I&#39;m a Senior PO at NovaTech, I own KnowledgeHub and ProjectPulse, and I was out on Friday. Help me catch up and prepare for the day.
+
+PART 1 — TEAMS CATCH-UP
+Assume the following happened in my channels while I was out:
+- #knowledgehub-dev: The auth service integration hit a new issue with token refresh. David Kim proposed a workaround. 2 engineers debated the approach. No resolution yet.
+- #product-leadership: Jennifer Walsh shared Q3 planning priorities. Mentioned that CEO is asking about KnowledgeHub AI search timeline at the board meeting next week.
+- #projectpulse-support: 3 customer tickets escalated. One is a data export bug affecting a key enterprise client.
+
+Summarize each channel: what happened, what needs my attention, what can wait.
+
+PART 2 — OUTLOOK TRIAGE
+Assume I have 47 emails. Categorize these sample threads:
+- Thread from David Kim: &quot;Auth service workaround proposal&quot; (sent Friday 4pm, 3 replies)
+- Email from Jennifer Walsh: &quot;Q3 board prep — need input by Wednesday&quot;
+- Newsletter: &quot;Product Management Weekly Digest&quot;
+- Thread from Sarah Mitchell: &quot;User research results — KnowledgeHub search study&quot;
+- Email from HR: &quot;Benefits enrollment reminder&quot;
+- Thread from Maya Patel: &quot;Cross-product integration requirements&quot;
+
+Categorize as URGENT / THIS WEEK / FYI / SKIP. For urgent items, tell me exactly what response is needed.
+
+PART 3 — MEETING PREP
+For each of my 3 meetings today, provide:
+- 3 talking points I should bring
+- 1 thing I should be prepared to answer
+- 1 question I should ask
+
+Standup (9:30): Team standup, need to flag the auth service issue and Friday&#39;s progress
+1:1 with Jennifer Walsh (11:00): She&#39;ll want Q3 board prep input and AI search status
+Sprint Review (2:00): Sprint 14 demo and velocity review with the full team
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li><strong>Good response:</strong> Clear prioritization (the auth service issue and Jennifer&#39;s board prep deadline are obviously urgent), meeting prep that&#39;s specific to each stakeholder (not generic &quot;discuss progress&quot;), the ProjectPulse customer escalation flagged as needing immediate attention</li>
+<li><strong>Weak response:</strong> Everything treated with equal urgency, meeting prep that&#39;s interchangeable between meetings, no clear &quot;do this first&quot; direction</li>
+<li><strong>Key test:</strong> If you followed this plan, would your Monday morning feel organized by 9:15? Or would you still feel behind?</li>
+</ul>
+<hr>
+<h2>Exercise 2: Design Your Ideal PM Daily Routine</h2>
+<p><strong>Context:</strong> You want to build a sustainable daily routine with Copilot integrated at every touchpoint. The goal is a routine you&#39;ll actually follow, not an aspirational schedule that falls apart by Tuesday.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Design my ideal PM daily routine with Copilot integrated at every touchpoint. I&#39;m a Senior PO at NovaTech owning KnowledgeHub and ProjectPulse.
+
+Constraints:
+- I&#39;m in meetings 4-5 hours/day (I can&#39;t change this)
+- I need focused work blocks of at least 90 minutes for deep thinking
+- My energy is highest in the morning, lowest after 3pm
+- I work 8:30am - 5:30pm
+
+Design three blocks:
+
+MORNING BLOCK (8:30-9:30, 30 minutes of Copilot time before meetings start):
+- What to check in Teams and Outlook
+- Exact Copilot prompts for triage and prep
+- What I should have COMPLETED before my first meeting
+
+MIDDAY BLOCK (around lunch, 15 minutes):
+- What to process from morning meetings
+- What follow-ups to draft
+- How to handle the post-meeting action item backlog
+
+END OF DAY BLOCK (5:00-5:30, 15 minutes):
+- What to synthesize and close out
+- What to prepare for tomorrow
+- What memory/context updates to make for Copilot
+
+For each block:
+- List the specific Copilot prompts I&#39;d run
+- Estimate time per prompt
+- Explain what I&#39;d have at the end that I wouldn&#39;t have without Copilot
+
+Be realistic. If a step takes more than 5 minutes, it won&#39;t survive contact with my actual schedule.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li><strong>Good response:</strong> A routine that fits the constraints (doesn&#39;t assume unlimited time), specific prompts for each block (not just &quot;check email&quot;), realistic time estimates, clear output for each step (&quot;You&#39;ll have: prioritized inbox, meeting prep notes, and draft status update&quot;)</li>
+<li><strong>Weak response:</strong> An aspirational schedule that ignores the 4-5 hours of meetings, generic advice like &quot;review your inbox,&quot; time estimates that don&#39;t add up</li>
+<li><strong>Key test:</strong> Print this routine and try it tomorrow. Does it survive first contact with your actual day? If even 60% of it works, you&#39;ve built a meaningful habit.</li>
+</ul>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>How long does your Monday morning catch-up currently take? What would you do with 45 extra minutes?</li>
+<li>Which part of your daily routine is most painful — morning triage, post-meeting follow-up, or end-of-day wrap-up?</li>
+<li>What information do you process manually every day that Copilot could summarize?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>Design my [MORNING/MIDDAY/END OF DAY] routine with Copilot.
+
+My context:
+- Role: [ROLE]
+- Products: [PRODUCTS]
+- Meeting load: [X hours/day]
+- Key channels: [TEAMS CHANNELS]
+- Key stakeholders: [WHO NEEDS UPDATES]
+
+For each step:
+- What to check
+- Exact Copilot prompt
+- Time estimate
+- What I&#39;ll have when done
+
+Constraint: Total routine must be under [X] minutes. Every step must earn its time.
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>A Monday morning catch-up routine that compresses 90 minutes into 10</li>
+<li>A daily rhythm template customized to your schedule and energy patterns</li>
+<li>Specific Copilot prompts for Teams and Outlook that go far beyond &quot;summarize this&quot;</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>Copilot in Teams and Outlook is powerful for <em>reading</em> (triage, summarization, catch-up), not just writing</li>
+<li>The Monday morning routine — Teams scan, Outlook triage, meeting prep — is the single highest-ROI Copilot habit for PMs</li>
+<li>Daily rhythm matters more than individual prompts: morning awareness, midday processing, EOD synthesis</li>
+<li>Start with one routine block, make it automatic, then add the next. Trying to adopt everything at once guarantees nothing sticks.</li>
+<li>The goal is &quot;invisible infrastructure&quot; — Copilot becomes something you&#39;d miss immediately if it disappeared, not something you remember to use occasionally</li>
+</ul>
+<h2>What&#39;s Next</h2>
+<p>Congratulations — you&#39;ve completed Level 1: Copilot as Teammate. You can now set up your AI working environment, extract intelligence from meetings, synthesize research, communicate across audiences, work across M365, use research agents, build persistent context, and master your daily workflow in Teams and Outlook.</p>
+<p>In <strong>Level 2</strong>, you&#39;ll move from Copilot as a productivity tool to Copilot as a strategic thinking partner. You&#39;ll tackle the core PM disciplines — discovery, prioritization, roadmapping, stakeholder management, and data-driven decisions — with AI augmenting your judgment at every step.</p>
+</div>
+    <div class="nav-footer"><a href="module-1.7.html" class="nav-btn prev">&larr; 1.7 Building Context &amp; Memory</a><a href="index.html" class="nav-btn home">Home</a><a href="module-2.1.html" class="nav-btn next">2.1 Writing PRDs That Get Buy-In &rarr;</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

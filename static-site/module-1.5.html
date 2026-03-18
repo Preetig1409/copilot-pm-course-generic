@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 1.5: Copilot Across M365 — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 1: Copilot as Teammate &rsaquo; Module 1.5
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">20 min</span>
+        <span class="meta-tag level">Level 1: Copilot as Teammate</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 1.5: Copilot Across M365 — The Integrated Workflow</h1>
+<p><strong>Duration:</strong> 20 minutes
+<strong>Prerequisites:</strong> Module 1.1</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<p>By the end of this module, you will:</p>
+<ol>
+<li>Understand Copilot as an AI layer across your entire work surface — not a single chat tool</li>
+<li>Use Copilot in Word to draft, restructure, and audience-adapt product documents</li>
+<li>Use Copilot in Excel to analyze data in plain English without writing formulas</li>
+<li>Use Copilot in PowerPoint to generate structured decks from outlines — and know where it helps vs. where it doesn&#39;t</li>
+</ol>
+<hr>
+<h2>You&#39;re Using 10% of What You&#39;re Paying For</h2>
+<p>Most PMs who &quot;use Copilot&quot; mean one thing: they open the chat window, type a question, and sometimes get something useful. That&#39;s like buying the entire M365 suite and only using Notepad.</p>
+<p>Copilot isn&#39;t one tool. It&#39;s an AI layer that runs across every M365 application you already use:</p>
+<ul>
+<li><strong>Word</strong> — Drafting, rewriting, summarizing, restructuring</li>
+<li><strong>Excel</strong> — Analysis, formulas, pivots, trends in plain English</li>
+<li><strong>PowerPoint</strong> — Deck generation from outlines, slide restructuring</li>
+<li><strong>Outlook</strong> — Email drafting, reply suggestions, thread summarization</li>
+<li><strong>Teams</strong> — Meeting intelligence, channel catch-up, chat summaries</li>
+<li><strong>OneNote</strong> — Note organization, summary generation</li>
+</ul>
+<p>The power isn&#39;t in any single app. It&#39;s in the <strong>workflow across them</strong>: analyze data in Excel → summarize findings in Word → build the deck in PowerPoint → send the update in Outlook → discuss in Teams. Copilot assists at every step, and context carries across.</p>
+<p>This module focuses on the three apps PMs underuse most: Word, Excel, and PowerPoint.</p>
+<h2>Word: Your Thinking and Drafting Partner</h2>
+<p>Copilot in Word isn&#39;t a &quot;write my document&quot; tool. It&#39;s a thinking tool. Here&#39;s how PMs should use it:</p>
+<h3>Drafting from Notes</h3>
+<p>You don&#39;t write PRDs from scratch. You have notes, meeting outputs, research findings, and half-formed ideas. Feed Copilot the raw material and ask for structure:</p>
+<blockquote>
+<p>&quot;Here are my rough notes on the KnowledgeHub AI search feature. Organize these into a PRD outline with: Problem Statement, User Stories, Success Metrics, Scope (In/Out), and Open Questions.&quot;</p>
+</blockquote>
+<h3>Rewriting for Audiences</h3>
+<p>The same document, restructured for different readers:</p>
+<blockquote>
+<p>&quot;Rewrite the Problem Statement section for a non-technical executive audience. Lead with business impact. Remove all technical jargon. Keep it under 200 words.&quot;</p>
+</blockquote>
+<h3>&quot;Rewrite&quot; as a Thinking Tool</h3>
+<p>This is the underrated superpower. When you&#39;re stuck on how to frame something:</p>
+<blockquote>
+<p>&quot;Give me 3 alternative ways to frame this problem statement. Version 1: customer-centric. Version 2: business-metric-driven. Version 3: competitive-threat-driven.&quot;</p>
+</blockquote>
+<p>Seeing three framings helps you think, even if you don&#39;t use any of them verbatim. Copilot as brainstorming partner, not ghostwriter.</p>
+<h3>How to Access in Word</h3>
+<ul>
+<li>Click the <strong>Copilot</strong> icon in the toolbar, or press Alt+I</li>
+<li>For inline: highlight text → right-click → &quot;Rewrite with Copilot&quot;</li>
+<li>For new content: place cursor → Copilot icon in the margin → &quot;Draft about...&quot;</li>
+</ul>
+<h2>Excel: Data Analysis in Plain English</h2>
+<p>Most PMs have a guilty secret: they can&#39;t write advanced Excel formulas from memory. VLOOKUP, pivot tables, conditional formatting — skills they learned once and forgot.</p>
+<p>Copilot in Excel eliminates this gap entirely. You describe what you want in plain English.</p>
+<h3>What Works Well</h3>
+<ul>
+<li><strong>Trend analysis:</strong> &quot;What&#39;s the trend in weekly active usage over the last 12 weeks? Is it increasing, stable, or declining?&quot;</li>
+<li><strong>Comparisons:</strong> &quot;Which department has the lowest KnowledgeHub adoption rate? How does it compare to the highest?&quot;</li>
+<li><strong>Pivot tables:</strong> &quot;Create a pivot table showing average weekly active usage by department and employee tenure&quot;</li>
+<li><strong>Formulas:</strong> &quot;Add a column that calculates month-over-month growth rate for each department&quot;</li>
+<li><strong>Data cleaning:</strong> &quot;Flag any rows where the usage number seems like an outlier — more than 2 standard deviations from the department mean&quot;</li>
+</ul>
+<h3>What Doesn&#39;t Work Well (Yet)</h3>
+<ul>
+<li>Complex multi-step analyses where you need intermediate calculations</li>
+<li>Formatting and visualization polish (Copilot creates functional charts, not beautiful ones)</li>
+<li>Very large datasets (performance degrades above ~100K rows)</li>
+</ul>
+<h3>How to Access in Excel</h3>
+<ul>
+<li>Click the <strong>Copilot</strong> icon in the toolbar</li>
+<li>Your data must be in a <strong>Table</strong> format (select data → Insert → Table)</li>
+<li>Copilot works from the table&#39;s structure — clean column headers matter</li>
+</ul>
+<h2>PowerPoint: Structure Yes, Design No</h2>
+<p>Let&#39;s be honest about what Copilot in PowerPoint does well and where it falls short.</p>
+<h3>What It Does Well</h3>
+<ul>
+<li><strong>Outline to deck:</strong> Give it a structured outline, get a structured deck. The information architecture is usually solid.</li>
+<li><strong>Content restructuring:</strong> &quot;Split this dense slide into 3 slides with one point each&quot;</li>
+<li><strong>Talking points:</strong> &quot;Generate speaker notes for each slide&quot;</li>
+<li><strong>Deck from document:</strong> &quot;Create a presentation from this Word document&quot; — surprisingly effective for first drafts</li>
+</ul>
+<h3>What It Does Poorly</h3>
+<ul>
+<li><strong>Visual design:</strong> Copilot generates functional but visually basic slides. You&#39;ll still need to apply your company template and adjust layouts.</li>
+<li><strong>Data visualization:</strong> Charts from Copilot are basic. For polished data visuals, build them in Excel and paste.</li>
+<li><strong>Storytelling flow:</strong> The slide sequence is logical but rarely has narrative arc. You&#39;ll need to reorder for emotional impact.</li>
+</ul>
+<h3>The PM Pattern for Decks</h3>
+<ol>
+<li><strong>Copilot:</strong> Generate the structure and raw content from your outline</li>
+<li><strong>You:</strong> Reorder for narrative flow, cut slides, sharpen key messages</li>
+<li><strong>Design:</strong> Apply company template, polish visuals (or hand to designer)</li>
+</ol>
+<p>This cuts deck creation from 3-4 hours to about 45 minutes for a 10-15 slide product review.</p>
+<h3>How to Access in PowerPoint</h3>
+<ul>
+<li>Click the <strong>Copilot</strong> icon in the toolbar</li>
+<li>&quot;Create a presentation about...&quot; for new decks</li>
+<li>Select a slide → Copilot for slide-level modifications</li>
+</ul>
+<hr>
+<h2>Exercise 1: Cross-App PM Workflow</h2>
+<p><strong>Context:</strong> You need to prepare for the monthly KnowledgeHub product review with Jennifer Walsh. You have adoption data, need a written summary, and need to present findings. This exercise walks through the cross-app workflow.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>I&#39;m preparing for the monthly KnowledgeHub product review. Here&#39;s what I know:
+
+ADOPTION DATA:
+- Overall WAU: 43% (target: 60%)
+- Engineering department: 67% WAU
+- Sales department: 28% WAU
+- Customer Success: 51% WAU
+- Marketing: 38% WAU
+- HR: 22% WAU
+- Trend: Overall WAU increased from 38% to 43% over last 6 weeks
+
+Help me build the full workflow:
+
+STEP 1 — ANALYSIS (Excel-ready)
+Create a table with columns: Department, WAU%, Gap to Target, Trend (improving/stable/declining), Priority Action. Sort by gap to target (largest first). Add a row for overall metrics.
+
+STEP 2 — WRITTEN SUMMARY (Word-ready)
+Draft a 1-page executive summary of KnowledgeHub adoption. Structure: Current State (2 sentences), What&#39;s Working (3 bullets), Where We&#39;re Behind (3 bullets), Recommended Actions (3 bullets with owners). Under 300 words. Tone: confident, data-driven, action-oriented.
+
+STEP 3 — PRESENTATION OUTLINE (PowerPoint-ready)
+Outline a 3-slide deck for the product review:
+- Slide 1: Adoption Overview (headline metric, department breakdown visual, 6-week trend)
+- Slide 2: Bright Spots and Gaps (what&#39;s working in Engineering, what&#39;s failing in HR/Sales, root causes)
+- Slide 3: 30-Day Action Plan (3 actions, owners, expected impact on WAU)
+
+For each slide: title, 3-4 bullet points, suggested visual/chart type, one key talking point.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li><strong>Good response:</strong> Excel table is sorted and actionable (not just data), written summary uses Communication Pyramid structure, deck outline has clear narrative flow from &quot;here&#39;s where we are&quot; to &quot;here&#39;s what we&#39;re doing&quot;</li>
+<li><strong>Weak response:</strong> All three outputs feel like the same content in different containers rather than purpose-built for each format</li>
+<li><strong>Key test:</strong> Could you actually paste the Excel table into a spreadsheet, the summary into a Word doc, and the outline into PowerPoint and start working immediately?</li>
+</ul>
+<hr>
+<h2>Exercise 2: Excel Data Analysis in Plain English</h2>
+<p><strong>Context:</strong> You&#39;ve received KnowledgeHub usage data broken down by department and need to analyze it for patterns, underperformance, and trends.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Here are KnowledgeHub weekly active usage numbers by department for the last 8 weeks:
+
+| Week | Engineering | Sales | Customer Success | Marketing | HR |
+|------|------------|-------|-----------------|-----------|-----|
+| W1   | 58%        | 22%   | 45%             | 31%       | 18% |
+| W2   | 60%        | 23%   | 46%             | 33%       | 19% |
+| W3   | 61%        | 24%   | 47%             | 34%       | 19% |
+| W4   | 63%        | 25%   | 48%             | 35%       | 20% |
+| W5   | 64%        | 26%   | 49%             | 36%       | 20% |
+| W6   | 65%        | 27%   | 50%             | 37%       | 21% |
+| W7   | 66%        | 27%   | 50%             | 37%       | 21% |
+| W8   | 67%        | 28%   | 51%             | 38%       | 22% |
+
+Analyze this data:
+
+1. TREND ANALYSIS: Which departments are improving fastest? Which have plateaued? Calculate the week-over-week growth rate for each.
+
+2. GAP ANALYSIS: At current growth rates, which departments will reach the 60% WAU target, and when? Which will never reach it at current trajectory?
+
+3. PIVOT INSIGHT: If I can only focus on improving 2 departments this month, which 2 give me the most impact on overall WAU? Show the math.
+
+4. ANOMALY: Weeks 7-8 show Sales, Customer Success, Marketing, and HR all slowing or plateauing. What might explain a simultaneous stall across multiple departments? What would you investigate?
+
+Create a summary table with: Department | Current WAU | Growth Rate/Week | Projected Weeks to 60% Target | Priority (High/Medium/Low).
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li><strong>Good response:</strong> Calculates actual growth rates, identifies the plateau pattern in weeks 7-8, recommends the two highest-impact departments with math justification, asks smart questions about the stall</li>
+<li><strong>Weak response:</strong> Just restates the numbers without analysis, or gives generic advice (&quot;focus on low-performing departments&quot;) without quantitative reasoning</li>
+<li><strong>Key test:</strong> Does the &quot;Projected Weeks to 60% Target&quot; calculation seem mathematically sound? Verify one department&#39;s projection yourself.</li>
+</ul>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>Which M365 app do you spend the most time in? What task in that app is most repetitive?</li>
+<li>When was the last time you built a deck from scratch that took more than 2 hours? Could you have started from a Copilot-generated outline?</li>
+<li>Do you have data in Excel that you&#39;ve been meaning to analyze but haven&#39;t had time?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>I need to prepare [DELIVERABLE] for [AUDIENCE] about [TOPIC].
+
+Here&#39;s my raw input: [PASTE NOTES / DATA / BULLET POINTS]
+
+Create three outputs:
+1. ANALYSIS TABLE — [Describe the Excel analysis you need]
+2. WRITTEN SUMMARY — [Length, audience, tone, structure]
+3. PRESENTATION OUTLINE — [Number of slides, purpose, key message per slide]
+
+Each output should be purpose-built for its format, not the same content at different lengths.
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>A practical understanding of Copilot in Word, Excel, and PowerPoint for PM workflows</li>
+<li>A cross-app workflow pattern: Analyze → Summarize → Present</li>
+<li>The ability to do data analysis in plain English without writing formulas</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>Copilot is an AI layer across M365, not a single chat tool — most PMs use less than 10% of its capability</li>
+<li>Word Copilot is best used as a thinking tool (rewriting, reframing, restructuring) rather than a first-draft generator</li>
+<li>Excel Copilot eliminates the formula barrier — describe your analysis in plain English and get results</li>
+<li>PowerPoint Copilot is strong on structure, weak on design — use it for the 60% (content and outline), do the 40% (narrative flow and visuals) yourself</li>
+<li>The cross-app workflow (Excel → Word → PowerPoint) is where the real time savings compound</li>
+</ul>
+<h2>What&#39;s Next</h2>
+<p>You&#39;ve learned to work with Copilot across your daily tools. But some PM tasks need more than chat — they need deep research across the web and across your data. In <strong>Module 1.6: Deep Research with Agents</strong>, you&#39;ll learn to use Researcher and Analyst agents for competitive intelligence, market sizing, and strategic analysis.</p>
+</div>
+    <div class="nav-footer"><a href="module-1.4.html" class="nav-btn prev">&larr; 1.4 Communication That Lands</a><a href="index.html" class="nav-btn home">Home</a><a href="module-1.6.html" class="nav-btn next">1.6 Deep Research with Agents &rarr;</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

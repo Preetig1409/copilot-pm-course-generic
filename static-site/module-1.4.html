@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 1.4: Communication That Lands — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 1: Copilot as Teammate &rsaquo; Module 1.4
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">25 min</span>
+        <span class="meta-tag level">Level 1: Copilot as Teammate</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 1.4: Communication That Lands</h1>
+<p><strong>Duration:</strong> 25 minutes
+<strong>Prerequisites:</strong> Module 1.1</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<p>By the end of this module, you will:</p>
+<ol>
+<li>Transform a single status update into audience-specific communications for engineers, executives, and stakeholders in minutes</li>
+<li>Apply the Communication Pyramid (Context → So What → Now What) to every PM message</li>
+<li>Use Copilot in Outlook for tone adjustment, audience-aware rewriting, and email drafting</li>
+<li>Draft high-stakes communications — pushback, bad news, escalations — with Copilot as your thought partner</li>
+</ol>
+<hr>
+<h2>The Same Update, Written Three Times</h2>
+<p>Every week, you produce essentially the same information in three different formats:</p>
+<ul>
+<li><strong>For engineering:</strong> Detailed, technical, sprint-level. &quot;API integration is at 72% completion, 3 story points remaining, blocked by the authentication service dependency.&quot;</li>
+<li><strong>For your VP:</strong> Outcome-focused, strategic. &quot;AI search is on track for Q3 launch. One dependency risk on authentication — mitigation plan in place.&quot;</li>
+<li><strong>For the steering committee:</strong> Progress narrative with business impact. &quot;KnowledgeHub&#39;s AI search initiative will reduce average knowledge retrieval time by 40%, launching in Q3 as planned.&quot;</li>
+</ul>
+<p>Same facts. Three audiences. Three formats. Three writing sessions.</p>
+<p>This is the PM communication tax. It&#39;s pure overhead — not thinking work, just repackaging. And it&#39;s not just weekly updates. It&#39;s every email, every Slack message, every deck. The constant translation between audiences eats hours every week that should go toward actual product decisions.</p>
+<h2>Copilot in Outlook: Beyond &quot;Write Me an Email&quot;</h2>
+<p>Most PMs who try Copilot in Outlook type &quot;write an email about the sprint review&quot; and get something so generic they delete it. Here&#39;s what actually works:</p>
+<h3>Drafting with Context</h3>
+<p>Don&#39;t ask Copilot to write from nothing. Give it the raw material:</p>
+<ul>
+<li>Paste your detailed notes</li>
+<li>Reference the meeting transcript</li>
+<li>Attach the sprint metrics</li>
+</ul>
+<p>Then ask for a specific transformation: &quot;Rewrite these technical notes as a 3-paragraph executive update. Lead with the business impact. Keep it under 150 words.&quot;</p>
+<h3>Tone Adjustment</h3>
+<p>Copilot is surprisingly good at tone when you&#39;re specific:</p>
+<ul>
+<li>&quot;More direct — I need this to sound like a decision, not a suggestion&quot;</li>
+<li>&quot;Softer — David might feel this is confrontational. Keep the message but reduce the edge&quot;</li>
+<li>&quot;More confident — remove hedging words like &#39;maybe,&#39; &#39;I think,&#39; &#39;potentially&#39;&quot;</li>
+</ul>
+<h3>Reply Drafting</h3>
+<p>The highest-leverage Outlook Copilot use: drafting replies to complex threads. &quot;Summarize this 14-email thread and draft my response. I need to agree on timeline, push back on scope addition, and ask for the data Sarah mentioned.&quot;</p>
+<h2>The Communication Pyramid: Context → So What → Now What</h2>
+<p>Every PM communication — email, Slack, deck, standup update — should follow this structure:</p>
+<p><strong>Context:</strong> What&#39;s the situation? (2-3 sentences max)</p>
+<blockquote>
+<p>&quot;KnowledgeHub AI search is in Sprint 14 of 16. Core search functionality is complete. We&#39;re integrating with the authentication service.&quot;</p>
+</blockquote>
+<p><strong>So What:</strong> Why does this matter to <em>this</em> audience? (1-2 sentences)</p>
+<blockquote>
+<p>&quot;We&#39;re on track for Q3 launch, but the auth dependency could shift the timeline by 1-2 weeks if the Platform team&#39;s capacity issue isn&#39;t resolved by next Friday.&quot;</p>
+</blockquote>
+<p><strong>Now What:</strong> What action is needed? (Specific, with deadline)</p>
+<blockquote>
+<p>&quot;I need a decision by Thursday: do we launch without SSO and add it in a fast-follow, or hold for full integration? I recommend the fast-follow approach — here&#39;s why.&quot;</p>
+</blockquote>
+<p>Most PM communications fail at &quot;So What&quot; — they deliver information without interpretation. Copilot is excellent at adding the &quot;So What&quot; layer when you prompt for it.</p>
+<h2>Difficult Communications: Copilot as Draft Partner</h2>
+<p>The communications that drain the most energy aren&#39;t status updates. They&#39;re the hard ones:</p>
+<ul>
+<li><strong>Pushing back</strong> on a scope request from a senior stakeholder</li>
+<li><strong>Delivering bad news</strong> about a timeline slip</li>
+<li><strong>Escalating</strong> a resource conflict without burning relationships</li>
+<li><strong>Saying no</strong> to a feature request from someone who outranks you</li>
+</ul>
+<p>For these, Copilot isn&#39;t the writer — it&#39;s the sparring partner. Generate 2-3 draft approaches, evaluate the tradeoffs, then refine the one that fits.</p>
+<p><strong>The pattern:</strong></p>
+<ol>
+<li>Describe the situation and what you need to communicate</li>
+<li>Ask for 3 versions: diplomatic, direct, and somewhere between</li>
+<li>Choose the one that matches the relationship and stakes</li>
+<li>Refine tone and specifics</li>
+<li>Sleep on it if the stakes are high (Copilot can&#39;t replace that)</li>
+</ol>
+<hr>
+<h2>Exercise 1: One Update, Three Audiences</h2>
+<p><strong>Context:</strong> You have a detailed technical status update on KnowledgeHub&#39;s search improvement project. Sprint 14 is wrapping up. Core search is at 85% completion. API latency has dropped from 340ms to 180ms. There are 3 open bugs (2 medium, 1 low). The authentication service dependency is at risk because the Platform team lost a developer. Sprint velocity has been 42 story points against a target of 45.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Here&#39;s a detailed technical status update on KnowledgeHub&#39;s AI search improvement project:
+
+- Sprint 14 of 16 complete
+- Core search functionality: 85% complete
+- API latency improved from 340ms to 180ms (target: &lt;200ms — achieved)
+- Open bugs: 3 (2 medium severity, 1 low)
+- Authentication service integration: at risk — Platform team lost a senior developer last week
+- Sprint velocity: 42 story points vs. 45 target (93%)
+- Key milestone: semantic search demo scheduled for stakeholders next Wednesday
+
+Transform this into three communications:
+
+1. ENGINEERING SLACK (for #knowledgehub-dev channel)
+Format: 3-5 bullet points, technical language, celebrate the latency win, flag the auth risk with specific ask. Under 100 words.
+
+2. EMAIL TO JENNIFER WALSH (VP Digital Products)
+Format: Communication Pyramid — Context, So What, Now What. Lead with business impact, not technical details. Flag the auth risk as a decision point, not just information. Include your recommendation. Under 150 words.
+
+3. EXECUTIVE BRIEFING (2-slide outline for quarterly product review)
+Slide 1: Progress and wins (what to be proud of)
+Slide 2: Risks and decisions needed (what needs attention)
+For each slide: title, 3-4 bullet points, one key data point to highlight.
+
+Each version should feel like it was written for that specific audience — not like a longer version was just shortened.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li><strong>Good response:</strong> Engineering version uses technical specifics (API latency numbers, story points); VP email leads with business outcome, not sprint metrics; executive briefing frames risks as decisions, not problems</li>
+<li><strong>Weak response:</strong> All three versions feel like the same content at different lengths, or the executive version still includes sprint-level detail</li>
+<li><strong>Key test:</strong> Would you actually send each of these with minimal editing? If the VP email reads like it was written by an engineer, the audience calibration needs work.</li>
+</ul>
+<hr>
+<h2>Exercise 2: The Difficult Pushback</h2>
+<p><strong>Context:</strong> David Kim (Director Engineering) has asked you to add a new analytics dashboard feature to the current sprint. He says the CEO mentioned wanting better visibility into KnowledgeHub usage at last week&#39;s leadership meeting. But your sprint is already at 93% capacity, and adding this feature would delay the AI search launch by approximately 2 weeks — right when you&#39;re approaching the Q3 deadline Jennifer Walsh committed to publicly.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>I need to push back on a request from David Kim, Director of Engineering. Here&#39;s the situation:
+
+- David wants to add a CEO-requested analytics dashboard to the current sprint
+- Our sprint is at 93% capacity (42/45 story points consumed)
+- Adding this feature would delay the AI search launch by ~2 weeks
+- Jennifer Walsh (VP, David&#39;s peer) publicly committed to a Q3 launch date
+- David outranks me, and the request is framed as &quot;the CEO wants this&quot;
+
+Draft a message to David that:
+1. Acknowledges the request is important and the CEO&#39;s interest is valid
+2. Explains the specific tradeoff — not &quot;we&#39;re busy&quot; but &quot;this delays AI search by 2 weeks, which puts Jennifer&#39;s Q3 commitment at risk&quot;
+3. Proposes an alternative — analytics dashboard starts Sprint 15 with dedicated capacity, or a lightweight version ships alongside AI search
+4. Is firm on protecting the current sprint but collaborative on finding a solution
+
+Tone: Respectful but direct. This is a peer-level conversation where I need to hold my ground without being adversarial. David should feel heard, not blocked.
+
+Give me two versions:
+- Version A: Slack message (under 150 words, conversational)
+- Version B: Email (under 200 words, slightly more formal, cc-able to Jennifer if needed)
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li><strong>Good response:</strong> Acknowledges the CEO interest without caving, frames the tradeoff in terms David cares about (not just your workload), proposes a concrete alternative with timeline, maintains collaborative tone while being unmistakably firm</li>
+<li><strong>Weak response:</strong> Either too soft (sounds like you&#39;ll probably do it) or too rigid (sounds like &quot;no&quot; without alternatives), or buries the tradeoff instead of leading with it</li>
+<li><strong>Key test:</strong> Read it aloud. Does it sound like something a confident PM would actually send? Or does it sound like ChatGPT wrote a &quot;professional email&quot;?</li>
+</ul>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What communication are you dreading right now? A pushback, a bad-news delivery, an awkward follow-up?</li>
+<li>How many times this week did you rewrite the same information for different audiences?</li>
+<li>When was the last time you sent a message and the recipient clearly didn&#39;t understand what action you needed from them?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>I need to communicate [SITUATION] to [AUDIENCE AND THEIR ROLE].
+
+Context:
+- [Key facts]
+- [Relationship dynamics]
+- [What&#39;s at stake]
+
+The message needs to:
+- [Primary goal — inform, persuade, request action, push back]
+- [Tone — direct, diplomatic, urgent, collaborative]
+- [Length — under X words]
+- [Format — email, Slack, deck talking points]
+
+Give me two versions: one more direct, one more diplomatic. I&#39;ll pick the right one for the relationship.
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>The ability to transform one piece of information into multiple audience-specific communications</li>
+<li>A framework (Context → So What → Now What) for every PM message</li>
+<li>Confidence using Copilot for high-stakes communications that require nuance and judgment</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>The PM communication tax — rewriting the same information for different audiences — is pure overhead that Copilot eliminates</li>
+<li>Every PM communication should follow Context → So What → Now What. Most fail at &quot;So What&quot; by delivering information without interpretation.</li>
+<li>For difficult communications (pushback, bad news, escalation), use Copilot as a sparring partner: generate multiple versions, choose the right approach, then refine</li>
+<li>Audience calibration is the test: an engineering Slack and an executive email should feel like different documents, not different-length versions of the same one</li>
+<li>Copilot handles tone adjustment well when you&#39;re specific — &quot;more direct&quot; works, &quot;make it better&quot; doesn&#39;t</li>
+</ul>
+<h2>What&#39;s Next</h2>
+<p>You&#39;ve been using Copilot in chat and Outlook. But Copilot lives across your entire M365 suite — Word, Excel, PowerPoint — and most PMs use less than 10% of what&#39;s available. In <strong>Module 1.5: Copilot Across M365</strong>, you&#39;ll build an integrated workflow across all your tools.</p>
+</div>
+    <div class="nav-footer"><a href="module-1.3.html" class="nav-btn prev">&larr; 1.3 User Research Synthesis at Scale</a><a href="index.html" class="nav-btn home">Home</a><a href="module-1.5.html" class="nav-btn next">1.5 Copilot Across M365 &rarr;</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

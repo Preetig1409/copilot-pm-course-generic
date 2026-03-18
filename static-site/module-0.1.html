@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 0.1: What Product Management Actually Is — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 0: The PM Craft &rsaquo; Module 0.1
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">20 min</span>
+        <span class="meta-tag level">Level 0: The PM Craft</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 0.1: What Product Management Actually Is</h1>
+<p><strong>Duration:</strong> 20 minutes
+<strong>Prerequisites:</strong> None</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<p>By the end of this module, you will:</p>
+<ol>
+<li>Explain product management as a risk-reduction discipline using Marty Cagan&#39;s four risks framework</li>
+<li>Distinguish between PM, PO, and BA roles and know when each title matters</li>
+<li>Identify where PMs create the most leverage across the product lifecycle</li>
+<li>Recognize the realistic daily rhythm of a working PM</li>
+</ol>
+<hr>
+<h2>The Job Nobody Explains Well</h2>
+<p>Here is what happens to most new PMs: you show up on day one, and nobody can tell you exactly what you do. You are not an engineer. You are not a designer. You are not a project manager — though everyone will treat you like one if you let them.</p>
+<p>Marty Cagan, in <em>Inspired</em> and <em>Empowered</em>, frames the PM role in the clearest way anyone has managed: <strong>your job is to reduce risk before your team writes a single line of code.</strong> Not to write tickets. Not to manage a Jira board. Not to run standups. Risk reduction.</p>
+<p>Four risks, specifically:</p>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>The Question</th>
+<th>What Happens If You Skip It</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Value</strong></td>
+<td>Will users actually use this?</td>
+<td>You build something nobody wants. The most common failure mode.</td>
+</tr>
+<tr>
+<td><strong>Usability</strong></td>
+<td>Can users figure out how to use it?</td>
+<td>Users try it once, get confused, never return.</td>
+</tr>
+<tr>
+<td><strong>Feasibility</strong></td>
+<td>Can engineering build this in a reasonable time?</td>
+<td>Mid-sprint discovery that the &quot;simple&quot; feature requires re-architecting the database.</td>
+</tr>
+<tr>
+<td><strong>Viability</strong></td>
+<td>Does this work for the business?</td>
+<td>You ship a feature that cannibalizes another product, violates compliance, or costs more to maintain than it saves.</td>
+</tr>
+</tbody></table>
+<p>Most PMs spend their energy on feasibility (talking to engineers about what is possible) and ignore value (talking to users about what matters). That is backwards. Feasibility risk is the engineer&#39;s job to assess. Value risk is yours.</p>
+<p>This framework is the lens for the entire course. Every module that follows — user research, prioritization, requirements, stakeholder management — maps back to reducing one or more of these four risks.</p>
+<hr>
+<h2>PM vs. PO vs. BA — The Honest Take</h2>
+<p>Job titles in product are a mess. The same person doing the same work might be called Product Manager at one company, Product Owner at another, and Business Analyst at a third. Here is what actually matters:</p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Product Manager</th>
+<th>Product Owner</th>
+<th>Business Analyst</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Primary focus</strong></td>
+<td>Strategy + Discovery</td>
+<td>Backlog + Delivery</td>
+<td>Requirements + Process</td>
+</tr>
+<tr>
+<td><strong>Time horizon</strong></td>
+<td>Quarters to years</td>
+<td>Sprints to quarters</td>
+<td>Current initiative</td>
+</tr>
+<tr>
+<td><strong>Key artifact</strong></td>
+<td>Product vision, roadmap</td>
+<td>Prioritized backlog, user stories</td>
+<td>Requirements docs, process flows</td>
+</tr>
+<tr>
+<td><strong>Reports to</strong></td>
+<td>Head of Product</td>
+<td>PM or Scrum framework</td>
+<td>PM or project lead</td>
+</tr>
+<tr>
+<td><strong>Talks most to</strong></td>
+<td>Users, executives, market</td>
+<td>Engineering team, stakeholders</td>
+<td>Subject matter experts, users</td>
+</tr>
+<tr>
+<td><strong>Success measured by</strong></td>
+<td>Outcomes (adoption, revenue)</td>
+<td>Output (features shipped on time)</td>
+<td>Accuracy (requirements met)</td>
+</tr>
+</tbody></table>
+<p><strong>When titles matter:</strong> In enterprise organizations running formal Scrum — like a 5,000-person company with defined roles, ceremonies, and governance — the PM/PO distinction is real. The PM sets strategy; the PO translates that into a sprint-ready backlog. At NovaTech Solutions, for example, both roles exist in the Internal Digital Products team.</p>
+<p><strong>When titles do not matter:</strong> In smaller teams or startups, one person covers the full spectrum. If you are the only product person, you are doing PM, PO, and BA work whether your title says so or not.</p>
+<p><strong>The real spectrum:</strong> Think of product work as a spectrum from tactical (writing acceptance criteria, grooming backlogs) to strategic (setting product vision, making market bets). Your seniority is not about your title — it is about how much of your time you spend on the strategic end.</p>
+<p>If you spend 80% of your week writing Jira tickets and 20% talking to users, you are operating as a tactical PO regardless of what your business card says. That is fine for a while, but it is not where your leverage is.</p>
+<hr>
+<h2>The Product Lifecycle — Where Your Time Should Go</h2>
+<p>Products move through predictable stages. The PM&#39;s job changes at each one, but most PMs get stuck in the middle and never spend enough time at the beginning.</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>What Happens</th>
+<th>PM&#39;s Job</th>
+<th>Time Trap</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Discovery</strong></td>
+<td>Understanding the problem space</td>
+<td>User research, problem framing, opportunity identification</td>
+<td>Most PMs skip this or rush it. This is where leverage lives.</td>
+</tr>
+<tr>
+<td><strong>Definition</strong></td>
+<td>Shaping the solution</td>
+<td>Requirements, one-pagers, success criteria</td>
+<td>Over-specifying kills engineering autonomy. Under-specifying builds wrong things.</td>
+</tr>
+<tr>
+<td><strong>Development</strong></td>
+<td>Engineering builds it</td>
+<td>Unblocking, answering questions, managing scope</td>
+<td>PMs become project managers here. Sprint ceremonies eat your calendar.</td>
+</tr>
+<tr>
+<td><strong>Launch</strong></td>
+<td>Getting it to users</td>
+<td>Go-to-market, training, change management</td>
+<td>Enterprise launches need stakeholder alignment and communication plans.</td>
+</tr>
+<tr>
+<td><strong>Growth</strong></td>
+<td>Driving adoption</td>
+<td>Metrics monitoring, iteration, user feedback loops</td>
+<td>The feature shipped. The work is not done. Adoption requires sustained attention.</td>
+</tr>
+<tr>
+<td><strong>Maturity</strong></td>
+<td>Maintaining and evolving</td>
+<td>Technical debt decisions, sunset planning, efficiency</td>
+<td>The boring stage. Tempting to ignore in favor of shiny new features.</td>
+</tr>
+</tbody></table>
+<p><strong>The uncomfortable truth:</strong> Most PMs spend 60-70% of their time in Development (standups, ticket grooming, sprint planning) and 10% or less in Discovery. The highest-leverage PMs flip that ratio. They invest heavily in understanding the problem before the team builds anything, which means less rework, fewer pivots, and faster delivery when building actually starts.</p>
+<p>At NovaTech, KnowledgeHub sits in the Growth stage — it exists, people use it, but only 43% weekly active usage against a 60% target. The PM question is not &quot;what should we build?&quot; but &quot;why aren&#39;t people using what we already built?&quot; That is a Discovery question disguised as a Growth problem.</p>
+<hr>
+<h2>A Day in the Life</h2>
+<p>Here is what a realistic PM day looks like. Not the idealized version from blog posts — the actual one.</p>
+<p><strong>8:30 AM — Morning review (15 min)</strong>
+Check dashboards. KnowledgeHub WAU trending down this week? ProjectPulse had a spike in support tickets overnight? Flag anything that needs attention before you get pulled into meetings.</p>
+<p><strong>9:00 AM — Standup (15 min)</strong>
+Team reports blockers. A developer cannot proceed on the search feature because the API contract is unclear. You commit to clarifying with the platform team by noon. An actual standup should be 10-15 minutes. If yours runs 30+, something is wrong.</p>
+<p><strong>9:30 AM — Stakeholder 1:1 (30 min)</strong>
+Richard Thorne (VP Knowledge &amp; Innovation) wants an update on KnowledgeHub&#39;s AI search initiative. He has heard a competitor launched something similar. You share progress, manage expectations on timeline, and learn that he has budget concerns you did not know about. This meeting was worth 10 standups.</p>
+<p><strong>10:00 AM — User research session (45 min)</strong>
+Interview with a project manager who stopped using KnowledgeHub last month. She says search takes too long and she switched to asking on Slack. You learn that &quot;search is slow&quot; really means &quot;search returns irrelevant results, so I spend 8 minutes filtering.&quot; Different problem than you assumed.</p>
+<p><strong>11:00 AM — Data review (30 min)</strong>
+Reviewing last sprint&#39;s metrics. The new onboarding flow increased activation by 12%, but 7-day retention did not move. The feature is getting people in the door but not keeping them. You draft a hypothesis for why.</p>
+<p><strong>11:30 AM — Spec writing (60 min)</strong>
+Writing a one-pager for the search relevance improvement. Problem statement, success criteria, open questions. You realize you cannot define success without talking to the data team about what &quot;relevant&quot; means in their search model. Add that to tomorrow&#39;s agenda.</p>
+<p><strong>12:30 PM — Lunch (theoretically)</strong></p>
+<p><strong>1:00 PM — Sprint planning (60 min)</strong>
+Negotiating what fits in the next sprint. Engineering says the search improvement is 13 points. You have 40 points of capacity but 55 points of requests. Something has to give. You cut the analytics dashboard enhancement — it is Neutral work, not Leverage work.</p>
+<p><strong>2:30 PM — Cross-team sync (30 min)</strong>
+Platform team wants to change an API that both KnowledgeHub and ProjectPulse depend on. You need to understand the migration path and timeline. This is the kind of meeting that does not show up in PM job descriptions but eats hours every week.</p>
+<p><strong>3:00 PM — Firefighting (variable)</strong>
+Production issue: KnowledgeHub search is returning duplicate results for 15% of queries. Not a P1, but visible enough that a stakeholder already pinged you on Teams. You triage with engineering, agree on a hotfix timeline, and draft a quick status update.</p>
+<p><strong>4:00 PM — Backlog grooming (45 min)</strong>
+Review upcoming stories with two developers. They push back on a story&#39;s scope — &quot;this is really three stories.&quot; They are right. You split it.</p>
+<p><strong>4:45 PM — End-of-day planning (15 min)</strong>
+Update your task list. Follow up on the API contract you promised at standup. Prep for tomorrow&#39;s steering committee pre-read.</p>
+<p><strong>The pattern:</strong> Notice the mix — some discovery, some delivery, some stakeholder management, some firefighting. The balance shifts week to week. Good PMs are intentional about protecting time for discovery and strategic thinking instead of letting delivery and firefighting consume everything.</p>
+<hr>
+<h2>Exercise 1: Map Your Four Risks</h2>
+<p><strong>Context:</strong> You are starting as a Senior Product Owner at NovaTech Solutions, a 5,000-person enterprise SaaS company. You own KnowledgeHub, an internal knowledge management platform with 5,000 users and 43% weekly active usage (target: 60%).</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>I&#39;m starting as a PM on an internal knowledge management platform (KnowledgeHub) with 5,000 users and 43% weekly active usage. Using the four risks framework (value, usability, feasibility, business viability), help me identify the top questions I need to answer in my first two weeks. For each risk category, suggest one concrete action I can take this week.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Questions are specific to the KnowledgeHub context (internal tool, adoption gap, enterprise environment), not generic PM advice. Actions are things you could actually do this week — not &quot;conduct a comprehensive user study.&quot;</li>
+<li>Bad response: Generic four-risks explainer without connecting to the specific situation. Actions that would take months. No distinction between internal product dynamics and external product dynamics.</li>
+</ul>
+<hr>
+<h2>Exercise 2: Role Clarity</h2>
+<p><strong>Context:</strong> NovaTech&#39;s Internal Digital Products team has 25 people including PMs, POs, BAs, engineers, and designers. Understanding role boundaries matters for how you work with the team.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Compare three role descriptions: Product Manager, Product Owner, and Business Analyst. What are the key differences in day-to-day work? Where do they overlap? If a 25-person internal digital products team could only hire one, which covers the most ground?
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Acknowledges that roles overlap significantly in practice. Gives a practical recommendation for a small team rather than theoretical distinctions. Recognizes that enterprise context (Scrum adoption, governance) affects which role title matters most.</li>
+<li>Bad response: Textbook definitions copied from a Scrum guide. No practical guidance. Treats the three roles as completely separate jobs with no overlap.</li>
+</ul>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What product or feature area do you own? Describe it in one sentence — the problem it solves, not the features it has.</li>
+<li>Which of the four risks (value, usability, feasibility, viability) keeps you up at night? Be specific about why.</li>
+<li>Which of the four risks are you currently ignoring? What is the consequence of that blind spot?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>I&#39;m a PM responsible for [YOUR PRODUCT/FEATURE]. My biggest risk right now is [VALUE/USABILITY/FEASIBILITY/VIABILITY] because [SPECIFIC REASON]. The risk I&#39;m most likely ignoring is [RISK] because [WHY YOU&#39;RE IGNORING IT]. Help me build a 2-week action plan to address both risks. For each week, give me 3 concrete actions — not research projects, but things I can do in under 2 hours each.
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>A clear understanding of which risk category deserves your attention right now</li>
+<li>A 2-week action plan with 6 specific, time-boxed actions</li>
+<li>An honest assessment of your blind spots</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>Product management is risk reduction across four dimensions: value, usability, feasibility, and viability. If you are not reducing risk, you are just managing a backlog.</li>
+<li>PM, PO, and BA are points on a spectrum from strategic to tactical. Your leverage increases as you move toward strategy and discovery — regardless of your title.</li>
+<li>Most PMs over-invest in the Development stage and under-invest in Discovery. The highest-ROI work happens before engineering writes code.</li>
+</ul>
+<hr>
+<h2>What&#39;s Next</h2>
+<p>Module 0.2 dives into understanding your users — not through demographic personas that sit in a drawer, but through Jobs-to-Be-Done and continuous discovery practices that actually change your product decisions. You will learn why most persona templates are useless and what to do instead.</p>
+</div>
+    <div class="nav-footer"><span></span><a href="index.html" class="nav-btn home">Home</a><a href="module-0.2.html" class="nav-btn next">0.2 Knowing Your Users — Beyond Persona Templates &rarr;</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

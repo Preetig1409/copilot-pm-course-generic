@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 3.4: What's Next — The AI-Era PM — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 3: The 10x PM &rsaquo; Module 3.4
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">15 min</span>
+        <span class="meta-tag level">Level 3: The 10x PM</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 3.4: What&#39;s Next — The AI-Era PM</h1>
+<p><strong>Duration:</strong> 15 minutes
+<strong>Prerequisites:</strong> All previous levels completed</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<p>By the end of this module, you will:</p>
+<ol>
+<li>Understand how AI is reshaping the product management role — what is changing and what is not</li>
+<li>Distinguish the skills that become more valuable with AI from those that become less important</li>
+<li>Have a curated list of resources to continue your development as an AI-era PM</li>
+<li>Create a personal 90-day development plan based on your strengths and growth areas from this course</li>
+</ol>
+<hr>
+<h2>How AI Is Changing Product Management</h2>
+<p>The PM role has always evolved. A decade ago, PMs were expected to write detailed Waterfall specs. Then Agile made them sprint planners and backlog groomers. Then product-led growth turned them into growth hackers. Each shift changed what PMs do day-to-day, but the core purpose stayed the same: figure out what to build and why.</p>
+<p>AI is the next shift, and it is a big one. Here is what is actually changing:</p>
+<h3>From Feature Factory to Outcome-Driven</h3>
+<p>When writing a PRD took two weeks, PMs optimized for shipping features — because the cost of specifying was high, so you wanted to make sure each spec resulted in shipped code. AI collapses the cost of articulation. A first draft of a spec takes 15 minutes, not two days. This means you can afford to explore more options, write more specs for comparison, and throw away the ones that do not survive scrutiny.</p>
+<p>The result: PMs who use AI well stop measuring themselves by features shipped and start measuring by outcomes achieved. You can afford to be more rigorous because the cost of rigor dropped.</p>
+<h3>From Gut Feel to Data-Informed</h3>
+<p>PMs have always made decisions with incomplete information. That does not change. What changes is the speed of analysis. When synthesizing user research takes an afternoon, you do it quarterly. When it takes 10 minutes, you do it weekly. When competitive analysis takes a full day, you update it before a big meeting. When it takes 20 minutes, you update it monthly.</p>
+<p>AI does not give you perfect information. It gives you faster access to imperfect information — which means you can iterate on your understanding instead of committing to your first analysis.</p>
+<h3>From Documentation-Heavy to Insight-Heavy</h3>
+<p>The old PM joke: &quot;I spend 80% of my time writing documents and 20% thinking.&quot; AI flips this. When Copilot drafts your status updates, synthesizes your meeting notes, structures your specs, and formats your presentations — you spend 20% on production and 80% on the thinking that makes those documents worth reading.</p>
+<p>This is not a small shift. The PMs who thrive with AI will be the ones who were always good at thinking but bottlenecked by production. The PMs who struggle will be the ones whose value was primarily in documentation skills.</p>
+<h3>The Bottom Line</h3>
+<p>PMs who embrace AI will not be replaced. They will be the ones doing the replacing. A PM with AI workflows produces the output of a PM team of three — not because AI is doing their job, but because AI eliminated the parts of their job that were never the valuable parts.</p>
+<hr>
+<h2>Skills That Matter MORE with AI</h2>
+<p>AI is a force multiplier — but it multiplies what you bring to the table. These are the skills that become more valuable, not less, as AI tools mature.</p>
+<h3>Judgment and Taste</h3>
+<p>Copilot can generate five product strategies in 10 minutes. It cannot tell you which one is right. That requires judgment — the ability to look at options and know which one fits your market, your team, your company, your moment. Taste is the refined version of judgment: knowing not just what works, but what is excellent.</p>
+<p>AI generates options. You choose. The quality of your choices is your value.</p>
+<h3>Empathy</h3>
+<p>AI can analyze user interview transcripts and identify patterns. It cannot feel the frustration in a user&#39;s voice when they describe searching for 20 minutes and finding nothing. It cannot sit across from a stakeholder and read their body language to know they are saying &quot;yes&quot; but meaning &quot;I&#39;m not convinced.&quot;</p>
+<p>Empathy — genuine understanding of what users feel and what stakeholders need — is a human skill that becomes more valuable as AI handles the analytical work around it.</p>
+<h3>Storytelling</h3>
+<p>AI gives you data, analysis, and structured arguments. But a quarterly product review is not won with data. It is won with a story: &quot;Here is where our users are struggling. Here is what we learned. Here is what we are going to do about it. Here is why it matters.&quot;</p>
+<p>The ability to turn information into narrative — to make stakeholders feel something, not just know something — is a skill AI amplifies but cannot replace.</p>
+<h3>Leadership</h3>
+<p>AI augments individual capacity enormously. A single PM with Copilot can produce research, specs, business cases, and communications that previously required a team. But someone still needs to inspire the engineering team on Monday morning. Someone still needs to make the hard prioritization call and own the consequences. Someone still needs to build trust with a skeptical stakeholder over months of honest conversation.</p>
+<p>Leadership — the ability to align people toward a shared outcome — is not automatable.</p>
+<h3>Strategic Thinking</h3>
+<p>AI does analysis: it breaks things down, finds patterns, identifies options. Strategy requires synthesis: combining disparate inputs into a coherent direction that accounts for things AI cannot see — organizational politics, market timing, team morale, competitive dynamics that live in conversations rather than documents.</p>
+<p>Strategic thinking is the highest-leverage PM skill, and AI makes it more important by handling the analytical groundwork.</p>
+<hr>
+<h2>Skills That Matter LESS with AI</h2>
+<p>Some skills that PMs spent significant time developing are now less differentiating. This is not bad news — these were never the valuable parts of PM work. AI is freeing you from them.</p>
+<ul>
+<li><strong>Data crunching</strong> — Copilot can analyze datasets, create pivot tables, and identify trends faster than any PM. Your value is in knowing which questions to ask, not in running the queries.</li>
+<li><strong>Status reporting</strong> — Automated. Your weekly status update should take 10 minutes, not 45. The time you get back goes into the strategic work.</li>
+<li><strong>Document formatting</strong> — AI handles structure, formatting, and presentation polish. Stop spending time on slide layouts.</li>
+<li><strong>First drafts of anything</strong> — PRDs, emails, research summaries, meeting agendas, launch communications. AI writes the first draft. You refine, challenge, and improve it.</li>
+<li><strong>Research compilation</strong> — Gathering and organizing information from multiple sources. AI agents will handle this increasingly well. Your job is interpreting what the research means.</li>
+</ul>
+<p>Let these go without guilt. They were the overhead of PM work, not the craft.</p>
+<hr>
+<h2>Staying Current</h2>
+<p>The AI landscape is moving fast. Tools that are cutting-edge today will be table stakes in six months. Here are resources to keep your skills sharp:</p>
+<h3>Newsletters and Blogs</h3>
+<ul>
+<li><strong>Lenny&#39;s Newsletter</strong> (lennysnewsletter.com) — PM tactics, career advice, and increasingly, AI integration for PMs. One of the most respected voices in product management.</li>
+<li><strong>Shreyas Doshi on X/Twitter</strong> (@shreyas) — PM mental models, frameworks, and sharp thinking about what makes PMs effective. His LNO framework featured in Module 0.3.</li>
+<li><strong>Marty Cagan&#39;s SVPG Blog</strong> (svpg.com/articles) — Product leadership, empowered teams, and the evolving PM role. The strategic layer of product management.</li>
+<li><strong>Microsoft Copilot Blog</strong> (blogs.microsoft.com/copilot) — Latest Copilot features, updates, and capabilities. Essential for staying current on your primary AI tool.</li>
+</ul>
+<h3>Books</h3>
+<ul>
+<li><strong>&quot;Inspired&quot; by Marty Cagan</strong> — The foundational text on product management. How the best companies build products. If you have not read it, start here.</li>
+<li><strong>&quot;Empowered&quot; by Marty Cagan</strong> — The sequel, focused on building empowered product teams. Relevant as AI changes team dynamics.</li>
+<li><strong>&quot;Continuous Discovery Habits&quot; by Teresa Torres</strong> — The practical guide to weekly user discovery. The framework behind Modules 0.2 and 0.3 of this course.</li>
+</ul>
+<h3>Programs and Communities</h3>
+<ul>
+<li><strong>Reforge</strong> (reforge.com) — Advanced PM programs on growth, strategy, and product leadership. Rigorous and practical. Worth the investment for mid-career PMs.</li>
+</ul>
+<h3>Your Own Practice</h3>
+<p>The best resource is your own experience. Every prompt you write, every workflow you build, every time you use Copilot for something new — that is learning. The PMs who stay current are not the ones who read the most newsletters. They are the ones who experiment the most.</p>
+<hr>
+<h2>Course Conclusion</h2>
+<p>You have spent approximately 11 hours becoming an AI-augmented Product Manager. Here is what you have built:</p>
+<p><strong>Level 0 — PM Craft:</strong> You learned (or refreshed) the fundamentals of product management — understanding users through JTBD, prioritizing with LNO and Opportunity Solution Trees, writing user stories with real acceptance criteria, running Agile ceremonies with purpose, and communicating with stakeholders who have competing interests.</p>
+<p><strong>Level 1 — Copilot as Teammate:</strong> You mastered Copilot across the M365 ecosystem — setting up your workspace, running your first tasks, using researcher and analyst agents, persona prompting, Copilot memory, M365 navigation, Teams integration, Outlook integration, SharePoint collaboration, and competitive analysis. Copilot went from a novelty to a daily tool.</p>
+<p><strong>Level 2 — Strategic PM:</strong> You developed strategic muscle — writing enterprise PRDs with business cases and ROI, analyzing product data to drive decisions, building product strategy with frameworks like DHM, preparing for product reviews and steering committees, and navigating stakeholder dynamics with pre-mortems and coalition building.</p>
+<p><strong>Level 3 — The 10x PM:</strong> You synthesized it all — visual communication that makes your work memorable, a full capstone product cycle that proved you can run any initiative end-to-end, a personal AI toolkit that makes these skills sustainable, and this forward look at where the AI-era PM is heading.</p>
+<p>The real learning starts now — when you apply this to your daily work.</p>
+<hr>
+<h2>Exercise 1: Your 90-Day Development Plan</h2>
+<p><strong>Context:</strong> You have completed the course. Now you need a plan to keep growing. Not every skill is equally strong — you need to identify your growth areas and practice deliberately.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>I just completed a comprehensive AI-augmented PM course covering 4 levels:
+
+Level 0 — PM Craft: User understanding (JTBD), prioritization (LNO, Opportunity Solution Trees), user stories, Agile/Scrum, stakeholder communication
+Level 1 — Copilot Mastery: Workspace setup, researcher/analyst agents, persona prompting, M365 integration (Teams, Outlook, SharePoint), competitive analysis
+Level 2 — Strategic PM: Enterprise PRDs with ROI, data analysis, product strategy (DHM model), product reviews, stakeholder dynamics
+Level 3 — The 10x PM: Visual communication, full product cycle capstone, personal AI toolkit
+
+Help me create a personal development plan for the next 90 days:
+
+1. Based on these 4 levels, what are typically the 3 strongest areas for a PM completing this course, and the 2 areas that need the most continued practice?
+
+2. For each growth area, suggest:
+   - A specific weekly exercise I can do in 15-30 minutes
+   - A real-world project or situation where I can apply this skill
+   - How to measure my improvement
+
+3. Create a 90-day calendar:
+   - Days 1-30: Focus on [growth area 1] with specific exercises
+   - Days 31-60: Focus on [growth area 2] with specific exercises
+   - Days 61-90: Integration — combining all skills in real work, building habits
+
+4. What should I be able to do at Day 90 that I cannot do as well today?
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Identifies realistic growth areas (common ones: strategic thinking, stakeholder influence, data-driven decision making). Weekly exercises are specific and doable in the time frame. The 90-day progression builds from isolated practice to integrated application. Day 90 capabilities are concrete and measurable.</li>
+<li>Bad response: Generic advice (&quot;practice more&quot;). Growth areas that are just &quot;learn more tools.&quot; No progression from week to week. Unrealistic time commitments.</li>
+</ul>
+<hr>
+<h2>Exercise 2: Share What You Learned</h2>
+<p><strong>Context:</strong> Learning that stays private has limited impact. Sharing what you learned — with your manager, your team, or your peers — creates accountability and multiplies the value.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Draft a brief message to my manager about what I learned in this AI-augmented PM course and how I plan to apply it.
+
+Context:
+- I completed a 23-module course on using Microsoft 365 Copilot for product management
+- I&#39;m a PM at NovaTech (or use my real company context)
+- I want to share 3 specific ways I plan to apply AI to my PM work starting this week
+
+The message should be:
+1. Authentic — not a generic &quot;AI is great&quot; message. Specific about what I learned and what changed in how I think about my work.
+2. Action-oriented — 3 concrete things I will start doing, not abstract intentions
+3. Brief — no more than 200 words. My manager is busy.
+4. Forward-looking — frame it as &quot;here&#39;s how this helps our team&quot; not &quot;here&#39;s what I did&quot;
+
+Draft the message. Then suggest a follow-up: what should I report back on in 30 days to show this was not just a course I completed but a change in how I work?
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: A message that sounds like a real person, not a course completion certificate. The 3 actions are specific (&quot;I&#39;ll use Copilot to cut my weekly status update time from 45 minutes to 10&quot; not &quot;I&#39;ll use AI more&quot;). The 30-day follow-up is measurable and creates accountability.</li>
+<li>Bad response: Corporate-speak. Vague commitments. No accountability mechanism. Sounds like it was written by AI (ironic, but important — the message should sound like you).</li>
+</ul>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What is the ONE thing from this course you will start doing tomorrow? Not next week. Tomorrow.</li>
+<li>What habit from your current PM workflow is now obviously inefficient — something you kept doing because you did not know there was a better way?</li>
+<li>If you could go back to the start of this course and give yourself one piece of advice, what would it be?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>I&#39;m finishing an AI-augmented PM course. I want to commit to ONE specific change starting tomorrow.
+
+The change I&#39;m considering: [YOUR ONE THING]
+
+Help me make this stick:
+1. What is the smallest possible version of this change I can do tomorrow morning?
+2. What trigger will remind me to do it? (e.g., &quot;when I open my laptop&quot; or &quot;before my first meeting&quot;)
+3. What does success look like after 1 week of doing this consistently?
+4. What is the most likely reason I will stop doing it, and how do I prevent that?
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>A 90-day personal development plan with specific weekly exercises</li>
+<li>A message to your manager or team about how you will apply what you learned</li>
+<li>A single commitment for tomorrow — the smallest possible first step</li>
+<li>Clarity on your strengths and growth areas as an AI-era PM</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>AI changes what PMs do, not why PMs exist. The core purpose — figure out what to build and why — is unchanged. The speed, rigor, and depth of your work increases dramatically.</li>
+<li>Judgment, empathy, storytelling, leadership, and strategic thinking become more valuable as AI handles analysis, production, and compilation. Invest in these skills deliberately.</li>
+<li>The PMs who win in the AI era are not the ones who learn the most tools. They are the ones who build the best habits. A daily morning triage with Copilot beats knowing 50 prompts you never use.</li>
+<li>Stay current by practicing, not just reading. Every new workflow you build teaches you more than any newsletter.</li>
+</ul>
+<hr>
+<p>You&#39;re now an AI-Augmented Product Manager. Not because you completed a course — but because you have the workflows, the toolkit, and the mindset to work differently. Every prompt you&#39;ve written, every reflection you&#39;ve done, every artifact you&#39;ve created is a building block. The PMs who thrive in the AI era won&#39;t be the ones who waited for permission. They&#39;ll be the ones who started. You&#39;ve started. Keep going.</p>
+</div>
+    <div class="nav-footer"><a href="module-3.3.html" class="nav-btn prev">&larr; 3.3 Building Your Personal AI Toolkit</a><a href="index.html" class="nav-btn home">Home</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

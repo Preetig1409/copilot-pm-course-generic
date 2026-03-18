@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 3.1: Visual Communication for PMs — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 3: The 10x PM &rsaquo; Module 3.1
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">25 min</span>
+        <span class="meta-tag level">Level 3: The 10x PM</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 3.1: Visual Communication for PMs</h1>
+<p><strong>Duration:</strong> 25 minutes
+<strong>Prerequisites:</strong> Level 1 completed</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<p>By the end of this module, you will:</p>
+<ol>
+<li>Use AI image generation to create PM-relevant visuals that replace paragraphs of text</li>
+<li>Construct effective prompts for DALL-E 3 and Microsoft Designer through Copilot</li>
+<li>Build a visual toolkit of persona cards, journey maps, architecture diagrams, and launch assets</li>
+<li>Judge when AI-generated visuals are appropriate and when they are not</li>
+</ol>
+<hr>
+<h2>Show, Don&#39;t Tell</h2>
+<p>PMs who communicate visually get faster buy-in. This is not opinion — it is how human cognition works. A user journey diagram beats three paragraphs of text. A persona card with a face and key attributes beats a bullet-point list buried in a PRD. A before/after comparison visual tells a story that a table of metrics cannot.</p>
+<p>The problem: most PMs are not designers. You do not have Figma skills, you do not have a design team on call for internal presentations, and you do not have time to learn illustration tools for a quarterly product review.</p>
+<p>That is where AI image generation comes in. You already know how to write prompts. Now you will use that skill to create visuals that make your stakeholders lean forward instead of glazing over.</p>
+<p><strong>The visual advantage in practice:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Text-Only Communication</th>
+<th>Visual Communication</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&quot;Our target persona is a mid-level manager who needs quick access to experts&quot;</td>
+<td>Persona card with professional photo, goals, frustrations, and JTBD — immediately memorable</td>
+</tr>
+<tr>
+<td>&quot;The user journey has 5 stages with pain points at stages 3 and 4&quot;</td>
+<td>Journey map showing emotions dropping at search and browse stages — instantly understood</td>
+</tr>
+<tr>
+<td>&quot;The new feature reduces search time from 8 minutes to under 2&quot;</td>
+<td>Before/after comparison visual — tells the story without explanation</td>
+</tr>
+</tbody></table>
+<p>You do not need to be a designer. You need to be a PM who communicates clearly. AI closes the gap.</p>
+<hr>
+<h2>DALL-E 3 and Microsoft Designer</h2>
+<h3>How to Access Image Generation</h3>
+<p>Microsoft Copilot integrates DALL-E 3 for image generation. You can access it through:</p>
+<ul>
+<li><strong>Microsoft Copilot chat</strong> (copilot.microsoft.com) — ask directly for images</li>
+<li><strong>Microsoft Designer</strong> (designer.microsoft.com) — more control over layout and style</li>
+<li><strong>Copilot in Edge</strong> — generate images in the sidebar while working</li>
+</ul>
+<h3>The Prompt Structure for PM Visuals</h3>
+<p>Image generation prompts follow a different structure than text prompts. For PM-relevant visuals, use this framework:</p>
+<pre><code>Create a [FORMAT] showing [SUBJECT].
+Style: [VISUAL STYLE — professional, minimalist, infographic, etc.]
+Include: [SPECIFIC ELEMENTS you need]
+Layout: [How elements should be arranged]
+Color palette: [Professional/brand-appropriate colors]
+Text on image: [Any labels or text you need]
+</code></pre>
+<p><strong>Key differences from text prompts:</strong></p>
+<ul>
+<li>Be more specific about visual layout than you think necessary</li>
+<li>Specify &quot;professional&quot; or &quot;corporate&quot; style to avoid cartoonish results</li>
+<li>Include text labels in the prompt — do not assume the AI knows what to label</li>
+<li>Mention what the visual is for (presentation, PRD, internal comms) to set the right tone</li>
+</ul>
+<h3>Iteration Is Normal</h3>
+<p>Your first image generation attempt is rarely what you want. This is expected. The workflow is:</p>
+<ol>
+<li>Generate first attempt with your best prompt</li>
+<li>Evaluate what is right and what is wrong</li>
+<li>Refine the prompt — add specifics where the AI got it wrong</li>
+<li>Regenerate — typically 2-3 iterations to get a usable result</li>
+</ol>
+<p>Do not aim for perfection. Aim for &quot;better than a bullet-point list.&quot; That bar is easier to clear than you think.</p>
+<hr>
+<h2>The PM Visual Toolkit</h2>
+<p>These are the six categories of visuals every PM should be able to create. Each one replaces a common PM communication failure — walls of text that nobody reads.</p>
+<h3>1. Persona Cards</h3>
+<p>A persona card puts a face and structure to your user. It belongs in every PRD, every product review, every time you say &quot;the user.&quot;</p>
+<p><strong>What to include:</strong> A professional headshot-style image, the persona&#39;s name and role, key goals (2-3), top frustration, the job-to-be-done, and a representative quote.</p>
+<p><strong>Prompt pattern:</strong></p>
+<pre><code>Create a professional persona card for a product document.
+
+Person: [Name], [Title] at [Company]
+Photo style: Professional headshot, approachable, corporate environment
+Card layout: Photo on the left, details on the right
+Include these sections:
+- Name and title
+- Goals: [2-3 goals]
+- Top Frustration: [frustration]
+- Job-to-Be-Done: [JTBD statement]
+- Quote: &quot;[representative quote]&quot;
+
+Style: Clean, modern, suitable for a stakeholder presentation. Use a professional blue and white color scheme.
+</code></pre>
+<h3>2. User Journey Maps</h3>
+<p>A journey map shows the emotional arc of a user experience. Stakeholders who would skim a text description will study a visual journey map because it tells a story.</p>
+<p><strong>What to include:</strong> Stages across the top, user actions at each stage, thoughts, emotional state (happy/neutral/frustrated with a simple indicator), and pain points highlighted.</p>
+<p><strong>Prompt pattern:</strong></p>
+<pre><code>Create a user journey map infographic.
+
+Journey: [User] doing [task]
+Stages: [Stage 1] → [Stage 2] → [Stage 3] → [Stage 4] → [Stage 5]
+
+For each stage, show:
+- Action (what the user does)
+- Thought (what they are thinking)
+- Emotion (use a simple happy/neutral/frustrated face)
+- Pain point (if any, highlighted in red)
+
+Style: Horizontal flow, left to right. Professional infographic style. Clean lines, minimal color palette. Suitable for a product review presentation.
+</code></pre>
+<h3>3. Architecture and System Diagrams</h3>
+<p>Simplified system diagrams help non-technical stakeholders understand how things connect. You are not drawing the technical architecture — you are drawing the story of how data and users flow through the system.</p>
+<p><strong>What to include:</strong> Major components as labeled boxes, connections with arrows, user entry points, and integration points. Keep it simple — 5-8 components maximum.</p>
+<h3>4. Launch and Announcement Assets</h3>
+<p>Internal launch communications with visuals get higher engagement than text-only emails. A simple visual banner or announcement graphic makes the difference between &quot;another email&quot; and &quot;something worth reading.&quot;</p>
+<h3>5. Before/After Comparison Visuals</h3>
+<p>The most persuasive visual in a PM&#39;s toolkit. Show the current pain next to the proposed improvement. Let the contrast do the talking.</p>
+<p><strong>What to include:</strong> Clear &quot;Before&quot; and &quot;After&quot; labels, key metrics in both states, emotional indicators (frustrated vs. satisfied), and the specific improvement highlighted.</p>
+<h3>6. Process Flow Diagrams</h3>
+<p>When explaining how a feature works or how a workflow changes, a flow diagram communicates in seconds what paragraphs of text cannot.</p>
+<hr>
+<h2>When AI Visuals Work and When They Don&#39;t</h2>
+<p>Honest assessment — AI image generation is powerful but not appropriate for everything.</p>
+<h3>Great For</h3>
+<ul>
+<li><strong>Concept communication</strong> — &quot;This is roughly what we mean&quot; visuals for early-stage discussions</li>
+<li><strong>Internal presentations</strong> — Product reviews, team meetings, sprint demos where polish matters less than clarity</li>
+<li><strong>Brainstorming and ideation</strong> — Quick visual exploration of ideas before investing design resources</li>
+<li><strong>PRD and spec illustration</strong> — Making documents more scannable and memorable</li>
+<li><strong>Stakeholder buy-in</strong> — Showing a vision before committing design resources</li>
+</ul>
+<h3>Not Great For</h3>
+<ul>
+<li><strong>Customer-facing assets</strong> — Anything going to customers needs professional design and brand consistency</li>
+<li><strong>Precise data visualization</strong> — Charts, graphs, and dashboards should use proper data viz tools (Excel, Power BI)</li>
+<li><strong>Polished brand work</strong> — Marketing materials, external communications, and brand assets need a designer</li>
+<li><strong>Detailed technical diagrams</strong> — Complex architecture diagrams with precise specifications need proper diagramming tools (Visio, Mermaid, Lucidchart)</li>
+<li><strong>Accessibility-critical content</strong> — AI-generated images may not meet accessibility standards</li>
+</ul>
+<p><strong>The rule of thumb:</strong> If the visual&#39;s job is to communicate an idea internally, AI generation is usually good enough. If the visual&#39;s job is to represent the company externally, invest in professional design.</p>
+<hr>
+<h2>Exercise 1: Create a Persona Card</h2>
+<p><strong>Context:</strong> You need a persona card for Priya Sharma, a key KnowledgeHub user. Right now she exists as a bullet point in your PRD. You want to make her real — a face and a story that stakeholders remember.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Create a persona card visual for Priya Sharma, Director of Customer Solutions at NovaTech. She needs to find internal experts quickly before client meetings.
+
+Include:
+- A professional headshot-style image of a South Asian woman in her late 30s, in a modern office setting
+- Her key goals: (1) Find subject matter experts within 5 minutes of a client request, (2) Access relevant case studies before client meetings, (3) Build a reliable network of go-to experts across the company
+- Top frustration: Spends 30+ minutes searching across multiple tools (email, Slack, SharePoint) to find who knows what, and still ends up asking around on Teams
+- Job-to-be-done: &quot;When a client asks if we have experience in a specific domain, I need to identify a credible expert and relevant past work within minutes, so I can respond before the client considers a competitor&quot;
+- Make it look like something I could put in a PRD or stakeholder presentation — professional, clean, and visually structured
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good result: A structured, professional-looking persona card that makes Priya feel like a real person. The goals and frustrations are visible at a glance. You could put this in a presentation and stakeholders would immediately understand who you are building for.</li>
+<li>Needs iteration: If the layout is cluttered, the text is hard to read, or the style feels cartoonish. Refine by specifying &quot;minimalist layout&quot; or &quot;corporate presentation style.&quot;</li>
+</ul>
+<hr>
+<h2>Exercise 2: Create a User Journey Map</h2>
+<p><strong>Context:</strong> You want to show stakeholders where KnowledgeHub&#39;s search experience breaks down. A journey map will make the pain points visceral instead of abstract.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Create a user journey map for a NovaTech employee searching for information on KnowledgeHub.
+
+Stages:
+1. Need Arises — Employee gets a client question they can&#39;t answer from memory
+   - Action: Realizes they need internal knowledge
+   - Thought: &quot;I know we&#39;ve done this before somewhere&quot;
+   - Emotion: Neutral
+   - Pain point: None yet
+
+2. Open KnowledgeHub — Employee navigates to the platform
+   - Action: Opens KnowledgeHub from browser bookmark
+   - Thought: &quot;Hopefully I can find it quickly this time&quot;
+   - Emotion: Neutral (slightly skeptical)
+   - Pain point: Low confidence based on past experience
+
+3. Search — Employee types their query
+   - Action: Enters search terms, hits enter
+   - Thought: &quot;These results don&#39;t look right... let me try different keywords&quot;
+   - Emotion: Frustrated
+   - Pain point: Search returns too many irrelevant results, no way to filter by relevance or recency
+
+4. Browse Results — Employee scrolls through results
+   - Action: Opens 4-5 documents, skims each one, goes back to results
+   - Thought: &quot;This is taking forever. Half of these are outdated.&quot;
+   - Emotion: Frustrated
+   - Pain point: Can&#39;t tell which results are current, authoritative, or relevant without opening each one
+
+5. Find Answer (or Give Up) — Employee either finds what they need or abandons the search
+   - Action: Either finds a usable document (30% of the time) or gives up and asks on Teams (70%)
+   - Thought: &quot;Next time I&#39;ll just ask someone directly&quot;
+   - Emotion: Frustrated / Relieved (if found)
+   - Pain point: 8+ minutes spent, often with no result. Reinforces avoidance behavior.
+
+Then generate an image that visualizes this journey as a horizontal flow with emotion indicators (smiley faces going from neutral to frustrated) and pain points highlighted in red. Professional infographic style suitable for a quarterly product review.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good result: A clear visual flow that tells the story of declining confidence and rising frustration. Stakeholders should look at this and immediately understand why WAU is 43% — the experience breaks down at stages 3 and 4. Pain points are visually prominent.</li>
+<li>Needs iteration: If the journey is hard to follow, the emotions are not clearly differentiated, or the pain points do not stand out. Refine by specifying &quot;make the frustration points larger and in red&quot; or &quot;add a clear emotional curve line.&quot;</li>
+</ul>
+<hr>
+<h2>Exercise 3: Create a Before/After Comparison</h2>
+<p><strong>Context:</strong> You are presenting KnowledgeHub&#39;s AI search initiative at a quarterly product review. You need a single visual that makes the case — current state vs. proposed state.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Create a before/after comparison visual for a quarterly product review presentation.
+
+BEFORE — &quot;KnowledgeHub Search Today&quot;:
+- Time to find answer: 8+ minutes
+- Tools checked: 3+ (KnowledgeHub, SharePoint, Teams/Slack)
+- Success rate: ~30% find what they need
+- User emotion: Frustrated, skeptical
+- Result: Most employees give up and ask colleagues directly
+- Visual style: Muted/grey tones, cluttered, multiple overlapping screens
+
+AFTER — &quot;KnowledgeHub with AI-Powered Search&quot;:
+- Time to find answer: Under 2 minutes
+- Tools needed: 1 (KnowledgeHub only)
+- Success rate: 85%+ find what they need
+- User emotion: Confident, satisfied
+- Result: Employees trust the platform and return regularly
+- Visual style: Bright, clean, single focused screen
+
+Layout: Side by side, &quot;Before&quot; on left, &quot;After&quot; on right. Clear dividing line.
+Include the key metrics prominently (8 min → 2 min, 30% → 85%).
+Make it compelling — this needs to make executives say &quot;we need this.&quot;
+Professional presentation style with a blue and white color scheme.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good result: The contrast is immediate and visceral. An executive glancing at this visual for 5 seconds should understand the value proposition. The &quot;Before&quot; side should feel heavy and frustrating. The &quot;After&quot; side should feel clean and efficient. Key metrics are large and prominent.</li>
+<li>Needs iteration: If both sides look similar, the contrast is not strong enough. Refine by emphasizing &quot;make the Before side visually cluttered and grey&quot; and &quot;make the After side clean and bright with more whitespace.&quot;</li>
+</ul>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What is the next presentation or document where a visual would be more persuasive than text? What story does that visual need to tell?</li>
+<li>Think about your last product review — which slide had the most text? Could a visual have replaced it?</li>
+<li>Who is a stakeholder you struggle to convince with words alone? What visual format might resonate with them — a journey map, a before/after, a persona card?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>I&#39;m a PM for [YOUR PRODUCT]. I have an upcoming [PRESENTATION/DOCUMENT] for [AUDIENCE].
+
+The key message I need to communicate is: [YOUR MESSAGE]
+
+Help me identify:
+1. What type of visual would communicate this most effectively (persona card, journey map, before/after, process flow, architecture diagram, or something else)
+2. A detailed image generation prompt I can use to create that visual
+3. What text or data should be prominent in the visual
+4. How to position the visual in my presentation for maximum impact
+
+Then generate the visual.
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>At least one AI-generated persona card you could use in a real PRD</li>
+<li>A user journey map that makes pain points visceral for stakeholders</li>
+<li>A before/after visual that tells a compelling improvement story</li>
+<li>Confidence to create PM visuals without design skills</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>PMs who communicate visually get faster stakeholder buy-in. A journey map, persona card, or before/after comparison communicates in seconds what paragraphs cannot.</li>
+<li>AI image generation through Copilot closes the gap between &quot;I need a visual&quot; and &quot;I don&#39;t have design skills.&quot; You already know how to prompt — now use that skill for images.</li>
+<li>Iteration is normal. Expect 2-3 prompt refinements to get a usable result. The goal is &quot;better than a bullet-point list,&quot; not design perfection.</li>
+<li>Use AI visuals for internal communication, concept exploration, and stakeholder presentations. Use professional designers for customer-facing assets and brand work.</li>
+</ul>
+<hr>
+<h2>What&#39;s Next</h2>
+<p>Module 3.2 is the capstone — the most important module in the course. You will run through an entire product cycle for a new NovaTech feature, using every skill and Copilot workflow from all four levels. Visual communication is one of those skills. Everything comes together.</p>
+</div>
+    <div class="nav-footer"><a href="module-2.5.html" class="nav-btn prev">&larr; 2.5 Navigating Organizational Politics</a><a href="index.html" class="nav-btn home">Home</a><a href="module-3.2.html" class="nav-btn next">3.2 The Capstone — Run a Product Cycle &rarr;</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 2.2: Data-Driven Decisions with AI — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 2: Strategic PM with AI &rsaquo; Module 2.2
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">30 min</span>
+        <span class="meta-tag level">Level 2: Strategic PM with AI</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 2.2: Data-Driven Decisions with AI</h1>
+<p><strong>Duration:</strong> 30 minutes
+<strong>Prerequisites:</strong> Module 1.5</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ol>
+<li>Build a metrics hierarchy (North Star, Input, Health) that connects daily product work to business outcomes</li>
+<li>Apply the &quot;what → so what → now what&quot; framework to turn raw data into persuasive narratives</li>
+<li>Use Copilot to perform product analytics — adoption funnels, cohort retention, feature usage — in plain English</li>
+<li>Identify common statistical pitfalls (small samples, correlation vs. causation, survivorship bias) that lead to wrong decisions</li>
+</ol>
+<hr>
+<h2>Numbers Don&#39;t Speak for Themselves</h2>
+<p>Lenny Rachitsky popularized a framework that every product team should tattoo on their wall: the metrics hierarchy. North Star metric at the top — the one number that tells you if your product is succeeding. Input metrics below — the levers you pull. Health metrics alongside — the things that shouldn&#39;t break while you&#39;re optimizing.</p>
+<p>It sounds simple. It&#39;s not. Most product teams either drown in metrics (dashboards nobody looks at) or starve for them (decisions made on gut feel dressed up as &quot;product intuition&quot;).</p>
+<p>Here&#39;s the real problem: even when you have the data, you still need to <em>interpret</em> it correctly and <em>communicate</em> it persuasively. A chart showing 43% WAU means nothing to Jennifer Walsh unless you can explain what&#39;s driving it, what it costs, and what to do about it.</p>
+<p>This module teaches you to build the right metrics framework, use AI to analyze data without writing formulas, and — critically — to spot when the data is lying to you.</p>
+<hr>
+<h2>The Metrics Hierarchy</h2>
+<h3>North Star Metric</h3>
+<p>Your North Star is the single metric that best captures the core value your product delivers. It&#39;s not a vanity metric (total signups), not a business metric (revenue), and not an activity metric (logins). It measures <em>value delivered</em>.</p>
+<p><strong>KnowledgeHub example:</strong></p>
+<ul>
+<li>Bad North Star: &quot;Monthly Active Users&quot; — measures presence, not value</li>
+<li>Better North Star: &quot;Weekly Active Users&quot; — at least measures frequency</li>
+<li>Best North Star: &quot;Weekly searches that find a useful result&quot; — measures the actual value: people finding knowledge they need</li>
+</ul>
+<p>The test for a good North Star: if this number goes up and everything else stays flat, is the product succeeding? If it goes up but users are unhappy, it&#39;s the wrong metric.</p>
+<h3>Input Metrics</h3>
+<p>Input metrics are the levers you can actually pull to move the North Star. They should be:</p>
+<ul>
+<li><strong>Actionable</strong> — your team can directly influence them</li>
+<li><strong>Leading</strong> — they move before the North Star does</li>
+<li><strong>Decomposable</strong> — you can break them down by segment, cohort, or feature</li>
+</ul>
+<p>For KnowledgeHub, Input metrics might include:</p>
+<ul>
+<li><strong>Search result relevance score</strong> — if results are better, more searches succeed</li>
+<li><strong>Content freshness</strong> — if knowledge is up to date, results are more useful</li>
+<li><strong>New user activation rate</strong> — percentage of new users who complete their first successful search within 7 days</li>
+<li><strong>Department adoption rate</strong> — percentage of each department using the tool weekly</li>
+</ul>
+<p>Each Input metric has a clear mechanism connecting it to the North Star. Content freshness drives result usefulness. Activation rate drives the WAU numerator. You should be able to draw the causal chain.</p>
+<h3>Health Metrics</h3>
+<p>Health metrics are the guardrails. They tell you when you&#39;re breaking something while optimizing for growth.</p>
+<ul>
+<li><strong>Search latency</strong> — if you add AI search but it takes 30 seconds, you&#39;ve traded accuracy for frustration</li>
+<li><strong>System uptime</strong> — if your AI features increase downtime, net value is negative</li>
+<li><strong>Support ticket volume</strong> — a spike means something is confusing or broken</li>
+</ul>
+<p>Health metrics have thresholds, not targets. You don&#39;t optimize for fewer support tickets — you watch for spikes that signal a problem.</p>
+<hr>
+<h2>Data Storytelling</h2>
+<p>You&#39;ve been in the meeting. Someone puts up a slide with six charts and says, &quot;As you can see from the data...&quot; and everyone nods while understanding nothing.</p>
+<p>Data doesn&#39;t persuade. Stories with data persuade. The difference is structure.</p>
+<h3>The &quot;What → So What → Now What&quot; Framework</h3>
+<p>Every data point you present in a product review should answer three questions:</p>
+<p><strong>What:</strong> The fact, stated plainly.
+&quot;KnowledgeHub WAU increased from 38% to 43% this quarter.&quot;</p>
+<p><strong>So What:</strong> Why this matters — the interpretation.
+&quot;This 5-point gain represents approximately 250 additional weekly users and ~$1M in annualized productivity improvement. However, we&#39;re still 17 points below our 60% target, and the growth rate is decelerating — we gained 7 points last quarter.&quot;</p>
+<p><strong>Now What:</strong> The action this data drives.
+&quot;The deceleration suggests we&#39;ve captured the &#39;easy&#39; adopters. The remaining 17 points require a different strategy: targeted department-by-department rollouts with customized onboarding, starting with the three departments that have the lowest adoption.&quot;</p>
+<p>Notice how the raw number (43% WAU) transforms from a data point into a decision driver. The &quot;so what&quot; adds context that makes the number meaningful. The &quot;now what&quot; makes it actionable.</p>
+<p><strong>Common mistakes:</strong></p>
+<ul>
+<li>Presenting &quot;what&quot; without &quot;so what&quot; — your audience does the interpretation, and they&#39;ll do it wrong</li>
+<li>Presenting &quot;so what&quot; without &quot;now what&quot; — interesting but useless</li>
+<li>Skipping straight to &quot;now what&quot; without showing the data — your recommendation has no foundation</li>
+</ul>
+<hr>
+<h2>Copilot and Excel for Product Analytics</h2>
+<p>You don&#39;t need to be a data analyst to analyze product data. Copilot can help you work through common product analytics tasks in plain English. Here&#39;s what to ask for:</p>
+<h3>Adoption Funnels</h3>
+<p>&quot;Here&#39;s our onboarding data: 500 users invited, 420 created accounts, 310 completed setup, 180 performed first search, 95 searched again within 7 days. Calculate the conversion rate at each step. Where&#39;s the biggest drop-off? What does that suggest about where to focus?&quot;</p>
+<h3>Cohort Retention</h3>
+<p>&quot;Here&#39;s weekly retention data for users who joined in each of the last 8 weeks. [Paste data.] Create a cohort retention table. Which cohort has the best Week 4 retention? What was different about that week — what did we ship or change?&quot;</p>
+<h3>Feature Usage Analysis</h3>
+<p>&quot;Here&#39;s feature usage data for KnowledgeHub&#39;s top 10 features. [Paste data.] Which features are used by the most users? Which are used most frequently by the users who do use them? Are there features that a small group uses heavily — those might be power-user features worth protecting even if they look low-usage.&quot;</p>
+<h3>A/B Test Interpretation</h3>
+<p>&quot;We ran an A/B test on the new search UI. Control: 1,200 users, 34% completed a successful search. Variant: 1,180 users, 38% completed a successful search. Is this statistically significant? What sample size would we need to be confident? Should we ship this?&quot;</p>
+<p>The key with all of these: give Copilot the actual data (or a representative sample), state what you&#39;re trying to understand, and ask it to explain the analysis in plain language. Then verify the logic makes sense before presenting it.</p>
+<hr>
+<h2>Statistical BS Detection</h2>
+<p>Copilot is a powerful analysis tool. It&#39;s also a confident one — it will give you a clear, well-structured answer even when the underlying data doesn&#39;t support a clear conclusion. Your job is to catch when that happens.</p>
+<h3>Small Sample Sizes</h3>
+<p>&quot;Our A/B test shows a 15% improvement!&quot; — with 30 users per group. That&#39;s noise, not signal. Ask Copilot: &quot;Given these sample sizes, what&#39;s the confidence interval on this result?&quot; If the confidence interval spans from -5% to +35%, you don&#39;t have a result.</p>
+<p><strong>Rule of thumb:</strong> Be skeptical of any product metric based on fewer than 100 data points per segment.</p>
+<h3>Correlation vs. Causation</h3>
+<p>&quot;Departments that use KnowledgeHub have 20% faster project completion.&quot; Maybe. Or maybe high-performing departments adopt tools faster AND complete projects faster, and KnowledgeHub has nothing to do with it.</p>
+<p><strong>The test:</strong> Can you identify the mechanism? Can you rule out obvious confounders? If not, say &quot;correlated with&quot; not &quot;caused by.&quot;</p>
+<h3>Survivorship Bias</h3>
+<p>&quot;Users who complete onboarding have 80% retention!&quot; Of course they do — you&#39;re only measuring people who already demonstrated commitment. The users who bounced in the first 30 seconds aren&#39;t in your dataset.</p>
+<p><strong>The test:</strong> Who&#39;s missing from this data? What happened to the people who didn&#39;t make it to the measurement point?</p>
+<h3>Simpson&#39;s Paradox</h3>
+<p>Overall adoption is up 5%. But when you break it down: Engineering is down 3%, Sales is down 2%, Marketing is down 1%. How is overall adoption up? Because the People Ops team (which is large) started using the tool, masking declines everywhere else.</p>
+<p><strong>The test:</strong> Always break aggregate metrics down by segment. The overall number can hide opposite trends in subgroups.</p>
+<p>When in doubt, ask Copilot: &quot;What are the three most likely ways this analysis could be misleading?&quot; A good AI partner helps you challenge your own conclusions.</p>
+<hr>
+<h2>Exercise 1: Build a Metrics Hierarchy</h2>
+<p><strong>Context:</strong> You need to define a clear metrics framework for KnowledgeHub that connects daily product work to business outcomes and gives leadership a coherent story.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Here&#39;s KnowledgeHub&#39;s metrics: 43% WAU, NPS +12, avg search time 8 min, 2,150 weekly active users out of 5,000. Define a metrics hierarchy: (1) North Star metric with clear definition, (2) 3-4 Input metrics that are levers to move the North Star, (3) 2-3 Health metrics. For each input metric, suggest a target and explain how moving it drives the North Star. Then apply the &quot;what → so what → now what&quot; framework to the current state of each metric.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Does the North Star measure value delivered, not just activity?</li>
+<li>Are the Input metrics actually actionable — can your team influence them directly?</li>
+<li>Is the causal chain from each Input metric to the North Star plausible and specific?</li>
+<li>Are Health metrics things you&#39;d watch for degradation, not things you&#39;d optimize?</li>
+<li>Does the &quot;so what&quot; for each metric add genuine insight, or is it just restating the number?</li>
+</ul>
+<hr>
+<h2>Exercise 2: Analyze Adoption Data</h2>
+<p><strong>Context:</strong> You need to understand KnowledgeHub adoption patterns to identify where to focus growth efforts.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Analyze this KnowledgeHub adoption data by department over 12 weeks:
+
+Engineering (500 staff): Week 1: 55%, Week 4: 58%, Week 8: 52%, Week 12: 48%
+Sales (800 staff): Week 1: 30%, Week 4: 32%, Week 8: 35%, Week 12: 34%
+Marketing (400 staff): Week 1: 45%, Week 4: 50%, Week 8: 48%, Week 12: 46%
+People Ops (600 staff): Week 1: 25%, Week 4: 30%, Week 8: 38%, Week 12: 45%
+Product (200 staff): Week 1: 70%, Week 4: 72%, Week 8: 68%, Week 12: 65%
+
+What&#39;s the trend for each department? Which are growing vs declining? What story does this data tell? What should I do about the departments that are declining? Apply the &quot;what → so what → now what&quot; framework to the overall picture.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Does Copilot catch that overall WAU might look stable while individual departments diverge?</li>
+<li>Does it flag Engineering&#39;s decline as particularly concerning (large team, was an early adopter)?</li>
+<li>Does it identify People Ops as the growth story and ask what&#39;s driving their adoption?</li>
+<li>Does the &quot;now what&quot; include specific, actionable recommendations (not just &quot;improve adoption&quot;)?</li>
+<li>Ask follow-up: &quot;What additional data would I need to understand WHY Engineering usage is declining?&quot;</li>
+</ul>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What&#39;s your product&#39;s North Star metric? Can you define it in one sentence? If you asked three team members, would they give the same answer?</li>
+<li>When you present data to leadership, do you use &quot;what → so what → now what&quot; — or do you dump charts and let them draw conclusions?</li>
+<li>Have you ever made a product decision based on data that, in hindsight, was misleading? What went wrong?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>My product is [PRODUCT NAME] with [NUMBER] users. Current key metrics: [LIST 3-5 METRICS WITH VALUES]. Our business goal is [GOAL WITH TARGET]. Help me build a metrics hierarchy: (1) Define the North Star metric, (2) Identify 3-4 Input metrics with targets, (3) Set 2-3 Health metric thresholds. Then take our current metrics and apply &quot;what → so what → now what&quot; for each — what does the data say, what does it mean, and what should we do?
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>A clear metrics hierarchy with North Star, Input, and Health metrics for your product</li>
+<li>Targets for each Input metric with a rationale connecting it to the North Star</li>
+<li>A &quot;what → so what → now what&quot; narrative for your current metrics that&#39;s ready for a product review</li>
+<li>An understanding of the statistical pitfalls to watch for when interpreting your data</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>The metrics hierarchy (North Star → Input → Health) creates clarity about what to measure and why — without it, you&#39;re drowning in dashboards or flying blind.</li>
+<li>Data storytelling using &quot;what → so what → now what&quot; transforms numbers into decisions — every metric you present should drive an action.</li>
+<li>Copilot can handle product analytics (funnels, cohorts, A/B tests) in plain English, but you need to provide real data and verify the logic.</li>
+<li>Statistical pitfalls (small samples, correlation vs. causation, survivorship bias, Simpson&#39;s paradox) are where smart PMs get fooled — always ask &quot;how could this analysis be wrong?&quot;</li>
+</ul>
+<hr>
+<h2>What&#39;s Next</h2>
+<p>You have metrics. You have data stories. Now you need a strategy that ties it all together. In <strong>Module 2.3: Product Strategy &amp; Roadmapping</strong>, you&#39;ll learn to build strategies that help you say no, evaluate initiatives with Gibson Biddle&#39;s DHM model, and create roadmaps that balance stakeholder predictability with product flexibility.</p>
+</div>
+    <div class="nav-footer"><a href="module-2.1.html" class="nav-btn prev">&larr; 2.1 Writing PRDs That Get Buy-In</a><a href="index.html" class="nav-btn home">Home</a><a href="module-2.3.html" class="nav-btn next">2.3 Product Strategy &amp; Roadmapping &rarr;</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

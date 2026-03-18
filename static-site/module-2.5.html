@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 2.5: Navigating Organizational Politics — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 2: Strategic PM with AI &rsaquo; Module 2.5
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">25 min</span>
+        <span class="meta-tag level">Level 2: Strategic PM with AI</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 2.5: Navigating Organizational Politics</h1>
+<p><strong>Duration:</strong> 25 minutes
+<strong>Prerequisites:</strong> Module 0.6</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ol>
+<li>Reframe organizational politics as a legitimate skill for getting products built, not a dirty game to avoid</li>
+<li>Map the real decision-making network in your organization — who influences, who vetoes, who connects</li>
+<li>Build a coalition (sponsor, champion, implementer) for major product initiatives</li>
+<li>Use AI to war-game stakeholder conversations and pre-empt objections before critical meetings</li>
+</ol>
+<hr>
+<h2>Politics Isn&#39;t a Dirty Word</h2>
+<p>&quot;Politics isn&#39;t dirty — it&#39;s how decisions get made in organizations of any size.&quot;</p>
+<p>If you&#39;ve ever had a technically sound, data-backed, strategically aligned product initiative stall for months — you&#39;ve experienced what happens when you ignore organizational politics. The product wasn&#39;t wrong. The positioning was.</p>
+<p>Many PMs treat politics as something beneath them. They believe the best idea should win on merit, and that &quot;playing politics&quot; means compromising integrity. This is a career-limiting belief.</p>
+<p>Here&#39;s the reframe: political skill is the ability to understand how decisions actually get made in your organization — and to position your product to succeed within that reality. It means knowing that Jennifer Walsh&#39;s approval depends partly on whether she can present your initiative as a win in <em>her</em> leadership meeting. It means understanding that David Kim&#39;s &quot;technical concerns&quot; about your proposal are sometimes genuine and sometimes a proxy for &quot;my team is overcommitted and I need someone to acknowledge that.&quot;</p>
+<p>Political skill isn&#39;t manipulation. It&#39;s empathy applied to organizational dynamics. And it&#39;s the single biggest differentiator between PMs who ship strategy and PMs who just write strategy documents.</p>
+<hr>
+<h2>Reading the Room</h2>
+<h3>The Org Chart Lies</h3>
+<p>The org chart tells you who reports to whom. It doesn&#39;t tell you who actually influences decisions. These are different things.</p>
+<p>In every organization, there&#39;s a shadow network of influence that determines what gets built, funded, and prioritized. To navigate it, you need to map three types of players:</p>
+<p><strong>Decision Makers</strong> — People who can say yes and make it stick. They&#39;re usually senior leaders, but not always the most senior person in the room. Sometimes the VP defers to the Director who has deep domain knowledge.</p>
+<p><em>At NovaTech: Jennifer Walsh can approve budget. But she&#39;ll check with Sarah Mitchell on product strategy alignment before committing.</em></p>
+<p><strong>Influencers</strong> — People who don&#39;t have formal authority over your initiative but whose opinion carries disproportionate weight. They&#39;ve earned trust through track record, expertise, or relationships.</p>
+<p><em>At NovaTech: If the Engineering team lead (not David Kim, but the senior engineer everyone respects) says &quot;this architecture won&#39;t scale,&quot; David will cite that in every meeting.</em></p>
+<p><strong>Connectors</strong> — People who move information between groups. They&#39;re in multiple meetings, know what every team is working on, and shape narratives by how they summarize things to others.</p>
+<p><em>At NovaTech: Maya Patel (VP People Ops) talks to every department head. How she describes KnowledgeHub to other VPs influences their perception more than your product deck does.</em></p>
+<h3>Questions to Map the Network</h3>
+<ul>
+<li>When a decision is &quot;made&quot; in a meeting, was it actually decided there or ratified from a prior conversation?</li>
+<li>Who does your executive sponsor consult before making product decisions?</li>
+<li>When you present to leadership, who do others in the room look at for reactions?</li>
+<li>Who has said no to a major initiative in the last year, and did it stay dead?</li>
+<li>Whose Slack messages get the fastest replies from leadership?</li>
+</ul>
+<p>You don&#39;t need to create a formal network diagram (though you can). You need a mental model of how influence actually flows so you&#39;re never blindsided by a &quot;surprise&quot; objection from someone you didn&#39;t think to consult.</p>
+<hr>
+<h2>Building a Coalition</h2>
+<p>You can&#39;t get a major initiative approved by convincing one person. Not even if that person is the VP. You need a coalition — a group of people who actively support your initiative for their own reasons, not just yours.</p>
+<h3>The Three Roles You Need</h3>
+<p><strong>The Sponsor: Executive Air Cover</strong></p>
+<p>Your sponsor is the senior leader who owns the political capital being spent on your initiative. They defend it in meetings you&#39;re not invited to. They connect it to company strategy when questioned. They make it safe for others to say yes.</p>
+<p><em>Who:</em> Typically one level above your direct leadership. For KnowledgeHub, Richard Thorne.</p>
+<p><em>What they need from you:</em> A clear narrative they can repeat. Data they can cite. No surprises — especially bad ones they learn about from someone else.</p>
+<p><em>How to recruit them:</em> Show how your initiative advances <em>their</em> goals. Richard wants NovaTech to be a &quot;knowledge-driven organization.&quot; Frame KnowledgeHub&#39;s AI search as a pillar of that vision, not just a product improvement.</p>
+<p><strong>The Champion: Peer Advocacy</strong></p>
+<p>Your champion is a peer-level leader (Director, Senior PM, or equivalent) who advocates for your initiative in cross-functional discussions. They&#39;re credible because they don&#39;t report to you — their support feels objective.</p>
+<p><em>Who:</em> Someone who benefits from your product&#39;s success. For KnowledgeHub, Sarah Mitchell (Director Product Strategy) — if KnowledgeHub succeeds, it validates the product strategy she&#39;s building.</p>
+<p><em>What they need from you:</em> Evidence that your initiative is well-thought-out. They&#39;re putting their reputation on the line by supporting you — give them confidence it won&#39;t embarrass them.</p>
+<p><em>How to recruit them:</em> Involve them early. Share your strategy for feedback before it&#39;s final. People champion ideas they helped shape.</p>
+<p><strong>The Implementer: Engineering Buy-In</strong></p>
+<p>Your implementer is the engineering leader who says &quot;yes, we can build this — and here&#39;s how.&quot; Without them, your initiative is a slide deck.</p>
+<p><em>Who:</em> David Kim, or the technical lead assigned to your product.</p>
+<p><em>What they need from you:</em> Technical respect. Don&#39;t tell them how to build it. Show them the problem, the constraints, and the success criteria — then ask how they&#39;d approach it. Give them ownership of the &quot;how.&quot;</p>
+<p><em>How to recruit them:</em> Address their concerns honestly. If LLM costs are a legitimate risk, acknowledge it and build it into the plan. Engineers support PMs who treat their concerns as real, not obstacles to be overcome.</p>
+<h3>The Sequence Matters</h3>
+<p>Don&#39;t try to recruit all three at once. The order matters:</p>
+<ol>
+<li><strong>Implementer first</strong> — Get technical feasibility confirmed so you&#39;re not selling something that can&#39;t be built.</li>
+<li><strong>Champion second</strong> — Get peer validation so your proposal has been pressure-tested by someone outside your direct team.</li>
+<li><strong>Sponsor last</strong> — Come to your sponsor with a technically feasible, peer-validated proposal. They can say yes with confidence.</li>
+</ol>
+<p>If you go to the sponsor first and they ask &quot;has engineering validated this?&quot; — and the answer is no — you&#39;ve spent political capital on a premature ask.</p>
+<hr>
+<h2>War-Gaming with AI</h2>
+<p>The most powerful application of AI in organizational politics isn&#39;t writing emails or building decks. It&#39;s simulation.</p>
+<p>Before any critical conversation — a pitch to your VP, a negotiation with engineering, a presentation to the steering committee — you can use Copilot to simulate how the other person will respond.</p>
+<h3>How to War-Game</h3>
+<p>Give Copilot three things:</p>
+<ol>
+<li><strong>The person&#39;s context:</strong> Their role, priorities, concerns, communication style, and what they&#39;ve said about similar topics in the past.</li>
+<li><strong>Your proposal:</strong> What you&#39;re going to ask for or present.</li>
+<li><strong>The instruction:</strong> &quot;Simulate this conversation. What will they say? What concerns will they raise? Where will they push back?&quot;</li>
+</ol>
+<p>The quality of the simulation depends entirely on the quality of context you provide. &quot;Jennifer Walsh is a VP&quot; gives you generic VP responses. &quot;Jennifer Walsh is risk-averse about company-wide changes, was burned by a failed ERP migration two years ago, and needs to justify every significant investment to the CTO&quot; gives you specific, useful objections.</p>
+<h3>Preparing Talking Points</h3>
+<p>After the simulation, ask Copilot: &quot;Given these likely objections, what are my strongest talking points? How do I address the risk-aversion concern specifically?&quot;</p>
+<p>This isn&#39;t about scripting the conversation — it&#39;s about walking in prepared. You won&#39;t predict the exact words, but you&#39;ll predict the themes. And when Jennifer raises the risk concern you anticipated, you&#39;ll have a thoughtful response ready instead of fumbling.</p>
+<h3>The Pre-Meeting Pre-Meeting</h3>
+<p>The most politically savvy PMs don&#39;t just simulate — they have actual pre-meeting conversations. Before the formal review, they walk into each stakeholder&#39;s office (or jump on a quick call) and say: &quot;I&#39;m presenting X next week. Here&#39;s a preview. What concerns do you have?&quot;</p>
+<p>This does two things:</p>
+<ol>
+<li>You learn their real objections in private, where they&#39;re more candid.</li>
+<li>They feel consulted, which makes them more supportive in the public meeting.</li>
+</ol>
+<p>Use the AI war-game to prepare for these pre-conversations. Use the pre-conversations to calibrate your presentation. By the time you walk into the formal review, you&#39;ve addressed every concern.</p>
+<hr>
+<h2>Exercise 1: Map the Political Landscape</h2>
+<p><strong>Context:</strong> You want to propose a significant, company-wide change to KnowledgeHub. This will touch every department and require significant investment. You need to understand the political landscape before making your move.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>I want to propose a significant change to KnowledgeHub: sunset the legacy document library and migrate everything to the new AI-powered system. This will affect every department at NovaTech (5,000 employees). Key stakeholders: Jennifer Walsh (VP Digital Products, risk-averse, approves budget), Richard Thorne (VP Knowledge &amp; Innovation, sponsor, wants innovation), Maya Patel (VP People Ops, cares about employee experience and change management), David Kim (Director Engineering, concerned about capacity and technical debt), Sarah Mitchell (Director Product Strategy, wants data-driven decisions).
+
+Map the political landscape: (1) Who are my potential allies and why — what&#39;s in it for them? (2) Who will resist and what&#39;s their real concern (not the stated concern, the underlying one)? (3) Who is the swing vote — the person whose position is uncertain and could go either way? (4) Draft a coalition-building plan: who do I talk to first, second, third, and what&#39;s my message to each?
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Does Copilot distinguish between stated concerns and underlying concerns? (David Kim might say &quot;technical risk&quot; but mean &quot;my team is already overcommitted&quot;)</li>
+<li>Does it identify Maya Patel&#39;s unique position — she&#39;s not directly involved but her support or opposition will sway other department heads?</li>
+<li>Does the coalition-building sequence make sense? (Technical feasibility before executive pitch)</li>
+<li>Does each person&#39;s message focus on what <em>they</em> gain, not what <em>you</em> want?</li>
+<li>If the analysis feels generic, add more context: &quot;Richard and Jennifer have a professional rivalry — they don&#39;t openly disagree but they rarely support each other&#39;s initiatives.&quot;</li>
+</ul>
+<hr>
+<h2>Exercise 2: War-Game the VP Conversation</h2>
+<p><strong>Context:</strong> You&#39;ve mapped the landscape and built your coalition. Now you need to pitch the migration to Jennifer Walsh — the most important conversation, because she controls the budget.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>War-game this scenario: I&#39;m going to propose the KnowledgeHub document migration to Jennifer Walsh in our 1:1 next Tuesday. Context about Jennifer: she&#39;s VP Digital Products, supportive of innovation but risk-averse about anything that disrupts the whole company. She was involved in a failed ERP migration two years ago and is cautious about large-scale changes. She needs to justify investments to the CTO and prefers phased approaches over big-bang launches. She respects data and dislikes hand-waving about ROI.
+
+Simulate the conversation: (1) What will her first reaction be? (2) What specific concerns will she raise? (3) What questions will she ask that I need to have answers for? (4) What&#39;s her likely &quot;yes, but...&quot; condition? Then give me the talking points that address her specific risk tolerance — frame the proposal in a way that makes her comfortable saying yes.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Does the simulation reflect Jennifer&#39;s specific traits (risk-averse, data-driven, burned by ERP), or is it generic VP pushback?</li>
+<li>Does it predict she&#39;ll want a phased approach? (It should — that&#39;s consistent with her profile)</li>
+<li>Does it identify that referencing the ERP migration as a &quot;lesson learned&quot; could backfire if not handled carefully?</li>
+<li>Are the talking points specific to Jennifer&#39;s concerns, not generic best practices?</li>
+<li>Does it suggest a concrete &quot;yes, but...&quot; condition she&#39;s likely to propose? (Probably a pilot or phase-gate approval)</li>
+</ul>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>Think about an initiative that stalled or got blocked. Was it a technical problem or a political one? Who was the blocker, and what did they actually care about?</li>
+<li>Do you have a sponsor, champion, and implementer for your current major initiative? If any role is empty, who could fill it?</li>
+<li>When was the last time you had a pre-meeting conversation with a stakeholder before a formal review? What did you learn that you wouldn&#39;t have learned in the meeting?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>I need to build a coalition for [YOUR INITIATIVE] at [YOUR ORGANIZATION]. Key stakeholders: [STAKEHOLDER 1 — role, priorities, relationship to you], [STAKEHOLDER 2 — role, priorities, known concerns], [STAKEHOLDER 3 — role, priorities, influence level]. The initiative requires [WHAT YOU NEED — budget, headcount, organizational change]. Map the political landscape: who are allies, resistors, and swing votes? Then draft a coalition-building plan with a specific sequence: who to approach first, what message to use with each, and what conditions they&#39;re likely to require. Finally, war-game the hardest conversation — simulate what the most skeptical stakeholder will say and give me talking points to address their specific concerns.
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>A political landscape map identifying allies, resistors, and swing votes for your initiative</li>
+<li>A coalition-building plan with a specific sequence and tailored messages for each stakeholder</li>
+<li>A war-gamed conversation with your most skeptical stakeholder, including anticipated objections and prepared talking points</li>
+<li>A clearer understanding of the difference between stated concerns and underlying concerns</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>Political skill isn&#39;t manipulation — it&#39;s understanding how decisions actually get made and positioning your product to succeed in that reality.</li>
+<li>The org chart shows reporting lines; influence mapping shows how decisions actually flow. Map both.</li>
+<li>Every major initiative needs three coalition roles: a Sponsor (executive air cover), a Champion (peer advocacy), and an Implementer (engineering buy-in). Recruit them in that order: Implementer first, Sponsor last.</li>
+<li>War-game critical conversations with AI before they happen. The quality of the simulation depends on the quality of context you provide about the stakeholder&#39;s priorities, concerns, and communication style.</li>
+</ul>
+<hr>
+<h2>What&#39;s Next</h2>
+<p>You&#39;ve completed Level 2: Strategic PM Thinking. You can now write PRDs that get buy-in, make data-driven decisions, build strategies and roadmaps, run effective product reviews, and navigate organizational politics. In <strong>Level 3</strong>, you&#39;ll move from strategic thinking to cross-functional leadership — managing engineering partnerships, driving organizational change, and leading without authority across the enterprise.</p>
+</div>
+    <div class="nav-footer"><a href="module-2.4.html" class="nav-btn prev">&larr; 2.4 Running Effective Product Reviews</a><a href="index.html" class="nav-btn home">Home</a><a href="module-3.1.html" class="nav-btn next">3.1 Visual Communication for PMs &rarr;</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

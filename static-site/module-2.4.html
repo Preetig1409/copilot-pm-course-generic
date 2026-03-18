@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 2.4: Running Effective Product Reviews — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 2: Strategic PM with AI &rsaquo; Module 2.4
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">25 min</span>
+        <span class="meta-tag level">Level 2: Strategic PM with AI</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 2.4: Running Effective Product Reviews</h1>
+<p><strong>Duration:</strong> 25 minutes
+<strong>Prerequisites:</strong> Modules 2.2, 2.3</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ol>
+<li>Structure a product review around a narrative arc that drives a specific decision, not a status update</li>
+<li>Pre-generate and prepare for the hardest questions leadership will ask using AI as a sparring partner</li>
+<li>Handle unexpected tough questions with composure using the &quot;investigate&quot; response framework</li>
+<li>Write post-review follow-up communications that lock in decisions and commitments within 24 hours</li>
+</ol>
+<hr>
+<h2>Your Most Important Meeting</h2>
+<p>Shreyas Doshi draws a line between PMs who <em>survive</em> product reviews and PMs who <em>shape</em> them. The difference isn&#39;t presentation skills — it&#39;s agency. High-agency PMs walk into a review knowing exactly what decision they want, having anticipated every objection, and having pre-built the path to yes.</p>
+<p>Low-agency PMs present their data, answer questions reactively, and leave the room hoping leadership will decide in their favor. They treat the review as something that happens <em>to</em> them.</p>
+<p>Here&#39;s the reality of product reviews in enterprise organizations: this is where strategy meets resources. Where you build credibility or burn it. Where your roadmap gets funded or your initiative gets shelved. Every product review is a campaign, and the meeting itself is just the final event — the real work happened in the weeks before.</p>
+<p>If you&#39;re walking into a product review and the outcome is genuinely uncertain, you&#39;ve already made a mistake. By the time you present, you should have built alignment with every key stakeholder individually. The review formalizes decisions that were largely made in hallway conversations, 1:1s, and pre-read reviews.</p>
+<p>This module teaches you to prepare like a high-agency PM — so the review confirms your direction instead of derailing it.</p>
+<hr>
+<h2>Preparation: The Narrative Arc</h2>
+<p>Most PMs prepare for product reviews by assembling data. They open their dashboards, screenshot the charts, paste them into slides, and call it done. This produces a status update, not a decision document.</p>
+<p>A product review needs a <strong>narrative arc</strong> — a story that leads your audience from where you are to where you recommend going, with evidence at every turn.</p>
+<h3>The Structure</h3>
+<p><strong>1. Here&#39;s where we are</strong> (2-3 minutes)
+State the current situation with metrics, using the &quot;what → so what&quot; framework from Module 2.2. Don&#39;t just show the numbers — interpret them.</p>
+<p>Not: &quot;WAU is 43%.&quot;
+But: &quot;WAU grew from 38% to 43% — that&#39;s 250 more weekly users and roughly $1M in annualized productivity gains. But growth is decelerating, which means our current approach is running out of runway.&quot;</p>
+<p><strong>2. Here&#39;s what we learned</strong> (3-5 minutes)
+What did you discover since the last review? What experiments ran? What surprised you? This is where you show that you&#39;re learning, not just executing.</p>
+<p>&quot;Our AI search pilot with the Engineering department showed 3x faster search times and a 12-point NPS increase within the pilot group. But we also learned that search quality degrades significantly for unstructured documents — which means 40% of our content library needs preprocessing before a full rollout.&quot;</p>
+<p><strong>3. Here&#39;s what we recommend</strong> (3-5 minutes)
+Your recommendation, grounded in the evidence. Include what you&#39;re recommending and what you&#39;re explicitly NOT recommending (and why).</p>
+<p>&quot;We recommend a phased rollout of AI search, starting with the three departments that have the most structured content. We&#39;re NOT recommending a full rollout yet because the unstructured content issue would create a worse experience for Sales and Marketing.&quot;</p>
+<p><strong>4. Here&#39;s what we need</strong> (1-2 minutes)
+The specific ask. Budget, headcount, timeline extension, executive sponsorship, stakeholder alignment. Be precise.</p>
+<p>&quot;We need: (1) Budget approval for LLM infrastructure — estimated $8K/month. (2) A 4-week pilot extension to validate the structured-content-first approach. (3) Richard Thorne&#39;s team to prioritize content cleanup for the next department in line.&quot;</p>
+<h3>The One-Decision Rule</h3>
+<p>Every product review should drive toward exactly <strong>one decision</strong>. Not three. Not &quot;several things to discuss.&quot; One.</p>
+<p>If you need multiple decisions, you need multiple meetings — or you need to cascade the decisions so that one unlocks the others. &quot;If we approve the phased rollout (the one decision), then the budget and timeline follow from that.&quot;</p>
+<p>When you try to drive multiple independent decisions in one review, you get none of them. Leadership gets decision fatigue, the conversation drifts, and you leave with &quot;let&#39;s schedule a follow-up&quot; — which is PM code for &quot;we failed to decide.&quot;</p>
+<hr>
+<h2>Handling Tough Questions</h2>
+<h3>Pre-Generate the Hard Questions</h3>
+<p>Before any product review, generate the 10 hardest questions your audience could ask. This is where Copilot excels — give it context about your stakeholders, your data, and your recommendation, and ask it to play aggressive interviewer.</p>
+<p><strong>The 7-and-3 rule:</strong> Prepare full answers for 7 of the 10 questions. For the other 3 — the ones that are genuinely hard or require data you don&#39;t have — prepare &quot;investigate&quot; responses.</p>
+<h3>The &quot;Investigate&quot; Response</h3>
+<p>When a question catches you off guard, don&#39;t bluff. Don&#39;t hedge with vague generalities. Use this format:</p>
+<p><strong>&quot;That&#39;s an important question. Here&#39;s what I know: [relevant context]. Here&#39;s what I&#39;d need to investigate to give you a confident answer: [specific next step]. I&#39;ll have that by [specific date].&quot;</strong></p>
+<p>This does three things:</p>
+<ol>
+<li>Shows you&#39;re thoughtful, not defensive</li>
+<li>Demonstrates you know the boundaries of your knowledge</li>
+<li>Creates a specific commitment that builds trust</li>
+</ol>
+<p><strong>What NOT to do:</strong></p>
+<ul>
+<li>Don&#39;t make up numbers under pressure</li>
+<li>Don&#39;t say &quot;I&#39;ll get back to you&quot; without a specific date</li>
+<li>Don&#39;t deflect to someone else in the room unless they&#39;re genuinely better positioned to answer</li>
+<li>Don&#39;t treat the question as an attack — even if it feels like one</li>
+</ul>
+<h3>The Reframe Technique</h3>
+<p>Sometimes a question is important but pulls the meeting off-track. The reframe brings it back:</p>
+<p>&quot;That&#39;s a great question about long-term platform architecture. I want to give that the attention it deserves — can I address it in our technical deep-dive next week? For today, the decision we need is whether to approve the phased rollout.&quot;</p>
+<p>This acknowledges the question, validates the asker, and keeps the meeting focused on the one decision.</p>
+<hr>
+<h2>Post-Review Execution</h2>
+<p>The review ended well. You got your approval. Now comes the part most PMs neglect: locking it in.</p>
+<h3>The 24-Hour Rule</h3>
+<p>Send the follow-up email within 24 hours. Not because you&#39;re eager — because memory is unreliable and organizational context shifts fast. What felt like a clear &quot;yes&quot; in the room becomes &quot;I think we discussed that, but what exactly did we agree on?&quot; by next week.</p>
+<h3>The Follow-Up Email Structure</h3>
+<p><strong>Subject:</strong> &quot;[Product Review] KnowledgeHub AI Search — Decisions &amp; Next Steps&quot;</p>
+<p><strong>Decisions Made:</strong></p>
+<ul>
+<li>Bullet each decision precisely. &quot;Approved phased rollout of AI search, starting with Engineering, Product, and People Ops departments.&quot;</li>
+</ul>
+<p><strong>Conditions &amp; Constraints:</strong></p>
+<ul>
+<li>Any caveats attached to the approval. &quot;Contingent on 4-week pilot demonstrating [specific metric] with the Engineering department.&quot;</li>
+</ul>
+<p><strong>Next Steps:</strong></p>
+<ul>
+<li>Each item has an owner and a date. &quot;David Kim: Provision LLM infrastructure by April 15. Sanjay: Design pilot success metrics and share by April 8. Richard Thorne&#39;s team: Begin content cleanup for Product and People Ops by April 22.&quot;</li>
+</ul>
+<p><strong>Open Items:</strong></p>
+<ul>
+<li>Questions that were deferred. &quot;Platform architecture discussion — scheduled for April 12 technical deep-dive.&quot;</li>
+</ul>
+<p><strong>Decision Record:</strong></p>
+<ul>
+<li>&quot;This email serves as the record of decisions made in the March 18 product review. Please reply by [date] with any corrections.&quot;</li>
+</ul>
+<p>That last line is critical. It gives stakeholders a window to correct misunderstandings, and their silence becomes implicit confirmation.</p>
+<hr>
+<h2>Exercise 1: Build the Narrative and Anticipate Questions</h2>
+<p><strong>Context:</strong> You&#39;re preparing for KnowledgeHub&#39;s quarterly product review. You have data, a recommendation, and an ask. Now you need to build the narrative and war-game the tough questions.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>I&#39;m preparing for KnowledgeHub&#39;s quarterly product review with Jennifer Walsh (VP Digital Products), Richard Thorne (VP Knowledge &amp; Innovation, sponsor), and Sarah Mitchell (Director Product Strategy). Here&#39;s my data: 43% WAU (up from 38% last quarter), NPS +12 (flat), AI search pilot showing 3x faster results. I want to request budget for full AI search rollout. Help me build the narrative arc: (1) Where we are — current state with interpreted metrics, (2) What we learned — pilot results and key insights, (3) Our recommendation — phased rollout with rationale, (4) The ask — specific resources and approvals needed. Then generate the 10 toughest questions they might ask, considering each person&#39;s role and priorities.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Does the &quot;where we are&quot; section interpret the data (so what), not just state it (what)?</li>
+<li>Does it flag that NPS being flat despite WAU growth is a potential concern?</li>
+<li>Does the narrative build a logical case where the recommendation feels inevitable?</li>
+<li>Are the 10 questions genuinely tough? Do they include: cost questions (Jennifer), strategic alignment questions (Richard), scalability questions (Sarah)?</li>
+<li>Pick the 3 hardest questions and practice the &quot;investigate&quot; response format for those.</li>
+</ul>
+<hr>
+<h2>Exercise 2: Draft the Follow-Up Email</h2>
+<p><strong>Context:</strong> The review went well. You got conditional approval. Now lock it in.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Draft the post-review follow-up email. The review was with Jennifer Walsh, Richard Thorne, and Sarah Mitchell on March 18, 2026. Decisions: approved phased rollout of AI search for KnowledgeHub, starting with a 4-week pilot with the Engineering department. Conditions: pilot must demonstrate (1) at least 2x improvement in search time, (2) positive user feedback from at least 70% of pilot participants, (3) LLM costs under $10K/month at pilot scale. Budget: $8K/month for LLM infrastructure approved for pilot period. Next steps need owners and dates. Include an open item about long-term platform architecture that was raised but deferred. End with a decision record confirmation request.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Is every decision stated precisely enough that there&#39;s no room for misinterpretation?</li>
+<li>Are the success criteria for the pilot specific and measurable?</li>
+<li>Does every next step have exactly one owner (not &quot;the team&quot;) and a specific date?</li>
+<li>Is the tone professional but not bureaucratic — concise enough that busy VPs will actually read it?</li>
+<li>Does it include the &quot;reply by [date] with any corrections&quot; commitment lock?</li>
+</ul>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>When is your next product review? What&#39;s the ONE decision you want to drive?</li>
+<li>In your last product review, were you surprised by any question? Could you have anticipated it?</li>
+<li>Do you send follow-up emails after reviews that lock in decisions? Or do decisions drift?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>I&#39;m preparing for a product review for [PRODUCT NAME] with [AUDIENCE — names, roles, and what they care about]. My data: [KEY METRICS WITH TRENDS]. My recommendation: [WHAT YOU WANT TO DO]. My ask: [SPECIFIC RESOURCES OR APPROVALS]. Help me build the narrative arc (where we are → what we learned → recommendation → the ask). Then generate the 10 toughest questions my audience might ask, tailored to each person&#39;s role and priorities. For the 3 hardest, draft &quot;investigate&quot; responses.
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>A narrative arc for your product review that builds toward a specific decision</li>
+<li>10 anticipated tough questions with prepared answers for 7 and &quot;investigate&quot; responses for 3</li>
+<li>A post-review follow-up email template that locks in decisions with owners, dates, and confirmation requests</li>
+<li>A clear understanding of the one decision you&#39;re driving in your next review</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>Product reviews are your most important meeting — treat them as campaigns to drive specific decisions, not status updates to survive.</li>
+<li>The narrative arc (where we are → what we learned → recommendation → the ask) builds a logical case that makes your recommendation feel inevitable.</li>
+<li>Pre-generate the 10 hardest questions and prepare for them using the 7-and-3 rule. For questions you can&#39;t fully answer, use the &quot;investigate&quot; response format.</li>
+<li>Send the follow-up email within 24 hours to lock in decisions with precise language, clear owners, specific dates, and a confirmation request.</li>
+</ul>
+<hr>
+<h2>What&#39;s Next</h2>
+<p>You can build the case, present the data, and drive decisions in reviews. But what happens when the blocker isn&#39;t a data gap — it&#39;s a person? In <strong>Module 2.5: Navigating Organizational Politics</strong>, you&#39;ll learn to map the real decision-making network, build coalitions, and war-game stakeholder conversations so you win the argument before the meeting starts.</p>
+</div>
+    <div class="nav-footer"><a href="module-2.3.html" class="nav-btn prev">&larr; 2.3 Product Strategy &amp; Roadmapping</a><a href="index.html" class="nav-btn home">Home</a><a href="module-2.5.html" class="nav-btn next">2.5 Navigating Organizational Politics &rarr;</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

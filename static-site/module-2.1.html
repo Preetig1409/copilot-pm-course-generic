@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 2.1: Writing PRDs That Get Buy-In — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 2: Strategic PM with AI &rsaquo; Module 2.1
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">35 min</span>
+        <span class="meta-tag level">Level 2: Strategic PM with AI</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 2.1: Writing PRDs That Get Buy-In</h1>
+<p><strong>Duration:</strong> 35 minutes
+<strong>Prerequisites:</strong> Module 0.4, Level 1</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ol>
+<li>Distinguish enterprise internal PRDs from startup-style PRDs and explain why they require different elements</li>
+<li>Use the PRD writing process as an alignment tool that surfaces disagreements before engineering begins</li>
+<li>Apply the 4-phase enterprise PRD workflow to produce documents that drive decisions, not just describe features</li>
+<li>Use AI persona prompting to stress-test your PRD from multiple stakeholder perspectives before the real review</li>
+</ol>
+<hr>
+<h2>The Document Isn&#39;t the Point</h2>
+<p>Marty Cagan nails it: &quot;The purpose of the PRD isn&#39;t the document, it&#39;s the thinking.&quot; And in enterprise environments, we&#39;d add a corollary: &quot;Evangelize, don&#39;t just document.&quot;</p>
+<p>You&#39;ve written PRDs before. You know the sections — problem statement, user stories, requirements, success metrics. But if you&#39;ve ever had a PRD approved in a meeting and then quietly ignored afterward, you&#39;ve experienced the gap between a <em>correct</em> PRD and an <em>effective</em> one.</p>
+<p>At the strategic level, the PRD isn&#39;t a specification. It&#39;s a persuasion document. It&#39;s the artifact that forces five different leaders to confront the same problem, argue about the same tradeoffs, and commit to the same direction — before a single line of code gets written.</p>
+<p>This module teaches you to write PRDs that don&#39;t just describe what you want to build. They get people to <em>want</em> to build it.</p>
+<hr>
+<h2>Enterprise PRDs Are Different</h2>
+<p>Most PM courses teach you to write startup PRDs. Those are valuable — but they&#39;re optimized for speed, small teams, and environments where the PM has direct authority. Enterprise internal products live in a different world.</p>
+<p>Here&#39;s what changes:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Standard/Startup PRD</th>
+<th>Enterprise Internal PRD</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Business Case</strong></td>
+<td>Brief — product-market fit focus</td>
+<td>Detailed — ROI calculation, productivity impact, cost of inaction</td>
+</tr>
+<tr>
+<td><strong>Stakeholder Analysis</strong></td>
+<td>Minimal — small team alignment</td>
+<td>Critical — multiple VPs, cross-functional dependencies, competing priorities</td>
+</tr>
+<tr>
+<td><strong>Success Metrics</strong></td>
+<td>Product metrics (DAU, retention)</td>
+<td>Business metrics (productivity gain, cost reduction, adoption across departments)</td>
+</tr>
+<tr>
+<td><strong>Adoption Plan</strong></td>
+<td>&quot;Ship it and they&#39;ll come&quot;</td>
+<td>Change management strategy — training, migration, rollout phases</td>
+</tr>
+<tr>
+<td><strong>Governance</strong></td>
+<td>Informal</td>
+<td>RACI matrix, steering committee, escalation paths</td>
+</tr>
+<tr>
+<td><strong>Risk Section</strong></td>
+<td>Technical risks</td>
+<td>Technical + organizational + political risks</td>
+</tr>
+</tbody></table>
+<p>If your PRD for KnowledgeHub&#39;s AI search feature reads like a startup feature spec, it will fail — not because the feature is wrong, but because Jennifer Walsh can&#39;t take it to her leadership meeting and justify the investment. Richard Thorne can&#39;t use it to show alignment with the knowledge strategy. David Kim can&#39;t use it to plan engineering capacity.</p>
+<p>The enterprise PRD serves multiple audiences with different needs, and it needs to work for all of them.</p>
+<hr>
+<h2>The PRD as Alignment Tool</h2>
+<p>Here&#39;s the insight that separates good PMs from great ones: the document is 20% of the value. The conversations it forces are 80%.</p>
+<p>Think about what happens when you write a thorough enterprise PRD:</p>
+<ul>
+<li>You write the ROI section and realize your numbers don&#39;t add up. Good — you caught that before the VP did.</li>
+<li>You write the stakeholder analysis and notice that Engineering and the Knowledge team have conflicting priorities. Good — you can broker that conversation now instead of mid-sprint.</li>
+<li>You write the adoption plan and realize you have no idea how the Sales team currently uses the tool. Good — now you&#39;ll go find out before you build something they&#39;ll ignore.</li>
+</ul>
+<p>The PRD writing process is a <em>discovery process</em>. Every section you struggle to write is a signal that you don&#39;t yet understand something important.</p>
+<p><strong>The practical move:</strong> Write your PRD in stages. Share each stage with the relevant stakeholder before it&#39;s polished. A rough business case shared with your VP early is worth more than a perfect document shared too late.</p>
+<p>Use disagreements as features, not bugs. When Richard Thorne and David Kim disagree about the scope of AI integration, that&#39;s not a problem — that&#39;s the exact conversation that needs to happen before engineering starts. Your PRD made it happen.</p>
+<hr>
+<h2>The 4-Phase Enterprise PRD Workflow</h2>
+<h3>Phase 1: Business Context</h3>
+<p><em>Purpose: Establish why this matters before discussing what to build</em></p>
+<ul>
+<li><strong>Problem Statement</strong> — What&#39;s broken, for whom, and what&#39;s the cost of doing nothing?</li>
+<li><strong>Quantified Impact</strong> — Every 1% WAU increase = $X. Current state vs. target state = $Y gap.</li>
+<li><strong>ROI Calculation</strong> — Investment required vs. expected return. Include time-to-value.</li>
+<li><strong>Stakeholder Analysis</strong> — Who needs to say yes? Who can say no? What does each person care about?</li>
+</ul>
+<p>This phase is where most enterprise PRDs fail. PMs jump to the solution because it&#39;s more fun. But if your business context doesn&#39;t make a VP lean forward and say &quot;tell me more,&quot; no amount of brilliant solution design will save you.</p>
+<h3>Phase 2: Solution &amp; Impact</h3>
+<p><em>Purpose: Show you&#39;ve considered options and chosen wisely</em></p>
+<ul>
+<li><strong>Options Considered</strong> — At least 3, including &quot;do nothing.&quot; Honest pros/cons for each.</li>
+<li><strong>Recommended Approach</strong> — Your pick and a clear rationale.</li>
+<li><strong>Success Metrics</strong> — Tied back to the business impact from Phase 1.</li>
+<li><strong>Change Management</strong> — How will users transition? What training is needed? What breaks during migration?</li>
+</ul>
+<h3>Phase 3: Document &amp; Governance</h3>
+<p><em>Purpose: Make it real and accountable</em></p>
+<ul>
+<li><strong>Structured Document</strong> — Clean, scannable, with an executive summary that stands alone.</li>
+<li><strong>RACI Matrix</strong> — Who is Responsible, Accountable, Consulted, Informed for each workstream.</li>
+<li><strong>Steering Committee Plan</strong> — Cadence, membership, decision rights.</li>
+<li><strong>Timeline &amp; Milestones</strong> — Phased delivery with clear go/no-go gates.</li>
+</ul>
+<h3>Phase 4: Review &amp; Alignment</h3>
+<p><em>Purpose: Pressure-test before committing resources</em></p>
+<ul>
+<li><strong>Multi-Perspective Review</strong> — Get feedback from engineering, business, and end-user perspectives.</li>
+<li><strong>Red Team Exercise</strong> — Actively try to poke holes in your own plan.</li>
+<li><strong>Final Alignment Meeting</strong> — One meeting, one decision: go, no-go, or iterate.</li>
+<li><strong>Decision Record</strong> — Document what was decided, what was deferred, and what conditions apply.</li>
+</ul>
+<hr>
+<h2>Multi-Perspective Review with AI</h2>
+<p>This is where Copilot becomes genuinely powerful for strategic PM work.</p>
+<p>Before you walk into a review with real stakeholders, you can simulate that review with AI. The technique is <strong>persona prompting</strong> — asking Copilot to adopt a specific stakeholder&#39;s perspective and critique your work from that angle.</p>
+<p>This isn&#39;t about replacing stakeholder conversations. It&#39;s about having <em>better</em> stakeholder conversations because you&#39;ve already anticipated their concerns.</p>
+<p><strong>How it works:</strong></p>
+<p>You give Copilot your PRD section and ask it to review as a specific person with specific concerns. The key is giving enough context about that person&#39;s priorities, fears, and communication style.</p>
+<p>For example:</p>
+<ul>
+<li><strong>As your Engineering Director</strong> — &quot;You care about technical feasibility, LLM costs, team capacity, and technical debt. You&#39;ve been burned by ambitious product roadmaps before.&quot;</li>
+<li><strong>As your VP sponsor</strong> — &quot;You care about strategic alignment, ROI, and whether this strengthens your position in the next leadership offsite.&quot;</li>
+<li><strong>As your most skeptical stakeholder</strong> — &quot;You think internal tools always overpromise and underdeliver. You want to see hard evidence, not projections.&quot;</li>
+<li><strong>As your newest user</strong> — &quot;You just joined the company. You&#39;ve never used KnowledgeHub. You&#39;re comparing it to Google and finding it lacking.&quot;</li>
+</ul>
+<p>Each persona will surface different blind spots. The Engineering Director finds the cost gap you glossed over. The VP finds the strategic narrative gap. The skeptic finds the assumption you&#39;re treating as fact. The new user finds the onboarding gap.</p>
+<p>Run all four before your real review. You&#39;ll walk in with answers instead of surprises.</p>
+<hr>
+<h2>Exercise 1: Build the Business Case</h2>
+<p><strong>Context:</strong> You&#39;re writing a PRD for KnowledgeHub&#39;s AI-powered search feature. You need a business case compelling enough to get budget approval from leadership.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>I&#39;m writing a PRD for KnowledgeHub&#39;s AI-powered search feature. The business context: search currently takes 8 min avg (target: 2 min), 43% WAU, every 1% WAU increase = ~$200K annual productivity gain. Key stakeholders: Richard Thorne (sponsor, wants innovation), David Kim (engineering, worried about LLM costs), Jennifer Walsh (VP, wants ROI justification). Help me build Phase 1: the business case section. Include: problem statement, quantified impact, ROI calculation, and stakeholder analysis. Challenge me where my numbers are weak.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Does Copilot question your $200K per 1% WAU figure? (It should — where did that number come from?)</li>
+<li>Does the problem statement focus on business impact, not just user frustration?</li>
+<li>Does the stakeholder analysis capture what each person <em>actually</em> cares about, not just their title?</li>
+<li>Does the ROI calculation include costs (LLM API fees, engineering time, training) or just benefits?</li>
+<li>If Copilot gives you a polished output without pushback, add: &quot;Now challenge the weakest assumptions in what you just wrote.&quot;</li>
+</ul>
+<hr>
+<h2>Exercise 2: Multi-Perspective Review</h2>
+<p><strong>Context:</strong> You&#39;ve drafted the business case from Exercise 1. Now stress-test it from three different stakeholder perspectives.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Now review this PRD section from three perspectives:
+
+(1) As David Kim, Director of Engineering — what technical concerns and cost questions would you raise? You&#39;re protective of your team&#39;s capacity and skeptical of LLM cost projections. You&#39;ve seen &quot;AI features&quot; get approved without realistic infrastructure planning.
+
+(2) As Richard Thorne, VP Knowledge &amp; Innovation — does this align with the knowledge strategy? What&#39;s missing? You&#39;re enthusiastic about AI but need this to support your vision for NovaTech as a knowledge-driven organization.
+
+(3) As a skeptical board member — is the ROI compelling? What assumptions are you questioning? You&#39;ve seen too many internal tool projects that never delivered promised productivity gains.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Do the three perspectives raise genuinely different concerns, or do they sound the same?</li>
+<li>Does &quot;David Kim&quot; ask about LLM hosting costs, latency, data privacy, and engineering sprint allocation?</li>
+<li>Does &quot;Richard Thorne&quot; push on strategic differentiation and long-term knowledge architecture?</li>
+<li>Does the &quot;board member&quot; zero in on the ROI assumptions and ask for comparable benchmarks?</li>
+<li>Take the best objections and revise your Phase 1 section. The exercise works when it changes your document.</li>
+</ul>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What&#39;s the biggest initiative you need buy-in for right now? Who needs to say yes? What would make them say no?</li>
+<li>When was the last time a PRD you wrote got significant pushback? Was the pushback about the solution or the business case?</li>
+<li>Do you know what each of your key stakeholders&#39; top 3 priorities are this quarter? If not, how would you find out?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>I&#39;m writing an enterprise PRD for [YOUR INITIATIVE]. The business problem is [PROBLEM WITH CURRENT METRICS]. The target outcome is [DESIRED STATE WITH METRICS]. Key stakeholders who need to approve: [STAKEHOLDER 1 — THEIR ROLE AND PRIORITIES], [STAKEHOLDER 2 — THEIR ROLE AND PRIORITIES], [STAKEHOLDER 3 — THEIR ROLE AND PRIORITIES]. Help me build the Phase 1 business case: problem statement, quantified impact, ROI calculation, and stakeholder analysis. Then review it from each stakeholder&#39;s perspective and tell me where it&#39;s weakest.
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>A Phase 1 business case section for your initiative with quantified impact and ROI</li>
+<li>A stakeholder analysis that maps each decision-maker&#39;s priorities and concerns</li>
+<li>Multi-perspective feedback that identifies the blind spots in your business case</li>
+<li>A clear sense of which stakeholder conversation you need to have first</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>Enterprise internal PRDs need elements that startup PRDs skip: ROI, stakeholder analysis, adoption planning, and governance.</li>
+<li>The PRD writing process matters more than the document itself — it forces alignment conversations that prevent costly mid-project pivots.</li>
+<li>The 4-phase workflow (Business Context → Solution &amp; Impact → Document &amp; Governance → Review &amp; Alignment) ensures you build the case before designing the solution.</li>
+<li>AI persona prompting lets you stress-test your PRD from multiple stakeholder perspectives before the real review, so you walk in with answers instead of surprises.</li>
+</ul>
+<hr>
+<h2>What&#39;s Next</h2>
+<p>Your PRD makes the case for what to build. But &quot;what to build&quot; should be driven by data, not instinct. In <strong>Module 2.2: Data-Driven Decisions with AI</strong>, you&#39;ll learn to build metrics hierarchies, tell stories with data, and use Copilot for product analytics — so your PRDs are backed by evidence that holds up to scrutiny.</p>
+</div>
+    <div class="nav-footer"><a href="module-1.8.html" class="nav-btn prev">&larr; 1.8 Teams &amp; Outlook Mastery</a><a href="index.html" class="nav-btn home">Home</a><a href="module-2.2.html" class="nav-btn next">2.2 Data-Driven Decisions with AI &rarr;</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

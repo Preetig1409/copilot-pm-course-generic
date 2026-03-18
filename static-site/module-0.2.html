@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 0.2: Knowing Your Users — Beyond Persona Templates — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 0: The PM Craft &rsaquo; Module 0.2
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">25 min</span>
+        <span class="meta-tag level">Level 0: The PM Craft</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 0.2: Knowing Your Users — Beyond Persona Templates</h1>
+<p><strong>Duration:</strong> 25 minutes
+<strong>Prerequisites:</strong> Module 0.1 (What Product Management Actually Is)</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<p>By the end of this module, you will:</p>
+<ol>
+<li>Identify why most persona documents fail to influence product decisions — and what to include instead</li>
+<li>Reframe user needs using the Jobs-to-Be-Done framework and write job stories</li>
+<li>Design a lightweight continuous discovery practice you can start this week</li>
+<li>Move from raw observations to actionable insights using the insight pyramid</li>
+</ol>
+<hr>
+<h2>The Persona Problem</h2>
+<p>Teresa Torres, in <em>Continuous Discovery Habits</em>, makes an observation that should make every PM uncomfortable: most teams that claim to be &quot;user-centric&quot; have not talked to a user in months. They have personas — beautifully designed PDFs with stock photos, demographics, and quotes — sitting in a Confluence page nobody opens.</p>
+<p>Here is why: <strong>demographics are not behavior.</strong></p>
+<p>A persona that says &quot;Sarah, 35, marketing manager, lives in Austin, uses Slack daily&quot; tells you nothing about what to build. You could swap &quot;Austin&quot; for &quot;Denver&quot; and &quot;35&quot; for &quot;42&quot; and every product decision stays the same. That is a sign the persona is decorative, not functional.</p>
+<p>Good personas — the kind that actually change what you build — capture four things:</p>
+<table>
+<thead>
+<tr>
+<th>Decorative Persona</th>
+<th>Functional Persona</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Age, title, location</td>
+<td>Goals they are trying to achieve</td>
+</tr>
+<tr>
+<td>Generic frustrations (&quot;wants things to be easier&quot;)</td>
+<td>Specific workarounds they have built</td>
+</tr>
+<tr>
+<td>Stock photo and a name</td>
+<td>Switching triggers — what would make them abandon your product or adopt it</td>
+</tr>
+<tr>
+<td>&quot;Tech-savvy millennial&quot;</td>
+<td>Current behavior patterns with timestamps and frequency</td>
+</tr>
+</tbody></table>
+<p>At NovaTech, if your persona says &quot;Project Manager, 38, wants better visibility into team capacity&quot; — that is decorative. If it says &quot;Checks three different spreadsheets every Monday morning to piece together who is available, then manually updates a slide deck for her VP by noon, and is wrong about availability 30% of the time&quot; — now you know what to build.</p>
+<hr>
+<h2>Jobs-to-Be-Done: The Superior Lens</h2>
+<p>People do not want a knowledge management platform. They want to find the right expert in under 2 minutes before a client call. They do not want a project dashboard. They want to walk into a steering committee meeting knowing exactly which projects are at risk, without having spent 4 hours compiling data.</p>
+<p>This is the Jobs-to-Be-Done (JTBD) framework: users &quot;hire&quot; your product to do a job. When it does the job well, they keep using it. When it does not, they find something else — a spreadsheet, a Slack message, a phone call to a colleague.</p>
+<p><strong>The job story format:</strong></p>
+<blockquote>
+<p>When [situation], I want to [motivation], so I can [expected outcome].</p>
+</blockquote>
+<p>This is better than traditional user stories (&quot;As a [user], I want [feature]&quot;) because it starts with the situation, not the user type. The situation drives behavior more than the role does.</p>
+<p><strong>Examples for KnowledgeHub:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Traditional User Story</th>
+<th>Job Story</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>As a consultant, I want to search for documents.</td>
+<td>When I am preparing for a client meeting in 30 minutes, I want to find relevant case studies from similar engagements, so I can demonstrate our company&#39;s experience without guessing.</td>
+</tr>
+<tr>
+<td>As a manager, I want to find experts.</td>
+<td>When a client asks if we have someone with a specific skill, I want to identify an available expert within 5 minutes, so I can respond before the client moves to a competitor.</td>
+</tr>
+<tr>
+<td>As an employee, I want to save content.</td>
+<td>When I find a useful template during a project, I want to bookmark it with context about how I used it, so I can find it again 6 months later when I need it for a similar situation.</td>
+</tr>
+</tbody></table>
+<p>Notice how job stories contain implicit design constraints. &quot;In 30 minutes&quot; tells you the search has to be fast. &quot;Without guessing&quot; tells you results need credibility signals. &quot;6 months later&quot; tells you the save mechanism needs context, not just a bookmark.</p>
+<p><strong>Switching triggers — the missing piece:</strong></p>
+<p>Most persona work ignores what makes someone start or stop using your product. Switching triggers are the events that change behavior:</p>
+<ul>
+<li><strong>Adopt trigger:</strong> &quot;I got embarrassed in a client meeting because I could not find a case study I knew existed. That afternoon I started using KnowledgeHub seriously.&quot;</li>
+<li><strong>Abandon trigger:</strong> &quot;Search returned 200 irrelevant results three times in a row. I went back to asking on Slack.&quot;</li>
+<li><strong>Workaround trigger:</strong> &quot;I maintain my own bookmarks folder because the platform&#39;s save feature does not let me add notes.&quot;</li>
+</ul>
+<p>If you do not understand switching triggers, you are guessing about adoption.</p>
+<hr>
+<h2>Continuous Discovery — Talk to Users Weekly, Not Quarterly</h2>
+<p>Torres&#39;s most important contribution is this: <strong>discovery is not a phase. It is a habit.</strong></p>
+<p>The standard approach — &quot;we&#39;ll do research before the next big initiative&quot; — means you do research once or twice a year and make assumptions the rest of the time. By the time you talk to users, you have already committed to a direction.</p>
+<p><strong>The continuous discovery cadence:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Frequency</th>
+<th>Activity</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Weekly</strong></td>
+<td>1-2 user interviews (30 min each)</td>
+<td>Stay connected to real problems. Catch emerging issues before they become crises.</td>
+</tr>
+<tr>
+<td><strong>Bi-weekly</strong></td>
+<td>Interview snapshot review with team</td>
+<td>Share patterns across interviews so the whole team builds user empathy.</td>
+</tr>
+<tr>
+<td><strong>Monthly</strong></td>
+<td>Insight synthesis</td>
+<td>Roll up observations into themes and implications. Update your opportunity backlog.</td>
+</tr>
+<tr>
+<td><strong>Quarterly</strong></td>
+<td>Deep-dive research</td>
+<td>Focused study on a specific area (new market, major redesign, competitive shift).</td>
+</tr>
+</tbody></table>
+<p><strong>The interview snapshot technique:</strong></p>
+<p>After each interview, write a snapshot in under 5 minutes:</p>
+<ol>
+<li><strong>Quick summary</strong> (2 sentences): What was this person trying to do? What happened?</li>
+<li><strong>Surprising thing</strong> (1 sentence): What did you learn that you did not expect?</li>
+<li><strong>Opportunity</strong> (1 sentence): What unmet need did this reveal?</li>
+<li><strong>Quote</strong> (verbatim): One thing they said that captured the essence.</li>
+</ol>
+<p>This is fast enough to actually do. A 10-page research report after every interview is why teams stop doing research.</p>
+<p><strong>Recruiting from an internal user base:</strong></p>
+<p>For enterprise products like KnowledgeHub (5,000 users at NovaTech), recruiting interview participants is easier than B2C — and most PMs still do not do it. Tactics:</p>
+<ul>
+<li>Add a &quot;Talk to the product team&quot; link in the app&#39;s help menu</li>
+<li>Ask customer support to flag users who gave detailed feedback</li>
+<li>Pull a list of recently churned users (stopped using the product in last 30 days) — they have the most to tell you</li>
+<li>Attend team meetings in departments with low adoption — 5 minutes at the end of their standup</li>
+<li>Post in internal Slack/Teams channels: &quot;We&#39;re improving search. 30-minute chat, coffee on us.&quot;</li>
+</ul>
+<p><strong>&quot;We&#39;ll do research later&quot; = &quot;We&#39;ll never do research.&quot;</strong> If it is not on your calendar this week, it is not happening.</p>
+<hr>
+<h2>The Insight Pyramid</h2>
+<p>Raw user feedback is not insight. &quot;Users say search is slow&quot; is an observation. Insight requires interpretation and implication.</p>
+<p><strong>The four levels:</strong></p>
+<pre><code>           ┌───────────┐
+           │Implications│  → What should we do about it?
+          ┌┴───────────┴┐
+          │   Insights   │  → Why is this happening?
+         ┌┴─────────────┴┐
+         │    Patterns     │  → What keeps coming up?
+        ┌┴───────────────┴┐
+        │   Observations    │  → What did users say/do?
+        └──────────────────┘
+</code></pre>
+<p><strong>Applied to KnowledgeHub:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Observation</strong></td>
+<td>4 of 6 users interviewed this month said they &quot;give up on search after 2 minutes.&quot;</td>
+</tr>
+<tr>
+<td><strong>Pattern</strong></td>
+<td>Users who give up on search have a consistent workaround: they ask colleagues on Slack or Teams instead.</td>
+</tr>
+<tr>
+<td><strong>Insight</strong></td>
+<td>Users are not frustrated by search speed — they are frustrated by result relevance. They find results fast but cannot tell which ones are useful, so they switch to a channel where a human can interpret their question.</td>
+</tr>
+<tr>
+<td><strong>Implication</strong></td>
+<td>Improving search speed will not fix adoption. We need to surface relevance signals (recency, author credibility, usage count) so users can evaluate results without opening every document.</td>
+</tr>
+</tbody></table>
+<p>Most PMs stop at observations. They hear &quot;search is slow&quot; and put &quot;improve search speed&quot; on the roadmap. The value is in the implication — it tells you what to actually build.</p>
+<hr>
+<h2>Exercise 1: Critique and Rewrite Personas</h2>
+<p><strong>Context:</strong> NovaTech has existing user personas for KnowledgeHub and ProjectPulse. Like most enterprise personas, they are heavy on demographics and light on actionable detail. You can find them in the company-context/PERSONAS.md file.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>I&#39;m uploading our user personas for an internal knowledge management platform (KnowledgeHub) and project delivery platform (ProjectPulse) at a 5,000-person enterprise SaaS company. These personas serve consultants, managers, and delivery leads.
+
+Critique these personas — what&#39;s missing that would help me make product decisions? Specifically evaluate whether they include:
+- Jobs-to-be-Done (situations that trigger product usage)
+- Switching triggers (what causes adoption or abandonment)
+- Current workarounds (what they do when the product fails them)
+- Behavioral specifics (frequency, duration, context of use)
+
+Then rewrite the weakest persona using the Jobs-to-Be-Done lens. Include:
+1. Three job stories in &quot;When [situation], I want to [motivation], so I can [outcome]&quot; format
+2. Current workarounds for each job
+3. Switching triggers — what would make them start or stop using the product
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Identifies specific gaps in the existing personas (not just &quot;add more detail&quot;). The rewritten persona drives product decisions — you should be able to read it and know what to build next. Job stories include realistic situations with time pressure and context.</li>
+<li>Bad response: Generic persona critique. Rewrite that just adds more demographics. Job stories that are really feature requests in disguise (&quot;When I want to use AI search...&quot;).</li>
+</ul>
+<hr>
+<h2>Exercise 2: Design a Continuous Discovery Practice</h2>
+<p><strong>Context:</strong> KnowledgeHub has 5,000 users across NovaTech but only 43% weekly active usage. You need to understand why 57% of users are not engaging — and you need to do it systematically, not as a one-off study.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Design a continuous discovery practice for KnowledgeHub, an internal knowledge management platform at a 5,000-person enterprise company. Current weekly active usage is 43%, target is 60%.
+
+I need a 4-week ramp-up plan covering:
+
+Week 1: Getting started — who to talk to first, how to recruit, initial question set
+Week 2: Expanding reach — different user segments, refining questions based on Week 1
+Week 3: Building the habit — interview snapshot template, sharing cadence with team
+Week 4: Synthesis — turning 4 weeks of observations into patterns and implications
+
+For each week, include:
+- Who to interview (role, usage level, and why they matter)
+- 5 specific questions to ask (not generic — tailored to the 43% WAU problem)
+- How to recruit participants from a 5,000-person company
+- Expected time commitment
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Suggests talking to non-users and churned users, not just active users. Questions dig into behavior (&quot;Walk me through the last time you needed to find internal knowledge&quot;) rather than opinions (&quot;Do you like KnowledgeHub?&quot;). Recruitment tactics are realistic for an enterprise environment.</li>
+<li>Bad response: Generic interview guide. Only interviews active users. Questions are leading (&quot;Would AI search make KnowledgeHub better?&quot;). No attention to the ramp-up progression.</li>
+</ul>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>Think about the last product decision you made. Did you talk to a user before making it? How might the decision have been different if you had?</li>
+<li>Who is the user segment you understand the least? What would it take to talk to three of them this week?</li>
+<li>What workaround have your users built that should embarrass your product?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>I&#39;m a PM for [YOUR PRODUCT]. My users are [BRIEF DESCRIPTION]. The user segment I understand least is [SEGMENT] because [REASON].
+
+Help me design a 2-week lightweight discovery sprint focused on this segment:
+1. A recruiting message I can send to get 4-6 interviews scheduled
+2. A 7-question interview guide focused on their workarounds and unmet needs (not feature requests)
+3. An interview snapshot template I can fill out in 5 minutes after each conversation
+4. A synthesis template for turning 4-6 interviews into 3 actionable insights
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>A recruiting message ready to send today</li>
+<li>An interview guide that avoids leading questions and focuses on behavior</li>
+<li>A fast-capture template so you actually document what you learn</li>
+<li>A synthesis approach that moves from observations to implications</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>Personas are only useful if they capture goals, workarounds, and switching triggers — not demographics. If you can swap out the age and location without changing any product decisions, the persona is decorative.</li>
+<li>Jobs-to-Be-Done reframes the conversation from &quot;what features do users want?&quot; to &quot;what situations trigger users to need our product?&quot; Job stories include the context that drives design decisions.</li>
+<li>Continuous discovery means weekly user contact, not quarterly research projects. If you are not talking to users this week, your assumptions are aging.</li>
+</ul>
+<hr>
+<h2>What&#39;s Next</h2>
+<p>Module 0.3 tackles the other side of discovery: once you understand what users need, how do you decide what to build first? We will cover why popular prioritization frameworks like RICE and MoSCoW often fail, and what to use instead — including Shreyas Doshi&#39;s LNO framework and Teresa Torres&#39;s Opportunity Solution Trees.</p>
+</div>
+    <div class="nav-footer"><a href="module-0.1.html" class="nav-btn prev">&larr; 0.1 What Product Management Actually Is</a><a href="index.html" class="nav-btn home">Home</a><a href="module-0.3.html" class="nav-btn next">0.3 Prioritization That Actually Works &rarr;</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

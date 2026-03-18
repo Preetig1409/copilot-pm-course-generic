@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 3.2: The Capstone — Run a Product Cycle — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 3: The 10x PM &rsaquo; Module 3.2
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">40 min</span>
+        <span class="meta-tag level">Level 3: The 10x PM</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 3.2: The Capstone — Run a Product Cycle</h1>
+<p><strong>Duration:</strong> 40 minutes
+<strong>Prerequisites:</strong> All previous levels completed (Levels 0, 1, 2, and Module 3.1)</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<p>By the end of this module, you will:</p>
+<ol>
+<li>Execute a complete product cycle — from discovery through launch communication — for a single initiative</li>
+<li>Apply every major skill and Copilot workflow from this course to a realistic product scenario</li>
+<li>Produce a full set of product artifacts: research summary, JTBD analysis, prioritization, spec, business case, stakeholder plan, and launch communications</li>
+<li>Build the muscle memory to run this same cycle for any real initiative at your job</li>
+</ol>
+<hr>
+<h2>The Capstone Challenge</h2>
+<p>This is the most important module in the course. Everything comes together here.</p>
+<p>Over the past 22 modules, you have learned PM craft, mastered Copilot workflows, developed strategic thinking, and built visual communication skills. Now you will use all of it — in sequence — the way it actually works in real PM life.</p>
+<p><strong>The Feature:</strong> NovaTech leadership wants to add <strong>Smart Recommendations</strong> to KnowledgeHub. Instead of employees searching for what they need, KnowledgeHub would proactively surface relevant documents, experts, and knowledge based on the employee&#39;s role, current projects, and recent searches.</p>
+<p>This is a major initiative. It needs discovery, validation, specification, and stakeholder buy-in. You are going to run the full cycle.</p>
+<p><strong>What you will produce by the end of this module:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th>Phase</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Competitive research summary</td>
+<td>Phase 1: Discovery</td>
+</tr>
+<tr>
+<td>JTBD analysis for Smart Recommendations</td>
+<td>Phase 2: User Understanding</td>
+</tr>
+<tr>
+<td>Prioritization framework and recommendation</td>
+<td>Phase 3: Prioritization</td>
+</tr>
+<tr>
+<td>One-pager specification with user stories</td>
+<td>Phase 4: Requirements</td>
+</tr>
+<tr>
+<td>Business case with ROI and strategy alignment</td>
+<td>Phase 5: Strategy Alignment</td>
+</tr>
+<tr>
+<td>Stakeholder engagement plan and pre-mortem</td>
+<td>Phase 6: Stakeholder Buy-In</td>
+</tr>
+<tr>
+<td>Launch communication drafts and visuals</td>
+<td>Phase 7: Communication</td>
+</tr>
+</tbody></table>
+<p>Each phase references the module where you first learned the skill. If any phase feels unfamiliar, go back and review that module before continuing.</p>
+<hr>
+<h2>Phase 1: Discovery</h2>
+<p><em>Skills from Modules 0.2 and 1.6</em></p>
+<p>Before writing a single line of spec, you need to understand the opportunity. What do users actually need? What competitors offer this? What is technically feasible?</p>
+<p>Smart Recommendations is not a new idea. Major platforms — Google Workspace, Notion, Confluence, Slack — have all explored proactive content surfacing. Some do it well. Many have failed. Your job is to learn from their attempts before committing NovaTech&#39;s resources.</p>
+<p><strong>What good discovery produces:</strong></p>
+<ul>
+<li>Clarity on what &quot;smart recommendations&quot; actually means (there are many flavors)</li>
+<li>Competitive landscape — who does this, how, and what results they report</li>
+<li>Technical feasibility signals — what data does NovaTech already have that could power recommendations?</li>
+<li>Risk flags — privacy concerns, cold-start problems, recommendation fatigue</li>
+</ul>
+<h3>Exercise 1: Competitive Research</h3>
+<p><strong>Context:</strong> You need to understand the competitive landscape before proposing Smart Recommendations. What have other platforms done? What worked and what did not?</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>I&#39;m a Senior Product Owner at NovaTech Solutions (5,000-person enterprise SaaS company). I own KnowledgeHub, our internal knowledge management platform (43% WAU, target 60%).
+
+Leadership wants us to explore adding &quot;Smart Recommendations&quot; — proactively surfacing relevant documents, experts, and knowledge to employees based on their role, projects, and search history.
+
+Before I write a spec, I need competitive research. Help me analyze:
+
+1. What major platforms offer proactive content/knowledge recommendations (Google Workspace, Notion, Confluence, Slack, Microsoft Viva Topics, etc.)
+2. For each: What approach do they take? What signals do they use? What results have they reported?
+3. Common failure modes — recommendation fatigue, cold-start problems, irrelevant suggestions, privacy concerns
+4. What NovaTech can learn from these examples — both what to emulate and what to avoid
+5. Key differentiators we could pursue given our 5,000-person scale and enterprise SaaS context
+
+Structure this as a competitive research summary I could share with my engineering lead and product leadership.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Specific analysis of real platforms with honest assessment of what works and what does not. Identifies the cold-start problem, recommendation fatigue, and privacy as real risks. Provides actionable takeaways, not just a list of features.</li>
+<li>Bad response: Generic description of recommendation systems without competitive specifics. No mention of failure modes. Overly optimistic about what recommendations can achieve.</li>
+</ul>
+<hr>
+<h2>Phase 2: User Understanding</h2>
+<p><em>Skills from Modules 0.2 and 1.3</em></p>
+<p>Discovery told you what the market looks like. Now you need to understand what NovaTech&#39;s users actually need. Not &quot;smart recommendations&quot; — that is a solution. The need is underneath.</p>
+<p>Think back to Module 0.2: users do not want a recommendation engine. They want to walk into a meeting prepared. They want to stop spending 30 minutes searching for something a colleague already created. They want to feel like the company&#39;s collective knowledge is accessible, not buried.</p>
+<h3>Exercise 2: JTBD Analysis</h3>
+<p><strong>Context:</strong> You need to understand the jobs that Smart Recommendations would fulfill. What situations trigger the need? What are users currently doing instead?</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>I&#39;m building the user understanding for a &quot;Smart Recommendations&quot; feature in KnowledgeHub, NovaTech&#39;s internal knowledge management platform.
+
+Current state: Employees search manually when they need knowledge. 43% weekly active usage. When search fails (which is ~70% of the time), they ask colleagues on Teams or give up.
+
+Help me create a Jobs-to-Be-Done analysis for Smart Recommendations:
+
+1. Identify 4-5 distinct jobs that proactive recommendations could fulfill. Use the format: &quot;When [situation], I want to [motivation], so I can [outcome].&quot;
+
+2. For each job:
+   - What is the current workaround? (What do employees do today?)
+   - What is the switching trigger? (What would make them start relying on recommendations?)
+   - What is the abandon trigger? (What would make them ignore recommendations?)
+   - Who is the primary persona for this job?
+
+3. Prioritize these jobs: Which 2 jobs, if solved well, would drive the most adoption?
+
+4. Identify the target persona for Smart Recommendations — the user segment most likely to adopt first and evangelize to others.
+
+Base this on NovaTech&#39;s context: 5,000 employees, enterprise SaaS, with roles including consultants, managers, delivery leads, and executives. KnowledgeHub stores project documentation, best practices, templates, and expert profiles.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Job stories that capture real situations with time pressure and context — not abstract needs. Workarounds that reflect actual enterprise behavior (asking on Teams, maintaining personal bookmark folders, emailing a known expert). Abandon triggers that are realistic (irrelevant recommendations erode trust quickly).</li>
+<li>Bad response: Generic JTBD statements that could apply to any product. No switching or abandon triggers. Target persona based on demographics rather than behavior.</li>
+</ul>
+<hr>
+<h2>Phase 3: Prioritization</h2>
+<p><em>Skills from Module 0.3</em></p>
+<p>You now know the competitive landscape and the user needs. But Smart Recommendations is not the only thing on KnowledgeHub&#39;s roadmap. Should you build this? Where does it rank against other priorities?</p>
+<p>Remember Module 0.3 and Shreyas Doshi&#39;s LNO framework: Is this Leverage (disproportionate impact), Neutral (expected outcome), or Overhead (necessary but not differentiating)?</p>
+<h3>Exercise 3: Prioritize the Initiative</h3>
+<p><strong>Context:</strong> You need to evaluate Smart Recommendations against KnowledgeHub&#39;s other priorities and make a recommendation to leadership.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>I&#39;m the Senior PO for KnowledgeHub at NovaTech. I need to prioritize &quot;Smart Recommendations&quot; against other KnowledgeHub initiatives.
+
+Current KnowledgeHub backlog priorities:
+1. Smart Recommendations — Proactive content surfacing based on role, projects, search history
+2. Search Relevance Improvements — Better ranking algorithm, filters, and result previews
+3. Expert Directory Enhancement — Richer profiles, skill tagging, availability status
+4. Mobile App — Native mobile access to KnowledgeHub
+5. Content Quality Scoring — Automated flagging of outdated or low-quality content
+6. API Integration — Connect KnowledgeHub to Jira, Salesforce, and internal tools
+
+Help me evaluate using two frameworks:
+
+Framework 1 — LNO Analysis (Shreyas Doshi):
+For each initiative, classify as Leverage, Neutral, or Overhead. Justify the classification.
+
+Framework 2 — Opportunity Solution Tree (Teresa Torres):
+The desired outcome is &quot;Increase WAU from 43% to 60%.&quot;
+Map these initiatives as potential solutions to the opportunities that drive that outcome.
+
+Then give me your prioritization recommendation:
+- What should we build first and why?
+- What depends on what? (Are there prerequisites?)
+- What is the honest case AGAINST building Smart Recommendations right now?
+
+I need this analysis for a product leadership discussion.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Recognizes that Search Relevance Improvements may be a prerequisite for Smart Recommendations (you cannot recommend well if base search is broken). Honest about the case against — Smart Recommendations is high-effort and may not move WAU if the foundational experience is poor. LNO classification is justified with reasoning, not just labels.</li>
+<li>Bad response: Ranks Smart Recommendations first because the user asked about it. No consideration of dependencies. Treats all frameworks as equally weighted without synthesis.</li>
+</ul>
+<hr>
+<h2>Phase 4: Requirements</h2>
+<p><em>Skills from Module 0.4</em></p>
+<p>Assuming Smart Recommendations moves forward (perhaps alongside Search Relevance Improvements as a prerequisite), you need a one-pager specification. Not a full PRD yet — this is the document that gets alignment before you invest in a detailed spec.</p>
+<h3>Exercise 4: Write the One-Pager</h3>
+<p><strong>Context:</strong> You need a concise specification that communicates what Smart Recommendations is, who it is for, and what success looks like — in a format your engineering lead and product VP can review in 5 minutes.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Write a one-pager specification for Smart Recommendations in KnowledgeHub.
+
+Context:
+- Product: KnowledgeHub (internal knowledge management, 5,000 users, 43% WAU)
+- Company: NovaTech Solutions (enterprise SaaS)
+- Target persona: Mid-level consultants and managers who need knowledge for client work and project delivery
+- Key insight from JTBD analysis: The highest-value job is &quot;When I&#39;m preparing for a client meeting, I need relevant past work and experts surfaced automatically, so I don&#39;t spend 30 minutes searching&quot;
+
+One-pager format:
+1. Problem Statement (3-4 sentences — what is broken today)
+2. Proposed Solution (what Smart Recommendations does, in plain language)
+3. Target Users (who benefits first)
+4. Key User Stories (3-4 user stories with acceptance criteria)
+5. Success Metrics (how we know this is working)
+6. Key Risks (what could go wrong)
+7. Dependencies (what needs to be true for this to succeed)
+8. Rough Scope (what is IN v1 and what is NOT)
+
+Keep it to one page. No jargon. An executive and an engineer should both be able to read this and understand the initiative.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Problem statement rooted in user behavior, not technology. User stories with specific acceptance criteria that are testable. Success metrics tied to the WAU goal. Risks that include cold-start problem and recommendation quality. Honest &quot;NOT in v1&quot; section that prevents scope creep.</li>
+<li>Bad response: Problem statement focused on &quot;we don&#39;t have recommendations.&quot; User stories that are feature descriptions. Success metrics that are vanity (number of recommendations shown vs. recommendations acted on).</li>
+</ul>
+<hr>
+<h2>Phase 5: Strategy Alignment</h2>
+<p><em>Skills from Modules 2.1 and 2.3</em></p>
+<p>You have a spec. Now you need the business case and strategic alignment. This is where you convince leadership that Smart Recommendations is worth the investment — not just a good idea, but a strategically sound investment with measurable ROI.</p>
+<h3>Exercise 5: Build the Business Case</h3>
+<p><strong>Context:</strong> You need to prepare a business case with ROI analysis and show how Smart Recommendations aligns with NovaTech&#39;s product strategy.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Help me build the business case for Smart Recommendations in KnowledgeHub.
+
+Context:
+- NovaTech Solutions: 5,000 employees, enterprise SaaS company
+- KnowledgeHub WAU: 43% (target 60%)
+- Average employee salary: $95,000/year
+- Current time spent searching for knowledge: estimated 8 minutes per search, 3-4 searches per day for active users
+- Smart Recommendations goal: reduce search time by 60%, increase search success rate from 30% to 85%
+
+Build the business case with:
+
+1. ROI Calculation
+   - Time savings per employee per week
+   - Productivity value at scale (5,000 employees)
+   - Conservative, moderate, and optimistic scenarios
+   - Payback period assuming $500K development investment
+
+2. Strategic Alignment (DHM Model — Delight, Hard-to-Copy, Margin-Enhancing)
+   - How does Smart Recommendations score on each dimension?
+   - How does this align with NovaTech&#39;s broader product strategy?
+
+3. Risk-Adjusted Business Case
+   - What if adoption is lower than expected?
+   - What if recommendation quality is mediocre at launch?
+   - What is the minimum viable outcome that still justifies the investment?
+
+4. Comparison to Alternatives
+   - What if we improve basic search instead? (Lower cost, lower ceiling)
+   - What if we do nothing? (Cost of inaction)
+
+Format this for a product leadership review — quantified, honest, and decision-ready.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: ROI calculation with realistic assumptions and multiple scenarios. Honest about risks — recommendation quality at launch is uncertain. DHM analysis that acknowledges Smart Recommendations may not be &quot;hard to copy&quot; without proprietary data advantages. Cost of inaction included.</li>
+<li>Bad response: Single optimistic ROI scenario. No risk adjustment. Strategic alignment that says &quot;yes&quot; to everything without critical analysis.</li>
+</ul>
+<hr>
+<h2>Phase 6: Stakeholder Buy-In</h2>
+<p><em>Skills from Modules 0.6, 2.4, and 2.5</em></p>
+<p>You have the spec and the business case. Now you need to get people on board. This means understanding who your stakeholders are, what they care about, what objections they will raise, and how to build a coalition before the formal review.</p>
+<h3>Exercise 6: Stakeholder Strategy and Pre-Mortem</h3>
+<p><strong>Context:</strong> You need to prepare for the product review where Smart Recommendations will be approved or deprioritized. You want to walk in with allies, pre-addressed objections, and a clear ask.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>I&#39;m preparing to get Smart Recommendations approved at NovaTech. Help me build my stakeholder strategy.
+
+Key stakeholders:
+- VP of Product (my manager) — Cares about portfolio balance and roadmap commitments
+- CTO — Cares about technical feasibility, AI/ML infrastructure, data privacy
+- VP of Engineering — Cares about team capacity, technical debt, delivery timelines
+- CFO — Cares about ROI, budget allocation, competing investment priorities
+- Head of Customer Success — Cares about whether this improves client-facing employees&#39; effectiveness
+- CISO — Cares about data privacy, what employee behavior data we are collecting and using
+
+For each stakeholder:
+1. What is their likely position on Smart Recommendations? (Champion / Supportive / Neutral / Skeptical / Opponent)
+2. What is their #1 concern?
+3. What evidence or argument would move them from their current position to supportive?
+4. When should I engage them — before or during the formal review?
+
+Then run a pre-mortem:
+&quot;It&#39;s 6 months from now and Smart Recommendations has failed. What went wrong?&quot;
+Give me the 5 most likely failure modes and a mitigation plan for each.
+
+Finally, create a stakeholder engagement timeline:
+- Who do I talk to first, second, third?
+- What do I share with each person?
+- What is my ask in each conversation?
+- How do I build a coalition before the formal product review?
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Identifies the CISO and CTO as likely skeptics with legitimate concerns (employee behavior tracking, AI infrastructure requirements). Pre-mortem includes realistic failures: recommendation quality too low at launch, employees ignore recommendations because they are irrelevant, privacy backlash from tracking search behavior. Engagement timeline starts with natural allies and works toward skeptics.</li>
+<li>Bad response: Assumes all stakeholders will be supportive. Pre-mortem only includes technical failures. No coalition-building strategy.</li>
+</ul>
+<hr>
+<h2>Phase 7: Communication</h2>
+<p><em>Skills from Modules 1.4 and 3.1</em></p>
+<p>The review is approved (congratulations). Now you need to communicate the initiative — internally to the team, upward to executives, and across the organization for the eventual launch.</p>
+<h3>Exercise 7: Launch Communication and Visuals</h3>
+<p><strong>Context:</strong> Smart Recommendations has been approved. You need to communicate this to three audiences: the engineering team (who will build it), the executive team (who approved it), and the broader NovaTech organization (who will use it).</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Smart Recommendations for KnowledgeHub has been approved at NovaTech. Help me create launch communication for three audiences:
+
+1. Engineering Team Kickoff Message
+   - What we are building and why (link to the one-pager)
+   - Key technical considerations and constraints
+   - Timeline and milestones
+   - How success will be measured
+   - Tone: Collaborative, technically honest, energizing
+
+2. Executive Update (for the VP of Product to share upward)
+   - 3-sentence summary of the initiative
+   - Investment and expected ROI
+   - Key milestones and decision points
+   - Risks being actively managed
+   - Tone: Concise, confident, data-driven
+
+3. Organization-Wide Announcement (for when v1 launches)
+   - What Smart Recommendations does, in plain language a non-technical employee understands
+   - How it helps them specifically (save time, find knowledge faster, discover experts)
+   - How to use it (it&#39;s automatic — just open KnowledgeHub)
+   - What to expect in v1 (set realistic expectations)
+   - Tone: Excited but honest, employee-centric
+
+Also suggest a visual for the organization-wide announcement — describe what it should show and provide an image generation prompt I can use to create it.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Three clearly distinct communications that match each audience&#39;s needs. Engineering kickoff is technically specific. Executive update is concise with metrics. Org announcement is jargon-free and employee-centric. Visual suggestion is practical and communicates the before/after story.</li>
+<li>Bad response: Three versions that sound the same. Org announcement full of technical jargon. No visual suggestion.</li>
+</ul>
+<hr>
+<h2>What You&#39;ve Produced</h2>
+<p>Take a moment to review your artifacts. Through this capstone, you have created:</p>
+<ul>
+<li><strong>A competitive research summary</strong> — grounding the initiative in market reality</li>
+<li><strong>A JTBD analysis</strong> — ensuring you are solving real user needs, not building features</li>
+<li><strong>A prioritization framework</strong> — showing where Smart Recommendations fits against other priorities</li>
+<li><strong>A one-pager specification</strong> — the artifact that aligns the team before detailed work begins</li>
+<li><strong>A business case with ROI</strong> — quantified justification for the investment</li>
+<li><strong>A stakeholder engagement plan</strong> — the political strategy that gets initiatives approved</li>
+<li><strong>A product review preparation</strong> — pre-mortem, objection handling, coalition building</li>
+<li><strong>Launch communication drafts</strong> — three audience-appropriate messages ready to customize</li>
+</ul>
+<p>This is what a product cycle looks like when you use Copilot as a thinking partner through every phase.</p>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>This is the big one.</strong></p>
+<p>You just ran a full product cycle for a fictional NovaTech feature. Now do it for real.</p>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What is the most important initiative on your roadmap right now — the one where getting the artifacts right would make the biggest difference?</li>
+<li>Which phase of the product cycle is your weakest? Where do you usually cut corners?</li>
+<li>Who is the stakeholder you most need to convince? What would it take to walk into that conversation fully prepared?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>I&#39;m a PM for [YOUR PRODUCT] at [YOUR COMPANY]. I&#39;m working on [YOUR INITIATIVE — describe it in 2-3 sentences].
+
+I just completed a capstone exercise running a full product cycle using Copilot. I want to apply the same 7-phase approach to my real initiative:
+
+Phase 1 — Discovery: Help me research the competitive landscape for [YOUR INITIATIVE]
+Phase 2 — User Understanding: Help me create a JTBD analysis for [YOUR USERS]
+Phase 3 — Prioritization: Help me evaluate [YOUR INITIATIVE] against [YOUR OTHER PRIORITIES]
+Phase 4 — Requirements: Help me write a one-pager spec for [YOUR INITIATIVE]
+Phase 5 — Strategy Alignment: Help me build the business case with ROI
+Phase 6 — Stakeholder Buy-In: Help me create a stakeholder engagement plan for [YOUR KEY STAKEHOLDERS]
+Phase 7 — Communication: Help me draft launch communications for [YOUR AUDIENCES]
+
+Let&#39;s start with Phase 1. Here is what I know so far: [WHAT YOU KNOW]
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>A template for running any initiative through a complete product cycle</li>
+<li>Confidence that you can produce every major PM artifact using Copilot as a thinking partner</li>
+<li>A real initiative identified that you will apply this to starting this week</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>A complete product cycle has seven phases: Discovery, User Understanding, Prioritization, Requirements, Strategy Alignment, Stakeholder Buy-In, and Communication. Most PMs skip at least two of these and wonder why their initiatives stall.</li>
+<li>Copilot does not replace your judgment — it accelerates the production of artifacts so you can spend more time on the thinking. The competitive research takes 10 minutes instead of 2 hours. The one-pager takes 15 minutes instead of a full afternoon. That time goes back into the strategic work only you can do.</li>
+<li>Every phase builds on the one before it. The JTBD analysis informs the spec. The spec informs the business case. The business case informs the stakeholder strategy. Skip a phase and the downstream artifacts are weaker.</li>
+</ul>
+<hr>
+<h2>What&#39;s Next</h2>
+<p>Module 3.3 helps you take everything you have learned across 23 modules and build your personal AI toolkit — the daily, weekly, and monthly workflows that make this sustainable. The capstone showed you what a full cycle looks like. The toolkit ensures you keep doing it.</p>
+</div>
+    <div class="nav-footer"><a href="module-3.1.html" class="nav-btn prev">&larr; 3.1 Visual Communication for PMs</a><a href="index.html" class="nav-btn home">Home</a><a href="module-3.3.html" class="nav-btn next">3.3 Building Your Personal AI Toolkit &rarr;</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

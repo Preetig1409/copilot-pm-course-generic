@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 1.2: Meeting Intelligence — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 1: Copilot as Teammate &rsaquo; Module 1.2
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">25 min</span>
+        <span class="meta-tag level">Level 1: Copilot as Teammate</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 1.2: Meeting Intelligence — Never Take Notes Again</h1>
+<p><strong>Duration:</strong> 25 minutes
+<strong>Prerequisites:</strong> Module 1.1</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<p>By the end of this module, you will:</p>
+<ol>
+<li>Extract structured decisions, action items, and follow-ups from any meeting in under 5 minutes</li>
+<li>Use Copilot in Teams to capture real-time summaries and commitments during live meetings</li>
+<li>Analyze meeting dynamics — who dominated, what was left unresolved, and what was decided implicitly</li>
+<li>Build a post-meeting workflow that turns transcripts into stakeholder-ready communications automatically</li>
+</ol>
+<hr>
+<h2>2 Hours After Every Meeting, Gone</h2>
+<p>Here&#39;s a number that should make you angry: the average PM spends 15-20 hours per week in meetings. But that&#39;s not the real cost. The real cost is the 30-60 minutes <em>after</em> each important meeting — writing up notes, extracting action items, drafting follow-up emails, and chasing people who &quot;thought someone else was handling that.&quot;</p>
+<p>A one-hour steering committee generates roughly:</p>
+<ul>
+<li>45 minutes of notes to organize</li>
+<li>8-12 action items to extract and assign</li>
+<li>3 follow-up emails to different audiences</li>
+<li>2 decisions that were made but not explicitly stated</li>
+</ul>
+<p>That&#39;s 2+ hours of post-meeting work. For a PM with 3-4 major meetings a day, that&#39;s an entire second workday hiding inside the first one.</p>
+<p>The leverage isn&#39;t fewer meetings — you don&#39;t control that. The leverage is extracting maximum value with zero manual overhead.</p>
+<h2>Copilot in Teams: Setup and Capabilities</h2>
+<p>Copilot in Teams does three things that matter for PMs:</p>
+<h3>During the Meeting</h3>
+<ul>
+<li><strong>Auto-transcription</strong> — Every word captured, speaker-attributed</li>
+<li><strong>Real-time summaries</strong> — Ask &quot;what was just decided?&quot; mid-meeting without losing the thread</li>
+<li><strong>Action item detection</strong> — Copilot flags commitments as they&#39;re spoken</li>
+</ul>
+<h3>How to Enable It</h3>
+<ol>
+<li>In a Teams meeting, click the <strong>Copilot</strong> icon in the toolbar</li>
+<li>Ensure transcription is turned on (meeting organizer setting)</li>
+<li>Copilot begins capturing immediately — no configuration needed</li>
+</ol>
+<h3>What It Captures (and What It Misses)</h3>
+<p>Copilot is excellent at:</p>
+<ul>
+<li>Verbatim capture of who said what</li>
+<li>Identifying explicit action items (&quot;David, can you get the API spec by Friday?&quot;)</li>
+<li>Summarizing topics discussed</li>
+</ul>
+<p>Copilot often misses:</p>
+<ul>
+<li>Implicit decisions (silence = agreement)</li>
+<li>Political dynamics (who was talked over, whose idea was co-opted)</li>
+<li>Tone and urgency (&quot;David said &#39;sure&#39; but clearly meant &#39;absolutely not&#39;&quot;)</li>
+</ul>
+<p>This is where your PM judgment fills the gap — and where the exercises in this module focus.</p>
+<h2>Beyond Auto-Notes: Reading Between the Lines</h2>
+<p>The auto-generated meeting summary is a starting point, not the deliverable. A good PM extracts layers:</p>
+<p><strong>Layer 1: Facts</strong> — What was said, decided, assigned (Copilot handles this well)</p>
+<p><strong>Layer 2: Commitments</strong> — What people agreed to do, with deadlines (Copilot catches ~70% of these)</p>
+<p><strong>Layer 3: Dynamics</strong> — Who drove the conversation, whose concerns were acknowledged but not addressed, what was decided by default rather than discussion (this requires your prompting)</p>
+<p><strong>Layer 4: Gaps</strong> — What should have been discussed but wasn&#39;t, what decision was deferred without a follow-up date (Copilot never catches this — you must ask)</p>
+<p>The exercises below train you to extract all four layers.</p>
+<h2>The Post-Meeting Workflow: Transcript to Action in 5 Minutes</h2>
+<p>Here&#39;s the workflow that replaces 2 hours of post-meeting work:</p>
+<p><strong>Minute 0-1:</strong> Meeting ends. Copilot has the transcript.</p>
+<p><strong>Minute 1-2:</strong> Prompt Copilot for structured extraction (decisions, actions, unresolved items).</p>
+<p><strong>Minute 2-3:</strong> Review and correct. Add the implicit items Copilot missed. Remove noise.</p>
+<p><strong>Minute 3-4:</strong> Prompt Copilot for follow-up email draft, tailored to audience.</p>
+<p><strong>Minute 4-5:</strong> Review email, hit send.</p>
+<p>Total elapsed time: 5 minutes. And the output is <em>better</em> than what you&#39;d produce manually because nothing slips through the cracks.</p>
+<hr>
+<h2>Exercise 1: Structured Meeting Extraction</h2>
+<p><strong>Context:</strong> You just attended a KnowledgeHub steering committee meeting with Richard Thorne (VP Knowledge &amp; Innovation), David Kim (Director Engineering), and Jennifer Walsh (VP Digital Products). The meeting covered the AI search feature timeline, adoption metrics, and budget allocation for Q3.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Here are the raw meeting notes from a KnowledgeHub steering committee meeting with Richard Thorne (VP Knowledge &amp; Innovation), David Kim (Director Engineering), and Jennifer Walsh (VP Digital Products).
+
+The meeting covered AI search feature progress, adoption targets, and Q3 budget priorities.
+
+Extract the following in structured format:
+
+1. DECISIONS MADE — Every decision, who made it, and whether it was unanimous or contested
+2. ACTION ITEMS — Every commitment with owner, deadline, and dependencies. Flag any without a clear deadline.
+3. UNRESOLVED DISAGREEMENTS — Points where people clearly disagreed but no resolution was reached
+4. IMPLICIT DECISIONS — Things that were assumed or decided by default without explicit discussion
+5. FOLLOW-UP EMAIL — Draft a concise follow-up email summarizing outcomes and next steps, addressed to all three attendees. Tone: professional, action-oriented, under 250 words.
+
+Be thorough. I&#39;d rather you flag something questionable than miss a real commitment.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li><strong>Good response:</strong> Separates explicit from implicit decisions, flags action items without deadlines, identifies where Richard and David may have different views on timeline or scope</li>
+<li><strong>Weak response:</strong> Just lists what was discussed without distinguishing decisions from discussion, misses implicit agreements</li>
+<li><strong>Key indicator:</strong> Does the follow-up email include items that weren&#39;t explicitly stated but were clearly expected? That&#39;s the sign Copilot (with your prompting) is working at Layer 3+</li>
+</ul>
+<hr>
+<h2>Exercise 2: Meeting Dynamics Analysis</h2>
+<p><strong>Context:</strong> Same meeting. Now you want to go deeper — understanding the political and interpersonal dynamics to prepare for your next conversation with Jennifer Walsh.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Analyze the dynamics of this steering committee meeting:
+
+1. WHO DOMINATED — Who spoke most? Who drove decisions? Who was mostly reactive?
+2. WHOSE CONCERNS WERE SIDELINED — Whose points were acknowledged (&quot;good point&quot;) but not actually addressed or resolved?
+3. IMPLICIT VS EXPLICIT — What decision was made implicitly (through silence, moving on, or assumption) that should have been explicitly discussed and agreed upon?
+4. TENSION POINTS — Where do you see underlying disagreement that wasn&#39;t fully surfaced?
+5. PREPARATION NEEDED — What should I prepare before the next meeting with these stakeholders to address what was left hanging?
+
+Then draft a short Slack message to Jennifer Walsh (VP Digital Products, my direct stakeholder) flagging the 2-3 unresolved items that need her attention before next week. Tone: respectful but direct. Under 100 words.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li><strong>Good response:</strong> Identifies specific moments of tension, names who was sidelined, distinguishes between genuine agreement and polite deferral</li>
+<li><strong>Weak response:</strong> Generic statements like &quot;all participants contributed&quot; without specific dynamics</li>
+<li><strong>Reality check:</strong> Compare Copilot&#39;s dynamics analysis to your own read of the room. Where does it align? Where does it miss? That gap is where your PM judgment adds irreplaceable value.</li>
+</ul>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>Think about your last important meeting. What decisions were made implicitly that you only realized days later?</li>
+<li>How many action items from last week&#39;s meetings actually had clear owners and deadlines?</li>
+<li>What&#39;s your current post-meeting process — and how long does it actually take?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>Here are my notes from [MEETING NAME] with [ATTENDEES AND THEIR ROLES].
+
+The meeting covered [TOPICS].
+
+Extract:
+1. Every decision made (explicit and implicit)
+2. Every action item with owner and deadline — flag any missing deadlines
+3. Unresolved items that need follow-up
+4. Draft a follow-up email to [AUDIENCE] summarizing outcomes. Tone: [TONE]. Under [WORD COUNT] words.
+
+Also flag: what should have been discussed but wasn&#39;t?
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>A structured extraction process that replaces manual note-taking</li>
+<li>The ability to analyze meeting dynamics beyond surface-level summaries</li>
+<li>A follow-up email workflow that takes 5 minutes instead of 45</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>The PM meeting tax isn&#39;t the meetings themselves — it&#39;s the 2+ hours of post-meeting work that follows each one</li>
+<li>Copilot handles Layer 1 (facts) and Layer 2 (commitments) well, but you must prompt specifically for Layer 3 (dynamics) and Layer 4 (gaps)</li>
+<li>Always ask for implicit decisions — these are where alignment breaks down weeks later</li>
+<li>The 5-minute post-meeting workflow (extract → review → email → send) replaces hours of manual work</li>
+<li>Your judgment on dynamics and politics is irreplaceable — Copilot provides the raw material, you provide the interpretation</li>
+</ul>
+<h2>What&#39;s Next</h2>
+<p>Meetings generate decisions. But the <em>best</em> decisions come from user research — which most PMs never have time to properly synthesize. In <strong>Module 1.3: User Research Synthesis at Scale</strong>, you&#39;ll turn 12 interview transcripts into structured insights in an hour instead of a week.</p>
+</div>
+    <div class="nav-footer"><a href="module-1.1.html" class="nav-btn prev">&larr; 1.1 Your AI Working Environment</a><a href="index.html" class="nav-btn home">Home</a><a href="module-1.3.html" class="nav-btn next">1.3 User Research Synthesis at Scale &rarr;</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

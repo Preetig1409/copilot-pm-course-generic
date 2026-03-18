@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 0.3: Prioritization That Actually Works — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 0: The PM Craft &rsaquo; Module 0.3
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">25 min</span>
+        <span class="meta-tag level">Level 0: The PM Craft</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 0.3: Prioritization That Actually Works</h1>
+<p><strong>Duration:</strong> 25 minutes
+<strong>Prerequisites:</strong> Module 0.2 (Knowing Your Users)</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<p>By the end of this module, you will:</p>
+<ol>
+<li>Explain why quantitative prioritization frameworks (RICE, MoSCoW) fail in practice and when they still have value</li>
+<li>Apply Shreyas Doshi&#39;s LNO framework to separate high-leverage decisions from noise</li>
+<li>Build an Opportunity Solution Tree that connects business outcomes to discovery-informed solutions</li>
+<li>Force-rank a feature list and articulate why each item beats the one below it</li>
+</ol>
+<hr>
+<h2>The Prioritization Theater Problem</h2>
+<p>Every PM has been in this meeting: the team spends two hours scoring features on Reach, Impact, Confidence, and Effort. People negotiate scores like diplomats. &quot;I think the impact is a 3, not a 2.&quot; &quot;Well, if we count indirect reach, it&#39;s really 5,000 users.&quot; At the end, the spreadsheet produces a ranked list — and the team ignores it because everyone knows the VP&#39;s pet project is shipping regardless.</p>
+<p>This is prioritization theater. It looks rigorous. It feels productive. It wastes time.</p>
+<p><strong>Why RICE and MoSCoW fail:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>The Promise</th>
+<th>The Reality</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>RICE</strong> (Reach, Impact, Confidence, Effort)</td>
+<td>Objective scoring produces a defensible ranked list</td>
+<td>Garbage-in-garbage-out. Teams game scores to get their preferred features to the top. &quot;Confidence&quot; is a magic knob — set it to 80% to make anything rank higher.</td>
+</tr>
+<tr>
+<td><strong>MoSCoW</strong> (Must/Should/Could/Won&#39;t)</td>
+<td>Clear categorization of priorities</td>
+<td>Everything becomes a &quot;Must have.&quot; Stakeholders refuse to let their feature be a &quot;Could.&quot; The categories are so broad they do not actually force hard decisions.</td>
+</tr>
+<tr>
+<td><strong>Weighted scoring</strong></td>
+<td>Customizable criteria make it fit your context</td>
+<td>You spend more time debating criteria weights than discussing user problems. Changing the weights by 5% reshuffles the entire list.</td>
+</tr>
+</tbody></table>
+<p><strong>When quantitative frameworks are still useful:</strong></p>
+<ul>
+<li>Communicating decisions to executives who want a rational justification (the score is the story, not the process)</li>
+<li>Breaking a tie between two genuinely similar options where you have real data</li>
+<li>Large backlogs (50+ items) where you need a rough first pass before applying judgment</li>
+</ul>
+<p>But for the top 10 items on your roadmap — the ones that actually matter — frameworks cannot substitute for judgment. You need a different approach.</p>
+<hr>
+<h2>The LNO Framework: Know Which Decisions Matter</h2>
+<p>Shreyas Doshi (former PM at Stripe, Twitter, Yahoo) offers a deceptively simple framework: categorize all your work as <strong>Leverage</strong>, <strong>Neutral</strong>, or <strong>Overhead</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Definition</th>
+<th>Your Response</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Leverage</strong></td>
+<td>Disproportionate impact relative to effort. These are the decisions that move your metrics, change user behavior, or unlock new capabilities.</td>
+<td>Invest 80% of your energy here. Do these yourself. Think deeply.</td>
+<td>Redesigning KnowledgeHub search to surface relevance signals — directly attacks the 43% WAU problem.</td>
+</tr>
+<tr>
+<td><strong>Neutral</strong></td>
+<td>Needs to get done. Does not differentiate. Good execution matters but extra effort has diminishing returns.</td>
+<td>Do these at &quot;good enough&quot; quality. Delegate where possible. Timebox ruthlessly.</td>
+<td>Updating the KnowledgeHub settings page UI to match the new design system. Users need it, but it does not move adoption.</td>
+</tr>
+<tr>
+<td><strong>Overhead</strong></td>
+<td>Administrative work that keeps the system running but creates no user value.</td>
+<td>Eliminate what you can. Automate the rest. Spend minimum viable time.</td>
+<td>Weekly status report formatting. Recurring backlog grooming meetings that rehash the same items.</td>
+</tr>
+</tbody></table>
+<p><strong>The LNO insight that most people miss:</strong> Prioritization is not just about what to build. It is about where you spend your attention. A PM who spends 5 hours perfecting a status report (Overhead) and 30 minutes on a one-pager for the most important feature of the quarter (Leverage) has their priorities exactly backwards — even if their backlog is perfectly prioritized.</p>
+<p>Before you prioritize features, prioritize your own time. Ask: &quot;Is this Leverage, Neutral, or Overhead?&quot; If you catch yourself spending significant energy on Neutral or Overhead work, stop. That is a signal to delegate, automate, or drop it.</p>
+<hr>
+<h2>Opportunity Solution Trees: Say No With Evidence</h2>
+<p>Teresa Torres&#39;s Opportunity Solution Trees (OSTs) provide the structure that scoring frameworks lack. Instead of scoring features in isolation, an OST connects everything back to a measurable business outcome.</p>
+<p><strong>The structure:</strong></p>
+<pre><code>                    [Business Outcome]
+                    60% WAU for KnowledgeHub
+                           │
+              ┌────────────┼────────────┐
+              │            │            │
+        [Opportunity]  [Opportunity]  [Opportunity]
+        Users can&#39;t    New users     Power users
+        find relevant  don&#39;t         don&#39;t
+        content        understand    contribute
+                       value prop    content back
+              │
+        ┌─────┼─────┐
+        │     │     │
+    [Solution] [Solution] [Solution]
+    AI search  Relevance  Expert-
+    ranking    signals    curated
+               on results collections
+              │
+        ┌─────┼─────┐
+        │     │     │
+    [Experiment] [Experiment] [Experiment]
+    A/B test     User test    Survey 10
+    new algo     result       power users
+    vs. old      page with    on curation
+                 signals      willingness
+</code></pre>
+<p><strong>Why this works:</strong></p>
+<ol>
+<li><strong>Outcomes, not outputs.</strong> The top of the tree is a measurable business result (60% WAU), not a feature. This means you evaluate every solution by whether it plausibly moves the outcome.</li>
+<li><strong>Multiple paths.</strong> Each outcome connects to multiple opportunities, and each opportunity has multiple possible solutions. This prevents premature commitment to one solution.</li>
+<li><strong>Evidence-based pruning.</strong> Experiments at the bottom validate or kill solutions cheaply before you invest in building them.</li>
+<li><strong>A framework for saying no.</strong> When a stakeholder says &quot;we need feature X,&quot; you can ask: &quot;Which opportunity does it address? How does it connect to our target outcome?&quot; If they cannot answer, it does not belong on the tree.</li>
+</ol>
+<p><strong>How to build one:</strong></p>
+<ol>
+<li>Start with one business outcome you own (e.g., &quot;Increase KnowledgeHub WAU from 43% to 60%&quot;)</li>
+<li>Identify 3-5 opportunities from your user research (Module 0.2) — real user problems, not assumptions</li>
+<li>For each opportunity, brainstorm 2-3 potential solutions</li>
+<li>For each solution, define one cheap experiment to test the assumption</li>
+</ol>
+<p>The tree is a living document. Update it as you learn from experiments and user conversations. Solutions get added, pruned, and reprioritized as evidence comes in.</p>
+<hr>
+<h2>Stack Rank, Don&#39;t Score</h2>
+<p>After you have identified Leverage items and connected them to outcomes through an OST, there is one more step: force-rank them.</p>
+<p>Not categorize. Not score. <strong>Rank.</strong> Number 1 through N, no ties.</p>
+<p><strong>Why force-ranking works:</strong></p>
+<ul>
+<li>Scoring lets you avoid hard decisions (&quot;they&#39;re both a 7!&quot;). Ranking forces a choice.</li>
+<li>If you cannot decide between #3 and #4, that is useful information — it means you do not understand the problem well enough. Go learn more.</li>
+<li>Stakeholders game scoring systems. They cannot game a rank — either their feature is #1 or it is not.</li>
+</ul>
+<p><strong>The adjacent-pair test:</strong> For each pair of adjacent items (1 vs. 2, 2 vs. 3, etc.), you should be able to articulate in one sentence why the higher-ranked item beats the lower one. If you cannot, the ranking is not stable — you are guessing.</p>
+<p><strong>Example for KnowledgeHub (top 5):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Feature</th>
+<th>Why It Beats the Next One</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Search relevance improvements</td>
+<td>Directly addresses #1 reason users abandon the platform. No point driving new users if search fails them.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>AI-powered search suggestions</td>
+<td>Builds on relevance — helps users formulate better queries. But useless if underlying results are still irrelevant.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Expert profile badges</td>
+<td>Credibility signals improve search result evaluation. Less direct impact on WAU than fixing core search.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Slack integration for Q&amp;A</td>
+<td>Meets users where they already are (the workaround). But it is a band-aid — does not fix the root cause.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Analytics dashboard for content owners</td>
+<td>Helps content quality long-term. Indirect path to WAU. Not a user-facing improvement.</td>
+</tr>
+</tbody></table>
+<p>Notice: every ranking is debatable. That is the point. The debate itself surfaces assumptions and reveals where you need more evidence.</p>
+<hr>
+<h2>Exercise 1: Classify and Prioritize</h2>
+<p><strong>Context:</strong> You have 8 feature requests for KnowledgeHub, each from different stakeholders with different estimated effort levels. Your north star metric is 60% WAU.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>I&#39;m the PM for KnowledgeHub, an internal knowledge management platform at a 5,000-person enterprise SaaS company. Current weekly active usage is 43%, target is 60%.
+
+Here are 8 feature requests:
+1. AI-powered search suggestions — requested by VP Product, estimated 8 weeks
+2. Expert profile badges — requested by HR, estimated 3 weeks
+3. Mobile app redesign — requested by field sales team, estimated 12 weeks
+4. Slack integration for Q&amp;A — requested by engineering teams, estimated 6 weeks
+5. Document version history — requested by legal/compliance, estimated 4 weeks
+6. Analytics dashboard for content owners — requested by content team, estimated 5 weeks
+7. SSO improvements — requested by IT security, estimated 2 weeks
+8. Automated knowledge base archival — requested by platform team, estimated 3 weeks
+
+First, classify each as Leverage, Neutral, or Overhead using Shreyas Doshi&#39;s LNO framework. Explain your reasoning for each classification.
+
+Then, for the Leverage items only, build an Opportunity Solution Tree connecting them to the 60% WAU goal. What opportunities (user problems) do the Leverage items address? Are there opportunities that have no solution on this list?
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Classifications have clear reasoning tied to the WAU target, not just gut feel. Some items are correctly classified as Neutral or Overhead despite having vocal stakeholders. The OST reveals gaps — opportunities with no proposed solution. The response acknowledges that some classifications depend on evidence you may not have yet.</li>
+<li>Bad response: Everything is classified as Leverage. No connection to the WAU target. OST is just a reformatted list of features. No gaps identified.</li>
+</ul>
+<hr>
+<h2>Exercise 2: Force-Rank With Justification</h2>
+<p><strong>Context:</strong> Same 8 features. Now you need to put them in order and defend the ranking.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Force-rank these 8 KnowledgeHub features from highest to lowest priority. For each adjacent pair (1 vs 2, 2 vs 3, etc.), write one sentence explaining why the higher-ranked item beats the lower one.
+
+The features:
+1. AI-powered search suggestions (VP Product, 8 weeks)
+2. Expert profile badges (HR, 3 weeks)
+3. Mobile app redesign (field sales, 12 weeks)
+4. Slack integration for Q&amp;A (engineering, 6 weeks)
+5. Document version history (legal/compliance, 2 weeks)
+6. Analytics dashboard for content owners (content team, 5 weeks)
+7. SSO improvements (IT security, 2 weeks)
+8. Automated knowledge base archival (platform team, 3 weeks)
+
+Context: Internal platform, 5,000 users, 43% WAU target 60%. Primary user pain points are irrelevant search results and inability to find experts quickly.
+
+After ranking, flag any positions where your confidence is low and explain what evidence would change the ranking.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Rankings reflect the WAU target and known user pain points. Adjacent-pair justifications are specific, not vague (&quot;more impactful&quot;). Low-confidence flags are honest and point to specific unknowns. The ranking accounts for effort-to-impact ratio, not just impact alone.</li>
+<li>Bad response: Ranking matches the original numbered list. No adjacent-pair reasoning. Everything is &quot;high confidence.&quot; No acknowledgment of trade-offs or uncertainties.</li>
+</ul>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>Look at your current backlog or roadmap. Pick 3-5 items. For each, is it Leverage, Neutral, or Overhead?</li>
+<li>Which Overhead items could you drop this week without anyone noticing?</li>
+<li>For your top Leverage item — can you articulate the business outcome it connects to in one sentence?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>I&#39;m a PM for [YOUR PRODUCT]. My top business outcome is [METRIC/GOAL].
+
+Here are 3-5 items currently on my backlog:
+1. [ITEM] — requested by [WHO], estimated [EFFORT]
+2. [ITEM] — requested by [WHO], estimated [EFFORT]
+3. [ITEM] — requested by [WHO], estimated [EFFORT]
+[Add more if needed]
+
+Classify each as Leverage, Neutral, or Overhead. For the Leverage items, help me build an Opportunity Solution Tree connecting them to my business outcome. Identify any gaps — are there important opportunities with no solution on my list?
+
+Then force-rank all items and justify each adjacent pair.
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>A clear LNO classification of your current work</li>
+<li>An Opportunity Solution Tree connecting your backlog to a measurable outcome</li>
+<li>A force-ranked list with defensible reasoning for each position</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>Quantitative prioritization frameworks fail because they create false precision and can be gamed. Use them for communication, not for decision-making.</li>
+<li>The LNO framework applies to your time as much as your backlog. If you are spending significant energy on Neutral or Overhead work, your prioritization problem is not about features — it is about your own calendar.</li>
+<li>Opportunity Solution Trees connect features to outcomes through opportunities, giving you a principled way to say no to requests that do not serve your target metric.</li>
+</ul>
+<hr>
+<h2>What&#39;s Next</h2>
+<p>Module 0.4 shifts from deciding <em>what</em> to build to defining <em>how</em> it should work. You will learn to write requirements that engineers actually want to read — one-pagers that provide enough context for good decisions without over-specifying the solution.</p>
+</div>
+    <div class="nav-footer"><a href="module-0.2.html" class="nav-btn prev">&larr; 0.2 Knowing Your Users — Beyond Persona Templates</a><a href="index.html" class="nav-btn home">Home</a><a href="module-0.4.html" class="nav-btn next">0.4 Writing Requirements That Engineers Love &rarr;</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

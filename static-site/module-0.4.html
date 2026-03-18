@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 0.4: Writing Requirements That Engineers Love — The AI-Augmented Product Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --header-h: 55px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: 860px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand {
+  font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-home {
+  font-size: 0.85rem; color: var(--teal-dark); text-decoration: none;
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.header-home:hover { background: var(--cream); }
+
+.page-container {
+  max-width: 860px; margin: 0 auto;
+  padding: calc(var(--header-h) + 32px) 24px 80px;
+}
+
+.hero {
+  text-align: center; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border); margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px; }
+.hero .tagline {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--teal-dark); margin-bottom: 14px;
+}
+.hero .subtitle {
+  font-size: 1rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 20px; line-height: 1.6;
+}
+.hero .meta { font-size: 0.85rem; color: var(--text-muted); }
+.hero .meta span { margin: 0 6px; }
+
+.differentiators {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px; text-align: left;
+}
+.diff-card { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.diff-card .diff-title { font-weight: 600; font-size: 0.88rem; color: var(--teal-dark); margin-bottom: 4px; }
+.diff-card .diff-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.stat-card { background: var(--cream); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--teal-dark); line-height: 1.2; }
+.stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+.level-section { margin-bottom: 32px; }
+.level-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-darker); flex-wrap: wrap;
+}
+.level-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.level-header h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0; }
+.level-header .level-desc { color: var(--text-muted); font-size: 0.88rem; }
+
+.module-list { list-style: none; display: grid; gap: 6px; }
+.module-card {
+  display: flex; align-items: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 18px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.1s;
+}
+.module-card:hover { border-color: var(--teal-border); transform: translateY(-1px); }
+.module-id { font-weight: 700; color: var(--teal-dark); min-width: 2.5rem; font-size: 0.95rem; }
+.module-info { flex: 1; }
+.module-info .title { font-weight: 500; font-size: 0.95rem; }
+.module-info .duration { font-size: 0.78rem; color: var(--text-muted); }
+.module-arrow { color: var(--warm-gray); font-size: 1.2rem; margin-left: 8px; }
+
+.resources-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+.resources-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; }
+.resource-group { margin-bottom: 20px; }
+.resource-group h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; padding-left: 2px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.resource-link {
+  display: block; background: var(--white);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 14px; text-decoration: none;
+  color: var(--text-primary); font-size: 0.88rem;
+  transition: border-color 0.2s;
+}
+.resource-link:hover { border-color: var(--teal-border); color: var(--teal-dark); }
+
+.module-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.module-header .breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.module-header .breadcrumb a { color: var(--teal-dark); text-decoration: none; }
+.module-header .breadcrumb a:hover { text-decoration: underline; }
+.module-meta { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.meta-tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.meta-tag.duration { background: var(--teal-light); color: var(--teal-dark); }
+.meta-tag.level { background: var(--cream); color: var(--text-muted); }
+
+.content { background: var(--white); padding: 0; }
+.content h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 500; color: var(--text-primary); margin: 2rem 0 1rem; letter-spacing: -0.03em; }
+.content h1:first-child { margin-top: 0; }
+.content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--teal-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid var(--cream-darker); }
+.content h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
+.content h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin: 1.2rem 0 0.4rem; }
+.content p { margin: 0.75rem 0; color: var(--text-secondary); }
+.content ul, .content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+.content li { margin: 0.3rem 0; color: var(--text-secondary); }
+.content li p { margin: 0.25rem 0; }
+.content strong { color: var(--text-primary); }
+.content a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--sage); }
+.content a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+.content blockquote { border-left: 3px solid var(--teal); background: var(--cream); padding: 12px 18px; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.content blockquote p { color: var(--text-secondary); margin: 0.25rem 0; }
+.content code { background: var(--cream-dark); color: var(--teal-dark); padding: 2px 6px; border-radius: 3px; font-size: 0.87em; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; }
+.content pre { background: #1a1a2e; color: #4ade80; padding: 18px 20px; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.87rem; line-height: 1.55; }
+.content pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.content th { background: var(--cream); color: var(--text-primary); font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.content td { padding: 8px 12px; border-bottom: 1px solid var(--cream-darker); color: var(--text-secondary); }
+.content tr:hover td { background: var(--cream); }
+.content hr { border: none; border-top: 1px solid var(--cream-darker); margin: 2rem 0; }
+.content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); gap: 12px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+.nav-btn.prev { color: var(--text-secondary); background: var(--cream); border: 1px solid var(--border); }
+.nav-btn.prev:hover { background: var(--cream-dark); }
+.nav-btn.next { color: var(--white); background: var(--teal); border: 1px solid var(--teal); margin-left: auto; }
+.nav-btn.next:hover { background: var(--teal-dark); }
+.nav-btn.home { color: var(--teal-dark); background: var(--white); border: 1px solid var(--border); }
+.nav-btn.home:hover { background: var(--cream); }
+
+.site-footer { text-align: center; padding: 28px 24px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media print {
+  .site-header, .nav-footer, .site-footer { display: none; }
+  .content { padding: 0; }
+  .page-container { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: calc(var(--header-h) + 16px) 16px 60px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .differentiators { grid-template-columns: 1fr; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 16px; }
+  .nav-footer { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">The AI-Augmented PM</a>
+      <a href="index.html" class="header-home">&larr; Course Home</a>
+    </div>
+  </header>
+  <div class="page-container">
+    
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="index.html">Course Home</a> &rsaquo; Level 0: The PM Craft &rsaquo; Module 0.4
+      </div>
+      <div class="module-meta">
+        <span class="meta-tag duration">25 min</span>
+        <span class="meta-tag level">Level 0: The PM Craft</span>
+      </div>
+    </div>
+    <div class="content"><h1>Module 0.4: Writing Requirements That Engineers Love</h1>
+<p><strong>Duration:</strong> 25 minutes
+<strong>Prerequisites:</strong> Module 0.3 (Prioritization That Actually Works)</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<p>By the end of this module, you will:</p>
+<ol>
+<li>Write user stories that function as conversation starters, not contracts — with the right level of detail</li>
+<li>Identify what engineers actually need from a PM to do their best work</li>
+<li>Structure a one-pager that fits problem, context, approach, success criteria, and open questions on a single page</li>
+<li>Write acceptance criteria using Given/When/Then that are tight enough to test and loose enough to allow good engineering judgment</li>
+</ol>
+<hr>
+<h2>The Two Ways to Fail at Requirements</h2>
+<p>There are exactly two failure modes, and most PMs are stuck in one of them.</p>
+<p><strong>Failure mode 1: Over-specification.</strong> The 47-page PRD with pixel-perfect mockups, 23 acceptance criteria per story, and implementation notes telling engineers which API to call. Engineers become ticket-takers. They stop thinking about the problem and start executing against a spec. When the spec is wrong — and it is always wrong somewhere — they build exactly what you wrote instead of what users need. You have turned your most expensive, most creative team members into a typing pool.</p>
+<p><strong>Failure mode 2: Under-specification.</strong> A one-line Jira ticket that says &quot;Improve search.&quot; No context on why. No definition of success. No constraints. The engineer makes reasonable assumptions that happen to be different from yours. Three weeks later, you see the build and say &quot;that&#39;s not what I meant.&quot; The engineer says &quot;you didn&#39;t tell me what you meant.&quot; Both of you are right.</p>
+<p><strong>The sweet spot:</strong> Enough context for the engineer to make good decisions. Enough freedom for the engineer to find the best solution. You define the problem and the guardrails. They define the implementation.</p>
+<p>The practitioner principle here is straightforward: <strong>context over specs.</strong> An engineer who understands <em>why</em> users need faster search results will make better micro-decisions in 200 lines of code than you could capture in 200 lines of acceptance criteria.</p>
+<hr>
+<h2>What Engineers Actually Need From You</h2>
+<p>I have asked dozens of engineers what they want from their PM. The answers are remarkably consistent:</p>
+<table>
+<thead>
+<tr>
+<th>What Engineers Want</th>
+<th>What They Don&#39;t Want</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Problem context</strong> — Why are we building this? What user pain does it solve?</td>
+<td>Feature requests with no &quot;why.&quot; &quot;Add a button that does X&quot; without explaining the problem X solves.</td>
+</tr>
+<tr>
+<td><strong>Constraints</strong> — What are the boundaries? Performance targets, compliance requirements, platform limitations.</td>
+<td>Vague constraints. &quot;It should be fast&quot; means nothing. &quot;Search results in under 2 seconds for 95% of queries&quot; is actionable.</td>
+</tr>
+<tr>
+<td><strong>What success looks like</strong> — How will we know this worked? What metric moves?</td>
+<td>Success defined as &quot;ship the feature.&quot; Shipping is not success. Adoption is success.</td>
+</tr>
+<tr>
+<td><strong>What&#39;s out of scope</strong> — What are we explicitly NOT building?</td>
+<td>Ambiguous scope that expands mid-sprint because &quot;I assumed we&#39;d also handle that case.&quot;</td>
+</tr>
+<tr>
+<td><strong>Open questions</strong> — What don&#39;t you know yet? Where should they flag design decisions?</td>
+<td>False certainty. Pretending you have all the answers when you obviously don&#39;t.</td>
+</tr>
+<tr>
+<td><strong>Access to users</strong> — Can I talk to the person who needs this?</td>
+<td>Being a wall between engineering and users. &quot;I&#39;ll relay the feedback.&quot; No. Let them hear it firsthand.</td>
+</tr>
+</tbody></table>
+<p><strong>The uncomfortable pattern:</strong> Most of what engineers need is not specification — it is communication. They need to understand the problem well enough to solve it creatively. The PM who writes a great one-pager and then sits with the engineer for 20 minutes answering questions produces better software than the PM who writes a 30-page spec and throws it over the wall.</p>
+<hr>
+<h2>The One-Pager</h2>
+<p>A one-pager is exactly what it sounds like: the entire feature definition fits on one page. If it does not fit, either the feature is too big (split it) or you do not understand it well enough yet (do more discovery).</p>
+<p><strong>The structure:</strong></p>
+<h3>1. Problem (2-3 sentences)</h3>
+<p>What is the user&#39;s problem? Be specific. Not &quot;search is bad&quot; but &quot;KnowledgeHub users spend an average of 8 minutes per search session and abandon 33% of searches without clicking a result, because search results lack relevance signals that help users evaluate which documents are worth opening.&quot;</p>
+<h3>2. Context (3-5 bullet points)</h3>
+<p>Why does this matter now? What evidence do we have?</p>
+<ul>
+<li>WAU is 43% against a 60% target. Exit surveys cite search quality as the #1 reason for disengagement.</li>
+<li>Users report switching to Slack to ask colleagues instead of using search — a workaround that does not scale.</li>
+<li>Competitor platform launched relevance-scored results in Q3 and saw 22% improvement in search completion rates.</li>
+<li>Engineering has a search infrastructure upgrade shipping next sprint that makes this technically feasible without a full rebuild.</li>
+</ul>
+<h3>3. Proposed Approach (3-5 sentences)</h3>
+<p>How might we solve this? Not a detailed design — a direction. &quot;Add relevance signals to search results including recency, author credibility score, and usage count. Surface these as visual indicators on the results page so users can evaluate relevance without opening each document.&quot; Leave room for engineering to propose a better implementation.</p>
+<h3>4. Success Criteria (3-5 metrics, measurable)</h3>
+<p>How will we know this worked?</p>
+<ul>
+<li>Search abandonment rate decreases from 33% to below 20%</li>
+<li>Average search session time decreases from 8 minutes to under 4 minutes</li>
+<li>Search satisfaction score (post-search survey) improves from 3.2/5 to 3.8/5</li>
+<li>No increase in search result page load time (stays under 2 seconds)</li>
+</ul>
+<h3>5. Open Questions (2-5 items)</h3>
+<p>What do we not know yet?</p>
+<ul>
+<li>Do we have reliable data for &quot;author credibility&quot;? Need to validate with the data team.</li>
+<li>Should we show usage count publicly? Some content owners may feel competitive about low numbers.</li>
+<li>How do we handle search results for documents with no signals yet (new content)?</li>
+<li>Is the search infrastructure upgrade a hard dependency, or can we ship a partial version on the current system?</li>
+</ul>
+<p><strong>The discipline:</strong> If the Problem section takes more than 3 sentences, you are probably conflating multiple problems. Split them into separate one-pagers. If the Success Criteria are not measurable, you are not ready to build this yet — go get the data.</p>
+<hr>
+<h2>User Stories and Acceptance Criteria</h2>
+<p>User stories break the one-pager into sprint-sized work. Each story should be small enough that an engineer can build it in a few days, not weeks.</p>
+<p><strong>The format:</strong></p>
+<blockquote>
+<p>As a [user type], I want [capability], so that [benefit].</p>
+</blockquote>
+<p>But remember from Module 0.2 — the job story format is often better:</p>
+<blockquote>
+<p>When [situation], I want to [motivation], so I can [outcome].</p>
+</blockquote>
+<p><strong>The 3 AC Rule:</strong> If a user story has more than 3 acceptance criteria, it is either over-specified or too big. Three forces you to focus on what really matters — the critical paths, the edge cases that would cause real problems, the behaviors that define &quot;done.&quot; Everything else is implementation detail the engineer can figure out.</p>
+<p><strong>Given/When/Then format:</strong></p>
+<pre><code>Given [precondition or context]
+When [action the user takes]
+Then [expected observable result]
+</code></pre>
+<p><strong>Example: KnowledgeHub search relevance signals</strong></p>
+<p><strong>Story:</strong> When I search KnowledgeHub and see results, I want relevance indicators on each result, so I can quickly identify which documents are worth opening without reading each one.</p>
+<p><strong>Acceptance criteria:</strong></p>
+<ol>
+<li><p><strong>Given</strong> a search returns results, <strong>When</strong> results are displayed, <strong>Then</strong> each result shows a relevance score (1-5 dots), last updated date, and author department.</p>
+</li>
+<li><p><strong>Given</strong> a document has been accessed more than 50 times, <strong>When</strong> it appears in results, <strong>Then</strong> it shows a &quot;Frequently referenced&quot; badge.</p>
+</li>
+<li><p><strong>Given</strong> search results are loading, <strong>When</strong> page load exceeds 2 seconds, <strong>Then</strong> results appear with placeholder indicators rather than blocking the full page.</p>
+</li>
+</ol>
+<p>That is it. Three criteria. They cover the core experience, the power-user signal, and the performance guardrail. They do NOT specify the dot color, the badge icon, the exact position on the page, or the loading animation style. Those are design and engineering decisions.</p>
+<p><strong>When to write more than 3:</strong> Compliance features, payment flows, security-critical functionality — areas where getting it wrong has legal or financial consequences. These deserve exhaustive ACs. A settings page redesign does not.</p>
+<hr>
+<h2>Common Mistakes and How to Fix Them</h2>
+<table>
+<thead>
+<tr>
+<th>Mistake</th>
+<th>What It Looks Like</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Solutioning in the problem statement</strong></td>
+<td>&quot;The problem is we don&#39;t have AI search.&quot;</td>
+<td>Rewrite: &quot;Users spend 8 min per search and abandon 33% of searches.&quot; The solution is AI search. The problem is search failure.</td>
+</tr>
+<tr>
+<td><strong>Unmeasurable success criteria</strong></td>
+<td>&quot;Users should find search more helpful.&quot;</td>
+<td>Rewrite: &quot;Search satisfaction score improves from 3.2 to 3.8.&quot;</td>
+</tr>
+<tr>
+<td><strong>No open questions</strong></td>
+<td>&quot;We&#39;ve got it all figured out.&quot;</td>
+<td>You don&#39;t. If you have zero open questions, you haven&#39;t thought hard enough. Add at least 2.</td>
+</tr>
+<tr>
+<td><strong>Stories too large</strong></td>
+<td>&quot;As a user, I want a completely redesigned search experience.&quot;</td>
+<td>Split: Result relevance signals, search suggestions, filter improvements, saved searches. Each is one sprint.</td>
+</tr>
+<tr>
+<td><strong>Acceptance criteria that are test scripts</strong></td>
+<td>&quot;Click the search box, type &#39;cloud migration&#39;, press Enter, verify 10 results appear in under 1.5 seconds with relevance scores...&quot;</td>
+<td>Rewrite using Given/When/Then. Let QA write the test scripts.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Exercise 1: Write a One-Pager</h2>
+<p><strong>Context:</strong> KnowledgeHub&#39;s search takes an average of 8 minutes per session. Users report that results are not relevant — they open multiple documents before finding what they need, and 33% of searches are abandoned entirely. You need to write a one-pager for adding AI-powered search improvements.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Write a one-pager for adding AI-powered search to KnowledgeHub, an internal knowledge management platform at a 5,000-person enterprise company. Current search takes 8 min average per session, users give up on 33% of searches, and satisfaction is 3.2/5.
+
+Use this structure:
+1. Problem (2-3 sentences — specific, not vague)
+2. Context (3-5 bullet points — evidence and timing)
+3. Proposed Approach (3-5 sentences — direction, not detailed design)
+4. Success Criteria (3-5 measurable metrics)
+5. Open Questions (3-5 unknowns)
+
+Push back hard if my problem statement is vague or success criteria aren&#39;t measurable. Flag anything that seems like a solution disguised as a problem. The whole thing should fit on one page — be concise.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Problem statement focuses on user pain, not missing features. Success criteria have specific numbers. Open questions reveal genuine unknowns (data availability, dependencies, edge cases). The approach gives direction without dictating implementation. It actually fits on one page.</li>
+<li>Bad response: Problem statement says &quot;we need AI search&quot; (that is a solution). Success criteria are vague (&quot;improve search&quot;). No open questions. Reads like a marketing brief instead of an engineering brief.</li>
+</ul>
+<hr>
+<h2>Exercise 2: Break It Into Stories</h2>
+<p><strong>Context:</strong> You have your one-pager. Now you need to break the AI search improvement into sprint-sized user stories with acceptance criteria — small enough for one 2-week sprint each.</p>
+<p><strong>Your Copilot Prompt:</strong></p>
+<pre><code>Based on the AI-powered search one-pager for KnowledgeHub, write 3 user stories with acceptance criteria. Each story should be:
+- Small enough for one 2-week sprint
+- Written in job story format: &quot;When [situation], I want [motivation], so I can [outcome]&quot;
+- Accompanied by exactly 3 acceptance criteria in Given/When/Then format
+- Independent enough to ship value on its own
+
+Challenge yourself: are any of these stories actually too big for one sprint? If so, suggest how to split them further. Also flag any hidden dependencies between the stories.
+</code></pre>
+<p><strong>What to Look For:</strong></p>
+<ul>
+<li>Good response: Stories are genuinely independent — shipping story 1 without story 2 still delivers value. ACs are tight (exactly 3 per story) and testable. The response identifies at least one story that might be too big and suggests a split. Dependencies between stories are flagged honestly.</li>
+<li>Bad response: Stories are just the one-pager sliced into three arbitrary chunks. ACs are either too detailed (test scripts) or too vague (&quot;it works&quot;). No self-critique on story size.</li>
+</ul>
+<hr>
+<h2>Apply to Your Work</h2>
+<p><strong>Reflect:</strong></p>
+<ol>
+<li>What is the next feature you need to spec? What is the actual problem — in one sentence, from the user&#39;s perspective?</li>
+<li>Think about the last spec or PRD you wrote. Was it over-specified (engineers as ticket-takers) or under-specified (engineers guessing)?</li>
+<li>If you had to write the whole spec on one page, what would you cut?</li>
+</ol>
+<p><strong>Your Prompt:</strong></p>
+<pre><code>I need to write a one-pager for [YOUR FEATURE]. The user problem is: [ONE SENTENCE PROBLEM STATEMENT].
+
+Help me write a one-pager using this structure:
+1. Problem (2-3 sentences)
+2. Context (3-5 bullet points with evidence)
+3. Proposed Approach (direction, not detailed design)
+4. Success Criteria (3-5 measurable metrics)
+5. Open Questions (3-5 unknowns)
+
+Then break it into [2-4] user stories with 3 acceptance criteria each in Given/When/Then format. Flag any stories that are too big for a 2-week sprint.
+
+Be opinionated — if my problem statement is vague, tell me. If my success criteria aren&#39;t measurable, push back.
+</code></pre>
+<p><strong>You should now have:</strong></p>
+<ul>
+<li>A one-pager that communicates problem, context, approach, success, and unknowns on a single page</li>
+<li>2-4 user stories sized for individual sprints with testable acceptance criteria</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>Requirements fail in two ways: over-specification (engineers become ticket-takers) and under-specification (engineers guess wrong). The sweet spot is enough context for good decisions, enough freedom for the best solution.</li>
+<li>Engineers need problem context, constraints, success criteria, scope boundaries, and open questions. Most of what they need is communication, not documentation.</li>
+<li>The one-pager forces clarity. If you cannot fit it on one page, either the feature is too big or you do not understand it yet. Both are signals to do more work before building.</li>
+</ul>
+<hr>
+<h2>What&#39;s Next</h2>
+<p>Module 0.5 covers Agile and Scrum in practice — not the textbook version, but the honest take on which ceremonies earn their time, why your backlog is not a to-do list, and how dual-track agile prevents teams from building the wrong things efficiently.</p>
+</div>
+    <div class="nav-footer"><a href="module-0.3.html" class="nav-btn prev">&larr; 0.3 Prioritization That Actually Works</a><a href="index.html" class="nav-btn home">Home</a><a href="module-0.5.html" class="nav-btn next">0.5 Agile in Practice &rarr;</a></div>
+  </div>
+  <footer class="site-footer">
+    The AI-Augmented Product Manager &middot; v2.0 &middot; Master Microsoft Copilot for 10x PM Impact
+  </footer>
+</body>
+</html>

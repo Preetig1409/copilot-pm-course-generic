@@ -2,8 +2,8 @@
 
 Welcome to **The AI-Augmented Product Manager** course! This guide will help you get up and running quickly.
 
-> **Course Website:** [sanjaygupta-professional.github.io/copilot-pm-course-generic](https://sanjaygupta-professional.github.io/copilot-pm-course-generic/)
-> **GitHub Repo:** [github.com/sanjaygupta-professional/copilot-pm-course-generic](https://github.com/sanjaygupta-professional/copilot-pm-course-generic)
+> **Course Website:** [preetig1409.github.io/copilot-pm-course-generic](https://preetig1409.github.io/copilot-pm-course-generic/)
+> **GitHub Repo:** [github.com/Preetig1409/copilot-pm-course-generic](https://github.com/Preetig1409/copilot-pm-course-generic)
 
 ---
 
@@ -30,8 +30,8 @@ An **11-hour, 23-module** self-paced course that teaches Product Managers how to
 
 ## Quick Start
 
-1. **Open the course website** — [sanjaygupta-professional.github.io/copilot-pm-course-generic](https://sanjaygupta-professional.github.io/copilot-pm-course-generic/)
-2. **Start with Module 1.1** (Welcome to Microsoft Copilot) from the sidebar
+1. **Open the course website** — [preetig1409.github.io/copilot-pm-course-generic](https://preetig1409.github.io/copilot-pm-course-generic/)
+2. **Start with Module 0.1** (What Product Management Actually Is) from the sidebar
 3. **Follow along** — each module has step-by-step instructions and exercises
 
 That's it. The website has all modules, sample files, prompt templates, and company context built in.
@@ -40,39 +40,53 @@ That's it. The website has all modules, sample files, prompt templates, and comp
 
 ## Course Structure
 
-### Level 1: PM Craft (~3.5 hours)
+### Level 0: The PM Craft (~2.5 hours)
 
 | Module | Topic | Duration |
 |--------|-------|----------|
-| 1.1 | Welcome to Microsoft Copilot | 15 min |
-| 1.2 | Setting Up Your Workspace | 15 min |
-| 1.3 | Your First PM Tasks | 30 min |
-| 1.4 | Researcher & Analyst Agents | 25 min |
-| 1.5 | Persona Prompting | 20 min |
-| 1.6 | Building Context with Memory | 15 min |
-| 1.7 | Copilot Across M365 Apps | 15 min |
-| 1.8 | Copilot in Microsoft Teams | 25 min |
-| 1.9 | Copilot in Outlook | 20 min |
-| 1.10 | Copilot in SharePoint & Collaboration | 20 min |
+| 0.1 | What Product Management Actually Is | 20 min |
+| 0.2 | Knowing Your Users — Beyond Persona Templates | 25 min |
+| 0.3 | Prioritization That Actually Works | 25 min |
+| 0.4 | Writing Requirements That Engineers Love | 25 min |
+| 0.5 | Agile in Practice | 20 min |
+| 0.6 | Stakeholder Management — The Unwritten PM Skill | 25 min |
 
-### Level 2: Copilot as Teammate (~1.5 hours)
+### Level 1: Copilot as Teammate (~3 hours)
 
 | Module | Topic | Duration |
 |--------|-------|----------|
-| 2.1 | Writing PRDs with Copilot | 35 min |
-| 2.2 | Analyzing Product Data | 30 min |
-| 2.3 | Product Strategy | 30 min |
+| 1.1 | Your AI Working Environment | 15 min |
+| 1.2 | Meeting Intelligence | 25 min |
+| 1.3 | User Research Synthesis at Scale | 25 min |
+| 1.4 | Communication That Lands | 25 min |
+| 1.5 | Copilot Across M365 | 20 min |
+| 1.6 | Deep Research with Agents | 25 min |
+| 1.7 | Building Context & Memory | 20 min |
+| 1.8 | Teams & Outlook Mastery | 25 min |
 
-### Level 3: Strategic PM (~45 min)
+### Level 2: Strategic PM with AI (~2.5 hours)
 
 | Module | Topic | Duration |
 |--------|-------|----------|
-| 3.1 | Image Generation Basics | 20 min |
-| 3.2 | PM Visuals | 25 min |
+| 2.1 | Writing PRDs That Get Buy-In | 35 min |
+| 2.2 | Data-Driven Decisions with AI | 30 min |
+| 2.3 | Product Strategy & Roadmapping | 35 min |
+| 2.4 | Running Effective Product Reviews | 25 min |
+| 2.5 | Navigating Organizational Politics | 25 min |
+
+### Level 3: The 10x PM (~1.5 hours)
+
+| Module | Topic | Duration |
+|--------|-------|----------|
+| 3.1 | Visual Communication for PMs | 25 min |
+| 3.2 | The Capstone — Run a Product Cycle | 40 min |
+| 3.3 | Building Your Personal AI Toolkit | 20 min |
+| 3.4 | What's Next — The AI-Era PM | 15 min |
 
 ## Recommended Learning Path
 
-- **Level 1:** Complete modules **in order** (1.1 → 1.10). Each builds on concepts from the previous one.
+- **Level 0:** Complete modules **in order** (0.1 → 0.6). These establish the PM foundation.
+- **Level 1:** Complete modules **in order** (1.1 → 1.8). Each builds on concepts from the previous one.
 - **Levels 2 & 3:** Complete in **any order** based on your interest. These are standalone topics.
 
 ---
@@ -93,13 +107,13 @@ Each module follows the same pattern:
 
 | File Type | Location | Used In |
 |-----------|----------|---------|
-| Meeting notes (`.md`) | `sample-files/meeting-notes/` | Module 1.3 |
-| User interviews (`.md`) | `sample-files/user-interviews/` | Modules 1.3, 1.5 |
+| Meeting notes (`.md`) | `sample-files/meeting-notes/` | Modules 1.2, 1.3 |
+| User interviews (`.md`) | `sample-files/user-interviews/` | Modules 1.3, 1.7 |
 | CSV data files (`.csv`) | `sample-files/data/` | Module 2.2 |
 
 **On the website:** Navigate to **Sample Files** in the sidebar to view markdown files directly.
 
-**CSV files:** These must be downloaded from [the GitHub repo](https://github.com/sanjaygupta-professional/copilot-pm-course-generic/tree/main/sample-files/data) since CSV files can't be rendered on the website. Download them, then upload to Copilot or open in Excel.
+**CSV files:** These must be downloaded from [the GitHub repo](https://github.com/Preetig1409/copilot-pm-course-generic/tree/main/sample-files/data) since CSV files can't be rendered on the website. Download them, then upload to Copilot or open in Excel.
 
 ## Using the Prompt Library
 
@@ -109,6 +123,7 @@ The course includes reusable prompts in the sidebar under **Prompt Library**:
 - **Meeting Notes** — extract action items, decisions, and follow-ups from raw notes
 - **Communication Transform** — rewrite a message for different audiences (exec summary, team update, stakeholder brief)
 - **User Research Synthesis** — analyze interview transcripts for patterns and insights
+- **Feedback Extraction** — extract structured feedback from unstructured sources
 
 **Persona Prompts:**
 - **Executive** — reviews your work from a C-suite perspective
@@ -157,14 +172,14 @@ No — Copilot outputs vary every time. Focus on whether your output has the sam
 Progress is stored in your browser's local storage. Clearing browser data or switching browsers will reset it. There's no account-based sync.
 
 **Can I skip modules?**
-Level 1 modules build on each other, so we recommend going in order. Levels 2 and 3 are standalone — skip to whatever interests you.
+Level 0 and Level 1 modules build on each other, so we recommend going in order. Levels 2 and 3 are standalone — skip to whatever interests you.
 
 **Where are the CSV files? I can't find them on the website.**
-CSV files aren't viewable on the website. Download them from the [sample-files/data folder on GitHub](https://github.com/sanjaygupta-professional/copilot-pm-course-generic/tree/main/sample-files/data), then upload to Copilot or open in Excel.
+CSV files aren't viewable on the website. Download them from the [sample-files/data folder on GitHub](https://github.com/Preetig1409/copilot-pm-course-generic/tree/main/sample-files/data), then upload to Copilot or open in Excel.
 
 **How long does the full course take?**
 About 11 hours if you complete all exercises. You can spread it over multiple days or weeks.
 
 ---
 
-**Ready to start?** Open the [course website](https://sanjaygupta-professional.github.io/copilot-pm-course-generic/) and begin with Module 1.1!
+**Ready to start?** Open the [course website](https://preetig1409.github.io/copilot-pm-course-generic/) and begin with Module 0.1!

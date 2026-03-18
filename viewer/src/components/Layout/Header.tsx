@@ -55,7 +55,7 @@ export function Header({ onMenuClick, totalProgress }: HeaderProps) {
         {/* Right section: External links */}
         <div className="flex items-center gap-2">
           <a
-            href="https://github.com/sanjaygupta-professional/copilot-pm-course-generic"
+            href="https://github.com/Preetig1409/copilot-pm-course-generic"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 text-corporate-500 hover:text-corporate-700 hover:bg-corporate-100 rounded-lg transition-colors"

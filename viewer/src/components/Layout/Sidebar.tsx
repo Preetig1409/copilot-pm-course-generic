@@ -11,6 +11,7 @@ interface SidebarProps {
 
 export function Sidebar({ isComplete, getLevelProgress, onNavigate }: SidebarProps) {
   const [expandedLevels, setExpandedLevels] = useState<Record<string, boolean>>({
+    '0': true,
     '1': true,
     '2': true,
     '3': true,

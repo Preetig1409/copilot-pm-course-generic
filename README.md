@@ -2,7 +2,7 @@
 
 An opinionated, 11-hour, 23-module self-paced course that teaches Product Managers how to use Microsoft 365 Copilot to save 14+ hours per week on real PM work.
 
-> **[Live Website](https://sanjaygupta-professional.github.io/copilot-pm-course-generic/)** | **[Getting Started Guide](GETTING-STARTED.md)** | **[GitHub Repo](https://github.com/sanjaygupta-professional/copilot-pm-course-generic)**
+> **[Live Website](https://preetig1409.github.io/copilot-pm-course-generic/)** | **[Getting Started Guide](GETTING-STARTED.md)** | **[GitHub Repo](https://github.com/Preetig1409/copilot-pm-course-generic)**
 
 ## What Makes This Different
 
@@ -19,53 +19,62 @@ An opinionated, 11-hour, 23-module self-paced course that teaches Product Manage
 
 ## Course Structure: 4 Levels, 23 Modules, ~11 Hours
 
-### Level 1: PM Craft (~3.5 hours)
+### Level 0: The PM Craft (~2.5 hours)
 
 | Module | Topic | Duration |
 |--------|-------|----------|
-| 1.1 | Welcome to Microsoft Copilot | 15 min |
-| 1.2 | Setting Up Your Workspace | 15 min |
-| 1.3 | Your First PM Tasks | 30 min |
-| 1.4 | Researcher & Analyst Agents | 25 min |
-| 1.5 | Persona Prompting | 20 min |
-| 1.6 | Building Context with Memory | 15 min |
-| 1.7 | Copilot Across M365 Apps | 15 min |
-| 1.8 | Copilot in Microsoft Teams | 25 min |
-| 1.9 | Copilot in Outlook | 20 min |
-| 1.10 | Copilot in SharePoint & Collaboration | 20 min |
+| 0.1 | What Product Management Actually Is | 20 min |
+| 0.2 | Knowing Your Users — Beyond Persona Templates | 25 min |
+| 0.3 | Prioritization That Actually Works | 25 min |
+| 0.4 | Writing Requirements That Engineers Love | 25 min |
+| 0.5 | Agile in Practice | 20 min |
+| 0.6 | Stakeholder Management — The Unwritten PM Skill | 25 min |
 
-### Level 2: Copilot as Teammate (~2 hours)
+### Level 1: Copilot as Teammate (~3 hours)
 
 | Module | Topic | Duration |
 |--------|-------|----------|
-| 2.1 | Writing PRDs with Copilot | 35 min |
-| 2.2 | Analyzing Product Data | 30 min |
-| 2.3 | Product Strategy | 30 min |
+| 1.1 | Your AI Working Environment | 15 min |
+| 1.2 | Meeting Intelligence | 25 min |
+| 1.3 | User Research Synthesis at Scale | 25 min |
+| 1.4 | Communication That Lands | 25 min |
+| 1.5 | Copilot Across M365 | 20 min |
+| 1.6 | Deep Research with Agents | 25 min |
+| 1.7 | Building Context & Memory | 20 min |
+| 1.8 | Teams & Outlook Mastery | 25 min |
 
-### Level 3: Strategic PM (~3 hours)
+### Level 2: Strategic PM with AI (~2.5 hours)
 
 | Module | Topic | Duration |
 |--------|-------|----------|
-| 3.1 | Image Generation Basics | 20 min |
-| 3.2 | PM Visuals | 25 min |
+| 2.1 | Writing PRDs That Get Buy-In | 35 min |
+| 2.2 | Data-Driven Decisions with AI | 30 min |
+| 2.3 | Product Strategy & Roadmapping | 35 min |
+| 2.4 | Running Effective Product Reviews | 25 min |
+| 2.5 | Navigating Organizational Politics | 25 min |
 
-### Level 4: The 10x PM (~2.5 hours)
+### Level 3: The 10x PM (~1.5 hours)
 
-Additional advanced modules covering force-multiplier techniques for experienced PMs.
+| Module | Topic | Duration |
+|--------|-------|----------|
+| 3.1 | Visual Communication for PMs | 25 min |
+| 3.2 | The Capstone — Run a Product Cycle | 40 min |
+| 3.3 | Building Your Personal AI Toolkit | 20 min |
+| 3.4 | What's Next — The AI-Era PM | 15 min |
 
 ## Getting Started
 
 ### Option A: Use the Website (Recommended)
 
-1. Open the **[course website](https://sanjaygupta-professional.github.io/copilot-pm-course-generic/)**
-2. Start with **Module 1.1** from the sidebar
+1. Open the **[course website](https://preetig1409.github.io/copilot-pm-course-generic/)**
+2. Start with **Module 0.1** from the sidebar
 3. Follow the step-by-step instructions and complete exercises as you go
 
 See the **[Getting Started Guide](GETTING-STARTED.md)** for detailed onboarding instructions.
 
 ### Option B: Browse the Repo
 
-1. Open `lesson-modules/1-fundamentals/1.1-welcome/MODULE.md`
+1. Open `lesson-modules/0-pm-fundamentals/0.1-what-is-pm/MODULE.md`
 2. Follow the instructions in each module
 3. Complete exercises as you go
 4. Use the prompt library for reference
@@ -98,19 +107,21 @@ npm run preview
 ```
 copilot-pm-course-generic/
 ├── lesson-modules/
-│   ├── 1-fundamentals/        # Level 1: PM Craft (10 modules)
-│   ├── 2-advanced-pm-work/    # Level 2: Copilot as Teammate (3 modules)
-│   └── 3-product-visuals/     # Level 3: Strategic PM (2 modules)
-├── company-context/           # NovaTech Solutions company context files
+│   ├── 0-pm-fundamentals/        # Level 0: The PM Craft (6 modules)
+│   ├── 1-copilot-teammate/       # Level 1: Copilot as Teammate (8 modules)
+│   ├── 2-strategic-pm/           # Level 2: Strategic PM with AI (5 modules)
+│   └── 3-ten-x-pm/              # Level 3: The 10x PM (4 modules)
+├── company-context/              # NovaTech Solutions company context files
 ├── prompt-library/
-│   ├── personas/              # Engineer, Executive, Researcher, Managing Director
-│   └── templates/             # Reusable prompt templates
-├── sample-files/              # Exercise files (meeting notes, interviews, CSVs)
-├── viewer/                    # React companion website (auto-deployed)
-├── .github/                   # GitHub Actions deployment workflow
-├── notebooklm-upload/         # Flattened files for NotebookLM upload
-├── GETTING-STARTED.md         # Learner onboarding guide
-└── README.md                  # This file
+│   ├── personas/                 # Engineer, Executive, Researcher, Managing Director
+│   ├── templates/                # Reusable prompt templates
+│   └── references/               # Prompting 101, PM learning resources
+├── sample-files/                 # Exercise files (meeting notes, interviews, CSVs)
+├── viewer/                       # React companion website (auto-deployed)
+├── .github/                      # GitHub Actions deployment workflow
+├── notebooklm-upload/            # Flattened files for NotebookLM upload
+├── GETTING-STARTED.md            # Learner onboarding guide
+└── README.md                     # This file
 ```
 
 ## Company Context: NovaTech Solutions
@@ -136,4 +147,4 @@ This course is for training purposes.
 
 ---
 
-**Ready to start?** Open the **[course website](https://sanjaygupta-professional.github.io/copilot-pm-course-generic/)** or read the **[Getting Started Guide](GETTING-STARTED.md)**!
+**Ready to start?** Open the **[course website](https://preetig1409.github.io/copilot-pm-course-generic/)** or read the **[Getting Started Guide](GETTING-STARTED.md)**!

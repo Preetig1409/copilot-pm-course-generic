@@ -12,7 +12,7 @@ The course is organized into 4 levels:
 3. **Strategic PM** — Advanced workflows (PRDs, data analysis, strategy)
 4. **The 10x PM** — Visual assets and force-multiplier techniques
 
-Live site: https://sanjaygupta-professional.github.io/copilot-pm-course-generic/
+Live site: https://preetig1409.github.io/copilot-pm-course-generic/
 
 ## Commands
 

@@ -1,10 +1,10 @@
 THURSDAY 2/13 - HEAVY MEETING DAY
 
-=== Meeting 1: AKX Steering Committee (9am) ===
+=== Meeting 1: KnowledgeHub Steering Committee (9am) ===
 
-attendees: richard thorne (CKO, sponsor), jennifer walsh (VP internal digital), david kim (MD tech practice), sarah mitchell (MD strategy practice), me
+attendees: richard thorne (VP Knowledge & Innovation, sponsor), jennifer walsh (VP internal digital), david kim (MD tech practice), sarah mitchell (MD product strategy department), me
 
-context: monthly steering committee for AKX
+context: monthly steering committee for KnowledgeHub
 
 richard kicked off - "where are we on WAU?"
 - current: 43% (same as last month basically)
@@ -21,11 +21,11 @@ david kim (tech practice): "my team complains search is terrible"
 - "most results are from 2019 - completely outdated"
 - "people give up after 2-3 searches and just email their network"
 
-sarah mitchell (strategy practice): "same issue"
-- "McKinsey people who joined us say their knowledge center is so much better"
+sarah mitchell (product strategy department): "same issue"
+- "Atlassian people who joined us say their knowledge center is so much better"
 - "we're losing competitive positioning - partners can't find expertise fast enough"
 - "lost a deal last month - client asked for blockchain expertise, took us 4 days to find someone"
-  - competitor (BCG) had their team identified in 48 hours
+  - competitor (Monday.com) had their team identified in 48 hours
 
 DISCUSSION: AI Search priority
 richard: "this is the #1 priority. nothing else matters until search works"
@@ -41,7 +41,7 @@ sarah mentioned expert profiles are outdated
 - "project history isn't complete"
 - "can't trust the data"
 
-me: we're exploring automatic profile updates from ADH
+me: we're exploring automatic profile updates from ProjectPulse
 - pull skills from project assignments
 - validate with managers
 - david liked this idea
@@ -49,16 +49,16 @@ me: we're exploring automatic profile updates from ADH
 ACTION ITEMS:
 - jennifer: assess if we can accelerate AI search (Q2 → Q1 end)
 - me: draft proposal for automatic skill profile updates
-- david: identify 3 practice leads to pilot improved search
-- sarah: share the competitive loss analysis (BCG deal)
+- david: identify 3 department leads to pilot improved search
+- sarah: share the competitive loss analysis (Monday.com deal)
 
 richard closing: "I'm presenting to the CEO next month. Need to show progress."
 - pressure is HIGH
 - adoption numbers need to move
 
 side conversation with david after:
-- "technology practice is your biggest advocate, but also your harshest critic"
-- "we have 80,000 consultants who need this to work"
+- "engineering department is your biggest advocate, but also your harshest critic"
+- "we have 800 engineers who need this to work"
 - suggested I shadow some of his team to understand search pain points
 
 ---
@@ -83,7 +83,7 @@ lisa's framework:
 5. reinforcement (keep using it)
 
 current state:
-- awareness is OK (people know AKX exists)
+- awareness is OK (people know KnowledgeHub exists)
 - desire is LOW (don't trust search results, gave up)
 - knowledge is LOW (don't know tips/tricks)
 - ability is OK (UI is relatively intuitive)
@@ -91,34 +91,34 @@ current state:
 
 PROPOSED CAMPAIGN:
 
-tom: "we should target by role - partners need different messaging than consultants"
+tom: "we should target by role - partners need different messaging than team members"
 
-partner messaging (priya's persona):
+director messaging (priya's persona):
 - "find experts in 5 minutes, not 5 days"
 - "win more deals with faster team identification"
 - business impact focused
 
-consultant messaging (marcus's persona):
+team member messaging (marcus's persona):
 - "stop recreating work that already exists"
 - "find templates and examples instantly"
 - efficiency focused
 
-delivery manager messaging (elena's persona):
+program manager messaging (elena's persona):
 - "find project plans and lessons learned"
 - "staff projects with the right skills"
 - project success focused
 
 CHANNELS:
 - global town hall announcement (richard)
-- practice-specific webinars (MDs)
+- department-specific webinars (Directors)
 - email campaign (3-part series)
 - Teams channel notifications
 - in-app banners and tutorials
-- "AKX Champions" program in each practice
+- "KnowledgeHub Champions" program in each department
 
 lisa: "we need executive sponsorship visible"
 - richard should do a video
-- MDs should endorse in practice meetings
+- Directors should endorse in practice meetings
 - "if leadership doesn't use it, why should I?"
 
 TIMELINE:
@@ -160,31 +160,31 @@ tom: "oh, also - richard wants a steering committee update deck by EOD friday"
 
 === Meeting 3: Technical Integration Review (2pm) ===
 
-attendees: me, raj patel (tech lead), amit singh (ADH team), maya chen (security)
+attendees: me, raj patel (tech lead), amit singh (ProjectPulse team), maya chen (security)
 
-context: reviewing integration between AKX and ADH for real-time expert availability
+context: reviewing integration between KnowledgeHub and ProjectPulse for real-time expert availability
 
 raj explaining current state:
-- AKX shows expert profiles
-- ADH has real-time staffing data
+- KnowledgeHub shows expert profiles
+- ProjectPulse has real-time staffing data
 - NO integration currently
 - "we pull a monthly data dump - always stale"
 
 PROBLEM:
-- priya searches for expert in AKX
+- priya searches for expert in KnowledgeHub
 - profile says "available"
 - actually, that person got staffed 2 weeks ago
 - frustrating experience, erodes trust
 
 PROPOSED SOLUTION:
 raj: "real-time API integration"
-- ADH exposes availability endpoint
-- AKX queries on profile load
-- "available", "on project (ends MM/DD)", "on bench"
+- ProjectPulse exposes availability endpoint
+- KnowledgeHub queries on profile load
+- "available", "on project (ends MM/DD)", "available"
 
-amit (ADH): "we can build the API"
+amit (ProjectPulse): "we can build the API"
 - concern: performance at scale
-- 700K+ employees
+- 5K+ employees
 - can't query for every profile view
 - need caching strategy
 
@@ -195,7 +195,7 @@ raj's suggestion:
 
 maya (security): "data classification concerns"
 - availability data is HR-sensitive
-- who can see who's on bench?
+- who can see who's available?
 - "partners can see their practice, not all practices"
 - need role-based access
 
@@ -206,19 +206,19 @@ OPEN QUESTIONS:
    - amit: "project name might be confidential"
 
 2. skill matching accuracy
-   - ADH skill data vs AKX skill data
+   - ProjectPulse skill data vs KnowledgeHub skill data
    - they don't always match
    - need single source of truth
    - raj: "this is a bigger project"
 
 3. what about contractors?
-   - raj: "contractors aren't in ADH consistently"
+   - raj: "contractors aren't in ProjectPulse consistently"
    - amit: "separate system for contingent workforce"
    - me: out of scope for now, but note it
 
 TECHNICAL ESTIMATE (raj):
-- API development (ADH side): 2 sprints
-- integration code (AKX side): 2 sprints
+- API development (ProjectPulse side): 2 sprints
+- integration code (KnowledgeHub side): 2 sprints
 - testing and rollout: 1 sprint
 - total: 5 sprints (~10 weeks)
 
@@ -237,12 +237,12 @@ amit raised data sync issues
 DECISION: proceed with MVP
 - show "available now" or "on project"
 - no project details in v1
-- partner-level visibility only
+- director-level visibility only
 - revisit expanded features later
 
 ACTION ITEMS:
 - raj: detailed technical spec (2 weeks)
-- amit: ADH API design and estimate
+- amit: ProjectPulse API design and estimate
 - maya: security review document
 - me: update PRD with technical constraints
 - me: get sponsor sign-off on MVP scope
@@ -260,28 +260,28 @@ RANDOM NOTES / PARKING LOT:
   - need to prepare justification for additional headcount
   - ROI analysis needed
 
-- david kim wants a "practice dashboard" in AKX
-  - see all expertise in his practice
+- david kim wants a "practice dashboard" in KnowledgeHub
+  - see all expertise in his department
   - track knowledge contributions
-  - "my practice creates content, other practices consume it - I want credit"
+  - "my department creates content, other departments consume it - I want credit"
 
-- complaints about AKX performance on mobile
+- complaints about KnowledgeHub performance on mobile
   - multiple people mentioned this
   - "takes 10+ seconds to load"
   - need to prioritize mobile performance
 
-- heard from lisa: some partners don't even know AKX exists!
+- heard from lisa: some partners don't even know KnowledgeHub exists!
   - "I've been here 15 years, never heard of it"
   - brand awareness campaign needed
 
 - sarah's assistant mentioned executive dashboard request
-  - CKO wants weekly metrics automatically
+  - VP Knowledge & Innovation wants weekly metrics automatically
   - currently manual slide deck every week
   - could save hours
 
-- overheard in hallway: deloitte is investing heavily in their knowledge platform
+- overheard in hallway: Notion is investing heavily in their knowledge platform
   - competitive pressure increasing
-  - BCG's AI tools are apparently impressive
+  - Monday.com's AI tools are apparently impressive
   - need to move faster
 
 ---
@@ -304,7 +304,7 @@ FOLLOW-UPS NEEDED:
 - change management plan draft (lisa)
 - comms calendar (tom)
 - technical spec for integration (raj)
-- ADH API design (amit)
+- ProjectPulse API design (amit)
 - security review (maya)
 - practice pilot coordination with david's team (me)
 - ROI analysis for budget review (me)
@@ -322,11 +322,11 @@ UPCOMING THIS WEEK:
 - thursday: practice shadowing with david's team
 
 data to pull:
-- AKX usage by practice (who's using, who's not?)
+- KnowledgeHub usage by department (who's using, who's not?)
 - search success rate trends (is it getting worse?)
 - expert connection rates (are people finding experts?)
-- ADH data quality metrics (how stale is the data?)
-- competitive analysis (what's BCG doing?)
+- ProjectPulse data quality metrics (how stale is the data?)
+- competitive analysis (what's Monday.com doing?)
 
 ---
 
@@ -357,15 +357,15 @@ Generated: February 13, 2025 at 5:30 PM
 |-------------|---------|----------|----------|
 | Assess if AI search can be accelerated (Q2 → Q1) | Steering Committee | Critical | Mon 2/17 |
 
-### David Kim (MD Technology Practice)
+### David Kim (MD Engineering Department)
 | Action Item | Meeting | Priority | Due Date |
 |-------------|---------|----------|----------|
-| Identify 3 practice leads to pilot improved search | Steering Committee | Medium | Fri 2/21 |
+| Identify 3 department leads to pilot improved search | Steering Committee | Medium | Fri 2/21 |
 
-### Sarah Mitchell (MD Strategy Practice)
+### Sarah Mitchell (MD Product Strategy Department)
 | Action Item | Meeting | Priority | Due Date |
 |-------------|---------|----------|----------|
-| Share competitive loss analysis (BCG deal) | Steering Committee | Medium | Fri 2/14 |
+| Share competitive loss analysis (Monday.com deal) | Steering Committee | Medium | Fri 2/14 |
 
 ### Lisa Chen (Change Management Lead)
 | Action Item | Meeting | Priority | Due Date |
@@ -383,10 +383,10 @@ Generated: February 13, 2025 at 5:30 PM
 |-------------|---------|----------|----------|
 | Detailed technical spec for integration | Technical Review | High | Thu 2/27 |
 
-### Amit Singh (ADH Team)
+### Amit Singh (ProjectPulse Team)
 | Action Item | Meeting | Priority | Due Date |
 |-------------|---------|----------|----------|
-| ADH API design and estimate | Technical Review | High | Thu 2/27 |
+| ProjectPulse API design and estimate | Technical Review | High | Thu 2/27 |
 
 ### Maya Chen (Security)
 | Action Item | Meeting | Priority | Due Date |
@@ -401,16 +401,16 @@ Generated: February 13, 2025 at 5:30 PM
 3. **Adoption Campaign Timing** - Need to find window that doesn't conflict with fiscal year end comms
 
 ## Critical Risks Identified
-- **Competitive Pressure**: BCG beat us on a deal due to faster expert identification (4 days vs 48 hours)
-- **Executive Visibility**: CKO presenting to CEO next month, needs to show progress
-- **Data Quality**: Both AKX and ADH have stale/incomplete data affecting feature reliability
+- **Competitive Pressure**: Monday.com beat us on a deal due to faster expert identification (4 days vs 48 hours)
+- **Executive Visibility**: VP Knowledge & Innovation presenting to CEO next month, needs to show progress
+- **Data Quality**: Both KnowledgeHub and ProjectPulse have stale/incomplete data affecting feature reliability
 
 ## This Week's Calendar
 - **Friday 2/14**: Steering committee deck due
 - **Monday 2/17**: Change management review
 - **Tuesday 2/18**: Technical deep dive with Raj
 - **Wednesday 2/19**: 1:1 with Jennifer
-- **Thursday 2/20**: Practice shadowing with David's team
+- **Thursday 2/20**: Department shadowing with David's team
 
 ---
 *Generated from 3 meetings on Thursday 2/13*

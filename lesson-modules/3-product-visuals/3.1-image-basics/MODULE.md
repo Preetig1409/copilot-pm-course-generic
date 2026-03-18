@@ -208,7 +208,7 @@ For more editing control, use Microsoft Designer.
 
 ---
 
-## Prompting Best Practices
+## Prompting Best Departments
 
 ### Be Specific
 

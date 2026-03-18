@@ -43,7 +43,7 @@ Let's create each type!
 Create a professional headshot-style illustration of an
 enterprise persona named Priya Sharma:
 - Female, mid-40s, South Asian
-- Partner and Practice Lead at a consulting firm
+- Director, Customer Solutions at a tech company
 - Authoritative, strategic, time-constrained
 - Executive attire (formal business)
 - Modern corporate office background
@@ -51,15 +51,15 @@ enterprise persona named Priya Sharma:
 - Confident, no-nonsense expression
 ```
 
-### Exercise: Create Accenture Personas
+### Exercise: Create NovaTech Solutions Personas
 
-Generate images for all three Accenture personas:
+Generate images for all three NovaTech Solutions personas:
 
-**Priya Sharma (Partner & Practice Lead):**
+**Priya Sharma (Director, Customer Solutions):**
 ```
 Create a professional illustration of Priya Sharma:
 - Female, mid-40s, South Asian
-- Partner at a global consulting firm, 18 years experience
+- Partner at a global tech company, 18 years experience
 - Authoritative, strategic, always between meetings
 - Formal executive attire (suit)
 - Executive conference room background
@@ -67,11 +67,11 @@ Create a professional illustration of Priya Sharma:
 - Expression: confident, decisive
 ```
 
-**Marcus Johnson (Senior Consultant):**
+**Marcus Johnson (Senior Engineer):**
 ```
 Create a professional illustration of Marcus Johnson:
 - Male, early 30s, African American
-- Senior consultant at a consulting firm, 5 years experience
+- Senior team member at a tech company, 5 years experience
 - Analytical, efficient, compares to competitors
 - Business casual attire (dress shirt, no tie)
 - Modern open office with laptop background
@@ -79,11 +79,11 @@ Create a professional illustration of Marcus Johnson:
 - Expression: focused, thoughtful
 ```
 
-**Elena Rodriguez (Delivery Manager):**
+**Elena Rodriguez (Program Manager):**
 ```
 Create a professional illustration of Elena Rodriguez:
 - Female, early 40s, Hispanic/Latina
-- Delivery Manager at a consulting firm, 12 years experience
+- Program Manager at a tech company, 12 years experience
 - Organized, data-driven, manages multiple projects
 - Professional business attire
 - Office with project dashboards visible in background
@@ -102,14 +102,14 @@ Create a professional illustration of Elena Rodriguez:
 ### Adoption Journey Visual (for Change Management)
 
 ```
-Create an illustrated adoption journey map showing the AKX
+Create an illustrated adoption journey map showing the KnowledgeHub
 (knowledge platform) adoption flow:
 
 5 stages from left to right:
 1. Awareness (person receiving communication)
 2. First Login (person at laptop, curious)
 3. First Search (finding information, satisfied)
-4. Regular Use (productive consultant)
+4. Regular Use (productive team member)
 5. Champion (person helping colleagues)
 
 Style: Modern flat illustration, connected by a dotted line path
@@ -142,7 +142,7 @@ Professional enough for steering committee presentation
 Create a funnel diagram showing enterprise tool adoption:
 
 Funnel stages (top to bottom, narrowing):
-1. Provisioned Users (700,000)
+1. Provisioned Users (5,000)
 2. Logged In (350,000)
 3. Searched (245,000)
 4. Found Useful (171,500)
@@ -174,18 +174,18 @@ Create a product roadmap visualization for internal tools portfolio:
 
 Timeline: Q1 → Q2 → Q3 → Q4
 
-AKX (Knowledge Platform) Track:
+KnowledgeHub (Knowledge Platform) Track:
 - Q1: AI-Powered Search (large, in progress)
 - Q2: Expert Matching (large)
 - Q3: Content Quality Scoring (medium)
 
-ADH (Delivery Hub) Track:
-- Q1: Utilization Dashboard (medium, in progress)
-- Q2: AKX Integration (medium)
+ProjectPulse (Delivery Hub) Track:
+- Q1: Capacity Dashboard (medium, in progress)
+- Q2: KnowledgeHub Integration (medium)
 - Q3: Predictive Analytics (large)
 
 Style: Modern horizontal timeline with two swim lanes
-Color code: Blue for AKX, Green for ADH
+Color code: Blue for KnowledgeHub, Green for ProjectPulse
          Solid for committed, Outline for planned
 Clean, professional, steering committee ready
 ```
@@ -219,12 +219,12 @@ Professional for steering committee prioritization discussion
 ### Internal Announcement Graphic
 
 ```
-Create an internal communications graphic for AKX AI Search launch:
+Create an internal communications graphic for KnowledgeHub AI Search launch:
 
 Visual elements:
 - "Coming Soon" or "Now Available" badge
 - Simple illustration of person finding knowledge quickly
-- Accenture-style corporate aesthetic
+- NovaTech Solutions-style corporate aesthetic
 - "AI-Powered Search" title
 - Tagline: "Find what you need in seconds, not hours"
 
@@ -237,7 +237,7 @@ NOT external marketing style - this is internal
 ### Change Management Training Visual
 
 ```
-Create a training illustration for AKX onboarding:
+Create a training illustration for KnowledgeHub onboarding:
 
 Show: Three-step getting started process
 1. Search (magnifying glass, search bar)
@@ -247,7 +247,7 @@ Show: Three-step getting started process
 Style: Clean iconographic illustration
 Colors: Consistent blue palette
 Simple enough to use in training materials
-Include "Get Started with AKX" header concept
+Include "Get Started with KnowledgeHub" header concept
 ```
 
 ### Adoption Campaign Poster
@@ -256,8 +256,8 @@ Include "Get Started with AKX" header concept
 Create an internal adoption campaign visual:
 
 Content:
-- "AKX: Your Knowledge Advantage"
-- Illustration showing consultant finding expert help quickly
+- "KnowledgeHub: Your Knowledge Advantage"
+- Illustration showing team member finding expert help quickly
 - Stats callout: "2 minutes to find what you need"
 - Clean, motivational but not overly promotional
 
@@ -313,8 +313,8 @@ Data visualization enhancement, not the data itself
 Create a visual showing internal tools portfolio:
 
 Show two connected platforms:
-- AKX (Knowledge) - represented by brain/books icon
-- ADH (Delivery) - represented by project/people icon
+- KnowledgeHub (Knowledge) - represented by brain/books icon
+- ProjectPulse (Delivery) - represented by project/people icon
 - Connection between them (integration arrows)
 - "Knowledge to Delivery" value proposition concept
 
@@ -343,7 +343,7 @@ For consistent visuals across your enterprise work:
 ```
 Create a professional illustration of [NAME]:
 - [Gender], [age range], [ethnicity if relevant]
-- [Role at consulting firm], [years experience]
+- [Role at tech company], [years experience]
 - [Key personality traits relevant to role]
 - [Attire description appropriate to seniority]
 - [Background setting matching their work context]
@@ -448,12 +448,12 @@ Congratulations on completing the Microsoft Copilot for Enterprise Product Manag
 - Copilot basics and workspace setup
 - First enterprise PM tasks (steering committees, stakeholder interviews)
 - Researcher and Analyst agents for enterprise
-- Persona prompting for enterprise stakeholders (MDs, CKOs, Consultants)
+- Persona prompting for enterprise stakeholders (Directors, VP Knowledge & Innovations, Engineers)
 - Building context with Memory
 
 **Level 2: Advanced Enterprise PM Work**
 - Writing Enterprise PRDs with business cases and governance
-- Analyzing adoption and utilization data
+- Analyzing adoption and capacity data
 - Enterprise portfolio strategy and steering committee alignment
 
 **Level 3: Product Visuals**
@@ -473,7 +473,7 @@ Congratulations on completing the Microsoft Copilot for Enterprise Product Manag
 
 ### Next Steps
 
-1. **Practice with real work** - Use Copilot for actual steering committees
+1. **Department with real work** - Use Copilot for actual steering committees
 2. **Build your enterprise prompt library** - Save what works for your context
 3. **Share with your team** - Multiply the impact across the product org
 4. **Stay updated** - Copilot evolves rapidly; keep learning
@@ -486,9 +486,9 @@ Congratulations on completing the Microsoft Copilot for Enterprise Product Manag
 |----------|---------------|
 | **Steering Committee Notes** | "Analyze for action items, decisions, risks..." |
 | **Stakeholder Synthesis** | "Analyze interviews by role and business impact..." |
-| **Multi-Audience Comms** | "Transform for Partners/Consultants/Executives..." |
-| **MD Perspective** | "As a Managing Director, evaluate..." |
-| **CKO Perspective** | "As Chief Knowledge Officer, assess..." |
+| **Multi-Audience Comms** | "Transform for Directors/Engineers/Executives..." |
+| **MD Perspective** | "As a Director, evaluate..." |
+| **VP Knowledge & Innovation Perspective** | "As VP Knowledge & Innovation, assess..." |
 | **Enterprise PRD** | "Draft with business case, RACI, governance..." |
 | **Adoption Analysis** | "Analyze funnel for bottlenecks and ROI..." |
 | **Portfolio Strategy** | "Apply enterprise strategic framework to..." |

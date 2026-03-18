@@ -283,7 +283,7 @@ from SharePoint and summarize what I should know going in.
 
 ---
 
-## SharePoint Copilot Best Practices
+## SharePoint Copilot Best Departments
 
 ### Do:
 - ✅ Use natural language, not keywords

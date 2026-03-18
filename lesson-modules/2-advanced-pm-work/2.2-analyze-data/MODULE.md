@@ -8,7 +8,7 @@
 ## What You'll Learn
 
 By the end of this module, you will:
-1. Analyze enterprise adoption funnels and utilization data
+1. Analyze enterprise adoption funnels and capacity data
 2. Use Excel Copilot for enterprise metrics analysis
 3. Interpret pilot test results for internal tools
 4. Calculate ROI for steering committee presentations
@@ -44,9 +44,9 @@ Unlike external products focused on revenue and growth, enterprise internal tool
 - **Weekly Active Users (WAU)** - Consistent platform usage
 - **Provisioned vs. Active** - How many with access actually use it
 - **Feature Adoption** - Which capabilities are being used
-- **Adoption by Role** - Partners vs. Consultants vs. Delivery Managers
+- **Adoption by Role** - Directors vs. Engineers vs. Program Managers
 
-### Utilization Metrics
+### Capacity Metrics
 - **Search Success Rate** - Finding what you need
 - **Time to Find Expert** - Expert discovery efficiency
 - **Content Quality Scores** - Relevance and freshness
@@ -78,9 +78,9 @@ Unlike external products focused on revenue and growth, enterprise internal tool
 
 ## Method 1: Adoption Funnel Analysis
 
-### Exercise 1: Analyze AKX Adoption Funnel
+### Exercise 1: Analyze KnowledgeHub Adoption Funnel
 
-Let's analyze AKX's adoption funnel - a critical metric for internal tools.
+Let's analyze KnowledgeHub's adoption funnel - a critical metric for internal tools.
 
 **Sample Data (or use `sample-files/data/adoption-funnel.csv`):**
 
@@ -100,9 +100,9 @@ Week 24,700000,448000,358000,286000,294000,42.0%
 2. Use this prompt:
 
 ```
-Analyze this AKX (Accenture Knowledge Exchange) adoption funnel data.
+Analyze this KnowledgeHub adoption funnel data.
 
-Context: AKX is an internal knowledge management platform for 700,000 Accenture employees.
+Context: KnowledgeHub is an internal knowledge management platform for 5,000 NovaTech employees.
 Our target is 60% WAU. Current state shown in data.
 
 Please provide:
@@ -136,14 +136,14 @@ Format as a report suitable for a steering committee update.
 
 ---
 
-## Exercise 2: Utilization Data Analysis
+## Exercise 2: Capacity Data Analysis
 
 Internal tools also need to track productivity impact.
 
-**Sample Data (or use `sample-files/data/utilization-data.csv`):**
+**Sample Data (or use `sample-files/data/capacity-data.csv`):**
 
 ```
-Practice,Consultants,AKX_Active_Users,Avg_Searches_Week,Avg_Search_Time_Min,Expert_Connections,Utilization_Rate
+Department,Engineers,KnowledgeHub_Active_Users,Avg_Searches_Week,Avg_Search_Time_Min,Expert_Connections,Capacity_Rate
 Technology,85000,38250,12.5,2.8,1250,92%
 Strategy,35000,14000,8.2,3.4,890,89%
 Operations,45000,15750,6.1,4.2,450,87%
@@ -156,14 +156,14 @@ Health & Public Service,40000,14000,7.5,3.8,560,88%
 Use this prompt:
 
 ```
-Analyze this AKX utilization data by practice at Accenture.
+Analyze this KnowledgeHub capacity data by department at NovaTech Solutions.
 
 Please provide:
 
-1. **Practice Comparison**
-   - Which practices have highest/lowest AKX adoption?
-   - Correlation between AKX usage and practice utilization rate?
-   - Are high-utilization practices using AKX more?
+1. **Department Comparison**
+   - Which practices have highest/lowest KnowledgeHub adoption?
+   - Correlation between KnowledgeHub usage and practice capacity rate?
+   - Are high-utilization practices using KnowledgeHub more?
 
 2. **Search Efficiency Analysis**
    - Which practices have most efficient search (lowest time)?
@@ -171,11 +171,11 @@ Please provide:
    - Benchmark: Target is 2 minutes average. Who's meeting it?
 
 3. **Expert Connection Analysis**
-   - Expert connections per active user by practice
+   - Expert connections per active user by department
    - Which practices are getting most value from expert discovery?
 
 4. **ROI Estimation**
-   - If Technology practice saves 5 min/search vs. old system (8 min)
+   - If Engineering department saves 5 min/search vs. old system (8 min)
    - Calculate weekly time savings across all 38,250 active users
    - At $300/hour billing rate, what's the annual value?
 
@@ -200,7 +200,7 @@ Please provide:
 |------|----------------|
 | Add ROI formulas | "Add column calculating time savings value at $300/hour" |
 | Create adoption charts | "Create trend chart showing WAU over 24 weeks" |
-| Practice comparison | "Create pivot table by practice with average adoption" |
+| Department comparison | "Create pivot table by department with average adoption" |
 | Highlight concerns | "Highlight practices where adoption < 30%" |
 | Forecast | "Project WAU for next 12 weeks based on trend" |
 | Executive summary | "Create summary statistics for steering committee" |
@@ -209,24 +209,24 @@ Please provide:
 
 **Do this now:**
 
-1. Open utilization data in Excel
+1. Open capacity data in Excel
 2. Press Alt+I to open Copilot, or click the **Copilot button** in the Home tab of the Excel ribbon
 3. Try these prompts:
 
 ```
-Add a column calculating the ROI per practice assuming:
+Add a column calculating the ROI per department assuming:
 - Time saved per search: 5 minutes
 - Billing rate: $300/hour
 - Formula: Active_Users × Avg_Searches_Week × 5/60 × $300 × 52 weeks
 ```
 
 ```
-Create a scatter chart showing relationship between AKX_Active_Users
-and Utilization_Rate by practice
+Create a scatter chart showing relationship between KnowledgeHub_Active_Users
+and Capacity_Rate by department
 ```
 
 ```
-Create a pivot table summarizing total time savings by practice,
+Create a pivot table summarizing total time savings by department,
 sorted from highest to lowest
 ```
 
@@ -246,13 +246,13 @@ For complex reasoning, ROI validation, and statistical analysis, use the Analyst
 
 ### Exercise 4: Pilot Test Analysis
 
-**Scenario:** You ran a pilot of AI-powered search with the Technology practice.
+**Scenario:** You ran a pilot of AI-powered search with the Engineering department.
 
 **Sample Data (or use `sample-files/data/expert-search-metrics.csv`):**
 
 ```
 Control Group (Old Search):
-- 5,000 consultants in pilot
+- 5,000 team members in pilot
 - Average search time: 8.2 minutes
 - Search success rate: 67%
 - Time to find expert: 55 hours average
@@ -260,7 +260,7 @@ Control Group (Old Search):
 - Weekly searches per user: 6.5
 
 Test Group (AI-Powered Search):
-- 5,000 consultants in pilot
+- 5,000 team members in pilot
 - Average search time: 2.4 minutes
 - Search success rate: 82%
 - Time to find expert: 12 hours average
@@ -274,7 +274,7 @@ Test Group (AI-Powered Search):
 2. Enter this prompt:
 
 ```
-Analyze this pilot test result for AKX AI-Powered Search at Accenture.
+Analyze this pilot test result for KnowledgeHub AI-Powered Search at NovaTech Solutions.
 
 Control Group (Old Search): 5,000 users
 - Average search time: 8.2 minutes
@@ -303,8 +303,8 @@ Please provide:
    - Total time savings across 5,000 pilot users
 
 3. **ROI Projection for Full Rollout**
-   - If rolled out to all 300,000 potential weekly active users
-   - Average consultant billing rate: $300/hour
+   - If rolled out to all 3,000 potential weekly active users
+   - Average team member billing rate: $300/hour
    - Calculate annual productivity value
    - Include conservative, moderate, and optimistic scenarios
 
@@ -318,7 +318,7 @@ Please provide:
    - What metrics should we track post-rollout?
    - Any risks or caveats to mention?
 
-Show your reasoning step by step. This will be presented to the CKO sponsor.
+Show your reasoning step by step. This will be presented to the VP Knowledge & Innovation sponsor.
 ```
 
 ---
@@ -328,7 +328,7 @@ Show your reasoning step by step. This will be presented to the CKO sponsor.
 ### Scenario 1: Adoption Cohort Analysis
 
 ```
-Analyze adoption cohorts for new hires at Accenture:
+Analyze adoption cohorts for new hires at NovaTech Solutions:
 
 September cohort: 5,000 new hires
 - 68% logged in first week
@@ -352,12 +352,12 @@ Questions:
 4. What should we present to Change Management?
 ```
 
-### Scenario 2: Practice Benchmarking
+### Scenario 2: Department Benchmarking
 
 ```
-Compare AKX performance across Accenture practices:
+Compare KnowledgeHub performance across NovaTech Solutions practices:
 
-For each practice, analyze:
+For each department, analyze:
 - Adoption rate vs. company average
 - Search efficiency metrics
 - Expert connection rates
@@ -365,14 +365,14 @@ For each practice, analyze:
 
 Identify:
 - Best-in-class practices (what are they doing?)
-- Practices needing support
-- Recommendations for practice-specific interventions
+- Departments needing support
+- Recommendations for department-specific interventions
 ```
 
 ### Scenario 3: Feature ROI Analysis
 
 ```
-Analyze ROI of AKX features to inform roadmap prioritization:
+Analyze ROI of KnowledgeHub features to inform roadmap prioritization:
 
 Features and usage data:
 - Basic Search: 85% of users, 3.5 satisfaction
@@ -390,7 +390,7 @@ Questions:
 ### Scenario 4: Competitive Benchmark Analysis
 
 ```
-Benchmark AKX against what we know about competitor platforms:
+Benchmark KnowledgeHub against what we know about competitor platforms:
 
 Our metrics:
 - WAU: 43%
@@ -398,10 +398,10 @@ Our metrics:
 - Search satisfaction: 3.8/5
 - Expert discovery time: 18 hours
 
-Industry benchmarks (consulting firms):
-- McKinsey Knowledge Center: ~65% WAU (estimated)
-- BCG internal tools: ~55% WAU (estimated)
-- Deloitte knowledge platform: ~50% WAU (estimated)
+Industry benchmarks (tech companys):
+- Atlassian Knowledge Center: ~65% WAU (estimated)
+- Monday.com internal tools: ~55% WAU (estimated)
+- Notion knowledge platform: ~50% WAU (estimated)
 
 Analysis:
 1. How do we compare?
@@ -451,7 +451,7 @@ Based on this data:
 
 ---
 
-## Best Practices for Enterprise Data Analysis
+## Best Departments for Enterprise Data Analysis
 
 ### Do:
 - ✅ Connect analysis to business outcomes (revenue, efficiency, talent)
@@ -507,10 +507,10 @@ In Module 2.3, you'll learn:
 | Analysis Type | Tool | Example Prompt |
 |---------------|------|----------------|
 | Adoption funnel | Copilot Chat | "Analyze this adoption funnel data..." |
-| Utilization trends | Excel Copilot | "Create pivot table by practice..." |
+| Capacity trends | Excel Copilot | "Create pivot table by department..." |
 | Pilot validation | Analyst | "Is this pilot result significant?" |
 | ROI calculation | Analyst | "Calculate ROI for steering committee..." |
-| Practice benchmarking | Copilot Chat | "Compare performance across practices..." |
+| Department benchmarking | Copilot Chat | "Compare performance across practices..." |
 
 ---
 

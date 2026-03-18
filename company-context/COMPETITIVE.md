@@ -1,4 +1,4 @@
-# Consulting Firm Competitive Landscape
+# SaaS Competitive Landscape
 
 **Understanding the competitive dynamics for internal product decisions**
 
@@ -6,30 +6,30 @@
 
 ## Market Overview
 
-**Market:** Global Management & Technology Consulting
-**Market Size:** $350B+ annually
-**Growth Rate:** 4-6% CAGR
+**Market:** Enterprise Work Management & Knowledge Management SaaS
+**Market Size:** $45B+ annually
+**Growth Rate:** 12-15% CAGR
 **Key Trends:**
-- Digital transformation driving demand
-- AI/GenAI becoming table stakes
-- Talent as key differentiator
-- Efficiency pressure post-pandemic
+- AI/GenAI becoming table stakes for knowledge management
+- Consolidation of point solutions into platforms
+- Remote/hybrid work driving demand for async tools
+- Employee experience as competitive differentiator
 - Growing importance of internal tools for talent attraction and retention
 
 ---
 
 ## Why Internal Products Matter Competitively
 
-### The Consulting Talent War
+### The Talent War in Tech
 
-Consulting firms compete primarily on two dimensions:
-1. **Client relationships and expertise** - Can we win and deliver work?
+Tech companies compete primarily on two dimensions:
+1. **Product quality and customer relationships** - Can we win and retain customers?
 2. **Talent** - Can we attract, develop, and retain the best people?
 
 Internal products directly impact both:
-- **Expert discovery** helps win pitches (find the right people fast)
+- **Expert discovery** helps win deals (find the right people fast)
 - **Knowledge management** improves delivery (don't reinvent the wheel)
-- **Modern tools** attract talent (millennials expect consumer-grade apps)
+- **Modern tools** attract talent (engineers expect consumer-grade apps)
 - **Efficient operations** improve margins (reduce administrative waste)
 
 ### Internal Tools as Competitive Advantage
@@ -38,245 +38,160 @@ Internal products directly impact both:
 | --- | --- | --- | --- |
 | **Fast expert discovery** | High - staff proposals quickly | Medium - find SMEs for projects | Low |
 | **Reusable content** | High - proposal efficiency | High - delivery speed | Medium - less tedious work |
-| **Utilization visibility** | Medium - resource planning | High - project health | Medium - fair workload |
+| **Capacity visibility** | Medium - resource planning | High - project health | Medium - fair workload |
 | **Modern mobile app** | Low | Low | High - talent expectation |
 
 ---
 
-## Major Competitors: Consulting Firm Profiles
+## Major Competitors: SaaS Platform Profiles
 
-### 1. McKinsey & Company
+### 1. Atlassian (Confluence + Jira)
 
 **Overview:**
-- Founded 1926
-- ~45,000 employees globally
-- Revenue: ~$15B (estimated)
-- Position: Market leader in strategy consulting
+- Founded 2002
+- ~12,000 employees globally
+- Revenue: ~$4B
+- Position: Market incumbent in knowledge and project management
 
 **Strengths:**
-- Brand prestige (gold standard for strategy)
-- Client intimacy at C-suite level
-- Thought leadership and frameworks (7S, etc.)
-- McKinsey Digital growing rapidly
+- Massive installed base and ecosystem
+- Deep integrations across engineering tools
+- Strong developer community
+- Marketplace with thousands of add-ons
 
 **Weaknesses:**
-- Premium pricing limits some markets
-- Less technical depth than tech-focused firms
-- Slower to adopt technology delivery models
-- Scandals have impacted reputation
+- Bloated, complex UI after years of feature additions
+- Performance issues at enterprise scale
+- Fragmented experience across products
+- Slow to adopt AI/GenAI features
 
 **Internal Tools Intelligence:**
 
-**McKinsey Knowledge Center (MKC):**
-- Comprehensive knowledge management platform
-- 50+ years of intellectual capital
-- Heavily curated by knowledge professionals
-- Strong search and expert discovery
-- Industry benchmark for consulting KM
-
-**McKinsey Model:**
-- Dedicated knowledge management staff (not just tools)
-- "Knowledge professionals" curate and maintain content
-- Strong investment in documentation standards
-- Partners expected to contribute to knowledge base
-
-**Relevance for AKX:**
-- MKC is the gold standard - we're compared to this
-- Their curation model is expensive but effective
-- Our AI-powered approach could leapfrog their manual curation
-- Partners who've worked at McKinsey expect similar capabilities
-
----
-
-### 2. Boston Consulting Group (BCG)
-
-**Overview:**
-- Founded 1963
-- ~30,000 employees globally
-- Revenue: ~$12B (estimated)
-- Position: Strategy consulting with growing digital practice
-
-**Strengths:**
-- Strong frameworks (Growth-Share Matrix, experience curve)
-- BCG Gamma - AI and analytics powerhouse
-- Digital Ventures - startup incubation arm
-- Strong European presence
-
-**Weaknesses:**
-- Smaller scale than Accenture, Deloitte
-- Less implementation depth
-- Fewer tech specialists
-- Premium positioning limits some segments
-
-**Internal Tools Intelligence:**
-
-**BCG Smart:**
-- Knowledge management and collaboration platform
-- Heavy investment in AI-powered tools
-- GenAI integration for content generation
-- Focus on consultant productivity
-
-**Knowledge@BCG:**
-- Structured knowledge repository
-- Industry and capability focus
-- Strong frameworks library
-- Integration with case materials
-
-**Relevance for AKX:**
-- BCG's AI focus is directly competitive
-- Their GenAI investments are ahead of many firms
-- Our AI search needs to match or exceed their capabilities
-- BCG consultants who join us expect modern tools
-
----
-
-### 3. Deloitte
-
-**Overview:**
-- Founded 1845 (oldest Big Four)
-- ~450,000 employees globally
-- Revenue: ~$65B (largest professional services firm)
-- Position: Full-service consulting plus audit/tax
-
-**Strengths:**
-- Massive scale and breadth
-- Audit relationship opens consulting doors
-- Strong in regulated industries
-- Global delivery network
-
-**Weaknesses:**
-- Audit independence limits some engagements
-- Less prestigious brand than MBB
-- Bureaucratic at scale
-- Quality inconsistency across geographies
-
-**Internal Tools Intelligence:**
-
-**Deloitte Knowledge Platform:**
+**Confluence:**
 - Enterprise-scale knowledge management
-- Heavy SharePoint-based architecture
-- Good industry coverage
-- Challenges with search and discovery
+- Good template library and spaces organization
+- Challenges with search and content freshness
+- Heavy but comprehensive
 
-**Delivery Excellence:**
-- Strong project methodology documentation
-- Good template libraries
-- Less sophisticated expert discovery
-- Legacy technology stack in places
+**Jira:**
+- Industry standard for project tracking
+- Strong in software development workflows
+- Extensive reporting and dashboards
+- Can feel heavyweight for non-engineering teams
 
-**Relevance for AKX:**
-- Deloitte's scale challenges mirror ours
-- Their search challenges are similar to our pain points
-- Consultants from Deloitte often find our tools better
-- Their investment in GenAI is significant
-
----
-
-### 4. Bain & Company
-
-**Overview:**
-- Founded 1973
-- ~18,000 employees globally
-- Revenue: ~$6B (estimated)
-- Position: Strategy consulting with results focus
-
-**Strengths:**
-- Results-focused culture (ROI emphasis)
-- Strong private equity relationships
-- High consultant satisfaction (Best Places to Work)
-- Focused strategy (not trying to do everything)
-
-**Weaknesses:**
-- Smaller scale limits some large programs
-- Less technology implementation depth
-- Narrower service offering
-- Premium positioning
-
-**Internal Tools Intelligence:**
-
-**Bain Global Knowledge:**
-- Curated knowledge repository
-- Strong case studies and frameworks
-- Good expert directory
-- Smaller scale means easier to maintain
-
-**Relevance for AKX:**
-- Bain's focused approach makes KM easier
-- Their consultant satisfaction suggests good tools
-- Our scale is much larger - different challenges
-- Can't replicate their curation model at our size
+**Relevance for KnowledgeHub:**
+- Confluence is what many employees have used before
+- Their search challenges mirror ours
+- Our AI-powered approach could leapfrog their bloated system
+- Employees who've used Confluence expect similar capabilities but faster
 
 ---
 
-### 5. TCS (Tata Consultancy Services)
+### 2. Monday.com
 
 **Overview:**
-- Founded 1968
-- ~600,000+ employees globally
-- Revenue: ~$28B
-- Position: Technology services and outsourcing leader
+- Founded 2012
+- ~2,000 employees globally
+- Revenue: ~$700M
+- Position: Workflow automation with beautiful UX, growing enterprise
 
 **Strengths:**
-- Massive scale and global delivery
-- Cost-effective delivery model
-- Strong in technology implementation
-- Growing consulting practice
+- Beautiful, intuitive interface
+- Strong workflow automation
+- Growing enterprise adoption
+- Rapid feature development
 
 **Weaknesses:**
-- Less strategic consulting credibility
-- Brand perception (execution vs. strategy)
-- Quality perception varies
-- Less senior executive access
+- Less depth in knowledge management
+- Enterprise features still maturing
+- Premium pricing at scale
+- Less established with large enterprises
 
 **Internal Tools Intelligence:**
 
-**TCS Knowledge Management:**
-- Large-scale enterprise platform
-- Heavy automation focus
-- Strong in delivery methodology
-- Technology-centric approach
+**Monday Work OS:**
+- Visual workflow management platform
+- Strong automation capabilities
+- Good integrations with common tools
+- Beautiful dashboards and views
 
-**Relevance for AKX:**
-- TCS competes on efficiency - their tools focus on this
-- Their scale is similar to ours - similar challenges
-- Their approach is more technology-led, less curation
-- Consultants expect different tool experience than our competitors
+**Relevance for ProjectPulse:**
+- Monday's UX sets the bar for what employees expect
+- Their automation approach is directly competitive
+- We need matching or exceeding their visual design quality
+- Employees from Monday.com shops expect polished tools
 
 ---
 
-### 6. IBM Consulting
+### 3. Notion
 
 **Overview:**
-- Rebranded from IBM Global Services
-- ~160,000 employees globally
-- Revenue: ~$17B
-- Position: Technology consulting with IBM ecosystem
+- Founded 2013
+- ~800 employees globally
+- Revenue: ~$250M (estimated)
+- Position: Knowledge management darling, connected workspace
 
 **Strengths:**
-- Deep technology expertise
-- IBM Watson and AI capabilities
-- Strong in regulated industries
-- Long-term client relationships
+- Extremely flexible document/wiki system
+- Beautiful, modern UI
+- Strong community and template ecosystem
+- Good for both docs and lightweight project management
 
 **Weaknesses:**
-- Parent company association (legacy perception)
-- Less prestigious than MBB
-- Reorganization impacts continuity
-- Competing priorities with IBM products
+- Weak enterprise features (permissions, audit, SSO complexity)
+- Search can be unreliable at scale
+- Performance degrades with large workspaces
+- Limited reporting and analytics
 
 **Internal Tools Intelligence:**
 
-**IBM Knowledge Catalog:**
-- Integrated with IBM cloud services
-- Strong AI and analytics capabilities
-- Good technology documentation
-- Complex due to IBM product tie-ins
+**Notion Workspace:**
+- Flexible docs, wikis, and databases
+- Good for small-to-mid teams
+- Template gallery with community contributions
+- AI features recently added
 
-**Relevance for AKX:**
-- IBM's AI capabilities are strong
-- Their tools are technology-heavy
-- Our Microsoft-based approach differs
-- Consultants from IBM expect different experience
+**Relevance for KnowledgeHub:**
+- Notion is what many employees use as a workaround
+- Their flexibility is appealing but doesn't scale
+- Our structured approach could be advantage at enterprise scale
+- Engineers who love Notion expect similar aesthetics
+
+---
+
+### 4. Asana
+
+**Overview:**
+- Founded 2008
+- ~2,500 employees globally
+- Revenue: ~$600M
+- Position: Project tracking with good integrations, mid-market strength
+
+**Strengths:**
+- Strong goals and portfolio management
+- Good cross-functional project tracking
+- Solid enterprise features
+- Reliable and performant
+
+**Weaknesses:**
+- Less innovative on knowledge management
+- UI feels dated compared to newer tools
+- Mid-market perception, growing enterprise
+- Limited AI features vs. competitors
+
+**Internal Tools Intelligence:**
+
+**Asana Work Management:**
+- Strong project and portfolio tracking
+- Good goals and OKR alignment
+- Reliable enterprise deployment
+- Solid integrations ecosystem
+
+**Relevance for ProjectPulse:**
+- Asana's portfolio views are directly competitive
+- Their goals alignment is a feature gap for us
+- Enterprise reliability is table stakes
+- Employees from Asana shops expect similar portfolio features
 
 ---
 
@@ -284,46 +199,46 @@ Internal products directly impact both:
 
 ### Knowledge Management Comparison
 
-| Capability | Accenture (AKX) | McKinsey | BCG | Deloitte | Target State |
+| Capability | NovaTech (KnowledgeHub) | Atlassian | Notion | Asana | Target State |
 | --- | --- | --- | --- | --- | --- |
-| **Search quality** | 3.2/5 | 4.5/5 | 4.0/5 | 3.0/5 | 4.0/5 |
-| **Expert discovery** | 3.0/5 | 4.5/5 | 4.0/5 | 3.0/5 | 4.5/5 |
-| **Content curation** | 3.5/5 | 5.0/5 | 4.0/5 | 3.5/5 | 4.0/5 |
-| **AI capabilities** | 3.0/5 | 3.5/5 | 4.5/5 | 3.0/5 | 4.5/5 |
-| **Mobile experience** | 2.5/5 | 4.0/5 | 4.0/5 | 2.5/5 | 4.0/5 |
-| **Integration** | 3.5/5 | 4.0/5 | 4.0/5 | 3.0/5 | 4.5/5 |
+| **Search quality** | 3.2/5 | 3.0/5 | 3.5/5 | 2.5/5 | 4.0/5 |
+| **Expert discovery** | 3.0/5 | 2.0/5 | 2.0/5 | 1.5/5 | 4.5/5 |
+| **Content curation** | 3.5/5 | 3.5/5 | 4.0/5 | 2.0/5 | 4.0/5 |
+| **AI capabilities** | 3.0/5 | 3.0/5 | 3.5/5 | 2.5/5 | 4.5/5 |
+| **Mobile experience** | 2.5/5 | 3.0/5 | 4.0/5 | 3.5/5 | 4.0/5 |
+| **Integration** | 3.5/5 | 4.5/5 | 3.0/5 | 3.5/5 | 4.5/5 |
 
-### Delivery Management Comparison
+### Project Management Comparison
 
-| Capability | Accenture (ADH) | McKinsey | BCG | Deloitte | Target State |
+| Capability | NovaTech (ProjectPulse) | Atlassian | Monday.com | Asana | Target State |
 | --- | --- | --- | --- | --- | --- |
-| **Utilization visibility** | 67% | ~85% | ~80% | ~70% | 95% |
-| **Staffing efficiency** | 3.0/5 | 4.0/5 | 4.0/5 | 3.0/5 | 4.5/5 |
-| **Automated reporting** | 2.5/5 | 3.5/5 | 3.5/5 | 2.5/5 | 4.5/5 |
-| **Forecasting** | 65% accuracy | ~80% | ~75% | ~65% | 85% |
+| **Capacity visibility** | 67% | ~75% | ~70% | ~80% | 95% |
+| **Staffing efficiency** | 3.0/5 | 3.0/5 | 3.5/5 | 4.0/5 | 4.5/5 |
+| **Automated reporting** | 2.5/5 | 3.0/5 | 4.0/5 | 3.5/5 | 4.5/5 |
+| **Forecasting** | 65% accuracy | ~70% | ~65% | ~75% | 85% |
 
 ---
 
 ## Competitive Intelligence: What We Hear
 
-### From Partners (Priya's Perspective)
+### From Directors (Priya's Perspective)
 
-**Complaints about AKX:**
-*"McKinsey alumni on my team keep telling me their knowledge center was so much better. I can't find experts in AKX - I end up emailing my network anyway."*
+**Complaints about KnowledgeHub:**
+*"People who used Notion at their last company keep telling me it was so much easier. I can't find experts in KnowledgeHub - I end up Slack-messaging my network anyway."*
 
-*"BCG people talk about how easy it is to find past work there. Here, I spend 30 minutes searching and give up."*
+*"Atlassian people talk about how at least Confluence had decent search. Here, I spend 30 minutes searching and give up."*
 
 **What competitors do well:**
-- McKinsey: Dedicated knowledge professionals who curate content
-- BCG: AI-powered search that actually works
-- Bain: Smaller scale means everything is easier to find
+- Notion: Beautiful, intuitive, flexible
+- Atlassian: Deep integrations with engineering tools
+- Monday.com: Gorgeous visual workflows
 
-### From Consultants (Marcus's Perspective)
+### From Engineers (Marcus's Perspective)
 
 **Complaints about tools:**
-*"I came from BCG. Their tools felt modern. Ours feel like they're from 2010."*
+*"I came from a startup that used Notion for everything. Their tools felt modern. Ours feel like they're from 2010."*
 
-*"At McKinsey, when I needed an expert, I could find one in 10 minutes. Here it takes days."*
+*"At my last company, finding a design doc took 2 minutes. Here it takes days."*
 
 **What attracts talent:**
 - Modern, consumer-grade tool experience
@@ -331,15 +246,15 @@ Internal products directly impact both:
 - Mobile apps that work well
 - Less administrative burden
 
-### From Delivery Managers (Elena's Perspective)
+### From Program Managers (Elena's Perspective)
 
-**Complaints about ADH:**
-*"Deloitte had similar problems with visibility. Apparently they've invested heavily in this. We're behind."*
+**Complaints about ProjectPulse:**
+*"Other companies have invested heavily in resource management. We're behind."*
 
-*"I hear McKinsey and BCG have much better resource planning. Their utilization is higher than ours."*
+*"I hear Monday.com and Asana have much better dashboards. Our capacity tracking is worse than theirs."*
 
 **What competitors do well:**
-- Better integration between systems
+- Better visual design and UX
 - More automated status reporting
 - Real-time visibility into project health
 
@@ -349,40 +264,40 @@ Internal products directly impact both:
 
 ### Where We Must Win
 
-**1. AI-Powered Search (AKX)**
-- BCG is ahead on AI capabilities
-- McKinsey has superior curation
-- We need AI to match curation quality without the cost
-- This is our biggest gap vs. MBB
+**1. AI-Powered Search (KnowledgeHub)**
+- Notion and Atlassian are adding AI capabilities
+- Our internal data is our advantage
+- We need AI to match or exceed their capabilities
+- This is our biggest gap vs. employee expectations
 
-**2. Expert Discovery Speed (AKX)**
-- McKinsey sets the standard
-- Partners expect <10 minute time to expert
+**2. Expert Discovery Speed (KnowledgeHub)**
+- No competitor does this well natively
+- Directors expect <10 minute time to expert
 - Current 2.3 days is unacceptable
 - Directly impacts win rates
 
-**3. Utilization Visibility (ADH)**
-- MBB firms have 80-85% visibility
+**3. Capacity Visibility (ProjectPulse)**
+- Asana and Monday.com have better portfolio views
 - Our 67% is competitive disadvantage
 - Impacts profitability directly
-- Partners need this for resource planning
+- Directors need this for resource planning
 
 ### Where We Can Differentiate
 
-**1. Scale + AI**
-- Our 700,000 employees create more content than MBB
+**1. Internal Data + AI**
+- Our 5,000 employees create unique content
 - AI can curate at scale (impossible manually)
 - Could become competitive advantage if executed well
 
-**2. Integration with Client Work**
-- We do more implementation than MBB
-- Delivery tools can be best-in-class
+**2. Integration Between Knowledge and Delivery**
+- No competitor tightly integrates KM with project management
+- KnowledgeHub + ProjectPulse together is unique
 - Connect knowledge to delivery better
 
-**3. Global Reach**
-- More geographies than MBB firms
-- Can surface global expertise better
-- Local content with global search
+**3. Deep Company Context**
+- We know our own domain deeply
+- Can surface insights no external tool can
+- Customized to NovaTech's specific workflows
 
 ### Where We Should Match (Not Lead)
 
@@ -392,7 +307,7 @@ Internal products directly impact both:
 - Focus on reliability over innovation
 
 **2. Standard Templates**
-- Match McKinsey/BCG template quality
+- Match Notion/Atlassian template quality
 - Don't need to revolutionize
 - Focus on completeness and findability
 
@@ -405,7 +320,7 @@ Internal products directly impact both:
 **1. Close the AI Search Gap**
 - Deploy semantic search
 - Improve result relevance
-- Match BCG's AI capabilities
+- Match Notion's search quality
 
 **2. Accelerate Expert Discovery**
 - Reduce time-to-expert from 2.3 days to hours
@@ -413,19 +328,19 @@ Internal products directly impact both:
 - Enable direct outreach
 
 **3. Improve Mobile Experience**
-- Partners are mobile-first
+- Directors are mobile-first
 - Current mobile is weak
 - Match competitor mobile apps
 
 ### Medium-Term (Q3-Q4)
 
-**1. Differentiate with Scale**
-- Leverage 700K employees as advantage
+**1. Differentiate with Integration**
+- Leverage KnowledgeHub + ProjectPulse together
 - AI-powered content discovery at scale
-- Cross-practice knowledge sharing
+- Cross-department knowledge sharing
 
 **2. Best-in-Class Delivery Tools**
-- Lead in utilization visibility
+- Lead in capacity visibility
 - Automated status reporting
 - Predictive staffing
 
@@ -450,17 +365,17 @@ Internal products directly impact both:
 
 ## Competitive Positioning Statements
 
-### For Partners
+### For Directors
 
-*"AKX helps you find the right experts and content in minutes, not days. While competitors rely on manual curation, our AI-powered platform surfaces the best knowledge from across our 700,000 employees."*
+*"KnowledgeHub helps you find the right experts and content in minutes, not days. While competitors rely on generic search, our AI-powered platform surfaces the best knowledge from across our 5,000 employees."*
 
-### For Consultants
+### For Engineers
 
-*"AKX gives you modern, consumer-grade tools that rival what you'd find at McKinsey or BCG. Find past work instantly, connect with experts globally, and spend less time searching and more time delivering."*
+*"KnowledgeHub gives you modern, consumer-grade tools that rival what you'd find at any top tech company. Find past work instantly, connect with experts globally, and spend less time searching and more time building."*
 
-### For Delivery Managers
+### For Program Managers
 
-*"ADH provides the visibility and automation you need to manage delivery at scale. Real-time project health, automated status reporting, and predictive staffing - capabilities that match or exceed what other top consulting firms offer."*
+*"ProjectPulse provides the visibility and automation you need to manage delivery at scale. Real-time project health, automated status reporting, and predictive staffing - capabilities that match or exceed what leading SaaS tools offer."*
 
 ---
 
@@ -468,7 +383,7 @@ Internal products directly impact both:
 
 ### Talent Acquisition (Last Quarter)
 
-**Won (candidate chose Accenture):**
+**Won (candidate chose NovaTech):**
 - 45% mentioned tools as neutral (not a factor)
 - 30% mentioned tools as positive (improving)
 - 25% mentioned tools as negative (but other factors outweighed)
@@ -476,11 +391,11 @@ Internal products directly impact both:
 **Lost (candidate chose competitor):**
 - 15% cited tools/technology as reason
 - Most common complaints:
-  - "McKinsey has better knowledge management"
-  - "BCG's tools are more modern"
-  - "Heard Accenture's internal systems are dated"
+  - "Notion-native companies have better KM"
+  - "Heard NovaTech's internal systems are dated"
+  - "Monday.com shops have better project tools"
 
-### Client Pursuits
+### Customer Pursuits
 
 **Won:**
 - Expert mobilization speed rarely mentioned
@@ -489,28 +404,28 @@ Internal products directly impact both:
 
 **Lost:**
 - 8% mentioned slower team identification
-- "McKinsey had their team identified in 48 hours"
-- "BCG showed deeper expertise in our specific area"
+- "Competitor had their team identified in 48 hours"
+- "Other company showed deeper expertise in our specific area"
 
 ---
 
 ## Key Takeaways
 
 **What we should learn from competitors:**
-- **From McKinsey:** Curation matters - quality over quantity
-- **From BCG:** AI investment pays off - be bold on technology
-- **From Deloitte:** Scale challenges are real - automation is essential
-- **From Bain:** Focus creates excellence - don't try to do everything
+- **From Atlassian:** Integration depth matters - build an ecosystem
+- **From Monday.com:** UX investment pays off - be bold on design
+- **From Notion:** Flexibility creates love - don't over-constrain
+- **From Asana:** Reliability builds trust - automation is essential
 
 **What we should avoid:**
 - **From all:** Tool proliferation and fragmentation
-- **From Deloitte:** Legacy technology debt
+- **From Atlassian:** Feature bloat and complexity creep
 - **From our own history:** Underinvestment in internal tools
 
 **Our sustainable advantage:**
-- Scale + AI (700K employees, automated curation)
-- Microsoft integration (largest M365 deployment)
-- Delivery expertise (more implementation than MBB)
+- Internal data + AI (5K employees, customized curation)
+- KnowledgeHub + ProjectPulse integration (unique combination)
+- Deep domain knowledge (no external tool matches this)
 - Investment commitment (executive sponsorship)
 
 ---

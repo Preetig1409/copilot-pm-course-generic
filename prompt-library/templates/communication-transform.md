@@ -10,21 +10,21 @@ THE UPDATE:
 
 Please create three versions:
 
-1. **EXECUTIVE BRIEFING** (for steering committee sponsors like the CKO)
+1. **EXECUTIVE BRIEFING** (for steering committee sponsors like the VP Knowledge & Innovation)
    - Lead with metrics and competitive positioning
    - Include: adoption targets, ROI, timeline, risks
-   - Reference competitive pressure (McKinsey, BCG)
+   - Reference competitive pressure (Atlassian, Monday.com)
    - Structured with headers
    - Include "asks" for executive support
    - 1-page maximum
 
-2. **PARTNER COMMUNICATION** (for Practice Leaders like MDs)
+2. **PARTNER COMMUNICATION** (for Department Leaders like Directors)
    - Focus on business impact (winning deals, finding experts)
    - Lead with time savings and competitive advantage
    - 2 short paragraphs, professional but not formal
    - End with "how to get involved in pilot"
 
-3. **CONSULTANT UPDATE** (for daily users like Senior Consultants)
+3. **CONSULTANT UPDATE** (for daily users like Senior Engineers)
    - Focus on how it helps their daily work
    - Emphasize: find templates faster, stop recreating work
    - Casual, peer-to-peer tone
@@ -35,7 +35,7 @@ Please create three versions:
 ## Change Management Communications
 
 ```
-Create change management communications for the AKX AI Search launch:
+Create change management communications for the KnowledgeHub AI Search launch:
 
 Core message: [Your feature/change description]
 
@@ -108,13 +108,13 @@ THE INITIATIVE:
 
 Create tailored versions for:
 
-1. **CKO Sponsor** (Richard)
+1. **VP Knowledge & Innovation Sponsor** (Richard)
    - Strategic narrative for CEO
    - Knowledge strategy alignment
    - Board-ready summary
 
 2. **MD Champions** (David, Sarah)
-   - Practice-level ROI
+   - Department-level ROI
    - Deal-winning scenarios
    - Success stories for their teams
 

@@ -3,14 +3,14 @@
 ## Basic Synthesis Prompt
 
 ```
-Analyze these stakeholder interviews from Accenture employees. I'm looking
-for patterns that will inform our AKX and ADH product priorities.
+Analyze these stakeholder interviews from NovaTech Solutions employees. I'm looking
+for patterns that will inform our KnowledgeHub and ProjectPulse product priorities.
 
 Please identify:
 1. **Common Pain Points** - Issues mentioned by 2+ stakeholders (note their roles)
 2. **Feature Requests** - Specific capabilities stakeholders asked for
-3. **Competitive Comparisons** - Any mentions of McKinsey, BCG, Deloitte tools
-4. **Adoption Barriers** - Why people don't use AKX/ADH
+3. **Competitive Comparisons** - Any mentions of Atlassian, Monday.com, Notion tools
+4. **Adoption Barriers** - Why people don't use KnowledgeHub/ProjectPulse
 5. **Quick Wins** - Things that seem easy to fix with high impact
 
 For each finding, note:
@@ -18,7 +18,7 @@ For each finding, note:
 - Business impact (revenue, efficiency, talent retention)
 - Include a compelling quote
 
-Group findings by persona type: Partners, Consultants, Delivery Managers, Others
+Group findings by persona type: Directors, Engineers, Program Managers, Others
 ```
 
 ## Role-Based Analysis
@@ -26,17 +26,17 @@ Group findings by persona type: Partners, Consultants, Delivery Managers, Others
 ```
 Analyze these interviews by enterprise role:
 
-**Partners/Practice Leads:**
+**Directors/Department Leads:**
 - What do they need to win deals?
 - Expert discovery pain points
 - Competitive intelligence gaps
 
-**Senior Consultants:**
+**Senior Engineers:**
 - Daily workflow friction
 - Template and content reuse needs
-- Comparison to BCG/McKinsey tools
+- Comparison to Monday.com/Atlassian tools
 
-**Delivery Managers:**
+**Program Managers:**
 - Project visibility challenges
 - Resource planning needs
 - Reporting automation desires
@@ -60,7 +60,7 @@ Create a steering committee summary from these stakeholder interviews:
 Focus on:
 1. **Key Insights** (top 5 findings for executive attention)
 2. **Business Impact** (revenue/efficiency implications)
-3. **Competitive Gaps** (vs. McKinsey, BCG, Deloitte)
+3. **Competitive Gaps** (vs. Atlassian, Monday.com, Notion)
 4. **Recommended Actions** (prioritized by impact)
 5. **Risks if Not Addressed** (talent, competitive, operational)
 
@@ -70,7 +70,7 @@ Format:
 - Supporting quotes for each major finding
 - Recommended next steps
 
-This will be presented to the CKO and steering committee.
+This will be presented to the VP Knowledge & Innovation and steering committee.
 ```
 
 ## Pattern Identification
@@ -87,12 +87,12 @@ Analyze these interviews for patterns:
    - What were described as "deal breakers"?
 
 3. **Role Correlation**
-   - Do Partners and Consultants have different priorities?
+   - Do Directors and Engineers have different priorities?
    - Are there conflicts between stakeholder needs?
 
 4. **Competitive Benchmark**
    - What do users say about competitor tools?
-   - What features do they wish we had from BCG/McKinsey?
+   - What features do they wish we had from Monday.com/Atlassian?
 
 5. **Quick Wins vs. Strategic**
    - What could we fix quickly?
@@ -107,13 +107,13 @@ Create a prioritized action list for the product team.
 Extract the most compelling quotes from these interviews for:
 
 1. **Pain Points** - Quotes showing user frustration
-2. **Competitive Gaps** - Quotes comparing to McKinsey/BCG
+2. **Competitive Gaps** - Quotes comparing to Atlassian/Monday.com
 3. **Feature Requests** - Quotes describing desired capabilities
 4. **Success Stories** - Quotes about what's working well
 5. **Adoption Barriers** - Quotes explaining why people don't use tools
 
 For each quote:
-- Participant role (e.g., "Partner, Financial Services Practice")
+- Participant role (e.g., "Partner, Financial Services Department")
 - Context (what prompted this comment)
 - Potential use (steering committee, business case, training materials)
 

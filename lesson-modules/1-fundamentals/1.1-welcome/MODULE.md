@@ -10,7 +10,7 @@
 By the end of this module, you will:
 1. Understand what Microsoft Copilot is and how it helps PMs
 2. Know how to access Copilot (browser, Windows app, M365 apps)
-3. Step into your simulated role: Senior Product Owner at Accenture's Internal Digital Products team
+3. Step into your simulated role: Senior Product Owner at NovaTech's Internal Digital Products team
 4. Understand how this course is structured
 5. Feel confident that you can use Copilot without technical skills
 
@@ -22,7 +22,7 @@ Welcome to the Microsoft Copilot PM Course!
 
 You're about to learn how to use Microsoft Copilot - an AI assistant that can save you **5-8 hours per week** on core PM tasks — and up to 10+ hours per week once you master all the tools in this course. Unlike traditional tools, Copilot integrates directly into the Microsoft 365 apps you already use: Word, Excel, PowerPoint, Outlook, and Teams.
 
-Throughout this course, you'll work as a **Senior Product Owner** at **Accenture** - one of the world's largest consulting firms with 700,000+ employees globally. You'll own two internal products: **AKX** (Accenture Knowledge Exchange) and **ADH** (Accenture Delivery Hub).
+Throughout this course, you'll work as a **Senior Product Owner** at **NovaTech Solutions** - one of the world's largest tech companys with 5,000+ employees globally. You'll own two internal products: **KnowledgeHub** (KnowledgeHub) and **ProjectPulse** (ProjectPulse).
 
 **What makes this course different:** All the files, documents, and context are already created for you. You're stepping into a real (contextualized) PM role with active products, real user personas, and actual work to do!
 
@@ -100,9 +100,9 @@ If you see this, you're ready to continue!
 
 ---
 
-## Your Role: Senior Product Owner at Accenture
+## Your Role: Senior Product Owner at NovaTech Solutions
 
-Throughout this course, you'll work as a **Senior Product Owner** in Accenture's Internal Digital Products team.
+Throughout this course, you'll work as a **Senior Product Owner** in NovaTech's Internal Digital Products team.
 
 > *Throughout this course, we use "PM" (Product Manager) as a shorthand that includes Product Owners (POs), Business Analysts (BAs), and anyone in a product leadership role. When you see "PM" in prompts or exercises, adapt it to your actual title — the skills apply equally.*
 
@@ -110,39 +110,39 @@ Throughout this course, you'll work as a **Senior Product Owner** in Accenture's
 
 | Attribute | Details |
 |-----------|---------|
-| **Company** | Accenture - Global management & technology consulting firm |
-| **Employees** | 700,000+ globally |
-| **Revenue** | $64+ billion annually |
+| **Company** | NovaTech Solutions - Global management & technology tech company |
+| **Employees** | 5,000+ globally |
+| **Revenue** | $850M annually |
 | **Your team** | Internal Digital Products (25 people) |
-| **Your role** | Senior Product Owner - AKX & ADH |
+| **Your role** | Senior Product Owner - KnowledgeHub & ProjectPulse |
 | **Report to** | Jennifer Walsh (VP Internal Digital Products) |
-| **Sponsors** | Richard Thorne (CKO), Maya Patel (CPO) |
+| **Sponsors** | Richard Thorne (VP Knowledge & Innovation), Maya Patel (VP People Ops) |
 
 ### Your Products
 
-**AKX (Accenture Knowledge Exchange)**
+**KnowledgeHub**
 - Internal knowledge management platform
-- Helps consultants find past work, methodologies, and experts
+- Helps team members find past work, methodologies, and experts
 - Current challenge: 43% weekly active users (target: 60%)
 
-**ADH (Accenture Delivery Hub)**
+**ProjectPulse**
 - Project delivery and resource management platform
-- Helps delivery managers track projects and allocate resources
-- Current challenge: 67% utilization visibility (target: 95%)
+- Helps program managers track projects and allocate resources
+- Current challenge: 67% capacity visibility (target: 95%)
 
 ### Your Users (3 Personas)
 
 You'll make product decisions for these internal stakeholders throughout the course:
 
-**1. Priya Sharma - Partner & Practice Lead**
+**1. Priya Sharma - Director, Customer Solutions**
 - Needs: Fast expert discovery, proposal content, competitive intel
 - Pain point: "I can't find experts in 5 minutes, let alone 5 days"
 
-**2. Marcus Johnson - Senior Consultant**
+**2. Marcus Johnson - Senior Engineer**
 - Needs: Reusable templates, frameworks, content that actually helps
 - Pain point: "I know this analysis exists somewhere, but I can't find it"
 
-**3. Elena Rodriguez - Delivery Manager**
+**3. Elena Rodriguez - Program Manager**
 - Needs: Real-time project health, resource visibility, automated reporting
 - Pain point: "I spend 4 hours a week on status reports that should be automated"
 
@@ -159,21 +159,21 @@ Let's try your first Copilot interaction! We've provided company context files t
 1. In Copilot chat, type the following prompt:
 
 ```
-I'm a Senior Product Owner at Accenture - one of the world's largest consulting
-firms with 700,000+ employees. I own two internal products:
+I'm a Senior Product Owner at NovaTech Solutions - one of the world's largest consulting
+firms with 5,000+ employees. I own two internal products:
 
-1. AKX (Accenture Knowledge Exchange) - a knowledge management platform
-   helping consultants find past work and experts. Current WAU: 43%, Target: 60%
+1. KnowledgeHub - a knowledge management platform
+   helping team members find past work and experts. Current WAU: 43%, Target: 60%
 
-2. ADH (Accenture Delivery Hub) - a project delivery and resource management
-   platform. Current utilization visibility: 67%, Target: 95%
+2. ProjectPulse - a project delivery and resource management
+   platform. Current capacity visibility: 67%, Target: 95%
 
 My main user personas are:
-- Priya (Partner) - needs fast expert discovery for client pitches
-- Marcus (Consultant) - needs to find templates and stop recreating work
-- Elena (Delivery Manager) - needs automated status reporting
+- Priya (Director) - needs fast expert discovery for client pitches
+- Marcus (Engineer) - needs to find templates and stop recreating work
+- Elena (Program Manager) - needs automated status reporting
 
-What are 3 key questions I should be asking about AKX adoption?
+What are 3 key questions I should be asking about KnowledgeHub adoption?
 ```
 
 2. Read Copilot's response
@@ -236,7 +236,7 @@ By the end of this course, you'll be able to:
 | Process steering committee notes | 45 min | 3 min | 42 min |
 | Synthesize 8 stakeholder interviews | 3-4 hours | 5 min | ~3.5 hours |
 | Write status updates for 3 audiences | 60 min | 5 min | 55 min |
-| Competitive research (consulting firms) | 90 min | 10 min | 80 min |
+| Competitive research (tech companys) | 90 min | 10 min | 80 min |
 | Draft PRD with business case | 6 hours | 45 min | 5+ hours |
 
 **Estimated weekly savings: 5-8 hours**
@@ -269,14 +269,14 @@ Understanding this context will help you apply Copilot to enterprise-specific wo
 You now know:
 - ✅ What Microsoft Copilot is and how it helps PMs
 - ✅ How to access Copilot (browser, shortcuts, M365 apps)
-- ✅ Your role at Accenture (Senior Product Owner for AKX & ADH)
+- ✅ Your role at NovaTech Solutions (Senior Product Owner for KnowledgeHub & ProjectPulse)
 - ✅ How this course is structured
 - ✅ That you just talk to Copilot in plain English
 
 **Quick Self-Check**
 Before moving on, can you:
 - [ ] Open copilot.microsoft.com and see the chat interface with file upload
-- [ ] Name the three Accenture personas in this course and their main pain points
+- [ ] Name the three NovaTech Solutions personas in this course and their main pain points
 - [ ] Identify which level and module covers PRD writing
 
 *If you're unsure about any of these, re-read that section before continuing.*

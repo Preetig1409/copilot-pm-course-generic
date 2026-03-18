@@ -85,7 +85,7 @@ Word Copilot helps you **create and refine documents**.
 4. Type this prompt:
 
 ```
-Create a one-page project brief for AKX's new onboarding wizard.
+Create a one-page project brief for KnowledgeHub's new onboarding wizard.
 
 Include:
 - Executive Summary (2-3 sentences)
@@ -186,7 +186,7 @@ PowerPoint Copilot helps you **create and enhance presentations**.
 4. Type:
 
 ```
-Create a 6-slide presentation about AKX's new onboarding wizard:
+Create a 6-slide presentation about KnowledgeHub's new onboarding wizard:
 
 Slide 1: Title slide
 Slide 2: The Problem (current WAU is 43%, target is 60%)
@@ -221,7 +221,7 @@ Outlook Copilot helps you **manage email more efficiently**.
 | Improve writing | "Make this more professional" |
 | Find information | "What was the deadline mentioned in this thread?" |
 
-### Email Best Practices with Copilot
+### Email Best Departments with Copilot
 
 **Drafting:**
 ```

@@ -1,29 +1,29 @@
-# Accenture Internal Products Overview
+# NovaTech Solutions Internal Products Overview
 
-**Your complete guide to AKX and ADH**
+**Your complete guide to KnowledgeHub and ProjectPulse**
 
 ---
 
 ## Overview
 
-You own two internal products that serve Accenture's 700,000+ employees:
+You own two internal products that serve NovaTech's 5,000+ employees:
 
-1. **Accenture Knowledge Exchange (AKX)** - Knowledge management and expert discovery
-2. **Accenture Delivery Hub (ADH)** - Project delivery and resource management
+1. **KnowledgeHub** - Knowledge management and expert discovery
+2. **ProjectPulse** - Project delivery and resource management
 
-These products are critical infrastructure for how Accenture operates. Unlike external B2B products, your "customers" are employees, adoption is influenced by mandates and culture, and success is measured by enterprise-wide efficiency rather than revenue.
+These products are critical infrastructure for how NovaTech operates. Unlike external B2B products, your "customers" are employees, adoption is influenced by mandates and culture, and success is measured by enterprise-wide efficiency rather than revenue.
 
 ---
 
-## Product 1: Accenture Knowledge Exchange (AKX)
+## Product 1: KnowledgeHub
 
-### What is AKX?
+### What is KnowledgeHub?
 
-AKX is Accenture's internal knowledge management platform. Think **"Google for Accenture"** - a unified search and discovery experience for finding past work, methodologies, and subject matter experts.
+KnowledgeHub is NovaTech's internal knowledge management platform. Think **"Google for NovaTech"** - a unified search and discovery experience for finding past work, methodologies, and subject matter experts.
 
 ### Core Value Proposition
 
-**For Accenture consultants who struggle with finding relevant past work and experts,** AKX is an enterprise knowledge platform **that provides intelligent search, expert discovery, and content curation.** Unlike searching scattered SharePoint sites, AKX **delivers relevant results quickly, surfaces experts, and reduces duplicate work.**
+**For NovaTech team members who struggle with finding relevant past work and experts,** KnowledgeHub is an enterprise knowledge platform **that provides intelligent search, expert discovery, and content curation.** Unlike searching scattered Google Drive folders, KnowledgeHub **delivers relevant results quickly, surfaces experts, and reduces duplicate work.**
 
 ---
 
@@ -42,9 +42,9 @@ AKX is Accenture's internal knowledge management platform. Think **"Google for A
 - Enable collaboration, not just consumption
 
 **3. Integrated into workflows**
-- Available where consultants work (Office, Teams)
+- Available where teams work (Slack, Teams, Notion)
 - Quick answers, not tool-switching
-- Mobile-first for traveling consultants
+- Mobile-first for on-the-go employees
 
 **4. Trust through curation**
 - Verified content with clear provenance
@@ -58,8 +58,8 @@ AKX is Accenture's internal knowledge management platform. Think **"Google for A
 #### 1. Intelligent Search
 
 **What users can do:**
-- Natural language search ("cloud migration case studies for banking")
-- Filter by industry, capability, content type, date
+- Natural language search ("cloud migration case studies for financial services")
+- Filter by department, capability, content type, date
 - Preview documents without downloading
 - Save searches and set alerts
 
@@ -76,38 +76,38 @@ AKX is Accenture's internal knowledge management platform. Think **"Google for A
 #### 2. Expert Discovery
 
 **What users can do:**
-- Search for experts by skill, industry, topic
+- Search for experts by skill, department, topic
 - View expert profiles with credentials, past work, availability
 - Request introductions through the platform
 - Follow experts for updates
 
 **Our differentiation:**
 - **Verified credentials:** Skills validated by project history
-- **Availability signals:** Real-time staffing status from ADH
+- **Availability signals:** Real-time staffing status from ProjectPulse
 - **Warm introductions:** Mutual connections highlighted
 
 **Current performance:**
-- Expert search usage: 12,000 searches/week
+- Expert search usage: 1,200 searches/week
 - Expert connection rate: 34% (target: 50%)
 - Time to expert: 2.3 days average (target: 4 hours)
 
 #### 3. Content Library
 
 **What users can do:**
-- Browse curated collections by industry, capability, topic
+- Browse curated collections by department, capability, topic
 - Access proposal templates, case studies, methodologies
 - Download and customize approved content
 - Rate and review content
 
 **Our differentiation:**
-- **Curated collections:** Practice leads maintain quality libraries
+- **Curated collections:** Department leads maintain quality libraries
 - **Version control:** Always access latest approved version
 - **Usage analytics:** See what content performs well
 
 **Current state:**
-- 2.3 million documents indexed
-- 50,000 curated "gold standard" documents
-- 450 official methodologies and frameworks
+- 230,000 documents indexed
+- 5,000 curated "gold standard" documents
+- 150 official methodologies and frameworks
 
 #### 4. Personal Knowledge Hub
 
@@ -119,30 +119,30 @@ AKX is Accenture's internal knowledge management platform. Think **"Google for A
 
 **Our differentiation:**
 - **AI recommendations:** "Based on your work, you might find..."
-- **Contribution tracking:** For promotion portfolios
+- **Contribution tracking:** For performance review portfolios
 - **Learning integration:** Connected to training recommendations
 
 ---
 
-### AKX User Personas
+### KnowledgeHub User Personas
 
-**Primary:** Marcus (Senior Consultant)
-- Uses AKX daily for project work
+**Primary:** Marcus (Senior Engineer)
+- Uses KnowledgeHub daily for project work
 - Needs fast, relevant search results
 - Values templates and examples
 
-**Secondary:** Priya (Partner)
-- Uses AKX for expert discovery and proposal content
+**Secondary:** Priya (Director)
+- Uses KnowledgeHub for expert discovery and proposal content
 - Needs results in minutes, not hours
 - Mobile-first usage between meetings
 
-**Tertiary:** Elena (Delivery Manager)
+**Tertiary:** Elena (Program Manager)
 - Occasional use for project templates
 - Needs best practices and lessons learned
 
 ---
 
-### AKX Metrics
+### KnowledgeHub Metrics
 
 #### North Star Metric
 
@@ -155,8 +155,8 @@ AKX is Accenture's internal knowledge management platform. Think **"Google for A
 - Leading indicator of knowledge reuse
 - Correlates with reduced duplicate work
 
-**Current:** 43% WAU (301,000 weekly users)
-**Target (EOY):** 60% WAU (420,000 weekly users)
+**Current:** 43% WAU (2,150 weekly users)
+**Target (EOY):** 60% WAU (3,000 weekly users)
 
 #### Product Health Metrics
 
@@ -168,7 +168,7 @@ AKX is Accenture's internal knowledge management platform. Think **"Google for A
 **Engagement:**
 - Searches per user per week: 4.2 (target: 6.0)
 - Documents accessed per search: 2.1 (target: 3.5)
-- Expert connections per week: 4,300 (target: 8,000)
+- Expert connections per week: 430 (target: 800)
 
 **Satisfaction:**
 - NPS: +12 (industry average for internal tools: +8, target: +20)
@@ -182,7 +182,7 @@ AKX is Accenture's internal knowledge management platform. Think **"Google for A
 
 ---
 
-### AKX Roadmap
+### KnowledgeHub Roadmap
 
 #### Currently Shipping (This Quarter)
 
@@ -193,7 +193,7 @@ AKX is Accenture's internal knowledge management platform. Think **"Google for A
 
 #### Next Quarter
 
-- Real-time expert availability from ADH
+- Real-time expert availability from ProjectPulse
 - Content quality scoring
 - Personalized recommendations engine
 - Proposal builder with template library
@@ -207,15 +207,15 @@ AKX is Accenture's internal knowledge management platform. Think **"Google for A
 
 ---
 
-## Product 2: Accenture Delivery Hub (ADH)
+## Product 2: ProjectPulse
 
-### What is ADH?
+### What is ProjectPulse?
 
-ADH is Accenture's project delivery and resource management platform. Think **"Mission Control for Delivery Managers"** - a real-time view of project health, resource utilization, and capacity planning.
+ProjectPulse is NovaTech's project delivery and resource management platform. Think **"Mission Control for Program Managers"** - a real-time view of project health, resource capacity, and staffing planning.
 
 ### Core Value Proposition
 
-**For delivery managers who struggle with project visibility and resource planning,** ADH is a delivery management platform **that provides real-time project health, resource utilization, and capacity forecasting.** Unlike manual spreadsheets and status meetings, ADH **automates reporting, predicts staffing needs, and surfaces risks early.**
+**For program managers who struggle with project visibility and resource planning,** ProjectPulse is a delivery management platform **that provides real-time project health, resource capacity, and staffing forecasting.** Unlike manual spreadsheets and status meetings, ProjectPulse **automates reporting, predicts staffing needs, and surfaces risks early.**
 
 ---
 
@@ -239,7 +239,7 @@ ADH is Accenture's project delivery and resource management platform. Think **"M
 - Trusted data for decision-making
 
 **4. Manager-centric design**
-- Built for delivery managers, not executives
+- Built for program managers, not executives
 - Actionable insights, not just dashboards
 - Quick access on any device
 
@@ -268,8 +268,8 @@ ADH is Accenture's project delivery and resource management platform. Think **"M
 #### 2. Resource Management
 
 **What users can do:**
-- View team utilization and availability
-- Search for available consultants by skill
+- View team capacity and availability
+- Search for available team members by skill
 - Create staffing requests
 - Forecast future capacity needs
 
@@ -279,7 +279,7 @@ ADH is Accenture's project delivery and resource management platform. Think **"M
 - **Forecasting:** Predict availability 90 days out
 
 **Current performance:**
-- Utilization visibility: 67% (target: 95%)
+- Capacity visibility: 67% (target: 95%)
 - Staffing request fulfillment time: 5.2 days (target: 2 days)
 - Forecast accuracy: 65% (target: 85%)
 
@@ -293,7 +293,7 @@ ADH is Accenture's project delivery and resource management platform. Think **"M
 
 **Our differentiation:**
 - **Auto-generation:** Pull data from system, not manual entry
-- **Template library:** Practice-specific formats
+- **Template library:** Department-specific formats
 - **Distribution automation:** Right reports to right people
 
 **Current state:**
@@ -317,41 +317,41 @@ ADH is Accenture's project delivery and resource management platform. Think **"M
 **Current state:**
 - Forecasting horizon: 30 days (target: 90 days)
 - Planning accuracy: 65% (target: 85%)
-- Usage of planning features: 23% of delivery managers (target: 60%)
+- Usage of planning features: 23% of program managers (target: 60%)
 
 ---
 
-### ADH User Personas
+### ProjectPulse User Personas
 
-**Primary:** Elena (Delivery Manager)
-- Uses ADH daily for project oversight
+**Primary:** Elena (Program Manager)
+- Uses ProjectPulse daily for project oversight
 - Needs real-time health visibility
 - Values automated reporting
 
-**Secondary:** Priya (Partner)
-- Uses ADH for resource availability
-- Needs staffing for new pursuits
+**Secondary:** Priya (Director)
+- Uses ProjectPulse for resource availability
+- Needs staffing for new initiatives
 - Values quick lookups between meetings
 
-**Tertiary:** Marcus (Senior Consultant)
-- Uses ADH for time entry
-- Needs visibility into his utilization
+**Tertiary:** Marcus (Senior Engineer)
+- Uses ProjectPulse for time entry
+- Needs visibility into his capacity
 - Values accurate project assignment data
 
 ---
 
-### ADH Metrics
+### ProjectPulse Metrics
 
 #### North Star Metric
 
-**Utilization Visibility Score:** % of consultant hours with accurate, real-time tracking
+**Capacity Visibility Score:** % of team member hours with accurate, real-time tracking
 
-**Definition:** Consultants with current project assignment, accurate hours, and skill profile
+**Definition:** Team members with current project assignment, accurate hours, and skill profile
 
 **Why this metric?**
 - Indicates data quality and completeness
 - Enables accurate resource planning
-- Correlates with utilization improvement
+- Correlates with capacity improvement
 
 **Current:** 67% visibility
 **Target (EOY):** 95% visibility
@@ -359,7 +359,7 @@ ADH is Accenture's project delivery and resource management platform. Think **"M
 #### Product Health Metrics
 
 **Data Quality:**
-- Utilization visibility: 67% (target: 95%)
+- Capacity visibility: 67% (target: 95%)
 - Project status accuracy: 72% (target: 90%)
 - Skills profile completeness: 58% (target: 80%)
 
@@ -370,17 +370,17 @@ ADH is Accenture's project delivery and resource management platform. Think **"M
 
 **Satisfaction:**
 - NPS: +8 (target: +18)
-- Delivery manager satisfaction: 3.4/5 (target: 4.5/5)
-- Consultant satisfaction (time entry): 2.8/5 (target: 3.8/5)
+- Program manager satisfaction: 3.4/5 (target: 4.5/5)
+- Engineer satisfaction (time entry): 2.8/5 (target: 3.8/5)
 
 **Business Impact:**
-- Utilization improvement: +0.5 percentage points attributed to ADH
+- Capacity improvement: +0.5 percentage points attributed to ProjectPulse
 - Project delivery on-time rate: 82% (target: 92%)
-- Staffing cost reduction: $8M annually (target: $20M)
+- Staffing cost reduction: $800K annually (target: $2M)
 
 ---
 
-### ADH Roadmap
+### ProjectPulse Roadmap
 
 #### Currently Shipping (This Quarter)
 
@@ -398,52 +398,52 @@ ADH is Accenture's project delivery and resource management platform. Think **"M
 
 #### Future (6+ months)
 
-- Client satisfaction integration
+- Customer satisfaction integration
 - Automated risk identification
 - Portfolio optimization recommendations
 - Advanced workforce analytics
 
 ---
 
-## How AKX and ADH Work Together
+## How KnowledgeHub and ProjectPulse Work Together
 
 ### Integration Points
 
 **1. Expert Availability:**
-- AKX shows expert profiles
-- ADH provides real-time availability
+- KnowledgeHub shows expert profiles
+- ProjectPulse provides real-time availability
 - Users see "Available in 2 weeks" on expert cards
 
 **2. Project Context:**
-- ADH tracks project assignments
-- AKX uses this for content recommendations
+- ProjectPulse tracks project assignments
+- KnowledgeHub uses this for content recommendations
 - "Relevant to your current project..."
 
 **3. Skills & Experience:**
-- Consultants maintain skills in ADH
-- AKX surfaces experts based on verified skills
+- Team members maintain skills in ProjectPulse
+- KnowledgeHub surfaces experts based on verified skills
 - Project history proves expertise
 
 **4. Content Attribution:**
-- ADH tracks who worked on what
-- AKX attributes content to project teams
+- ProjectPulse tracks who worked on what
+- KnowledgeHub attributes content to project teams
 - Enables "Find work by this team"
 
 ### User Journeys Across Products
 
-**Priya (Partner) Journey:**
-1. Client asks about blockchain expertise
-2. Searches AKX for experts → finds Marcus
-3. Checks ADH for Marcus's availability → available in 3 weeks
-4. Uses AKX to find proposal content → finds relevant case study
-5. Staffs Marcus on the project via ADH
+**Priya (Director) Journey:**
+1. Customer asks about Kubernetes expertise
+2. Searches KnowledgeHub for experts - finds Marcus
+3. Checks ProjectPulse for Marcus's availability - available in 3 weeks
+4. Uses KnowledgeHub to find proposal content - finds relevant case study
+5. Staffs Marcus on the project via ProjectPulse
 
-**Elena (Delivery Manager) Journey:**
+**Elena (Program Manager) Journey:**
 1. Needs to staff a cloud architect
-2. Searches ADH for available consultants with AWS skills
-3. Reviews candidate profiles in AKX for past work
-4. Creates staffing request in ADH
-5. Uses AKX to find onboarding materials for new team member
+2. Searches ProjectPulse for available engineers with AWS skills
+3. Reviews candidate profiles in KnowledgeHub for past work
+4. Creates staffing request in ProjectPulse
+5. Uses KnowledgeHub to find onboarding materials for new team member
 
 ---
 
@@ -464,31 +464,31 @@ ADH is Accenture's project delivery and resource management platform. Think **"M
 
 ### Governance Structure
 
-**AKX Steering Committee:**
-- Richard Thorne (CKO) - Executive Sponsor
+**KnowledgeHub Steering Committee:**
+- Richard Thorne (VP Knowledge & Innovation) - Executive Sponsor
 - Jennifer Walsh (VP Internal Digital Products) - Product Lead
-- David Kim (MD Technology) - Business Representative
-- Sarah Mitchell (MD Strategy) - Business Representative
+- David Kim (Director of Engineering) - Business Representative
+- Sarah Mitchell (Director of Product Strategy) - Business Representative
 - You (Senior Product Owner) - Product Owner
 
-**ADH Steering Committee:**
-- Maya Patel (CPO) - Executive Sponsor
+**ProjectPulse Steering Committee:**
+- Maya Patel (VP People Ops) - Executive Sponsor
 - Jennifer Walsh (VP Internal Digital Products) - Product Lead
-- Elena Rodriguez (Delivery Manager) - User Representative
+- Elena Rodriguez (Program Manager) - User Representative
 - Finance Representative - Budget and ROI
 - You (Senior Product Owner) - Product Owner
 
 ### Funding Model
 
 **Annual Operating Budget:**
-- AKX: $8M (team, infrastructure, licensing, support)
-- ADH: $5M (team, infrastructure, licensing, support)
+- KnowledgeHub: $2M (team, infrastructure, licensing, support)
+- ProjectPulse: $1.5M (team, infrastructure, licensing, support)
 
 **Investment Approval:**
-- < $50K: Product Owner approval
-- $50K - $100K: VP approval
-- $100K - $500K: Business case + Sponsor approval
-- > $500K: Steering Committee approval
+- < $10K: Product Owner approval
+- $10K - $25K: VP approval
+- $25K - $100K: Business case + Sponsor approval
+- > $100K: Steering Committee approval
 
 ### Business Case Requirements
 
@@ -506,7 +506,7 @@ For features requiring investment approval:
 
 ## Technology Stack
 
-**AKX:**
+**KnowledgeHub:**
 - Frontend: React + TypeScript, Fluent UI
 - Backend: .NET Core, Azure Functions
 - Search: Azure Cognitive Search (AI-enhanced)
@@ -514,12 +514,12 @@ For features requiring investment approval:
 - Infrastructure: Azure (PaaS)
 - Integration: Microsoft Graph API, SharePoint
 
-**ADH:**
+**ProjectPulse:**
 - Frontend: Angular, PrimeNG
 - Backend: Java Spring Boot
-- Database: Oracle, Redis
+- Database: PostgreSQL, Redis
 - Infrastructure: Azure (IaaS + PaaS)
-- Integration: Workday, SAP, ServiceNow
+- Integration: Workday, NetSuite, GitHub
 
 **Shared:**
 - Identity: Azure Active Directory
@@ -531,46 +531,46 @@ For features requiring investment approval:
 
 ## Your Current Projects
 
-### AKX Projects (Q1-Q2)
+### KnowledgeHub Projects (Q1-Q2)
 
 **Project 1: AI-Powered Search**
 - Goal: Improve search relevance and speed
 - Timeline: Q1 (in progress)
 - Status: Development phase
-- Key metrics: Search time 8 min → 4 min, satisfaction 3.2 → 4.0
+- Key metrics: Search time 8 min to 4 min, satisfaction 3.2 to 4.0
 
 **Project 2: Expert Matching**
 - Goal: Surface relevant experts automatically
 - Timeline: Q1-Q2
 - Status: Requirements gathering
-- Key metrics: Time to expert 2.3 days → 4 hours
+- Key metrics: Time to expert 2.3 days to 4 hours
 
 **Project 3: Mobile Experience**
-- Goal: Partner-friendly mobile app
+- Goal: Director-friendly mobile app
 - Timeline: Q2
 - Status: Design phase
-- Key metrics: Mobile MAU 15% → 35%
+- Key metrics: Mobile MAU 15% to 35%
 
-### ADH Projects (Q1-Q2)
+### ProjectPulse Projects (Q1-Q2)
 
 **Project 4: Automated Status Reports**
 - Goal: Eliminate manual status reporting
 - Timeline: Q1 (in progress)
 - Status: Development phase
-- Key metrics: Reporting time 4 hours → 30 minutes
+- Key metrics: Reporting time 4 hours to 30 minutes
 
 **Project 5: Predictive Staffing**
 - Goal: AI-powered resource recommendations
 - Timeline: Q2
 - Status: Research phase
-- Key metrics: Staffing time 5 days → 2 days
+- Key metrics: Staffing time 5 days to 2 days
 
 **Project 6: Financial Integration**
 - Goal: Real-time project financials
 - Timeline: Q2
 - Status: Requirements gathering
-- Key metrics: Forecast accuracy 65% → 85%
+- Key metrics: Forecast accuracy 65% to 85%
 
 ---
 
-**Throughout this course, you'll write PRDs, analyze data, and plan features for AKX and ADH. Understanding both products and how they serve different personas is critical for making good product decisions.**
+**Throughout this course, you'll write PRDs, analyze data, and plan features for KnowledgeHub and ProjectPulse. Understanding both products and how they serve different personas is critical for making good product decisions.**

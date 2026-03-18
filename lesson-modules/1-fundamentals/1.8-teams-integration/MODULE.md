@@ -267,7 +267,7 @@ Keep it to 3-4 sentences.
 
 ---
 
-## Teams Copilot Best Practices
+## Teams Copilot Best Departments
 
 ### Do:
 - ✅ Enable meeting transcription for all important meetings

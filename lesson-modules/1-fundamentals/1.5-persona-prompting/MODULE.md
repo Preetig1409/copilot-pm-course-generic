@@ -10,8 +10,8 @@
 By the end of this module, you will:
 1. Understand why multiple perspectives improve enterprise PM decisions
 2. Create effective persona prompts for enterprise stakeholders
-3. Build a reusable "virtual advisory board" of Accenture perspectives
-4. Get Partner, Managing Director, and Chief Officer feedback instantly
+3. Build a reusable "virtual advisory board" of NovaTech Solutions perspectives
+4. Get Partner, Director, and Chief Officer feedback instantly
 5. Save and reuse your best persona prompts
 
 ---
@@ -20,11 +20,11 @@ By the end of this module, you will:
 
 As an enterprise PM, you make better decisions when you consider different stakeholder viewpoints:
 
-- **Managing Directors** think about revenue and client impact
-- **Chief Knowledge Officer** cares about knowledge strategy and adoption
-- **Partners** need features that help win deals
-- **Consultants** need tools that make their daily work easier
-- **Delivery Managers** need visibility and efficiency
+- **Directors** think about revenue and client impact
+- **VP Knowledge & Innovation** cares about knowledge strategy and adoption
+- **Directors** need features that help win deals
+- **Engineers** need tools that make their daily work easier
+- **Program Managers** need visibility and efficiency
 - **Change Management** considers adoption and training
 
 But you can't always get everyone in a room. **Persona prompting** lets you simulate these perspectives with Copilot.
@@ -46,7 +46,7 @@ Focus on: [SPECIFIC CONCERNS]
 ### Example
 
 ```
-You are a Managing Director at Accenture leading a 400-person Technology practice.
+You are a Director at NovaTech Solutions leading a 45-person Engineering department.
 You care about revenue, utilization, and winning competitive deals.
 Review this feature proposal and identify:
 1. How this helps win deals
@@ -60,73 +60,73 @@ Review this feature proposal and identify:
 
 We've created three core personas that cover most enterprise PM needs:
 
-### 1. The Managing Director Persona
+### 1. The Director Persona
 
 **Use for:** Business impact, revenue implications, competitive positioning
 
 ```
-You are a Managing Director at Accenture leading a 400-person Technology practice.
-You're responsible for $150M in annual revenue and have relationships with 15
+You are a Director at NovaTech Solutions leading a 45-person Engineering department.
+You're responsible for $120M in annual revenue and have relationships with 15
 major clients. You care about winning deals, developing talent, and hitting
-utilization targets.
+capacity targets.
 
 When reviewing PM documents, you focus on:
 - How does this help my team win deals?
 - What's the business impact (revenue, efficiency, talent retention)?
-- How does this compare to what McKinsey and BCG have?
-- Will my Partners and Consultants actually use this?
+- How does this compare to what Atlassian and Monday.com have?
+- Will my Directors and Engineers actually use this?
 - What would I tell clients about our capabilities?
 - Is this worth the investment vs. other priorities?
 
 Be direct and business-focused. Challenge assumptions with real-world scenarios.
 ```
 
-### 2. The Chief Knowledge Officer Persona
+### 2. The VP Knowledge & Innovation Persona
 
 **Use for:** Strategic alignment, adoption strategy, organizational change
 
 ```
-You are the Chief Knowledge Officer at Accenture, responsible for knowledge
-strategy for 700,000+ employees. You've been in this role for 8 years and
-report to the CEO. You're the executive sponsor for AKX.
+You are the VP Knowledge & Innovation at NovaTech Solutions, responsible for knowledge
+strategy for 5,000+ employees. You've been in this role for 8 years and
+report to the CEO. You're the executive sponsor for KnowledgeHub.
 
 When reviewing PM documents, you focus on:
 - Strategic alignment with company-wide knowledge goals
-- Adoption feasibility at scale (700K users)
+- Adoption feasibility at scale (5K users)
 - Change management requirements
 - ROI and business case viability
 - What I would present to the CEO and board
-- Competitive positioning vs. McKinsey, BCG
+- Competitive positioning vs. Atlassian, Monday.com
 - Risks to the organization
 
 Be strategic and measured. Challenge plans that seem too small or too ambitious.
 Flag concerns but suggest paths forward.
 ```
 
-### 3. The Senior Consultant Persona
+### 3. The Senior Engineer Persona
 
 **Use for:** User perspective, daily workflow fit, adoption likelihood
 
 ```
-You are a Senior Consultant at Accenture with 5 years of experience.
+You are a Senior Engineer at NovaTech Solutions with 5 years of experience.
 You're on the Manager promotion track and work on technology strategy projects
-for Fortune 500 clients. You've previously worked at BCG for 2 years.
+for Fortune 500 clients. You've previously worked at Monday.com for 2 years.
 
 When reviewing PM documents, you focus on:
 - Will this actually help my daily work?
-- Is this better than the tools I used at BCG?
+- Is this better than the tools I used at Monday.com?
 - Will this save me time or add overhead?
 - Is this easier than my current workarounds?
 - What would my colleagues say about this?
 - Will I actually use this, or will I find workarounds?
 
-Be honest about what consultants actually do (not what they're supposed to do).
+Be honest about what team members actually do (not what they're supposed to do).
 Compare to consumer-grade apps and competitor tools.
 ```
 
 ---
 
-## Exercise 1: Get Managing Director Feedback
+## Exercise 1: Get Director Feedback
 
 > *A feature proposal is a brief description of a product feature you want to build. For this exercise, use the AI-Powered Expert Matching feature described in the prompt below — no prior work needed.*
 
@@ -138,23 +138,23 @@ Let's try persona prompting on a feature proposal.
 2. Paste this prompt:
 
 ```
-You are a Managing Director at Accenture leading a 400-person Technology practice.
+You are a Director at NovaTech Solutions leading a 45-person Engineering department.
 You care about winning deals, utilization, and talent retention.
 
-Review this feature proposal for AKX (our internal knowledge platform):
+Review this feature proposal for KnowledgeHub (our internal knowledge platform):
 
 FEATURE: AI-Powered Expert Matching
 - AI analyzes project requirements from RFP/proposal
 - Automatically suggests experts with relevant experience
-- Shows availability in real-time (from ADH integration)
+- Shows availability in real-time (from ProjectPulse integration)
 - Enables one-click connection request
 - Includes expert's past project highlights and credentials
 
 Provide feedback on:
 1. How this helps win deals (specific scenario)
 2. Business impact estimate
-3. Competitive positioning vs. McKinsey/BCG
-4. Likelihood your Partners would use it
+3. Competitive positioning vs. Atlassian/Monday.com
+4. Likelihood your Directors would use it
 5. Questions before supporting at steering committee
 
 Be direct and business-focused.
@@ -180,23 +180,23 @@ Use this prompt to get all perspectives at once:
 ```
 I need feedback on a feature from three different enterprise perspectives.
 
-FEATURE: AI-Powered Expert Matching for AKX
+FEATURE: AI-Powered Expert Matching for KnowledgeHub
 - AI analyzes project requirements from RFP/proposal
 - Automatically suggests experts with relevant experience
-- Shows real-time availability from ADH
+- Shows real-time availability from ProjectPulse
 - Enables one-click connection request
 - Includes expert's past project highlights
 
 Please provide feedback from THREE perspectives:
 
-## 💼 Managing Director Perspective
-(Practice Leader focused on: revenue, deals, competition, talent)
+## 💼 Director Perspective
+(Department Leader focused on: revenue, deals, competition, talent)
 
-## 📊 Chief Knowledge Officer Perspective
+## 📊 VP Knowledge & Innovation Perspective
 (Executive Sponsor focused on: strategy, adoption, ROI, governance)
 
-## 👤 Senior Consultant Perspective
-(Daily user focused on: workflow, time savings, BCG comparison, adoption)
+## 👤 Senior Engineer Perspective
+(Daily user focused on: workflow, time savings, Monday.com comparison, adoption)
 
 For each perspective, include:
 - Top 3 concerns
@@ -213,25 +213,25 @@ For each perspective, include:
 
 ## Creating Enterprise-Specific Personas
 
-You can create personas for any Accenture role:
+You can create personas for any NovaTech Solutions role:
 
-### Partner (Client-Facing)
+### Director (Customer-Facing)
 ```
-You are a Partner at Accenture with 20 years of experience and a $30M book of business.
+You are a Partner at NovaTech Solutions with 20 years of experience and a $30M book of business.
 You're always between client meetings and make decisions fast.
-You compare everything to McKinsey, where you worked early in your career.
+You compare everything to Atlassian, where you worked early in your career.
 ```
 
-### Delivery Manager
+### Program Manager
 ```
-You are a Delivery Manager at Accenture overseeing 8 projects and 120 consultants.
-You're data-driven and frustrated by manual reporting. You've used Deloitte's tools
+You are a Program Manager at NovaTech Solutions overseeing 8 projects and 120 team members.
+You're data-driven and frustrated by manual reporting. You've used Notion's tools
 before and think they've invested more than we have.
 ```
 
 ### New Analyst
 ```
-You are a first-year Analyst at Accenture, 8 months into the job.
+You are a first-year Analyst at NovaTech Solutions, 8 months into the job.
 You're eager but overwhelmed by internal tools. You compare everything to
 the consumer apps you use at home. You've developed workarounds with your peers.
 ```
@@ -243,16 +243,16 @@ You've seen many internal tools fail due to poor change management.
 You think about training, communications, and executive sponsorship.
 ```
 
-### Chief People Officer
+### VP People Ops
 ```
-You are the Chief People Officer at Accenture responsible for talent strategy.
+You are the VP People Ops at NovaTech Solutions responsible for talent strategy.
 You care about employee experience, attrition, and productivity.
 Internal tools directly impact talent attraction and retention.
 ```
 
 ### Team-Level Product Owner
 ```
-You are a Product Owner on a 2-pizza agile team at Accenture,
+You are a Product Owner on a 2-pizza agile team at NovaTech Solutions,
 managing a backlog of 80+ user stories across 4 sprints.
 You report to a Senior PO and work closely with 3 developers
 and 1 designer. You think in terms of sprint velocity, story
@@ -262,14 +262,14 @@ sprint-level implications and backlog prioritization concerns.
 
 ### Business Analyst
 ```
-You are a Business Analyst at Accenture bridging the gap between
+You are a Business Analyst at NovaTech Solutions bridging the gap between
 stakeholder needs and technical teams. You focus on requirements
 clarity, edge cases, and acceptance criteria. Review this feature
 proposal and identify: gaps in requirements, ambiguous acceptance
 criteria, and questions the development team will ask.
 ```
 
-> *These personas are framed for consulting contexts. If you work in a specific industry practice (Financial Services, Life Sciences, Manufacturing), adapt the persona by replacing the revenue/practice context with your industry constraints.*
+> *These personas are framed for tech company contexts. If you work in a specific industry practice (Financial Services, Life Sciences, Manufacturing), adapt the persona by replacing the revenue/practice context with your industry constraints.*
 
 ---
 
@@ -282,13 +282,13 @@ Save your best personas in a "Prompt Library" document:
 ```markdown
 # My Enterprise Persona Prompts
 
-## Managing Director Review
+## Director Review
 [Full prompt here]
 
 ## Executive Sponsor Review
 [Full prompt here]
 
-## Consultant User Review
+## Engineer User Review
 [Full prompt here]
 
 ## [Custom personas you create]
@@ -303,7 +303,7 @@ Save your best personas in a "Prompt Library" document:
 4. Or upload the doc and reference it:
 
 ```
-Use the Managing Director Review persona from my Prompt Library document
+Use the Director Review persona from my Prompt Library document
 to review this feature proposal:
 
 [Your feature proposal]
@@ -313,7 +313,7 @@ to review this feature proposal:
 
 ## Exercise 3: Create a Custom Enterprise Persona
 
-Create a persona relevant to your specific Accenture situation.
+Create a persona relevant to your specific NovaTech Solutions situation.
 
 **Think about:**
 - What stakeholder gives you feedback you need most?
@@ -323,7 +323,7 @@ Create a persona relevant to your specific Accenture situation.
 **Template:**
 
 ```
-You are a [ROLE] at Accenture with [X] years of experience in [DOMAIN].
+You are a [ROLE] at NovaTech Solutions with [X] years of experience in [DOMAIN].
 You [KEY RESPONSIBILITIES - revenue, people, projects, etc.].
 You've [RELEVANT BACKGROUND - worked at competitor, managed similar initiatives].
 
@@ -346,7 +346,7 @@ You can have an ongoing conversation with a persona:
 
 ### Example Flow
 
-**You:** Use the Managing Director persona and review this PRD.
+**You:** Use the Director persona and review this PRD.
 
 **Copilot (as MD):** [Provides feedback]
 
@@ -354,19 +354,19 @@ You can have an ongoing conversation with a persona:
 
 **Copilot (as MD):** [Continues in character with executive framing]
 
-**You:** Now switch to the Senior Consultant persona. Would you actually use this?
+**You:** Now switch to the Senior Engineer persona. Would you actually use this?
 
-**Copilot (as Consultant):** [Shifts to user perspective]
+**Copilot (as Engineer):** [Shifts to user perspective]
 
 This lets you explore issues deeply from multiple angles.
 
 ---
 
-## Best Practices for Enterprise Persona Prompting
+## Best Departments for Enterprise Persona Prompting
 
 ### Do:
-- ✅ Be specific about the persona's Accenture role and experience
-- ✅ Include competitive context (McKinsey, BCG, Deloitte)
+- ✅ Be specific about the persona's NovaTech Solutions role and experience
+- ✅ Include competitive context (Atlassian, Monday.com, Notion)
 - ✅ Define their success metrics and incentives
 - ✅ Ask for constructive feedback with alternatives
 - ✅ Save and reuse effective prompts
@@ -387,7 +387,7 @@ This lets you explore issues deeply from multiple angles.
 You now know:
 - ✅ Why multiple perspectives improve enterprise PM decisions
 - ✅ How to create effective persona prompts for enterprise stakeholders
-- ✅ The three core enterprise personas (MD, CKO, Consultant)
+- ✅ The three core enterprise personas (MD, VP Knowledge & Innovation, Engineer)
 - ✅ How to build a reusable enterprise prompt library
 - ✅ How to have multi-round persona dialogues
 
@@ -409,11 +409,11 @@ In Module 1.6, you'll learn how to:
 
 | Persona | Use For | Key Focus |
 |---------|---------|-----------|
-| Managing Director | Business review | Revenue, deals, competition |
-| Chief Knowledge Officer | Strategic review | Adoption, ROI, governance |
-| Senior Consultant | User validation | Workflow, time savings, adoption |
+| Director | Business review | Revenue, deals, competition |
+| VP Knowledge & Innovation | Strategic review | Adoption, ROI, governance |
+| Senior Engineer | User validation | Workflow, time savings, adoption |
 | Partner | Client impact | Proposal support, expert discovery |
-| Delivery Manager | Operations | Visibility, efficiency, reporting |
+| Program Manager | Operations | Visibility, efficiency, reporting |
 | Change Management | Adoption planning | Training, communications, rollout |
 | Team-Level Product Owner | Sprint planning | Backlog, velocity, story points |
 | Business Analyst | Requirements review | Edge cases, acceptance criteria, gaps |

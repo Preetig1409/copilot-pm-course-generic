@@ -32,15 +32,15 @@ Please analyze these steering committee meeting notes and create a structured su
 Format as clean markdown suitable for a steering committee update.
 ```
 
-## Enhanced Version (with Accenture context)
+## Enhanced Version (with NovaTech Solutions context)
 
 ```
-I'm a Senior Product Owner at Accenture's Internal Digital Products team.
+I'm a Senior Product Owner at NovaTech's Internal Digital Products team.
 Analyze these meeting notes from our [meeting type] meeting.
 
 Context:
-- Product: AKX (Accenture Knowledge Exchange) or ADH (Accenture Delivery Hub)
-- Sponsor: Richard Thorne (CKO) or Maya Patel (CPO)
+- Product: KnowledgeHub or ProjectPulse
+- Sponsor: Richard Thorne (VP Knowledge & Innovation) or Maya Patel (VP People Ops)
 - Stakeholders: [relevant names]
 
 Extract:

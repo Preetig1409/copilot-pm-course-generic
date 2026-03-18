@@ -10,23 +10,23 @@
 By the end of this module, you will:
 1. Process steering committee notes into clear action items
 2. Synthesize multiple stakeholder interview transcripts
-3. Transform the same content for different audiences (Partners vs. Consultants vs. Executives)
+3. Transform the same content for different audiences (Directors vs. Engineers vs. Executives)
 4. Analyze design mockups and provide feedback
-5. Perform rapid competitive research on consulting firms
+5. Perform rapid competitive research on tech companys
 
 These are the **core PM skills** that will save you hours every week!
 
 ---
 
-## Scenario: A Day at Accenture
+## Scenario: A Day at NovaTech Solutions
 
-It's Monday morning in Accenture's Internal Digital Products team. As Senior Product Owner for AKX and ADH, you have:
+It's Monday morning in NovaTech's Internal Digital Products team. As Senior Product Owner for KnowledgeHub and ProjectPulse, you have:
 
 - 📝 Notes from last week's steering committee meeting that need processing
-- 🎤 8 stakeholder interviews that need synthesis (Partners, Consultants, Delivery Managers)
-- 📧 An update that needs to go to 3 different audiences (leadership, partners, consultants)
+- 🎤 8 stakeholder interviews that need synthesis (Directors, Engineers, Program Managers)
+- 📧 An update that needs to go to 3 different audiences (leadership, partners, team members)
 - 🎨 A design mockup for the new AI search feature that needs PM feedback
-- 🔍 Research needed on what McKinsey and BCG are doing with their knowledge platforms
+- 🔍 Research needed on what Atlassian and Monday.com are doing with their knowledge platforms
 
 Let's tackle each one with Copilot!
 
@@ -54,7 +54,7 @@ You have raw notes from multiple meetings including a steering committee. You ne
 2. **Use this prompt:**
 
 ```
-Please analyze these meeting notes from Accenture's Internal Digital Products team
+Please analyze these meeting notes from NovaTech's Internal Digital Products team
 and create a structured summary suitable for enterprise governance:
 
 ## Executive Summary
@@ -102,18 +102,18 @@ Format as clean markdown suitable for a steering committee update.
 Use this sample steering committee notes content if you don't have the file:
 
 ```
-AKX steering committee 2/13
-richard (CKO sponsor) concerned about WAU - stuck at 43%
+KnowledgeHub steering committee 2/13
+richard (VP Knowledge & Innovation sponsor) concerned about WAU - stuck at 43%
 david kim (MD tech practice) says search is terrible
 "my team searches for SAP expertise, gets 500 results, most from 2019"
-sarah mitchell mentioned we lost a deal to BCG - they identified experts in 48 hrs, we took 4 days
+sarah mitchell mentioned we lost a deal to Monday.com - they identified experts in 48 hrs, we took 4 days
 decision: AI search is #1 priority, mobile can slip if needed
 jennifer to assess if we can accelerate Q2 to Q1 end
-TODO: me - draft proposal for auto skill profiles from ADH
-david will identify 3 practice leads for pilot
+TODO: me - draft proposal for auto skill profiles from ProjectPulse
+david will identify 3 department leads for pilot
 richard presenting to CEO next month, needs to show progress
 change mgmt meeting later - need adoption campaign for AI search launch
-technical review with raj and amit on ADH integration
+technical review with raj and amit on ProjectPulse integration
 ```
 
 ---
@@ -125,10 +125,10 @@ technical review with raj and amit on ADH integration
 
 ### The Problem
 
-You have 8 stakeholder interview transcripts from across Accenture:
-- Partners and Practice Leads (Priya's persona)
-- Senior Consultants (Marcus's persona)
-- Delivery Managers (Elena's persona)
+You have 8 stakeholder interview transcripts from across NovaTech Solutions:
+- Directors and Department Leads (Priya's persona)
+- Senior Engineers (Marcus's persona)
+- Program Managers (Elena's persona)
 - New Analysts, Project Managers, Knowledge Managers, Operations Leads, Executives
 
 You need to find patterns across roles and prioritize insights by business impact.
@@ -142,14 +142,14 @@ You need to find patterns across roles and prioritize insights by business impac
    - Use this prompt:
 
 ```
-Analyze these 5 stakeholder interviews from Accenture employees. I'm looking
-for patterns that will inform our AKX and ADH product priorities.
+Analyze these 5 stakeholder interviews from NovaTech Solutions employees. I'm looking
+for patterns that will inform our KnowledgeHub and ProjectPulse product priorities.
 
 Please identify:
 1. **Common Pain Points** - Issues mentioned by 2+ stakeholders (note their roles)
 2. **Feature Requests** - Specific capabilities stakeholders asked for
-3. **Competitive Comparisons** - Any mentions of McKinsey, BCG, Deloitte tools
-4. **Adoption Barriers** - Why people don't use AKX/ADH
+3. **Competitive Comparisons** - Any mentions of Atlassian, Monday.com, Notion tools
+4. **Adoption Barriers** - Why people don't use KnowledgeHub/ProjectPulse
 5. **Quick Wins** - Things that seem easy to fix with high impact
 
 For each finding, note:
@@ -157,7 +157,7 @@ For each finding, note:
 - Business impact (revenue, efficiency, talent retention)
 - Include a compelling quote
 
-Group findings by persona type: Partners, Consultants, Delivery Managers, Others
+Group findings by persona type: Directors, Engineers, Program Managers, Others
 ```
 
 2. **Batch 2: Upload remaining interviews**
@@ -165,7 +165,7 @@ Group findings by persona type: Partners, Consultants, Delivery Managers, Others
    Upload the remaining interview files, then use this prompt:
 
 ```
-Analyze these additional stakeholder interviews from Accenture.
+Analyze these additional stakeholder interviews from NovaTech Solutions.
 Use the same format as your previous analysis: identify pain points
 by role, feature requests, competitive comparisons, adoption barriers,
 and quick wins. Include quotes and note business impact.
@@ -175,7 +175,7 @@ and quick wins. Include quotes and note business impact.
    - Ask Copilot to merge the two analyses:
 
 ```
-Here are findings from two batches of stakeholder interviews at Accenture.
+Here are findings from two batches of stakeholder interviews at NovaTech Solutions.
 Please merge into a single, prioritized synthesis.
 
 Rank pain points by:
@@ -206,8 +206,8 @@ Researcher takes longer (5-10 min) but produces more thorough analysis.
 ### The Problem
 
 You have ONE update about AI search launching. You need to communicate it to:
-- **Partners (Priya)** - High-level business impact, time savings
-- **Consultants (Marcus)** - How it helps their daily work
+- **Directors (Priya)** - High-level business impact, time savings
+- **Engineers (Marcus)** - How it helps their daily work
 - **Executive Sponsors (Richard)** - Metrics, competitive positioning, ROI
 
 ### Step-by-Step
@@ -215,23 +215,23 @@ You have ONE update about AI search launching. You need to communicate it to:
 1. **Start with your core message:**
 
 ```
-I need to communicate this product update to three different audiences at Accenture.
+I need to communicate this product update to three different audiences at NovaTech Solutions.
 
 THE UPDATE:
-We're launching AI-powered search for AKX next month. In beta testing with
-the Technology practice (500 users), average search time dropped from 8 minutes
+We're launching AI-powered search for KnowledgeHub next month. In beta testing with
+the Engineering department (500 users), average search time dropped from 8 minutes
 to 2 minutes. Search satisfaction improved from 3.2/5 to 4.1/5. Expert discovery
 improved - users found relevant experts in 15 minutes vs. 2+ days previously.
 
 Please create three versions:
 
-1. **PARTNER COMMUNICATION** (for Practice Leads like Priya)
+1. **PARTNER COMMUNICATION** (for Department Leads like Priya)
    - Focus on business impact (winning deals, finding experts)
    - Lead with time savings and competitive advantage
    - 2 short paragraphs, professional but not formal
    - End with "how to get involved in pilot"
 
-2. **CONSULTANT EMAIL** (for consultants like Marcus)
+2. **CONSULTANT EMAIL** (for team members like Marcus)
    - Focus on how it helps their daily work
    - Emphasize: find templates faster, stop recreating work
    - Casual, peer-to-peer tone
@@ -241,7 +241,7 @@ Please create three versions:
 3. **EXECUTIVE BRIEFING** (for steering committee sponsors like Richard)
    - Lead with metrics and competitive positioning
    - Include: adoption targets, ROI, timeline, risks
-   - Reference competitive pressure (McKinsey, BCG)
+   - Reference competitive pressure (Atlassian, Monday.com)
    - Structured with headers
    - Include "asks" for executive support
 ```
@@ -269,7 +269,7 @@ For recurring communication needs, we've included templates in the `communicatio
 
 ### The Problem
 
-Design sent you a mockup for the new AI search interface in AKX. You need to provide structured PM feedback covering usability, alignment with personas, and enterprise considerations.
+Design sent you a mockup for the new AI search interface in KnowledgeHub. You need to provide structured PM feedback covering usability, alignment with personas, and enterprise considerations.
 
 ### Step-by-Step
 
@@ -284,13 +284,13 @@ Design sent you a mockup for the new AI search interface in AKX. You need to pro
 ```
 Analyze this design mockup from a Product Manager perspective.
 
-Context: This is for AKX (Accenture Knowledge Exchange), an internal knowledge
-management platform for 700,000+ Accenture employees.
+Context: This is for KnowledgeHub, an internal knowledge
+management platform for 5,000+ NovaTech employees.
 
 Our users are:
-- Priya (Partner) - uses mobile between meetings, needs results in 5 minutes
-- Marcus (Consultant) - power user, needs quality filtering, compares to BCG tools
-- Elena (Delivery Manager) - occasional user, needs project templates
+- Priya (Director) - uses mobile between meetings, needs results in 5 minutes
+- Marcus (Engineer) - power user, needs quality filtering, compares to Monday.com tools
+- Elena (Program Manager) - occasional user, needs project templates
 
 Please provide feedback on:
 
@@ -299,7 +299,7 @@ Please provide feedback on:
 3. **Information Hierarchy** - Is the most important info prominent?
 4. **Enterprise Considerations** - Accessibility, data privacy, scale
 5. **Mobile Readiness** - Will this work on Partner's phones?
-6. **Competitive Comparison** - How does this compare to what we know about McKinsey/BCG?
+6. **Competitive Comparison** - How does this compare to what we know about Atlassian/Monday.com?
 7. **Questions for Design** - What should I ask the designer?
 
 Be constructive and specific. Reference our personas by name.
@@ -315,7 +315,7 @@ Be constructive and specific. Reference our personas by name.
 If you don't have a mockup, describe one to Copilot:
 
 ```
-Imagine an AKX search interface mockup with:
+Imagine an KnowledgeHub search interface mockup with:
 - Top search bar with "AI-powered" badge
 - Filter panel on left (industry, capability, content type, date)
 - Main results area showing document cards
@@ -323,40 +323,40 @@ Imagine an AKX search interface mockup with:
 - Right sidebar showing "Related Experts" with profile photos
 - Mobile responsive design
 
-Analyze this from a PM perspective for AKX serving our three personas.
+Analyze this from a PM perspective for KnowledgeHub serving our three personas.
 ```
 
 ---
 
-## Task 5: Competitive Research - Consulting Firms
+## Task 5: Competitive Research - Tech Companys
 
 **Time without Copilot:** 90 minutes
 **Time with Copilot:** 10 minutes
 
 ### The Problem
 
-The steering committee wants to understand what competitors are doing with their knowledge management platforms. You need quick intelligence on McKinsey, BCG, and Deloitte.
+The steering committee wants to understand what competitors are doing with their knowledge management platforms. You need quick intelligence on Atlassian, Monday.com, and Notion.
 
 ### Option A: Quick Research (5 min)
 
 Use regular Copilot Chat:
 
 ```
-I'm a Product Owner at Accenture responsible for our internal knowledge
-management platform (AKX). Our competitors are McKinsey, BCG, and Deloitte.
+I'm a Product Owner at NovaTech Solutions responsible for our internal knowledge
+management platform (KnowledgeHub). Our competitors are Atlassian, Monday.com, and Notion.
 
 What do you know about their internal knowledge management and expert discovery
 tools? Specifically:
 
-1. McKinsey Knowledge Center - what makes it the "gold standard"?
-2. BCG's AI investments in internal tools
-3. Deloitte's knowledge platform modernization efforts
+1. Atlassian Knowledge Center - what makes it the "gold standard"?
+2. Monday.com's AI investments in internal tools
+3. Notion's knowledge platform modernization efforts
 
 I need to understand:
 - What capabilities they have that we might lack
 - Their approach to content curation
 - AI/GenAI investments
-- What Accenture employees who came from these firms say about the tools
+- What NovaTech Solutions employees who came from these firms say about the tools
 
 This is for a steering committee discussion.
 ```
@@ -371,10 +371,10 @@ Use the **Researcher** agent for comprehensive analysis:
 2. Enter this prompt:
 
 ```
-Research knowledge management and expert discovery platforms at major consulting firms.
-I need competitive intelligence for Accenture's internal tools team.
+Research knowledge management and expert discovery platforms at major tech companys.
+I need competitive intelligence for NovaTech Solutions's internal tools team.
 
-Firms to research: McKinsey, BCG, Deloitte, Bain, IBM Consulting
+Firms to research: Atlassian, Monday.com, Notion, Bain, IBM Consulting
 
 For each firm, find:
 - Internal knowledge management platform name and capabilities
@@ -385,11 +385,11 @@ For each firm, find:
 
 Also research:
 - Industry best practices for enterprise knowledge management
-- Common challenges at consulting firm scale (50,000+ employees)
+- Common challenges at tech company scale (800+ employees)
 - How firms measure KM platform success
 
 Create a competitive comparison report I can present to our steering committee.
-Include recommendations for where Accenture should focus.
+Include recommendations for where NovaTech Solutions should focus.
 ```
 
 3. Researcher works for 5-10 minutes
@@ -412,7 +412,7 @@ Include recommendations for where Accenture should focus.
 
 ---
 
-## Practice Exercise: End-of-Week Processing
+## Department Exercise: End-of-Week Processing
 
 Let's put it all together. Imagine it's Friday and you need to prepare for Monday's steering committee:
 
@@ -424,7 +424,7 @@ Let's put it all together. Imagine it's Friday and you need to prepare for Monda
 **Try this prompt:**
 
 ```
-I'm a Senior Product Owner at Accenture preparing for Monday's AKX steering
+I'm a Senior Product Owner at NovaTech Solutions preparing for Monday's KnowledgeHub steering
 committee. Here are my notes from this week:
 [Paste or upload your notes]
 
@@ -450,7 +450,7 @@ You now know how to:
 - ✅ Synthesize multiple stakeholder interviews (in batches)
 - ✅ Transform content for different enterprise audiences
 - ✅ Analyze design mockups with enterprise PM perspective
-- ✅ Perform competitive research on consulting firms
+- ✅ Perform competitive research on tech companys
 
 **Quick Self-Check**
 Before moving on, can you:
@@ -494,7 +494,7 @@ and business impact.
 ### Multi-Audience Communication (Enterprise)
 ```
 Transform this update into 3 versions: Partner (business impact),
-Consultant (daily work), Executive (metrics and ROI).
+Engineer (daily work), Executive (metrics and ROI).
 ```
 
 ### Design Feedback (Enterprise)
@@ -506,7 +506,7 @@ competitive comparison, questions for designer.
 
 ### Competitive Research (Consulting)
 ```
-Research knowledge management platforms at McKinsey, BCG, Deloitte.
+Research knowledge management platforms at Atlassian, Monday.com, Notion.
 Provide: capabilities, AI investments, expert discovery, adoption.
 Create competitive comparison for steering committee.
 ```

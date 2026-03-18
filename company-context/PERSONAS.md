@@ -1,4 +1,4 @@
-# Accenture User Personas
+# NovaTech Solutions User Personas
 
 **Deep dive into who uses your internal products and why**
 
@@ -6,31 +6,31 @@
 
 ## Overview
 
-Your products (AKX and ADH) serve three primary user personas across Accenture. Understanding these personas is critical for product decisions - every feature should address at least one persona's core needs while navigating enterprise constraints.
+Your products (KnowledgeHub and ProjectPulse) serve three primary user personas across NovaTech Solutions. Understanding these personas is critical for product decisions - every feature should address at least one persona's core needs while navigating enterprise constraints.
 
 ---
 
-## Persona 1: Priya Sharma (Partner & Practice Lead)
+## Persona 1: Priya Sharma (Director, Customer Solutions)
 
 ### Quick Facts
 
 **Name:** Priya Sharma
 **Age:** 47
-**Role:** Managing Director & Practice Lead, Financial Services Technology
-**Location:** New York, NY (travels 60% of time)
-**Tenure:** 18 years at Accenture
-**Team Size:** 450 consultants in her practice
-**Products Used:** AKX (primary), ADH (occasional)
+**Role:** Director, Customer Solutions
+**Location:** New York, NY (travels 40% of time)
+**Tenure:** 8 years at NovaTech
+**Team Size:** 45 team members in her department
+**Products Used:** KnowledgeHub (primary), ProjectPulse (occasional)
 
 ### Background
 
-Priya leads the Financial Services Technology practice for North America. She's responsible for $180M in annual revenue, 450 consultants, and strategic relationships with 12 major financial institutions. Her days are split between client meetings, business development, and team leadership.
+Priya leads the Customer Solutions team for NovaTech's enterprise accounts. She's responsible for $120M in annual revenue, 45 team members, and strategic relationships with 12 major enterprise customers. Her days are split between customer meetings, business development, and team leadership.
 
 **Career path:**
-- Started as Analyst after MBA (Wharton)
-- Consultant → Manager → Senior Manager → Managing Director
-- Built the cloud migration practice from scratch
-- Promoted to Practice Lead 4 years ago
+- Started as Solutions Architect after MBA (Wharton)
+- Solutions Engineer → Team Lead → Senior Manager → Director
+- Built the enterprise solutions practice from scratch
+- Promoted to Director 4 years ago
 
 **Education:**
 - MBA, Wharton School of Business
@@ -40,22 +40,22 @@ Priya leads the Financial Services Technology practice for North America. She's 
 
 **Primary goals:**
 1. **Win new business** - Need to staff winning teams quickly for proposals
-2. **Demonstrate expertise** - Show clients Accenture has done this before
-3. **Develop talent** - Grow and retain top performers in her practice
-4. **Hit revenue targets** - $180M annual target with 15% growth expectation
+2. **Demonstrate expertise** - Show customers NovaTech has done this before
+3. **Develop talent** - Grow and retain top performers in her department
+4. **Hit revenue targets** - $120M annual target with 15% growth expectation
 
 **Success metrics:**
-- Revenue and margin for the practice
+- Revenue and margin for the department
 - Win rate on proposals (currently 35%, target 45%)
-- Client satisfaction scores
+- Customer satisfaction scores
 - Talent retention and development
 
 ### Pain Points & Frustrations
 
 **1. Can't find the right experts fast enough**
-- Client calls with urgent need - "Do you have anyone with blockchain experience in securities trading?"
-- Searches AKX, gets 500 results, none obviously relevant
-- Resorts to mass emails, "Who knows someone who..."
+- Customer calls with urgent need - "Do you have anyone with Kubernetes experience in financial services?"
+- Searches KnowledgeHub, gets 500 results, none obviously relevant
+- Resorts to mass Slack messages, "Who knows someone who..."
 - Competitor responds faster with a better-qualified team
 
 **2. Recreating proposals from scratch**
@@ -66,34 +66,34 @@ Priya leads the Financial Services Technology practice for North America. She's 
 
 **3. No visibility into bench talent**
 - Someone's rolling off a project next week - who's available?
-- Checking ADH is tedious, data often stale
+- Checking ProjectPulse is tedious, data often stale
 - Ends up calling around to find who's free
 - Misses opportunities because mobilization takes too long
 
 **4. Competitive intelligence gaps**
-- What are McKinsey/BCG doing in this space?
-- What accelerators do we have that they don't?
+- What are Atlassian/Monday.com doing in this space?
+- What differentiators do we have that they don't?
 - Hard to articulate our differentiation convincingly
 
 ### Jobs to be Done
 
 **When...**
-- ...preparing for a client pitch → Find similar past work and experts to reference within 30 minutes
+- ...preparing for a customer pitch → Find similar past work and experts to reference within 30 minutes
 - ...responding to an RFP → Locate reusable proposals, case studies, and qualified team members
-- ...a client asks "Have you done this before?" → Immediately pull up relevant credentials
-- ...staffing a new engagement → Identify available consultants with right skills in hours, not days
-- ...onboarding a new client team member → Show them relevant past work and key contacts
+- ...a customer asks "Have you done this before?" → Immediately pull up relevant credentials
+- ...staffing a new project → Identify available team members with right skills in hours, not days
+- ...onboarding a new customer team member → Show them relevant past work and key contacts
 
 ### Product Features That Matter
 
-**AKX Must-haves:**
+**KnowledgeHub Must-haves:**
 - Fast, accurate search (not 500 irrelevant results)
 - Expert profiles with verifiable credentials
-- Case study library with client outcomes
+- Case study library with customer outcomes
 - Proposal templates and reusable content
-- Client relationship mapping (who knows whom)
+- Customer relationship mapping (who knows whom)
 
-**ADH Must-haves:**
+**ProjectPulse Must-haves:**
 - Real-time bench availability
 - Skills-based search for staffing
 - Project pipeline visibility
@@ -109,13 +109,13 @@ Priya leads the Financial Services Technology practice for North America. She's 
 
 **How they work:**
 - Always in back-to-back meetings
-- Checks email/tools between meetings (5-10 min windows)
+- Checks Slack/tools between meetings (5-10 min windows)
 - Delegates research to team, reviews outputs
 - Makes decisions quickly, expects immediate action
 - Mobile-first (rarely at desk)
 
 **Tech savviness:** Moderate
-- Comfortable with standard tools (Outlook, PowerPoint, Teams)
+- Comfortable with standard tools (Slack, Notion, Teams)
 - Impatient with complex interfaces
 - Won't read instructions, expects intuitive design
 - Has executive assistant who helps with tools
@@ -128,67 +128,67 @@ Priya leads the Financial Services Technology practice for North America. She's 
 
 ### Quotes
 
-*"I have 15 minutes before my next client call. Can I find someone with Kubernetes experience in capital markets? If not, I'm going to email my network and hope someone responds."*
+*"I have 15 minutes before my next customer call. Can I find someone with Kubernetes experience in financial services? If not, I'm going to Slack my network and hope someone responds."*
 
 *"We've done this work 50 times before. Why is my team starting from scratch on every proposal?"*
 
-*"I shouldn't need to call six people to find out who's available next month."*
+*"I shouldn't need to ping six people to find out who's available next month."*
 
 *"The tools are there. The information is there. It just takes too long to find what I need."*
 
 ---
 
-## Persona 2: Marcus Johnson (Senior Consultant)
+## Persona 2: Marcus Johnson (Senior Engineer, Platform Team)
 
 ### Quick Facts
 
 **Name:** Marcus Johnson
 **Age:** 31
-**Role:** Senior Consultant, Technology Strategy
-**Location:** Chicago, IL (remote, travels to client sites 40%)
-**Tenure:** 5 years at Accenture
-**Current Project:** Digital transformation for a Fortune 500 retailer
-**Products Used:** AKX (daily), ADH (weekly for timesheets)
+**Role:** Senior Engineer, Platform Team
+**Location:** Chicago, IL (remote, travels to Austin HQ quarterly)
+**Tenure:** 3 years at NovaTech
+**Current Project:** Platform infrastructure modernization
+**Products Used:** KnowledgeHub (daily), ProjectPulse (weekly for timesheets)
 
 ### Background
 
-Marcus is a high-performing senior consultant specializing in technology strategy for retail and consumer goods clients. He spends most of his time on client sites or working remotely, developing strategies and managing workstreams. He's approaching Manager promotion and focused on building his expertise and visibility.
+Marcus is a high-performing senior engineer specializing in platform architecture and cloud infrastructure. He spends most of his time building and shipping code, but also contributes to architecture decisions, mentors junior engineers, and evaluates new technologies. He's approaching Staff Engineer promotion and focused on building his technical leadership and visibility.
 
 **Career path:**
-- Joined as Consultant after MBA
-- Promoted to Senior Consultant after 3 years
-- Targeting Manager promotion in 12 months
-- Building expertise in AI/ML strategy
+- Joined as Software Engineer after previous role at a startup
+- Promoted to Senior Engineer after 2 years
+- Targeting Staff Engineer promotion in 12 months
+- Building expertise in AI/ML infrastructure
 
 **Education:**
-- MBA, Northwestern Kellogg
-- BS in Economics, University of Michigan
+- MS in Computer Science, Northwestern
+- BS in Computer Science, University of Michigan
 
 ### Goals & Motivations
 
 **Primary goals:**
-1. **Deliver great client work** - Build reputation through excellent deliverables
-2. **Get promoted** - Need documented thought leadership and client impact
-3. **Develop expertise** - Build deep skills in AI strategy
-4. **Efficient work** - Minimize time on admin, maximize impact
+1. **Build excellent systems** - Build reputation through high-quality platform work
+2. **Get promoted** - Need documented technical leadership and impact
+3. **Develop expertise** - Build deep skills in AI infrastructure
+4. **Efficient work** - Minimize time on admin, maximize engineering time
 
 **Success metrics:**
-- Client feedback scores (target: 4.5/5)
-- Utilization rate (target: 85%+)
-- Thought leadership contributions (articles, presentations)
+- System reliability and performance (target: 99.95% uptime)
+- Capacity allocation rate (target: 85%+)
+- Technical design documents published
 - Promotion readiness assessment
 
 ### Pain Points & Frustrations
 
-**1. Recreating deliverables that already exist**
-- Knows someone has built this analysis before
-- Searches AKX, finds 200 outdated documents
+**1. Recreating solutions that already exist**
+- Knows someone has built this integration before
+- Searches KnowledgeHub, finds 200 outdated documents
 - Can't tell which are good vs. which are garbage
 - Ends up building from scratch anyway
 
 **2. Time wasted on administrative tasks**
 - Status reports for multiple stakeholders
-- Timesheet entry and expense reports
+- Timesheet entry and project tracking
 - Finding and booking meeting rooms
 - Internal compliance training
 
@@ -198,30 +198,30 @@ Marcus is a high-performing senior consultant specializing in technology strateg
 - How do I get staffed on interesting work?
 
 **4. Information overload**
-- Gets 200+ emails per day
-- Multiple SharePoint sites, Teams channels
+- Gets 200+ Slack messages per day
+- Multiple Notion workspaces, Google Docs, SharePoint sites
 - Hard to know what's important vs. noise
 - Searches return too many irrelevant results
 
 ### Jobs to be Done
 
 **When...**
-- ...starting a new analysis → Find similar past work to use as a starting point
-- ...writing a presentation → Locate templates and examples that match Accenture standards
+- ...starting a new architecture design → Find similar past work to use as a starting point
+- ...writing a design doc → Locate templates and examples that match NovaTech standards
 - ...building expertise → Find internal experts, training, and communities
 - ...preparing for promotion → Document contributions and find visibility opportunities
-- ...staffed on new project → Quickly get up to speed on client context and past work
+- ...staffed on new project → Quickly get up to speed on codebase and past decisions
 
 ### Product Features That Matter
 
-**AKX Must-haves:**
+**KnowledgeHub Must-haves:**
 - Quality-filtered search results (not every document ever created)
 - Templates and examples that are actually reusable
 - Expert directory with real contact info
 - Content ratings/freshness indicators
-- Integration with Office tools (use from PowerPoint, Word)
+- Integration with Slack and Notion (use from existing tools)
 
-**ADH Must-haves:**
+**ProjectPulse Must-haves:**
 - Simple time entry (mobile)
 - Skills profile management
 - Project history and portfolio
@@ -241,14 +241,14 @@ Marcus is a high-performing senior consultant specializing in technology strateg
 ### Behavior & Preferences
 
 **How they work:**
-- Long stretches of focused work on deliverables
-- Client meetings scattered throughout day
+- Long stretches of focused work on engineering tasks
+- Team meetings scattered throughout day
 - Works across multiple devices (laptop, tablet, phone)
 - Prefers async communication when possible
 - Values efficiency - quick in, quick out
 
 **Tech savviness:** High
-- Power user of Office tools
+- Power user of developer tools
 - Comfortable with cloud apps and mobile
 - Frustrated by slow, clunky enterprise tools
 - Compares everything to consumer-grade apps
@@ -257,12 +257,12 @@ Marcus is a high-performing senior consultant specializing in technology strateg
 **Working hours:**
 - Flexible but often long (50-60 hours/week)
 - Peak productivity: Early morning (6-9am) or late evening
-- Client-facing time: 10am-5pm
+- Customer-facing time: Minimal
 - Catches up on admin: Nights and weekends
 
 ### Quotes
 
-*"I know this analysis exists somewhere. I've seen it before. But it's faster to just rebuild it than to find it."*
+*"I know this design doc exists somewhere. I've seen it before. But it's faster to just rebuild it than to find it."*
 
 *"I don't need 500 search results. I need the 3 best documents that are actually relevant."*
 
@@ -272,27 +272,27 @@ Marcus is a high-performing senior consultant specializing in technology strateg
 
 ---
 
-## Persona 3: Elena Rodriguez (Delivery Manager)
+## Persona 3: Elena Rodriguez (Program Manager, Enterprise Delivery)
 
 ### Quick Facts
 
 **Name:** Elena Rodriguez
 **Age:** 42
-**Role:** Delivery Manager, Technology Consulting
+**Role:** Program Manager, Enterprise Delivery
 **Location:** Atlanta, GA (remote, occasional travel)
-**Tenure:** 12 years at Accenture
-**Portfolio:** 8 active projects, 120 consultants
-**Products Used:** ADH (primary), AKX (occasional)
+**Tenure:** 6 years at NovaTech
+**Portfolio:** 8 active projects, 35 engineers
+**Products Used:** ProjectPulse (primary), KnowledgeHub (occasional)
 
 ### Background
 
-Elena manages delivery for a portfolio of technology implementation projects across multiple clients. She's responsible for project health, resource allocation, status reporting, and escalation management. She doesn't do client-facing work herself but ensures her teams deliver successfully.
+Elena manages delivery for a portfolio of enterprise customer projects across multiple accounts. She's responsible for project health, resource allocation, status reporting, and escalation management. She doesn't do hands-on technical work herself but ensures her teams deliver successfully.
 
 **Career path:**
-- Started as Business Analyst
+- Started as Project Coordinator at a previous company
 - Became Project Manager after 4 years
-- Moved to Delivery Management 5 years ago
-- Manages the largest portfolio in her practice
+- Moved to NovaTech as Program Manager 6 years ago
+- Manages the largest portfolio in her department
 
 **Education:**
 - BS in Information Systems, Georgia State
@@ -303,14 +303,14 @@ Elena manages delivery for a portfolio of technology implementation projects acr
 
 **Primary goals:**
 1. **Deliver projects on time and budget** - No surprises, no escalations
-2. **Optimize resource utilization** - Keep bench low, utilization high
+2. **Optimize resource capacity** - Keep bench low, allocation high
 3. **Early warning on risks** - Identify issues before they become problems
 4. **Reduce administrative burden** - Less time on reports, more time on delivery
 
 **Success metrics:**
 - Project delivery rate (target: 95% on-time, on-budget)
-- Team utilization (target: 88%)
-- Client satisfaction scores (target: 4.5/5)
+- Team capacity (target: 88%)
+- Customer satisfaction scores (target: 4.5/5)
 - Resource forecast accuracy (target: 90%)
 
 ### Pain Points & Frustrations
@@ -322,7 +322,7 @@ Elena manages delivery for a portfolio of technology implementation projects acr
 - Can't see cross-project trends
 
 **2. Resource allocation is a nightmare**
-- Spreadsheets and emails to track who's available
+- Spreadsheets and Slack messages to track who's available
 - Staffing requests via email chains
 - Skills matching is manual guesswork
 - Someone always ends up double-booked
@@ -343,21 +343,21 @@ Elena manages delivery for a portfolio of technology implementation projects acr
 
 **When...**
 - ...reviewing portfolio health → See all projects' status at a glance without asking anyone
-- ...staffing a new project → Find available consultants with right skills immediately
+- ...staffing a new project → Find available engineers with right skills immediately
 - ...preparing status reports → Generate reports automatically from system data
 - ...forecasting resources → See upcoming demand and availability 3+ months out
 - ...escalating issues → Have data to support the escalation, not just opinions
 
 ### Product Features That Matter
 
-**ADH Must-haves:**
+**ProjectPulse Must-haves:**
 - Real-time project dashboard (health, status, risks)
-- Resource utilization and availability view
+- Resource capacity and availability view
 - Automated status report generation
 - Skills-based staffing search
 - Forecasting and capacity planning
 
-**AKX Uses:**
+**KnowledgeHub Uses:**
 - Finding past project plans and templates
 - Best practices documentation
 - Lessons learned from similar projects
@@ -366,7 +366,7 @@ Elena manages delivery for a portfolio of technology implementation projects acr
 - Predictive alerts ("Project X trending red")
 - Integration with financial systems
 - Mobile access for quick checks
-- Client satisfaction tracking
+- Customer satisfaction tracking
 
 **Don't care about:**
 - Detailed document search
@@ -409,12 +409,12 @@ Elena manages delivery for a portfolio of technology implementation projects acr
 
 ## Persona Comparison Matrix
 
-| Attribute | Priya (Partner) | Marcus (Consultant) | Elena (Delivery Manager) |
+| Attribute | Priya (Director) | Marcus (Engineer) | Elena (Program Manager) |
 | --- | --- | --- | --- |
-| **Primary goal** | Win business, grow practice | Deliver great work, get promoted | On-time delivery, resource optimization |
-| **Success metric** | Revenue, win rate | Client feedback, utilization | Project delivery rate, utilization |
+| **Primary goal** | Win business, grow department | Build great systems, get promoted | On-time delivery, resource optimization |
+| **Success metric** | Revenue, win rate | System quality, capacity | Project delivery rate, capacity |
 | **Key pain point** | Can't find experts/content fast | Recreates existing work | No visibility into project health |
-| **Primary product** | AKX | AKX | ADH |
+| **Primary product** | KnowledgeHub | KnowledgeHub | ProjectPulse |
 | **Time on tools** | 5-10 min windows | Deep work sessions | Morning dashboard reviews |
 | **Tech savviness** | Moderate | High | Moderate-High |
 | **Communication style** | Executive summaries | Efficient, async | Data-driven, factual |
@@ -429,7 +429,7 @@ Elena manages delivery for a portfolio of technology implementation projects acr
 
 **Priya's perspective:**
 - **CRITICAL** - Needs to find experts in 5 minutes, not 50
-- If it works, will mandate adoption across her practice
+- If it works, will mandate adoption across her department
 - If it fails, will loudly complain to executive sponsors
 
 **Marcus's perspective:**
@@ -471,18 +471,18 @@ Elena manages delivery for a portfolio of technology implementation projects acr
 
 **Q1-Q2 Priorities:**
 
-1. **AI-powered search for AKX** → Priya & Marcus benefit
+1. **AI-powered search for KnowledgeHub** → Priya & Marcus benefit
    - Expert discovery in minutes, not hours
    - Quality-filtered results
    - Direct impact on win rates and productivity
 
-2. **Automated status reporting for ADH** → Elena benefits
-   - Saves 4+ hours per week per delivery manager
+2. **Automated status reporting for ProjectPulse** → Elena benefits
+   - Saves 4+ hours per week per program manager
    - Improves data accuracy
    - Reduces administrative burden
 
 3. **Mobile experience improvements** → Priya benefits
-   - Partners are always traveling
+   - Directors are always traveling
    - Quick lookups between meetings
    - Competitive requirement
 
@@ -495,19 +495,19 @@ Elena manages delivery for a portfolio of technology implementation projects acr
 
 ## Adoption Challenges by Persona
 
-**Priya (Partner):**
+**Priya (Director):**
 - Won't adopt if tool is slow or complicated
 - Needs to see immediate value in first use
-- Influenced by peer adoption (other MDs using it)
+- Influenced by peer adoption (other Directors using it)
 - Will delegate to assistant if too complex
 
-**Marcus (Consultant):**
+**Marcus (Engineer):**
 - Compares to consumer apps (high bar)
 - Will find workarounds if tools are inadequate
 - Influenced by time savings
 - Active in sharing feedback (positive and negative)
 
-**Elena (Delivery Manager):**
+**Elena (Program Manager):**
 - Needs reliability above all
 - Will enforce adoption if tool is mandated
 - Values automation and efficiency

@@ -71,7 +71,7 @@ Researcher is your **AI research assistant**. It performs deep, multi-step resea
 
 | Use Researcher For | Don't Use For |
 |-------------------|---------------|
-| Competitive analysis (consulting firms) | Quick facts |
+| Competitive analysis (tech companys) | Quick facts |
 | Industry best practices | Simple questions |
 | Multi-source synthesis | Single document analysis |
 | Strategic reports for steering committees | Real-time data |
@@ -82,17 +82,17 @@ Researcher is your **AI research assistant**. It performs deep, multi-step resea
 **Prompt:**
 
 ```
-Research how major consulting firms (McKinsey, BCG, Deloitte) handle
+Research how major tech companys (Atlassian, Monday.com, Notion) handle
 internal knowledge management and expert discovery. I need to understand:
 
 1. What platforms/tools do they use?
 2. How do they approach content curation at scale?
 3. What AI/GenAI investments have they made in internal tools?
 4. What are their adoption rates (if publicly available)?
-5. What best practices can Accenture learn from?
+5. What best practices can NovaTech Solutions learn from?
 
-I'm a Product Owner at Accenture responsible for AKX (our internal
-knowledge platform with 700,000+ users). Create a comprehensive
+I'm a Product Owner at NovaTech Solutions responsible for KnowledgeHub (our internal
+knowledge platform with 5,000+ users). Create a comprehensive
 competitive intelligence report I can share with our steering committee.
 ```
 
@@ -108,7 +108,7 @@ competitive intelligence report I can share with our steering committee.
 
 ## Exercise 1: Use Researcher
 
-Let's try a research task relevant to your Accenture PM role.
+Let's try a research task relevant to your NovaTech Solutions PM role.
 
 **Do this now:**
 
@@ -117,7 +117,7 @@ Let's try a research task relevant to your Accenture PM role.
 
 ```
 Research best practices for driving adoption of internal enterprise tools.
-I'm a Product Owner at Accenture responsible for an internal knowledge
+I'm a Product Owner at NovaTech Solutions responsible for an internal knowledge
 management platform. Our weekly active users are stuck at 43% (target: 60%).
 
 I need:
@@ -171,7 +171,7 @@ Analyst is your **AI data scientist**. It uses reasoning models to solve complex
 **Prompt:**
 
 ```
-I'm analyzing AKX adoption cohorts at Accenture. Here's the data:
+I'm analyzing KnowledgeHub adoption cohorts at NovaTech Solutions. Here's the data:
 
 September cohort (new hires):
 - 5,000 provisioned users
@@ -218,7 +218,7 @@ Let's try a data analysis task relevant to enterprise internal tools.
 2. Enter this prompt:
 
 ```
-Help me analyze this A/B test result for AKX AI Search:
+Help me analyze this A/B test result for KnowledgeHub AI Search:
 
 Control group (old search):
 - 5,000 users in pilot
@@ -236,8 +236,8 @@ Test group (AI-powered search):
 
 Questions:
 1. Are these results statistically significant?
-2. What's the estimated time savings across 700,000 users?
-3. What's the ROI if average consultant billing rate is $300/hour?
+2. What's the estimated time savings across 5,000 users?
+3. What's the ROI if average team member billing rate is $300/hour?
 4. Should we roll out to 100% of users?
 5. Write a recommendation for the steering committee with ROI justification.
 ```
@@ -272,7 +272,7 @@ Workflows is your **automation assistant**. It helps you create automated flows 
 ```
 Create a workflow that:
 1. Every Thursday at 2pm
-2. Sends me an email reminder to update AKX metrics for steering committee
+2. Sends me an email reminder to update KnowledgeHub metrics for steering committee
 3. On Friday at 9am, reminds me to finalize the steering committee deck
 4. Then on Monday at 8am (before the 9am meeting)
 5. Posts a reminder to my team's Teams channel that steering committee is today
@@ -321,7 +321,7 @@ This sequencing produces richer, more analytically sound outputs than either age
 
 | Task Type | Use This |
 |-----------|----------|
-| "What is McKinsey doing with their KM tools?" | Researcher |
+| "What is Atlassian doing with their KM tools?" | Researcher |
 | "Summarize this steering committee doc" | Copilot Chat |
 | "Research enterprise adoption best practices" | Researcher |
 | "Analyze our adoption funnel for bottlenecks" | Analyst |
@@ -332,14 +332,14 @@ This sequencing produces richer, more analytically sound outputs than either age
 
 ---
 
-## Agent Limits & Best Practices
+## Agent Limits & Best Departments
 
 ### Monthly Limits
 - **25 queries** for Researcher + Analyst combined
 - No limit on Workflows
 - No limit on regular Copilot Chat
 
-### Best Practices for Enterprise PMs
+### Best Departments for Enterprise PMs
 
 1. **Save complex work for agents** - Don't waste queries on simple tasks
 2. **Be specific about your enterprise context** - Include company size, industry, constraints
@@ -374,7 +374,7 @@ Before moving on, can you:
 Continue to **Module 1.5: Persona Prompting for Different Perspectives**
 
 In Module 1.5, you'll learn how to:
-- Get feedback from enterprise stakeholder perspectives (Partners, Consultants, Sponsors)
+- Get feedback from enterprise stakeholder perspectives (Directors, Engineers, Sponsors)
 - Create reusable persona prompts
 - Use Copilot as your virtual advisory board
 

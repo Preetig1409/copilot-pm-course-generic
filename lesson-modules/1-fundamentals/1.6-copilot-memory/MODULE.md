@@ -46,7 +46,7 @@ When you share information with Copilot, it may choose to remember key facts.
 
 1. Share preferences: "I prefer bullet points over paragraphs"
 2. Describe your role: "I'm a PM focused on activation"
-3. Mention recurring projects: "I work on AKX adoption and onboarding"
+3. Mention recurring projects: "I work on KnowledgeHub adoption and onboarding"
 4. Express working style: "I like data-driven decisions"
 
 ### What You'll See
@@ -57,7 +57,7 @@ When Copilot remembers something, you may see a subtle "Memory updated" notifica
 
 ## Exercise 1: Teach Copilot About You
 
-Let's intentionally teach Copilot about your role at Accenture.
+Let's intentionally teach Copilot about your role at NovaTech Solutions.
 
 **Do this now:**
 
@@ -67,10 +67,10 @@ In Copilot Chat, enter this prompt:
 I'd like to share some context about my work so you can help me better:
 
 **My Role:**
-- I'm a Senior Product Owner at Accenture
-- I lead two internal tools: AKX (Accenture Knowledge Exchange) and ADH (Accenture Delivery Hub)
-- AKX is at 43% weekly active users (WAU), with a target of 60%
-- ADH is a newer delivery management platform in early adoption
+- I'm a Senior Product Owner at NovaTech Solutions
+- I lead two internal tools: KnowledgeHub and ProjectPulse
+- KnowledgeHub is at 43% weekly active users (WAU), with a target of 60%
+- ProjectPulse is a newer delivery management platform in early adoption
 - I report to the VP of Product
 
 **My Users:**
@@ -134,14 +134,14 @@ You upload this at the start of a session to give Copilot full context.
 ### Example Context Document
 
 ```markdown
-# AKX Product Context
+# KnowledgeHub Product Context
 
 ## Project Overview
-Improving adoption and engagement for AKX (Accenture Knowledge Exchange).
+Improving adoption and engagement for KnowledgeHub.
 Goal: Increase weekly active users (WAU) from 43% to 60%.
 
 ## My Role
-Senior Product Owner at Accenture, leading AKX and ADH
+Senior Product Owner at NovaTech Solutions, leading KnowledgeHub and ProjectPulse
 
 ## Key Stakeholders
 - VP Product (Sarah) - Executive sponsor
@@ -161,11 +161,11 @@ Senior Product Owner at Accenture, leading AKX and ADH
 ## Key Terms
 - "WAU" = Weekly Active Users
 - "TTV" = Time to Value
-- "AKX" = Accenture Knowledge Exchange
-- "ADH" = Accenture Delivery Hub
+- "KnowledgeHub" = KnowledgeHub
+- "ProjectPulse" = ProjectPulse
 
 ## Current Sprint Focus
-Improving the AKX onboarding experience with guided tooltips
+Improving the KnowledgeHub onboarding experience with guided tooltips
 ```
 
 ---
@@ -175,7 +175,7 @@ Improving the AKX onboarding experience with guided tooltips
 **Do this now:**
 
 1. Open Microsoft Word
-2. Create a new document called "AKX-Context.docx"
+2. Create a new document called "KnowledgeHub-Context.docx"
 3. Paste the context template above (or create your own)
 4. Save to OneDrive
 5. In Copilot Chat, upload the document
@@ -183,12 +183,12 @@ Improving the AKX onboarding experience with guided tooltips
 
 ```
 Based on the context document I just uploaded, suggest 3 experiments
-we could run to improve AKX weekly active users from 43% to 60%.
+we could run to improve KnowledgeHub weekly active users from 43% to 60%.
 ```
 
 **What to notice:**
 - Copilot uses the specific context you provided
-- Suggestions are tailored to AKX
+- Suggestions are tailored to KnowledgeHub
 - Metrics and personas are referenced
 
 ---
@@ -205,7 +205,7 @@ Use both strategically:
 | General context | Complex background |
 | Persistent across all chats | Per-project/per-session |
 
-### Best Practice: Layered Context
+### Best Department: Layered Context
 
 1. **Memory** holds your permanent context (role, style, preferences)
 2. **Context Documents** hold project-specific details (upload as needed)
@@ -289,7 +289,7 @@ In Module 1.7, you'll learn how to:
 
 | What You Want | Example Prompt |
 |---------------|----------------|
-| Teach about your role | "I'm a Product Owner focused on AKX adoption at Accenture..." |
+| Teach about your role | "I'm a Product Owner focused on KnowledgeHub adoption at NovaTech Solutions..." |
 | Set preferences | "I prefer concise responses with bullet points..." |
 | Update context | "Update: My focus has shifted to the Reports feature..." |
 | Check understanding | "What do you remember about my role and projects?" |

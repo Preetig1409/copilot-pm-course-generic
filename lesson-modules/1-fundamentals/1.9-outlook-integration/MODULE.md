@@ -355,7 +355,7 @@ The real power comes from combining Outlook and Teams Copilot:
 
 ---
 
-## Best Practices
+## Best Departments
 
 ### Do:
 - ✅ Always review drafts before sending

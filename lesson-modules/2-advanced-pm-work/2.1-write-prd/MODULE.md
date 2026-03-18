@@ -12,7 +12,7 @@ By the end of this module, you will:
 2. Create a RACI matrix for a major internal product initiative
 3. Build a stakeholder engagement plan that maps decision-makers to their concerns
 4. Assess your own PRD draft for steering committee readiness using the quality checklist
-5. Get multi-perspective feedback from MD, CKO, and Consultant personas on a PRD section
+5. Get multi-perspective feedback from MD, VP Knowledge & Innovation, and Engineer personas on a PRD section
 
 > *Quick navigation: Phase 1 Business Context | Phase 2 Solution & Impact | Phase 3 Document & Governance | Phase 4 Review & Alignment | Quality Checklist*
 
@@ -80,13 +80,13 @@ Internal enterprise PRDs require elements that external product PRDs don't:
 Use this prompt to clarify the business context:
 
 ```
-I'm writing an enterprise PRD for AKX's AI-powered search feature.
+I'm writing an enterprise PRD for KnowledgeHub's AI-powered search feature.
 
 Here's what I know:
-- Current AKX weekly active users: 43% (target: 60%)
+- Current KnowledgeHub weekly active users: 43% (target: 60%)
 - Average search time: 8 minutes (target: 2 minutes)
 - Search satisfaction: 3.2/5 (target: 4.0/5)
-- Competitors (McKinsey, BCG) have better knowledge platforms
+- Competitors (Atlassian, Monday.com) have better knowledge platforms
 - Lost $20M deal because we couldn't identify an expert in 48 hours
 
 Help me articulate:
@@ -105,16 +105,16 @@ Ask me clarifying questions if needed.
 This is critical for enterprise PRDs - you need to justify the investment.
 
 ```
-Help me build a business case for AI-powered search in AKX.
+Help me build a business case for AI-powered search in KnowledgeHub.
 
 Investment context:
 - Development cost: ~$2M over 6 months
 - Ongoing cost: ~$500K/year
 
 Potential benefits:
-- Time saved per consultant: 4+ hours/week
-- 300,000 potential weekly users
-- Average consultant billing rate: $300/hour
+- Time saved per team member: 4+ hours/week
+- 3,000 potential weekly users
+- Average team member billing rate: $300/hour
 - Faster expert discovery → more deals won
 - Reduced duplicate work → higher efficiency
 
@@ -140,13 +140,13 @@ Format this for a steering committee business case presentation.
 ### Step 3: Stakeholder Analysis
 
 ```
-Help me identify stakeholders for the AKX AI Search initiative.
+Help me identify stakeholders for the KnowledgeHub AI Search initiative.
 
 Known stakeholders:
-- Richard Thorne (CKO) - Executive Sponsor
+- Richard Thorne (VP Knowledge & Innovation) - Executive Sponsor
 - Jennifer Walsh (VP Internal Digital Products) - Product Lead
-- David Kim (MD Technology Practice) - Business Champion
-- Sarah Mitchell (MD Strategy Practice) - Business Champion
+- David Kim (MD Engineering Department) - Business Champion
+- Sarah Mitchell (MD Product Strategy Department) - Business Champion
 
 For a comprehensive stakeholder analysis, help me identify:
 
@@ -171,7 +171,7 @@ Format as a stakeholder map with engagement strategy.
 ### Generate Strategic Approaches
 
 ```
-Let's develop 3 distinct approaches for AI-powered search in AKX:
+Let's develop 3 distinct approaches for AI-powered search in KnowledgeHub:
 
 **Approach A: AI Search Only**
 (Semantic search with quality ranking)
@@ -199,15 +199,15 @@ Include recommendation for which approach to pursue.
 ```
 Help me define success metrics for AI Search that will satisfy:
 
-1. **Executive Sponsors** (Richard, CKO)
+1. **Executive Sponsors** (Richard, VP Knowledge & Innovation)
    - Strategic metrics they'll report to the board
    - Competitive positioning indicators
 
-2. **Business Champions** (David, Sarah - MDs)
-   - Practice-level impact metrics
+2. **Business Champions** (David, Sarah - Directors)
+   - Department-level impact metrics
    - Revenue enablement indicators
 
-3. **Users** (Partners, Consultants)
+3. **Users** (Directors, Engineers)
    - Daily experience metrics
    - Time savings indicators
 
@@ -226,7 +226,7 @@ Create a metrics framework with:
 ### Plan Change Management
 
 ```
-AI Search is a major change for 700,000 users. Help me think through
+AI Search is a major change for 5,000 users. Help me think through
 change management requirements.
 
 Questions to address:
@@ -236,12 +236,12 @@ Questions to address:
    - What channels reach different personas?
 
 2. **Desire**
-   - Users have tried AKX before and given up
+   - Users have tried KnowledgeHub before and given up
    - How do we rebuild trust?
 
 3. **Knowledge**
    - What training is needed?
-   - How do we reach 700K users?
+   - How do we reach 5K users?
 
 4. **Ability**
    - Is the product intuitive enough?
@@ -273,7 +273,7 @@ Help me structure an enterprise PRD with these sections:
 
 ## 3. Stakeholder Analysis
 - Key stakeholders
-- Engagement plan
+- Project plan
 - RACI matrix
 
 ## 4. Solution Overview
@@ -336,13 +336,13 @@ Decisions/Activities:
 8. Post-launch optimization
 
 Stakeholders:
-- Richard Thorne (CKO, Sponsor)
+- Richard Thorne (VP Knowledge & Innovation, Sponsor)
 - Jennifer Walsh (VP, Product Lead)
 - David Kim (MD, Business Champion)
 - Me (Product Owner)
 - Raj Patel (Tech Lead)
 - Lisa Chen (Change Management)
-- Practice Leads (user representatives)
+- Department Leads (user representatives)
 
 Create RACI matrix (Responsible, Accountable, Consulted, Informed)
 with notes on decision-making process.
@@ -357,17 +357,17 @@ with notes on decision-making process.
 ```
 Review this PRD draft from THREE enterprise perspectives:
 
-## As CKO (Richard - Executive Sponsor)
+## As VP Knowledge & Innovation (Richard - Executive Sponsor)
 - Is the business case compelling?
 - What would I need to present to the CEO?
 - Are risks adequately addressed?
 
-## As MD (David - Business Champion)
-- Will this help my practice win deals?
+## As Director (David - Business Champion)
+- Will this help my department win deals?
 - Is the ROI realistic?
 - Will my team actually adopt this?
 
-## As Senior Consultant (Marcus - User)
+## As Senior Engineer (Marcus - User)
 - Will this save me time?
 - Is this better than my workarounds?
 - Will I actually use it?
@@ -408,18 +408,18 @@ Provide a readiness score (1-5) and improvement suggestions.
 
 ## Exercise: Complete Enterprise PRD Workflow
 
-**Scenario:** Create a PRD for AKX's AI Search feature.
+**Scenario:** Create a PRD for KnowledgeHub's AI Search feature.
 
 ### Step 1: Business Context (10 min)
 
 ```
-I'm writing an enterprise PRD for AI-powered search in AKX.
+I'm writing an enterprise PRD for AI-powered search in KnowledgeHub.
 
 Context:
-- Company: Accenture (700,000 employees)
-- Product: AKX (internal knowledge platform)
+- Company: NovaTech Solutions (5,000 employees)
+- Product: KnowledgeHub (internal knowledge platform)
 - Current WAU: 43%, Target: 60%
-- Executive Sponsor: Richard Thorne (CKO)
+- Executive Sponsor: Richard Thorne (VP Knowledge & Innovation)
 - Investment: ~$2M, Timeline: 6 months
 
 Help me build the business case foundation.
@@ -494,7 +494,7 @@ Before moving on, can you:
 Continue to **Module 2.2: Analyzing Product Data with Copilot**
 
 In Module 2.2, you'll learn:
-- Analyzing adoption funnels and utilization data
+- Analyzing adoption funnels and capacity data
 - Using Excel Copilot for enterprise metrics
 - Interpreting A/B tests for internal tools
 - ROI validation with data
@@ -508,7 +508,7 @@ In Module 2.2, you'll learn:
 | Business Case | "Help me build an ROI case for..." |
 | Stakeholder Analysis | "Identify stakeholders and create engagement strategy..." |
 | Governance | "Create a RACI matrix for..." |
-| Change Management | "Plan change management for 700K users..." |
+| Change Management | "Plan change management for 5K users..." |
 | Steering Committee | "Assess this PRD for steering committee readiness..." |
 
 ---

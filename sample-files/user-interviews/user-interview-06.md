@@ -1,11 +1,11 @@
 # Stakeholder Interview #6: Knowledge Manager Persona
 
 **Participant:** Samantha Lee
-**Role:** Knowledge Manager, Technology Practice
+**Role:** Knowledge Manager, Engineering Department
 **Location:** San Francisco, CA
-**Tenure:** 9 years at Accenture
-**Responsibility:** Content curation and knowledge strategy for Technology practice
-**Products Used:** AKX (daily, admin role)
+**Tenure:** 9 years at NovaTech Solutions
+**Responsibility:** Content curation and knowledge strategy for Engineering department
+**Products Used:** KnowledgeHub (daily, admin role)
 **Date:** February 12, 2025
 **Interviewer:** Senior Product Owner
 **Duration:** 40 minutes
@@ -14,19 +14,19 @@
 
 ## Background
 
-Samantha is one of the knowledge managers responsible for maintaining content quality and curation within the Technology practice. She's the person who curates "gold standard" content, manages content lifecycle, and helps partners find what they need. She has a unique perspective on both the content and user sides of AKX.
+Samantha is one of the knowledge managers responsible for maintaining content quality and curation within the Engineering department. She's the person who curates "gold standard" content, manages content lifecycle, and helps partners find what they need. She has a unique perspective on both the content and user sides of KnowledgeHub.
 
 ---
 
 ## Interview
 
-**Q: Tell me about your role with AKX.**
+**Q: Tell me about your role with KnowledgeHub.**
 
-Samantha: "I'm the person who tries to make AKX work despite its limitations. My job is to curate content - identify the best deliverables, tag them properly, maintain quality collections. I also help partners and consultants find things when search fails them. Think of me as the human search engine behind AKX."
+Samantha: "I'm the person who tries to make KnowledgeHub work despite its limitations. My job is to curate content - identify the best deliverables, tag them properly, maintain quality collections. I also help partners and team members find things when search fails them. Think of me as the human search engine behind KnowledgeHub."
 
 **Q: What's your daily workflow like?**
 
-Samantha: "I spend about 40% of my time answering 'help me find' requests. Someone needs a cloud migration assessment template, they can't find it, they email me. I dig through AKX, my personal archives, my network. The other 40% is curation - reviewing new uploads, tagging, retiring old content. The remaining 20% is reporting and strategy that nobody reads."
+Samantha: "I spend about 40% of my time answering 'help me find' requests. Someone needs a cloud migration assessment template, they can't find it, they email me. I dig through KnowledgeHub, my personal archives, my network. The other 40% is curation - reviewing new uploads, tagging, retiring old content. The remaining 20% is reporting and strategy that nobody reads."
 
 **Q: Why does search fail people so often?**
 
@@ -50,9 +50,9 @@ Samantha: "Terrible quality. People don't update their skills. When they do, the
 
 **Q: What feedback do you hear from users?**
 
-Samantha: "Two things, constantly. First: 'I can't find anything.' Second: 'The stuff I find is garbage.' They're not wrong. Search is broken. Quality control is impossible at scale. The consultants who succeed are the ones who've been here long enough to build personal networks and know who to call. That's not scalable, and it disadvantages new hires."
+Samantha: "Two things, constantly. First: 'I can't find anything.' Second: 'The stuff I find is garbage.' They're not wrong. Search is broken. Quality control is impossible at scale. The team members who succeed are the ones who've been here long enough to build personal networks and know who to call. That's not scalable, and it disadvantages new hires."
 
-**Q: What would you change about AKX?**
+**Q: What would you change about KnowledgeHub?**
 
 Samantha: "AI-powered search that actually works. Automatic content quality scoring - surface the good stuff, hide the garbage. Skills validation based on real project work. And honestly, delete half the content. Most of it is noise. We'd be better off with 100,000 high-quality documents than 2.3 million random uploads."
 

@@ -54,7 +54,7 @@ Free, high-quality PM content delivered to your inbox:
 |-----------|--------|-------------|
 | **Lenny's Newsletter** | Lenny Rachitsky (ex-Airbnb) | 1M+ subscribers. Strategy, growth, building products. The most influential PM newsletter |
 | **SVPG** | Marty Cagan | Product leadership and strategy from the author of Inspired and Empowered |
-| **Prioritised** | Mind the Product | Curated insights from a 300,000+ PM community |
+| **Prioritised** | Mind the Product | Curated insights from a 3,000+ PM community |
 
 ---
 
@@ -64,7 +64,7 @@ For learning during commutes or downtime:
 
 | Podcast | Host | What to Expect |
 |---------|------|---------------|
-| **Lenny's Podcast** | Lenny Rachitsky | Interviews with CEOs, CPOs, and founders — the most popular PM podcast |
+| **Lenny's Podcast** | Lenny Rachitsky | Interviews with CEOs, VP People Opss, and founders — the most popular PM podcast |
 | **The Product Podcast** | Product School | Weekly conversations with PMs from Google, Meta, Netflix, Amazon |
 | **Product Thinking** | Melissa Perri | Expert conversations on product management strategy |
 | **One Knight in Product** | Jason Knight | Honest, sometimes contrarian perspectives on PM |

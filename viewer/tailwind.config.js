@@ -8,16 +8,16 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#F5E6FF',
-          100: '#E6CCFF',
-          200: '#CC99FF',
-          300: '#B366FF',
-          400: '#9933FF',
-          500: '#A100FF', // Accenture Purple
-          600: '#7B00C7',
-          700: '#5C0099',
-          800: '#3D0066',
-          900: '#1F0033',
+          50: '#EFF6FF',
+          100: '#DBEAFE',
+          200: '#BFDBFE',
+          300: '#93C5FD',
+          400: '#60A5FA',
+          500: '#2563EB', // Professional Blue
+          600: '#1D4ED8',
+          700: '#1E40AF',
+          800: '#1E3A8A',
+          900: '#172554',
         },
         corporate: {
           50: '#F8FAFC',

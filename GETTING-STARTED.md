@@ -1,15 +1,15 @@
 # Getting Started
 
-Welcome to the **Microsoft Copilot for Product Managers** course! This guide will help you get up and running quickly.
+Welcome to **The AI-Augmented Product Manager** course! This guide will help you get up and running quickly.
 
-> **Course Website:** [sanjaygupta-professional.github.io/copilot-pm-course](https://sanjaygupta-professional.github.io/copilot-pm-course/)
-> **GitHub Repo:** [github.com/sanjaygupta-professional/copilot-pm-course](https://github.com/sanjaygupta-professional/copilot-pm-course)
+> **Course Website:** [sanjaygupta-professional.github.io/copilot-pm-course-generic](https://sanjaygupta-professional.github.io/copilot-pm-course-generic/)
+> **GitHub Repo:** [github.com/sanjaygupta-professional/copilot-pm-course-generic](https://github.com/sanjaygupta-professional/copilot-pm-course-generic)
 
 ---
 
 ## What Is This Course?
 
-A **6-hour, 15-module** self-paced course that teaches Product Managers how to use Microsoft 365 Copilot to save 14+ hours per week on everyday PM work — meeting notes, user research synthesis, PRD writing, data analysis, communications, and more.
+An **11-hour, 23-module** self-paced course that teaches Product Managers how to use Microsoft 365 Copilot to save 14+ hours per week on everyday PM work — meeting notes, user research synthesis, PRD writing, data analysis, communications, and more.
 
 ## Who Is This For?
 
@@ -30,7 +30,7 @@ A **6-hour, 15-module** self-paced course that teaches Product Managers how to u
 
 ## Quick Start
 
-1. **Open the course website** — [sanjaygupta-professional.github.io/copilot-pm-course](https://sanjaygupta-professional.github.io/copilot-pm-course/)
+1. **Open the course website** — [sanjaygupta-professional.github.io/copilot-pm-course-generic](https://sanjaygupta-professional.github.io/copilot-pm-course-generic/)
 2. **Start with Module 1.1** (Welcome to Microsoft Copilot) from the sidebar
 3. **Follow along** — each module has step-by-step instructions and exercises
 
@@ -40,7 +40,7 @@ That's it. The website has all modules, sample files, prompt templates, and comp
 
 ## Course Structure
 
-### Level 1: Foundation (~3.5 hours)
+### Level 1: PM Craft (~3.5 hours)
 
 | Module | Topic | Duration |
 |--------|-------|----------|
@@ -55,7 +55,7 @@ That's it. The website has all modules, sample files, prompt templates, and comp
 | 1.9 | Copilot in Outlook | 20 min |
 | 1.10 | Copilot in SharePoint & Collaboration | 20 min |
 
-### Level 2: Advanced PM Workflows (~1.5 hours)
+### Level 2: Copilot as Teammate (~1.5 hours)
 
 | Module | Topic | Duration |
 |--------|-------|----------|
@@ -63,7 +63,7 @@ That's it. The website has all modules, sample files, prompt templates, and comp
 | 2.2 | Analyzing Product Data | 30 min |
 | 2.3 | Product Strategy | 30 min |
 
-### Level 3: Product Visuals (~45 min)
+### Level 3: Strategic PM (~45 min)
 
 | Module | Topic | Duration |
 |--------|-------|----------|
@@ -99,7 +99,7 @@ Each module follows the same pattern:
 
 **On the website:** Navigate to **Sample Files** in the sidebar to view markdown files directly.
 
-**CSV files:** These must be downloaded from [the GitHub repo](https://github.com/sanjaygupta-professional/copilot-pm-course/tree/main/sample-files/data) since CSV files can't be rendered on the website. Download them, then upload to Copilot or open in Excel.
+**CSV files:** These must be downloaded from [the GitHub repo](https://github.com/sanjaygupta-professional/copilot-pm-course-generic/tree/main/sample-files/data) since CSV files can't be rendered on the website. Download them, then upload to Copilot or open in Excel.
 
 ## Using the Prompt Library
 
@@ -118,11 +118,11 @@ The course includes reusable prompts in the sidebar under **Prompt Library**:
 
 ## Understanding the Company Context
 
-Throughout this course, you play the role of a **Senior Product Owner** on Accenture's **Internal Digital Products** team. Your team builds internal tools for Accenture's 700,000+ employees.
+Throughout this course, you play the role of a **Senior Product Manager** at **NovaTech Solutions**, a mid-size B2B SaaS company. Your team builds products for enterprise teams.
 
 Your two main products:
-- **AKX** (Accenture Knowledge Exchange) — the company's internal knowledge-sharing platform
-- **ADH** (Accenture Digital Hub) — an employee self-service portal
+- **TaskFlow Pro** — a project management and collaboration platform
+- **DataSync Hub** — an enterprise data integration tool
 
 The company context files (viewable on the website under **Company Context**) give you everything Copilot needs to generate realistic, grounded outputs.
 
@@ -160,11 +160,11 @@ Progress is stored in your browser's local storage. Clearing browser data or swi
 Level 1 modules build on each other, so we recommend going in order. Levels 2 and 3 are standalone — skip to whatever interests you.
 
 **Where are the CSV files? I can't find them on the website.**
-CSV files aren't viewable on the website. Download them from the [sample-files/data folder on GitHub](https://github.com/sanjaygupta-professional/copilot-pm-course/tree/main/sample-files/data), then upload to Copilot or open in Excel.
+CSV files aren't viewable on the website. Download them from the [sample-files/data folder on GitHub](https://github.com/sanjaygupta-professional/copilot-pm-course-generic/tree/main/sample-files/data), then upload to Copilot or open in Excel.
 
 **How long does the full course take?**
-About 6 hours if you complete all exercises. You can spread it over multiple days.
+About 11 hours if you complete all exercises. You can spread it over multiple days or weeks.
 
 ---
 
-**Ready to start?** Open the [course website](https://sanjaygupta-professional.github.io/copilot-pm-course/) and begin with Module 1.1!
+**Ready to start?** Open the [course website](https://sanjaygupta-professional.github.io/copilot-pm-course-generic/) and begin with Module 1.1!

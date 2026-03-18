@@ -4,9 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-A 6-hour self-paced course teaching Product Managers to use Microsoft 365 Copilot. The simulated context is a Senior Product Owner at Accenture building two internal tools (AKX and ADH). Content is markdown files rendered through a React SPA deployed to GitHub Pages.
+**The AI-Augmented Product Manager** — an 11-hour, 23-module self-paced course teaching Product Managers to master Microsoft 365 Copilot for 10x PM impact. The simulated context is a Senior Product Manager at NovaTech Solutions, a mid-size B2B SaaS company building two products (TaskFlow Pro and DataSync Hub). Content is markdown files rendered through a React SPA deployed to GitHub Pages.
 
-Live site: https://sanjaygupta-professional.github.io/copilot-pm-course/
+The course is organized into 4 levels:
+1. **PM Craft** — Core PM skills augmented with Copilot
+2. **Copilot as Teammate** — Deep integration across M365 apps
+3. **Strategic PM** — Advanced workflows (PRDs, data analysis, strategy)
+4. **The 10x PM** — Visual assets and force-multiplier techniques
+
+Live site: https://sanjaygupta-professional.github.io/copilot-pm-course-generic/
 
 ## Commands
 
@@ -44,8 +50,8 @@ Root markdown directories (`lesson-modules/`, `company-context/`, `prompt-librar
 
 ### Key configuration
 
-- Vite base path: `/copilot-pm-course/` (required for GitHub Pages sub-path)
-- Tailwind theme: Custom Accenture purple `#A100FF`
+- Vite base path: `/copilot-pm-course-generic/` (required for GitHub Pages sub-path)
+- Tailwind theme: Custom professional blue `#2563EB`
 - TypeScript: Strict mode with `noUnusedLocals` and `noUnusedParameters`
 - Path alias: `@/*` → `src/*`
 - Code block styling: Terminal green (`#4ade80`) on dark background (`#1a1a2e`), defined in `viewer/src/index.css`
@@ -53,8 +59,8 @@ Root markdown directories (`lesson-modules/`, `company-context/`, `prompt-librar
 
 ### Content structure
 
-- `lesson-modules/` — 15 modules across 3 levels (1-fundamentals, 2-advanced-pm-work, 3-product-visuals), each in a `MODULE.md` file
-- `company-context/` — Simulated company/product/persona/competitive docs
+- `lesson-modules/` — 23 modules across 4 levels, each in a `MODULE.md` file
+- `company-context/` — Simulated NovaTech Solutions company/product/persona/competitive docs
 - `prompt-library/` — Reusable persona and template prompts
 - `sample-files/` — Exercise materials (meeting notes, user interviews, CSVs)
 - `notebooklm-upload/` — Flattened copies of all content for Google NotebookLM bulk upload
@@ -62,7 +68,3 @@ Root markdown directories (`lesson-modules/`, `company-context/`, `prompt-librar
 ### Deployment
 
 GitHub Actions (`deploy.yml`) triggers on push to `main`: installs deps in `viewer/`, runs copy-content + build, deploys `viewer/dist/` to GitHub Pages.
-
-### SharePoint hosting (in progress)
-
-See **`LEARNING.md`** for detailed constraints and learnings from attempting to host the static site on Accenture SharePoint (`ts.accenture.com`). Key issues: SharePoint blocks JavaScript in rendered HTML, downloads files on direct URL access, and resolves relative links against the viewer page (not the file's folder). Build script: `node build-sharepoint.js` (config at top of file).

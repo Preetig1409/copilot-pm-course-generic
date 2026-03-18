@@ -1,23 +1,23 @@
 {
-  "name": "copilot-pm-course",
+  "name": "copilot-pm-course-generic",
   "version": "1.0.0",
-  "description": "A comprehensive, 6-hour self-paced course teaching Product Managers how to leverage Microsoft 365 Copilot for everyday PM work.",
+  "description": "The AI-Augmented Product Manager — an 11-hour, 23-module course teaching Product Managers to master Microsoft Copilot for 10x PM impact.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sanjaygupta-professional/copilot-pm-course.git"
+    "url": "git+https://github.com/sanjaygupta-professional/copilot-pm-course-generic.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/sanjaygupta-professional/copilot-pm-course/issues"
+    "url": "https://github.com/sanjaygupta-professional/copilot-pm-course-generic/issues"
   },
-  "homepage": "https://github.com/sanjaygupta-professional/copilot-pm-course#readme",
+  "homepage": "https://github.com/sanjaygupta-professional/copilot-pm-course-generic#readme",
   "devDependencies": {
     "marked": "^17.0.2"
   }

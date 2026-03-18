@@ -27,10 +27,10 @@ export function Header({ onMenuClick, totalProgress }: HeaderProps) {
             </div>
             <div className="hidden sm:block">
               <h1 className="text-lg font-semibold text-corporate-900 leading-tight">
-                Microsoft Copilot
+                The AI-Augmented
               </h1>
               <p className="text-xs text-corporate-500 leading-tight">
-                for Product Managers
+                Product Manager
               </p>
             </div>
           </div>
@@ -55,7 +55,7 @@ export function Header({ onMenuClick, totalProgress }: HeaderProps) {
         {/* Right section: External links */}
         <div className="flex items-center gap-2">
           <a
-            href="https://github.com/sanjaygupta-professional/copilot-pm-course"
+            href="https://github.com/sanjaygupta-professional/copilot-pm-course-generic"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 text-corporate-500 hover:text-corporate-700 hover:bg-corporate-100 rounded-lg transition-colors"

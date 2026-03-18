@@ -1,65 +1,63 @@
-# Microsoft Copilot for Product Managers
+# The AI-Augmented Product Manager: Master Microsoft Copilot for 10x PM Impact
 
-A comprehensive, 6-hour self-paced course teaching Product Managers how to leverage Microsoft 365 Copilot for everyday PM work.
+An opinionated, 11-hour, 23-module self-paced course that teaches Product Managers how to use Microsoft 365 Copilot to save 14+ hours per week on real PM work.
 
-> **[Live Website](https://sanjaygupta-professional.github.io/copilot-pm-course/)** | **[Getting Started Guide](GETTING-STARTED.md)** | **[GitHub Repo](https://github.com/sanjaygupta-professional/copilot-pm-course)**
+> **[Live Website](https://sanjaygupta-professional.github.io/copilot-pm-course-generic/)** | **[Getting Started Guide](GETTING-STARTED.md)** | **[GitHub Repo](https://github.com/sanjaygupta-professional/copilot-pm-course-generic)**
 
-## Course Overview
+## What Makes This Different
 
-This course teaches you to use Microsoft Copilot (M365) to save 14+ hours per week on common PM tasks including:
-
-- Meeting notes processing
-- User research synthesis
-- Multi-audience communications
-- Data analysis
-- PRD writing
-- Strategic planning
-- Visual asset creation
+- **Opinionated, not generic.** Every module teaches a specific workflow with a specific prompt — not "here's what Copilot can do" but "here's exactly how to do it."
+- **Practitioner wisdom.** Built by a PM who uses Copilot daily. The prompts, patterns, and warnings come from real experience.
+- **Simulation + real work.** You play a Senior Product Manager at NovaTech Solutions (a fictional B2B SaaS company) with realistic products, personas, and data — then apply the same techniques to your actual job.
 
 ## Prerequisites
 
 - **Microsoft 365 Copilot Enterprise license**
 - OneDrive access
-- Microsoft Word, Excel, PowerPoint
+- Microsoft Word, Excel, PowerPoint, Teams, Outlook
 - Browser access to copilot.microsoft.com
 
-## Course Structure
+## Course Structure: 4 Levels, 23 Modules, ~11 Hours
 
-### Level 1: Foundation (~3.5 hours)
+### Level 1: PM Craft (~3.5 hours)
 
-| Module | Duration | What You'll Learn |
-|--------|----------|-------------------|
-| 1.1 Welcome | 15 min | Introduction to Copilot, meet Accenture Internal Digital Products |
-| 1.2 Workspace Setup | 15 min | File handling, OneDrive, ContextIQ |
-| 1.3 First Tasks | 30 min | Meeting notes, research, communications |
-| 1.4 Agents | 25 min | Researcher & Analyst agents |
-| 1.5 Persona Prompting | 20 min | Multi-perspective feedback |
-| 1.6 Memory | 15 min | Context persistence |
-| 1.7 M365 Navigation | 15 min | Copilot across apps |
-| 1.8 Teams Integration | 25 min | Meeting summaries, chat, channels |
-| 1.9 Outlook Integration | 20 min | Email drafting, summaries, calendar |
-| 1.10 SharePoint | 20 min | Document discovery, site intelligence |
+| Module | Topic | Duration |
+|--------|-------|----------|
+| 1.1 | Welcome to Microsoft Copilot | 15 min |
+| 1.2 | Setting Up Your Workspace | 15 min |
+| 1.3 | Your First PM Tasks | 30 min |
+| 1.4 | Researcher & Analyst Agents | 25 min |
+| 1.5 | Persona Prompting | 20 min |
+| 1.6 | Building Context with Memory | 15 min |
+| 1.7 | Copilot Across M365 Apps | 15 min |
+| 1.8 | Copilot in Microsoft Teams | 25 min |
+| 1.9 | Copilot in Outlook | 20 min |
+| 1.10 | Copilot in SharePoint & Collaboration | 20 min |
 
-### Level 2: Advanced PM Work (~1.5 hours)
+### Level 2: Copilot as Teammate (~2 hours)
 
-| Module | Duration | What You'll Learn |
-|--------|----------|-------------------|
-| 2.1 Write PRD | 35 min | PRDs with AI as thinking partner |
-| 2.2 Analyze Data | 30 min | Data analysis, Excel Copilot, A/B tests |
-| 2.3 Product Strategy | 30 min | Frameworks, competitive positioning |
+| Module | Topic | Duration |
+|--------|-------|----------|
+| 2.1 | Writing PRDs with Copilot | 35 min |
+| 2.2 | Analyzing Product Data | 30 min |
+| 2.3 | Product Strategy | 30 min |
 
-### Level 3: Product Visuals (~45 min)
+### Level 3: Strategic PM (~3 hours)
 
-| Module | Duration | What You'll Learn |
-|--------|----------|-------------------|
-| 3.1 Image Basics | 20 min | DALL-E 3, effective prompts |
-| 3.2 PM Visuals | 25 min | Personas, diagrams, marketing assets |
+| Module | Topic | Duration |
+|--------|-------|----------|
+| 3.1 | Image Generation Basics | 20 min |
+| 3.2 | PM Visuals | 25 min |
 
-## Quick Start
+### Level 4: The 10x PM (~2.5 hours)
+
+Additional advanced modules covering force-multiplier techniques for experienced PMs.
+
+## Getting Started
 
 ### Option A: Use the Website (Recommended)
 
-1. Open the **[course website](https://sanjaygupta-professional.github.io/copilot-pm-course/)**
+1. Open the **[course website](https://sanjaygupta-professional.github.io/copilot-pm-course-generic/)**
 2. Start with **Module 1.1** from the sidebar
 3. Follow the step-by-step instructions and complete exercises as you go
 
@@ -72,15 +70,38 @@ See the **[Getting Started Guide](GETTING-STARTED.md)** for detailed onboarding 
 3. Complete exercises as you go
 4. Use the prompt library for reference
 
+## Tech Stack
+
+- **Content:** Markdown files (source of truth)
+- **Viewer:** React 18 + TypeScript + Vite + Tailwind CSS
+- **Deployment:** GitHub Actions → GitHub Pages
+- **Alternative:** Static HTML generator (`build-static.js`) for offline use
+
+## Development
+
+```bash
+# Install dependencies
+cd viewer && npm install
+
+# Start dev server (copies content + starts Vite)
+npm run dev
+
+# Production build
+npm run build
+
+# Preview production build
+npm run preview
+```
+
 ## Folder Structure
 
 ```
-copilot-pm-course/
+copilot-pm-course-generic/
 ├── lesson-modules/
-│   ├── 1-fundamentals/        # Level 1: Foundation (10 modules)
-│   ├── 2-advanced-pm-work/    # Level 2: Advanced (3 modules)
-│   └── 3-product-visuals/     # Level 3: Visuals (2 modules)
-├── company-context/           # Accenture company context files
+│   ├── 1-fundamentals/        # Level 1: PM Craft (10 modules)
+│   ├── 2-advanced-pm-work/    # Level 2: Copilot as Teammate (3 modules)
+│   └── 3-product-visuals/     # Level 3: Strategic PM (2 modules)
+├── company-context/           # NovaTech Solutions company context files
 ├── prompt-library/
 │   ├── personas/              # Engineer, Executive, Researcher, Managing Director
 │   └── templates/             # Reusable prompt templates
@@ -92,36 +113,14 @@ copilot-pm-course/
 └── README.md                  # This file
 ```
 
-## Key Keyboard Shortcuts
+## Company Context: NovaTech Solutions
 
-| Action | Windows | Mac |
-|--------|---------|-----|
-| Open Copilot | Alt + Spacebar | Option + Spacebar |
-| Voice input | Hold Alt + Spacebar | Hold Option + Spacebar |
-| Copilot in apps | Alt + I | Option + I |
+Throughout this course, you work as a **Senior Product Manager** at **NovaTech Solutions**, a mid-size B2B SaaS company building tools for enterprise teams.
 
-## Company Context: Accenture Internal Digital Products
-
-Throughout this course, you work as a **Senior Product Owner** on Accenture's **Internal Digital Products** team — part of Corporate IT, building tools for 700,000+ employees.
-
-- **Company:** Accenture (NYSE: ACN), 700,000+ employees globally
-- **Your team:** Internal Digital Products (25 people)
-- **Your products:** AKX (knowledge exchange) and ADH (digital hub)
-- **Your focus:** Improving adoption and user experience of internal tools
-
-## Time Savings Summary
-
-| Task | Old Way | With Copilot | Savings |
-|------|---------|--------------|---------|
-| Meeting notes | 30 min | 2 min | 28 min |
-| 8 interviews | 2-3 hours | 5 min | ~2.5 hrs |
-| Multi-audience comms | 45 min | 3 min | 42 min |
-| Data analysis | 1 hour | 10 min | 50 min |
-| PRD draft | 4 hours | 30 min | 3.5 hrs |
-| Teams meetings/chat | 3 hours | 30 min | 2.5 hrs |
-| Email drafting/reading | 2 hours | 20 min | 1.5 hrs |
-| SharePoint/doc discovery | 2 hours | 15 min | 1.75 hrs |
-| **Weekly Total** | | | **14+ hours** |
+- **Company:** NovaTech Solutions — B2B SaaS, ~2,000 employees
+- **Your team:** Product Management (cross-functional)
+- **Your products:** TaskFlow Pro (project management) and DataSync Hub (data integration)
+- **Your focus:** Improving adoption, user experience, and product-market fit
 
 ## Support
 
@@ -133,8 +132,8 @@ This course is designed for self-paced learning. Each module includes:
 
 ## License
 
-This course is for internal training purposes.
+This course is for training purposes.
 
 ---
 
-**Ready to start?** Open the **[course website](https://sanjaygupta-professional.github.io/copilot-pm-course/)** or read the **[Getting Started Guide](GETTING-STARTED.md)**!
+**Ready to start?** Open the **[course website](https://sanjaygupta-professional.github.io/copilot-pm-course-generic/)** or read the **[Getting Started Guide](GETTING-STARTED.md)**!

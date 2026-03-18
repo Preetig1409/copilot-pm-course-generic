@@ -28,7 +28,7 @@ export const courseStructure: CourseStructure = {
           objectives: [
             "Understand what Microsoft Copilot is",
             "Access Copilot via browser and shortcuts",
-            "Meet Accenture Internal Digital Products (company context)"
+            "Meet NovaTech Solutions (company context)"
           ]
         },
         {
@@ -211,7 +211,7 @@ export const resourceStructure: ResourceSection[] = [
     categories: [
       {
         id: "taskflow",
-        title: "Accenture",
+        title: "NovaTech Solutions",
         files: [
           { id: "company", title: "Company Overview", path: "company-context/COMPANY.md" },
           { id: "personas", title: "User Personas", path: "company-context/PERSONAS.md" },

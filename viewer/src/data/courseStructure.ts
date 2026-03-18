@@ -2,201 +2,296 @@ import { CourseStructure, ResourceSection } from '../types/course'
 
 export const courseStructure: CourseStructure = {
   course: {
-    title: "Microsoft Copilot for Product Managers",
-    version: "1.0.0",
-    description: "A comprehensive course teaching PMs to leverage Microsoft Copilot for everyday work",
-    targetAudience: "Product Managers",
+    title: "The AI-Augmented Product Manager",
+    version: "2.0.0",
+    description: "Master Microsoft Copilot for 10x PM impact — practitioner-tested workflows from Cagan, Torres, Doshi, and more",
+    targetAudience: "Product Managers, Product Owners, Business Analysts — junior to experienced",
     prerequisites: [
       "Microsoft 365 Copilot Enterprise license",
       "OneDrive access",
       "Basic familiarity with M365 apps"
     ],
-    estimatedDuration: "6 hours",
-    lastUpdated: "2026-01-18"
+    estimatedDuration: "11 hours",
+    lastUpdated: "2026-03-18"
   },
   levels: [
     {
+      id: "0",
+      title: "The PM Craft",
+      description: "Core PM skills through a practitioner lens — with Copilot from day one",
+      modules: [
+        {
+          id: "0.1",
+          title: "What Product Management Actually Is",
+          duration: "20 min",
+          path: "lesson-modules/0-pm-fundamentals/0.1-what-is-pm/MODULE.md",
+          objectives: [
+            "Understand Cagan's four risks framework",
+            "Distinguish PM vs PO vs BA roles in practice",
+            "Map the product lifecycle and where PMs add leverage"
+          ]
+        },
+        {
+          id: "0.2",
+          title: "Knowing Your Users — Beyond Persona Templates",
+          duration: "25 min",
+          path: "lesson-modules/0-pm-fundamentals/0.2-understanding-users/MODULE.md",
+          objectives: [
+            "Apply Jobs-to-be-Done over demographic personas",
+            "Design a continuous discovery practice",
+            "Use Copilot to synthesize user research"
+          ]
+        },
+        {
+          id: "0.3",
+          title: "Prioritization That Actually Works",
+          duration: "25 min",
+          path: "lesson-modules/0-pm-fundamentals/0.3-discovery-prioritization/MODULE.md",
+          objectives: [
+            "Apply Shreyas Doshi's LNO framework",
+            "Build Opportunity Solution Trees",
+            "Use Copilot to challenge your prioritization"
+          ]
+        },
+        {
+          id: "0.4",
+          title: "Writing Requirements That Engineers Love",
+          duration: "25 min",
+          path: "lesson-modules/0-pm-fundamentals/0.4-user-stories-requirements/MODULE.md",
+          objectives: [
+            "Write one-pagers that ship context, not specs",
+            "Craft acceptance criteria that matter",
+            "Use Copilot to draft and challenge requirements"
+          ]
+        },
+        {
+          id: "0.5",
+          title: "Agile in Practice",
+          duration: "20 min",
+          path: "lesson-modules/0-pm-fundamentals/0.5-agile-scrum/MODULE.md",
+          objectives: [
+            "Evaluate which Scrum ceremonies earn their time",
+            "Understand dual-track agile",
+            "Use Copilot for sprint planning and retros"
+          ]
+        },
+        {
+          id: "0.6",
+          title: "Stakeholder Management — The Unwritten PM Skill",
+          duration: "25 min",
+          path: "lesson-modules/0-pm-fundamentals/0.6-stakeholder-communication/MODULE.md",
+          objectives: [
+            "Map stakeholders by real power and hidden motivations",
+            "Run pre-mortems to surface risks early",
+            "Use Copilot to draft stakeholder engagement strategies"
+          ]
+        }
+      ]
+    },
+    {
       id: "1",
-      title: "Foundation",
-      description: "Core Copilot skills for PMs",
+      title: "Copilot as Teammate",
+      description: "Master Copilot workflows for every PM pain point",
       modules: [
         {
           id: "1.1",
-          title: "Welcome to Microsoft Copilot",
+          title: "Your AI Working Environment",
           duration: "15 min",
-          path: "lesson-modules/1-fundamentals/1.1-welcome/MODULE.md",
+          path: "lesson-modules/1-copilot-teammate/1.1-ai-working-environment/MODULE.md",
           objectives: [
-            "Understand what Microsoft Copilot is",
-            "Access Copilot via browser and shortcuts",
-            "Meet NovaTech Solutions (company context)"
+            "Set up Copilot for PM work",
+            "Master the GCSE prompting framework",
+            "Upload and prime product context"
           ]
         },
         {
           id: "1.2",
-          title: "Setting Up Your Workspace",
-          duration: "15 min",
-          path: "lesson-modules/1-fundamentals/1.2-workspace-setup/MODULE.md",
+          title: "Meeting Intelligence",
+          duration: "25 min",
+          path: "lesson-modules/1-copilot-teammate/1.2-meeting-intelligence/MODULE.md",
           objectives: [
-            "Set up optimal workspace",
-            "Upload files to Copilot",
-            "Use ContextIQ and OneDrive"
+            "Extract decisions and action items automatically",
+            "Analyze meeting dynamics with Copilot",
+            "Build a post-meeting workflow"
           ]
         },
         {
           id: "1.3",
-          title: "Your First PM Tasks",
-          duration: "30 min",
-          path: "lesson-modules/1-fundamentals/1.3-first-tasks/MODULE.md",
+          title: "User Research Synthesis at Scale",
+          duration: "25 min",
+          path: "lesson-modules/1-copilot-teammate/1.3-user-research-synthesis/MODULE.md",
           objectives: [
-            "Process meeting notes",
-            "Synthesize user interviews",
-            "Transform communications"
+            "Synthesize multiple interview transcripts in an hour",
+            "Apply the insight pyramid to AI synthesis",
+            "Interrogate Copilot for contradictions and outliers"
           ]
         },
         {
           id: "1.4",
-          title: "Using Researcher & Analyst Agents",
+          title: "Communication That Lands",
           duration: "25 min",
-          path: "lesson-modules/1-fundamentals/1.4-researcher-analyst-agents/MODULE.md",
+          path: "lesson-modules/1-copilot-teammate/1.4-communication-that-lands/MODULE.md",
           objectives: [
-            "Use Researcher for deep research",
-            "Use Analyst for data reasoning",
-            "Combine agents for workflows"
+            "Transform one update for multiple audiences",
+            "Apply the Context → So What → Now What framework",
+            "Draft difficult communications with Copilot"
           ]
         },
         {
           id: "1.5",
-          title: "Persona Prompting for Different Perspectives",
+          title: "Copilot Across M365",
           duration: "20 min",
-          path: "lesson-modules/1-fundamentals/1.5-persona-prompting/MODULE.md",
+          path: "lesson-modules/1-copilot-teammate/1.5-m365-integrated-workflow/MODULE.md",
           objectives: [
-            "Create effective persona prompts",
-            "Get multi-perspective feedback",
-            "Build a prompt library"
+            "Use Copilot in Word, Excel, and PowerPoint",
+            "Build multi-app workflows",
+            "Know what each app does best"
           ]
         },
         {
           id: "1.6",
-          title: "Building Context with Memory",
-          duration: "15 min",
-          path: "lesson-modules/1-fundamentals/1.6-copilot-memory/MODULE.md",
+          title: "Deep Research with Agents",
+          duration: "25 min",
+          path: "lesson-modules/1-copilot-teammate/1.6-deep-research-agents/MODULE.md",
           objectives: [
-            "Use Copilot Memory feature",
-            "Create context documents",
-            "Manage persistent context"
+            "Use Researcher for competitive and market analysis",
+            "Use Analyst for data reasoning",
+            "Detect hallucinations and source quality issues"
           ]
         },
         {
           id: "1.7",
-          title: "Copilot Across M365 Apps",
-          duration: "15 min",
-          path: "lesson-modules/1-fundamentals/1.7-m365-navigation/MODULE.md",
+          title: "Building Context & Memory",
+          duration: "20 min",
+          path: "lesson-modules/1-copilot-teammate/1.7-context-and-memory/MODULE.md",
           objectives: [
-            "Use Copilot in Word, Excel, PowerPoint",
-            "Navigate between chat and in-app",
-            "Master keyboard shortcuts"
+            "Build a reusable context primer",
+            "Use persona prompting for multi-perspective thinking",
+            "Create a personal prompt library"
           ]
         },
         {
           id: "1.8",
-          title: "Copilot in Microsoft Teams",
+          title: "Teams & Outlook Mastery",
           duration: "25 min",
-          path: "lesson-modules/1-fundamentals/1.8-teams-integration/MODULE.md",
+          path: "lesson-modules/1-copilot-teammate/1.8-teams-outlook-mastery/MODULE.md",
           objectives: [
-            "Get meeting summaries and action items",
-            "Catch up on missed meetings",
-            "Use Copilot in chats and channels"
-          ]
-        },
-        {
-          id: "1.9",
-          title: "Copilot in Outlook",
-          duration: "20 min",
-          path: "lesson-modules/1-fundamentals/1.9-outlook-integration/MODULE.md",
-          objectives: [
-            "Draft emails with tone adjustment",
-            "Summarize long email threads",
-            "Prepare for meetings from calendar"
-          ]
-        },
-        {
-          id: "1.10",
-          title: "Copilot in SharePoint & Collaboration",
-          duration: "20 min",
-          path: "lesson-modules/1-fundamentals/1.10-sharepoint-collaboration/MODULE.md",
-          objectives: [
-            "Find documents using natural language",
-            "Summarize SharePoint sites and libraries",
-            "Track updates and integrate into workflows"
+            "Build a Monday morning catch-up routine",
+            "Prioritize emails and channels with Copilot",
+            "Design a daily AI-augmented PM rhythm"
           ]
         }
       ]
     },
     {
       id: "2",
-      title: "Advanced PM Workflows",
-      description: "Complex PM tasks with Copilot",
+      title: "Strategic PM with AI",
+      description: "Strategic thinking, enterprise influence, and data-driven decisions",
       modules: [
         {
           id: "2.1",
-          title: "Writing PRDs with Copilot",
+          title: "Writing PRDs That Get Buy-In",
           duration: "35 min",
-          path: "lesson-modules/2-advanced-pm-work/2.1-write-prd/MODULE.md",
+          path: "lesson-modules/2-strategic-pm/2.1-prds-that-get-buyin/MODULE.md",
           objectives: [
-            "Use Copilot as thinking partner",
-            "Work through PRD sections",
-            "Get multi-perspective feedback"
+            "Build enterprise PRDs with business cases and ROI",
+            "Create RACI matrices and governance sections",
+            "Get multi-perspective AI feedback on your PRD"
           ]
         },
         {
           id: "2.2",
-          title: "Analyzing Product Data",
+          title: "Data-Driven Decisions with AI",
           duration: "30 min",
-          path: "lesson-modules/2-advanced-pm-work/2.2-analyze-data/MODULE.md",
+          path: "lesson-modules/2-strategic-pm/2.2-data-driven-decisions/MODULE.md",
           objectives: [
-            "Upload and analyze data",
-            "Use Excel Copilot",
-            "Interpret A/B tests with Analyst"
+            "Build a metrics hierarchy (North Star → Input → Health)",
+            "Turn data into compelling narratives",
+            "Detect statistical BS in AI analysis"
           ]
         },
         {
           id: "2.3",
-          title: "Product Strategy",
-          duration: "30 min",
-          path: "lesson-modules/2-advanced-pm-work/2.3-product-strategy/MODULE.md",
+          title: "Product Strategy & Roadmapping",
+          duration: "35 min",
+          path: "lesson-modules/2-strategic-pm/2.3-strategy-and-roadmapping/MODULE.md",
           objectives: [
-            "Apply strategic frameworks",
-            "Conduct competitive analysis",
-            "Prioritize roadmap items"
+            "Apply Gibson Biddle's DHM model",
+            "Choose the right roadmap format",
+            "Stress-test strategy with AI devil's advocate"
+          ]
+        },
+        {
+          id: "2.4",
+          title: "Running Effective Product Reviews",
+          duration: "25 min",
+          path: "lesson-modules/2-strategic-pm/2.4-product-reviews/MODULE.md",
+          objectives: [
+            "Build a narrative arc for product reviews",
+            "Pre-generate tough questions and prepare answers",
+            "Lock in decisions with follow-up execution"
+          ]
+        },
+        {
+          id: "2.5",
+          title: "Navigating Organizational Politics",
+          duration: "25 min",
+          path: "lesson-modules/2-strategic-pm/2.5-navigating-politics/MODULE.md",
+          objectives: [
+            "Map real decision-making networks",
+            "Build sponsor-champion-implementer coalitions",
+            "War-game political scenarios with AI"
           ]
         }
       ]
     },
     {
       id: "3",
-      title: "Product Visuals",
-      description: "Creating visuals with DALL-E and Designer",
+      title: "The 10x PM",
+      description: "Synthesis — visual communication, capstone project, and your AI toolkit",
       modules: [
         {
           id: "3.1",
-          title: "Image Generation Basics",
-          duration: "20 min",
-          path: "lesson-modules/3-product-visuals/3.1-image-basics/MODULE.md",
+          title: "Visual Communication for PMs",
+          duration: "25 min",
+          path: "lesson-modules/3-ten-x-pm/3.1-visual-communication/MODULE.md",
           objectives: [
-            "Generate images with DALL-E 3",
-            "Write effective image prompts",
-            "Iterate and refine outputs"
+            "Create persona cards and journey maps with AI",
+            "Generate presentation-ready visuals",
+            "Know when AI visuals work and when they don't"
           ]
         },
         {
           id: "3.2",
-          title: "PM Visuals",
-          duration: "25 min",
-          path: "lesson-modules/3-product-visuals/3.2-pm-visuals/MODULE.md",
+          title: "The Capstone — Run a Product Cycle",
+          duration: "40 min",
+          path: "lesson-modules/3-ten-x-pm/3.2-capstone-product-cycle/MODULE.md",
           objectives: [
-            "Create persona illustrations",
-            "Generate journey maps and diagrams",
-            "Build marketing assets"
+            "Run a complete product cycle: discovery → spec → buy-in → launch",
+            "Produce a full set of PM artifacts with Copilot",
+            "Apply every skill from the course in one workflow"
+          ]
+        },
+        {
+          id: "3.3",
+          title: "Building Your Personal AI Toolkit",
+          duration: "20 min",
+          path: "lesson-modules/3-ten-x-pm/3.3-personal-ai-toolkit/MODULE.md",
+          objectives: [
+            "Assemble daily, weekly, and monthly PM workflows",
+            "Build a master context primer for your real work",
+            "Create a maintainable prompt library"
+          ]
+        },
+        {
+          id: "3.4",
+          title: "What's Next — The AI-Era PM",
+          duration: "15 min",
+          path: "lesson-modules/3-ten-x-pm/3.4-whats-next/MODULE.md",
+          objectives: [
+            "Identify skills that matter more (and less) with AI",
+            "Build a 90-day personal development plan",
+            "Connect with the PM community for continuous learning"
           ]
         }
       ]
@@ -210,7 +305,7 @@ export const resourceStructure: ResourceSection[] = [
     title: "Company Context",
     categories: [
       {
-        id: "taskflow",
+        id: "novatech",
         title: "NovaTech Solutions",
         files: [
           { id: "company", title: "Company Overview", path: "company-context/COMPANY.md" },
@@ -231,6 +326,7 @@ export const resourceStructure: ResourceSection[] = [
         files: [
           { id: "executive", title: "Executive Persona", path: "prompt-library/personas/executive.md" },
           { id: "engineer", title: "Engineer Persona", path: "prompt-library/personas/engineer.md" },
+          { id: "director", title: "Director Persona", path: "prompt-library/personas/director.md" },
           { id: "user-researcher", title: "User Researcher Persona", path: "prompt-library/personas/user-researcher.md" }
         ]
       },
@@ -240,7 +336,8 @@ export const resourceStructure: ResourceSection[] = [
         files: [
           { id: "meeting-notes", title: "Meeting Notes", path: "prompt-library/templates/meeting-notes.md" },
           { id: "communication-transform", title: "Communication Transform", path: "prompt-library/templates/communication-transform.md" },
-          { id: "user-research-synthesis", title: "User Research Synthesis", path: "prompt-library/templates/user-research-synthesis.md" }
+          { id: "user-research-synthesis", title: "User Research Synthesis", path: "prompt-library/templates/user-research-synthesis.md" },
+          { id: "feedback-extraction", title: "Feedback Extraction", path: "prompt-library/templates/feedback-extraction.md" }
         ]
       },
       {

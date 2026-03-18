@@ -8,7 +8,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         {/* Default redirect to first module */}
-        <Route index element={<Navigate to="/module/1.1" replace />} />
+        <Route index element={<Navigate to="/module/0.1" replace />} />
 
         {/* Module routes */}
         <Route path="module/:moduleId" element={<ModuleContent />} />
@@ -17,7 +17,7 @@ function App() {
         <Route path="resource/*" element={<ResourceContent />} />
 
         {/* Catch-all redirect */}
-        <Route path="*" element={<Navigate to="/module/1.1" replace />} />
+        <Route path="*" element={<Navigate to="/module/0.1" replace />} />
       </Route>
     </Routes>
   )

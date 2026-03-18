@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 1.5: Persona Prompting - Copilot PM Course</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --max-w: 780px;
+  --header-h: 55px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0 0 0.75rem;
+}
+h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 1.25rem 0 0.5rem;
+}
+h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 1rem 0 0.4rem;
+}
+
+a { color: var(--teal); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── Header ─── */
+header.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+}
+.header-inner {
+  width: 100%; max-width: var(--max-w); padding: 0 18px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand { display: flex; align-items: baseline; gap: 8px; }
+.header-brand .logo {
+  font-family: 'Playfair Display', serif; font-size: 1.15rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-brand .logo:hover { text-decoration: none; }
+.header-nav { display: flex; align-items: center; gap: 6px; }
+.header-nav a {
+  font-size: 14px; color: var(--text-primary); text-decoration: none;
+  padding: 6px 12px; border-radius: 9999px; transition: background .2s;
+}
+.header-nav a:hover { background: var(--cream); text-decoration: none; }
+
+/* ─── Container ─── */
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 18px; }
+
+/* ─── Breadcrumb ─── */
+.breadcrumb {
+  padding: calc(var(--header-h) + 24px) 0 12px;
+  font-size: 14px; color: var(--warm-gray-dark);
+}
+.breadcrumb a { color: var(--teal); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Pills ─── */
+.pills {
+  display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 24px;
+}
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px 8px 10px; border-radius: 40px;
+  font-size: 14px; font-weight: 500;
+  background: var(--cream); border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+.pill .dot {
+  width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+}
+
+/* ─── Section Rhythm ─── */
+.section-warm {
+  background: var(--cream); padding: 48px 0;
+}
+.section-white { padding: 48px 0; }
+
+/* ─── Content Typography ─── */
+.content p {
+  margin: 0.75rem 0; color: var(--text-secondary);
+}
+.content strong { color: var(--text-primary); }
+
+.content ul, .content ol {
+  margin: 0.75rem 0; padding-left: 1.5rem;
+}
+.content li {
+  margin: 0.3rem 0; color: var(--text-secondary);
+}
+.content li p { margin: 0.25rem 0; }
+
+.content a { color: var(--teal); border-bottom: 1px solid var(--teal-light); }
+.content a:hover { border-bottom-color: var(--teal); }
+
+/* ─── Callouts (blockquotes) ─── */
+.callout {
+  border-radius: 10px; padding: 16px 18px; margin: 16px 0;
+  font-size: 14px; line-height: 1.6; border: 1px solid;
+}
+.callout.strategy {
+  background: var(--teal-light); border-color: var(--teal-border);
+}
+.callout.strategy::before {
+  content: 'Key Point '; font-weight: 600; color: var(--teal-dark);
+}
+.content blockquote {
+  background: var(--teal-light); border: 1px solid var(--teal-border);
+  border-left: none; border-radius: 10px;
+  padding: 16px 18px; margin: 16px 0; font-size: 14px; line-height: 1.6;
+}
+.content blockquote p { color: var(--text-primary); margin: 0.25rem 0; }
+
+/* ─── Arena Tables ─── */
+.arena-table {
+  width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;
+}
+.arena-table th {
+  text-align: left; padding: 10px 12px; font-weight: 500;
+  color: var(--text-secondary); font-size: 13px;
+  border-bottom: 1px solid var(--border);
+}
+.arena-table td {
+  padding: 10px 12px; border-bottom: 1px solid var(--cream-darker);
+  vertical-align: top;
+}
+.arena-table tr:last-child td { border-bottom: none; }
+.content table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+.content th {
+  text-align: left; padding: 10px 12px; font-weight: 500;
+  color: var(--text-secondary); font-size: 13px;
+  border-bottom: 1px solid var(--border); background: transparent;
+}
+.content td {
+  padding: 10px 12px; border-bottom: 1px solid var(--cream-darker);
+  vertical-align: top; color: var(--text-secondary);
+}
+.content tr:last-child td { border-bottom: none; }
+.content tr:hover td { background: transparent; }
+
+/* ─── Code Blocks ─── */
+.content pre {
+  background: var(--text-primary); color: var(--cream);
+  padding: 16px 18px; border-radius: 10px;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 13px; line-height: 1.6; overflow-x: auto;
+  margin: 12px 0; white-space: pre-wrap; word-break: break-word;
+}
+.content pre code {
+  background: none; color: inherit; padding: 0; font-size: inherit;
+}
+.content code {
+  background: var(--cream); color: var(--teal-dark);
+  padding: 0.15rem 0.4rem; border-radius: 4px;
+  font-size: 0.88em; font-family: 'Fira Code', 'Consolas', monospace;
+}
+
+/* ─── HR as section divider ─── */
+.content hr {
+  border: none; border-top: 1px solid var(--cream-darker);
+  margin: 2.5rem 0;
+}
+
+/* ─── Images ─── */
+.content img {
+  max-width: 100%; border-radius: 10px; margin: 1rem 0;
+}
+
+/* ─── Nav Footer ─── */
+.nav-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 32px 0; gap: 1rem;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--text-primary); color: var(--text-light);
+  border: none; border-radius: 50px; padding: 14px 28px;
+  font-size: 16px; font-weight: 400; font-family: 'Inter', sans-serif;
+  cursor: pointer; text-decoration: none; transition: background .2s;
+}
+.btn-primary:hover { background: #3a3d44; color: var(--text-light); text-decoration: none; }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--teal-dark); color: var(--text-light);
+  border: none; border-radius: 10px; padding: 8px 16px;
+  font-size: 14px; font-family: 'Inter', sans-serif;
+  cursor: pointer; text-decoration: none; transition: background .2s;
+}
+.btn-secondary:hover { background: var(--teal); color: var(--text-light); text-decoration: none; }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--white); color: var(--text-primary);
+  border: 1px solid var(--border); border-radius: 50px; padding: 12px 24px;
+  font-size: 14px; font-family: 'Inter', sans-serif;
+  cursor: pointer; text-decoration: none; transition: border-color .2s;
+}
+.btn-outline:hover { border-color: var(--teal-border); text-decoration: none; }
+
+/* ─── Footer ─── */
+footer.site-footer {
+  padding: 32px 0 24px; text-align: center;
+  font-size: 14px; color: var(--text-muted);
+  border-top: 1px solid var(--cream-darker);
+}
+footer.site-footer a {
+  color: var(--text-muted); text-decoration: none; margin: 0 8px;
+}
+footer.site-footer a:hover { text-decoration: underline; }
+
+/* ─── Responsive ─── */
+@media (max-width: 640px) {
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.4rem; }
+  .pills { gap: 6px; }
+  .pill { font-size: 13px; padding: 6px 12px 6px 8px; }
+  .header-nav a { font-size: 13px; padding: 4px 8px; }
+  .arena-table, .content table { font-size: 13px; }
+  .arena-table th, .arena-table td, .content th, .content td { padding: 8px; }
+}
+
+/* ─── Print ─── */
+@media print {
+  header.site-header { display: none; }
+  .nav-footer { display: none; }
+  footer.site-footer { display: none; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-brand">
+        <a href="index.html" class="logo">Copilot PM Course</a>
+      </div>
+      <nav class="header-nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#modules">Modules</a>
+        <a href="index.html#resources">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Course Home</a> &rsaquo; Level 1: Foundation &rsaquo; Module 1.5
+    </div>
+    <div class="pills">
+      <span class="pill"><span class="dot" style="background:var(--sage)"></span> 20 min</span>
+      <span class="pill"><span class="dot" style="background:var(--olive)"></span> Level 1: Foundation</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="section-white content">
+      <h1>Module 1.5: Persona Prompting for Different Perspectives</h1>
+<p><strong>Duration:</strong> 20 minutes
+<strong>Prerequisites:</strong> Modules 1.1-1.4 completed</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<p>By the end of this module, you will:</p>
+<ol>
+<li>Understand why multiple perspectives improve enterprise PM decisions</li>
+<li>Create effective persona prompts for enterprise stakeholders</li>
+<li>Build a reusable &quot;virtual advisory board&quot; of Accenture perspectives</li>
+<li>Get Partner, Managing Director, and Chief Officer feedback instantly</li>
+<li>Save and reuse your best persona prompts</li>
+</ol>
+<hr>
+<h2>Why Multiple Perspectives Matter in Enterprise</h2>
+<p>As an enterprise PM, you make better decisions when you consider different stakeholder viewpoints:</p>
+<ul>
+<li><strong>Managing Directors</strong> think about revenue and client impact</li>
+<li><strong>Chief Knowledge Officer</strong> cares about knowledge strategy and adoption</li>
+<li><strong>Partners</strong> need features that help win deals</li>
+<li><strong>Consultants</strong> need tools that make their daily work easier</li>
+<li><strong>Delivery Managers</strong> need visibility and efficiency</li>
+<li><strong>Change Management</strong> considers adoption and training</li>
+</ul>
+<p>But you can&#39;t always get everyone in a room. <strong>Persona prompting</strong> lets you simulate these perspectives with Copilot.</p>
+<hr>
+<h2>What is Persona Prompting?</h2>
+<p>Persona prompting is asking Copilot to respond <strong>as if it were a specific type of enterprise stakeholder</strong>.</p>
+<h3>Basic Pattern</h3>
+<pre><code>You are a [ROLE] at [COMPANY TYPE] with [EXPERIENCE].
+Review this [DOCUMENT/IDEA] and provide feedback from your perspective.
+Focus on: [SPECIFIC CONCERNS]
+</code></pre>
+<h3>Example</h3>
+<pre><code>You are a Managing Director at Accenture leading a 400-person Technology practice.
+You care about revenue, utilization, and winning competitive deals.
+Review this feature proposal and identify:
+1. How this helps win deals
+2. Business impact and ROI
+3. What you&#39;d ask the steering committee about this
+</code></pre>
+<hr>
+<h2>The Three Core Enterprise Personas</h2>
+<p>We&#39;ve created three core personas that cover most enterprise PM needs:</p>
+<h3>1. The Managing Director Persona</h3>
+<p><strong>Use for:</strong> Business impact, revenue implications, competitive positioning</p>
+<pre><code>You are a Managing Director at Accenture leading a 400-person Technology practice.
+You&#39;re responsible for $150M in annual revenue and have relationships with 15
+major clients. You care about winning deals, developing talent, and hitting
+utilization targets.
+
+When reviewing PM documents, you focus on:
+- How does this help my team win deals?
+- What&#39;s the business impact (revenue, efficiency, talent retention)?
+- How does this compare to what McKinsey and BCG have?
+- Will my Partners and Consultants actually use this?
+- What would I tell clients about our capabilities?
+- Is this worth the investment vs. other priorities?
+
+Be direct and business-focused. Challenge assumptions with real-world scenarios.
+</code></pre>
+<h3>2. The Chief Knowledge Officer Persona</h3>
+<p><strong>Use for:</strong> Strategic alignment, adoption strategy, organizational change</p>
+<pre><code>You are the Chief Knowledge Officer at Accenture, responsible for knowledge
+strategy for 700,000+ employees. You&#39;ve been in this role for 8 years and
+report to the CEO. You&#39;re the executive sponsor for AKX.
+
+When reviewing PM documents, you focus on:
+- Strategic alignment with company-wide knowledge goals
+- Adoption feasibility at scale (700K users)
+- Change management requirements
+- ROI and business case viability
+- What I would present to the CEO and board
+- Competitive positioning vs. McKinsey, BCG
+- Risks to the organization
+
+Be strategic and measured. Challenge plans that seem too small or too ambitious.
+Flag concerns but suggest paths forward.
+</code></pre>
+<h3>3. The Senior Consultant Persona</h3>
+<p><strong>Use for:</strong> User perspective, daily workflow fit, adoption likelihood</p>
+<pre><code>You are a Senior Consultant at Accenture with 5 years of experience.
+You&#39;re on the Manager promotion track and work on technology strategy projects
+for Fortune 500 clients. You&#39;ve previously worked at BCG for 2 years.
+
+When reviewing PM documents, you focus on:
+- Will this actually help my daily work?
+- Is this better than the tools I used at BCG?
+- Will this save me time or add overhead?
+- Is this easier than my current workarounds?
+- What would my colleagues say about this?
+- Will I actually use this, or will I find workarounds?
+
+Be honest about what consultants actually do (not what they&#39;re supposed to do).
+Compare to consumer-grade apps and competitor tools.
+</code></pre>
+<hr>
+<h2>Exercise 1: Get Managing Director Feedback</h2>
+<p>Let&#39;s try persona prompting on a feature proposal.</p>
+<p><strong>Do this now:</strong></p>
+<ol>
+<li>Open Copilot Chat</li>
+<li>Paste this prompt:</li>
+</ol>
+<pre><code>You are a Managing Director at Accenture leading a 400-person Technology practice.
+You care about winning deals, utilization, and talent retention.
+
+Review this feature proposal for AKX (our internal knowledge platform):
+
+FEATURE: AI-Powered Expert Matching
+- AI analyzes project requirements from RFP/proposal
+- Automatically suggests experts with relevant experience
+- Shows availability in real-time (from ADH integration)
+- Enables one-click connection request
+- Includes expert&#39;s past project highlights and credentials
+
+Provide feedback on:
+1. How this helps win deals (specific scenario)
+2. Business impact estimate
+3. Competitive positioning vs. McKinsey/BCG
+4. Likelihood your Partners would use it
+5. Questions before supporting at steering committee
+
+Be direct and business-focused.
+</code></pre>
+<ol start="3">
+<li>Review the MD-perspective feedback</li>
+</ol>
+<p><strong>What to notice:</strong></p>
+<ul>
+<li>Business concerns you might not have considered</li>
+<li>Real-world scenarios and use cases</li>
+<li>Tough questions for steering committee</li>
+</ul>
+<hr>
+<h2>Exercise 2: Get All Three Perspectives</h2>
+<p>Now let&#39;s get feedback from all three personas on the same feature.</p>
+<p><strong>Do this now:</strong></p>
+<p>Use this prompt to get all perspectives at once:</p>
+<pre><code>I need feedback on a feature from three different enterprise perspectives.
+
+FEATURE: AI-Powered Expert Matching for AKX
+- AI analyzes project requirements from RFP/proposal
+- Automatically suggests experts with relevant experience
+- Shows real-time availability from ADH
+- Enables one-click connection request
+- Includes expert&#39;s past project highlights
+
+Please provide feedback from THREE perspectives:
+
+## Managing Director Perspective
+(Practice Leader focused on: revenue, deals, competition, talent)
+
+## Chief Knowledge Officer Perspective
+(Executive Sponsor focused on: strategy, adoption, ROI, governance)
+
+## Senior Consultant Perspective
+(Daily user focused on: workflow, time savings, BCG comparison, adoption)
+
+For each perspective, include:
+- Top 3 concerns
+- Key questions before approving
+- What would make you champion this
+</code></pre>
+<p><strong>What to notice:</strong></p>
+<ul>
+<li>Each perspective raises different concerns</li>
+<li>Some overlap = high-priority issues</li>
+<li>Comprehensive view of enterprise risks</li>
+</ul>
+<hr>
+<h2>Creating Enterprise-Specific Personas</h2>
+<p>You can create personas for any Accenture role:</p>
+<h3>Partner (Client-Facing)</h3>
+<pre><code>You are a Partner at Accenture with 20 years of experience and a $30M book of business.
+You&#39;re always between client meetings and make decisions fast.
+You compare everything to McKinsey, where you worked early in your career.
+</code></pre>
+<h3>Delivery Manager</h3>
+<pre><code>You are a Delivery Manager at Accenture overseeing 8 projects and 120 consultants.
+You&#39;re data-driven and frustrated by manual reporting. You&#39;ve used Deloitte&#39;s tools
+before and think they&#39;ve invested more than we have.
+</code></pre>
+<h3>New Analyst</h3>
+<pre><code>You are a first-year Analyst at Accenture, 8 months into the job.
+You&#39;re eager but overwhelmed by internal tools. You compare everything to
+the consumer apps you use at home. You&#39;ve developed workarounds with your peers.
+</code></pre>
+<h3>Change Management Lead</h3>
+<pre><code>You are a Change Management Lead responsible for enterprise tool adoption.
+You&#39;ve seen many internal tools fail due to poor change management.
+You think about training, communications, and executive sponsorship.
+</code></pre>
+<h3>Chief People Officer</h3>
+<pre><code>You are the Chief People Officer at Accenture responsible for talent strategy.
+You care about employee experience, attrition, and productivity.
+Internal tools directly impact talent attraction and retention.
+</code></pre>
+<hr>
+<h2>Building Your Enterprise Prompt Library</h2>
+<p>Save your best personas in a &quot;Prompt Library&quot; document:</p>
+<h3>Recommended Structure</h3>
+<pre><code class="language-markdown"># My Enterprise Persona Prompts
+
+## Managing Director Review
+[Full prompt here]
+
+## Executive Sponsor Review
+[Full prompt here]
+
+## Consultant User Review
+[Full prompt here]
+
+## [Custom personas you create]
+[Full prompts here]
+</code></pre>
+<h3>Using Saved Prompts</h3>
+<ol>
+<li>Create a Word doc called &quot;Prompt Library&quot;</li>
+<li>Save your personas there</li>
+<li>When needed, copy-paste into Copilot</li>
+<li>Or upload the doc and reference it:</li>
+</ol>
+<pre><code>Use the Managing Director Review persona from my Prompt Library document
+to review this feature proposal:
+
+[Your feature proposal]
+</code></pre>
+<hr>
+<h2>Exercise 3: Create a Custom Enterprise Persona</h2>
+<p>Create a persona relevant to your specific Accenture situation.</p>
+<p><strong>Think about:</strong></p>
+<ul>
+<li>What stakeholder gives you feedback you need most?</li>
+<li>What specific experience should they have?</li>
+<li>What enterprise constraints shape their thinking?</li>
+</ul>
+<p><strong>Template:</strong></p>
+<pre><code>You are a [ROLE] at Accenture with [X] years of experience in [DOMAIN].
+You [KEY RESPONSIBILITIES - revenue, people, projects, etc.].
+You&#39;ve [RELEVANT BACKGROUND - worked at competitor, managed similar initiatives].
+
+When reviewing [DOCUMENT TYPE], you focus on:
+- [Focus area 1 - aligned with their role]
+- [Focus area 2 - their success metrics]
+- [Focus area 3 - their pain points]
+- [Focus area 4 - competitive context]
+
+Be [TONE - direct, strategic, user-focused] and [STYLE - business-oriented, skeptical, practical].
+</code></pre>
+<p><strong>Try it now:</strong> Create a persona that would be useful for your actual enterprise stakeholders.</p>
+<hr>
+<h2>Multi-Round Persona Dialogue</h2>
+<p>You can have an ongoing conversation with a persona:</p>
+<h3>Example Flow</h3>
+<p><strong>You:</strong> Use the Managing Director persona and review this PRD.</p>
+<p><strong>Copilot (as MD):</strong> [Provides feedback]</p>
+<p><strong>You:</strong> Good points. What would you tell the CEO about this initiative?</p>
+<p><strong>Copilot (as MD):</strong> [Continues in character with executive framing]</p>
+<p><strong>You:</strong> Now switch to the Senior Consultant persona. Would you actually use this?</p>
+<p><strong>Copilot (as Consultant):</strong> [Shifts to user perspective]</p>
+<p>This lets you explore issues deeply from multiple angles.</p>
+<hr>
+<h2>Best Practices for Enterprise Persona Prompting</h2>
+<h3>Do:</h3>
+<ul>
+<li>Be specific about the persona&#39;s Accenture role and experience</li>
+<li>Include competitive context (McKinsey, BCG, Deloitte)</li>
+<li>Define their success metrics and incentives</li>
+<li>Ask for constructive feedback with alternatives</li>
+<li>Save and reuse effective prompts</li>
+<li>Iterate on personas that work well</li>
+</ul>
+<h3>Don&#39;t:</h3>
+<ul>
+<li>Use vague role descriptions (&quot;a manager&quot;)</li>
+<li>Expect perfect real-world accuracy</li>
+<li>Rely solely on AI perspectives</li>
+<li>Forget to validate with real stakeholders</li>
+<li>Skip actually talking to your sponsors and users</li>
+<li>Ignore enterprise constraints (governance, scale, security)</li>
+</ul>
+<hr>
+<h2>Module Complete!</h2>
+<p>You now know:</p>
+<ul>
+<li>Why multiple perspectives improve enterprise PM decisions</li>
+<li>How to create effective persona prompts for enterprise stakeholders</li>
+<li>The three core enterprise personas (MD, CKO, Consultant)</li>
+<li>How to build a reusable enterprise prompt library</li>
+<li>How to have multi-round persona dialogues</li>
+</ul>
+<hr>
+<h2>Next Steps</h2>
+<p>Continue to <strong>Module 1.6: Building Context with Copilot Memory</strong></p>
+<p>In Module 1.6, you&#39;ll learn how to:</p>
+<ul>
+<li>Use Copilot&#39;s Memory feature for persistent context</li>
+<li>Teach Copilot about your products, stakeholders, and metrics</li>
+<li>Create reusable context documents</li>
+<li>Get more relevant enterprise responses over time</li>
+</ul>
+<hr>
+<h2>Quick Reference: Core Enterprise Personas</h2>
+<table>
+<thead>
+<tr>
+<th>Persona</th>
+<th>Use For</th>
+<th>Key Focus</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Managing Director</td>
+<td>Business review</td>
+<td>Revenue, deals, competition</td>
+</tr>
+<tr>
+<td>Chief Knowledge Officer</td>
+<td>Strategic review</td>
+<td>Adoption, ROI, governance</td>
+</tr>
+<tr>
+<td>Senior Consultant</td>
+<td>User validation</td>
+<td>Workflow, time savings, adoption</td>
+</tr>
+<tr>
+<td>Partner</td>
+<td>Client impact</td>
+<td>Proposal support, expert discovery</td>
+</tr>
+<tr>
+<td>Delivery Manager</td>
+<td>Operations</td>
+<td>Visibility, efficiency, reporting</td>
+</tr>
+<tr>
+<td>Change Management</td>
+<td>Adoption planning</td>
+<td>Training, communications, rollout</td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>Ready to make Copilot remember you? Let&#39;s go to Module 1.6!</strong></p>
+    </section>
+  </div>
+
+  <div class="container">
+    <div class="nav-footer">
+      <a href="module-1.4.html" class="btn-outline">&larr; 1.4 Researcher &amp; Analyst Agents</a>
+      <a href="index.html" class="btn-outline">Home</a>
+      <a href="module-1.6.html" class="btn-primary">1.6 Building Context with Memory &rarr;</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <a href="index.html">Home</a> |
+    <a href="index.html#modules">Modules</a> |
+    <a href="index.html#resources">Resources</a>
+    <div style="margin-top:12px; font-size:12px;">Microsoft Copilot for Product Managers &middot; v2.0</div>
+  </footer>
+</body>
+</html>

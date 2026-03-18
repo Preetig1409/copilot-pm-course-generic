@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 1.1: Welcome to Microsoft Copilot - Copilot PM Course</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --max-w: 780px;
+  --header-h: 55px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0 0 0.75rem;
+}
+h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 1.25rem 0 0.5rem;
+}
+h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 1rem 0 0.4rem;
+}
+
+a { color: var(--teal); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── Header ─── */
+header.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+}
+.header-inner {
+  width: 100%; max-width: var(--max-w); padding: 0 18px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand { display: flex; align-items: baseline; gap: 8px; }
+.header-brand .logo {
+  font-family: 'Playfair Display', serif; font-size: 1.15rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-brand .logo:hover { text-decoration: none; }
+.header-nav { display: flex; align-items: center; gap: 6px; }
+.header-nav a {
+  font-size: 14px; color: var(--text-primary); text-decoration: none;
+  padding: 6px 12px; border-radius: 9999px; transition: background .2s;
+}
+.header-nav a:hover { background: var(--cream); text-decoration: none; }
+
+/* ─── Container ─── */
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 18px; }
+
+/* ─── Breadcrumb ─── */
+.breadcrumb {
+  padding: calc(var(--header-h) + 24px) 0 12px;
+  font-size: 14px; color: var(--warm-gray-dark);
+}
+.breadcrumb a { color: var(--teal); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Pills ─── */
+.pills {
+  display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 24px;
+}
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px 8px 10px; border-radius: 40px;
+  font-size: 14px; font-weight: 500;
+  background: var(--cream); border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+.pill .dot {
+  width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+}
+
+/* ─── Section Rhythm ─── */
+.section-warm {
+  background: var(--cream); padding: 48px 0;
+}
+.section-white { padding: 48px 0; }
+
+/* ─── Content Typography ─── */
+.content p {
+  margin: 0.75rem 0; color: var(--text-secondary);
+}
+.content strong { color: var(--text-primary); }
+
+.content ul, .content ol {
+  margin: 0.75rem 0; padding-left: 1.5rem;
+}
+.content li {
+  margin: 0.3rem 0; color: var(--text-secondary);
+}
+.content li p { margin: 0.25rem 0; }
+
+.content a { color: var(--teal); border-bottom: 1px solid var(--teal-light); }
+.content a:hover { border-bottom-color: var(--teal); }
+
+/* ─── Callouts (blockquotes) ─── */
+.callout {
+  border-radius: 10px; padding: 16px 18px; margin: 16px 0;
+  font-size: 14px; line-height: 1.6; border: 1px solid;
+}
+.callout.strategy {
+  background: var(--teal-light); border-color: var(--teal-border);
+}
+.callout.strategy::before {
+  content: 'Key Point '; font-weight: 600; color: var(--teal-dark);
+}
+.content blockquote {
+  background: var(--teal-light); border: 1px solid var(--teal-border);
+  border-left: none; border-radius: 10px;
+  padding: 16px 18px; margin: 16px 0; font-size: 14px; line-height: 1.6;
+}
+.content blockquote p { color: var(--text-primary); margin: 0.25rem 0; }
+
+/* ─── Arena Tables ─── */
+.arena-table {
+  width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;
+}
+.arena-table th {
+  text-align: left; padding: 10px 12px; font-weight: 500;
+  color: var(--text-secondary); font-size: 13px;
+  border-bottom: 1px solid var(--border);
+}
+.arena-table td {
+  padding: 10px 12px; border-bottom: 1px solid var(--cream-darker);
+  vertical-align: top;
+}
+.arena-table tr:last-child td { border-bottom: none; }
+.content table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+.content th {
+  text-align: left; padding: 10px 12px; font-weight: 500;
+  color: var(--text-secondary); font-size: 13px;
+  border-bottom: 1px solid var(--border); background: transparent;
+}
+.content td {
+  padding: 10px 12px; border-bottom: 1px solid var(--cream-darker);
+  vertical-align: top; color: var(--text-secondary);
+}
+.content tr:last-child td { border-bottom: none; }
+.content tr:hover td { background: transparent; }
+
+/* ─── Code Blocks ─── */
+.content pre {
+  background: var(--text-primary); color: var(--cream);
+  padding: 16px 18px; border-radius: 10px;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 13px; line-height: 1.6; overflow-x: auto;
+  margin: 12px 0; white-space: pre-wrap; word-break: break-word;
+}
+.content pre code {
+  background: none; color: inherit; padding: 0; font-size: inherit;
+}
+.content code {
+  background: var(--cream); color: var(--teal-dark);
+  padding: 0.15rem 0.4rem; border-radius: 4px;
+  font-size: 0.88em; font-family: 'Fira Code', 'Consolas', monospace;
+}
+
+/* ─── HR as section divider ─── */
+.content hr {
+  border: none; border-top: 1px solid var(--cream-darker);
+  margin: 2.5rem 0;
+}
+
+/* ─── Images ─── */
+.content img {
+  max-width: 100%; border-radius: 10px; margin: 1rem 0;
+}
+
+/* ─── Nav Footer ─── */
+.nav-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 32px 0; gap: 1rem;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--text-primary); color: var(--text-light);
+  border: none; border-radius: 50px; padding: 14px 28px;
+  font-size: 16px; font-weight: 400; font-family: 'Inter', sans-serif;
+  cursor: pointer; text-decoration: none; transition: background .2s;
+}
+.btn-primary:hover { background: #3a3d44; color: var(--text-light); text-decoration: none; }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--teal-dark); color: var(--text-light);
+  border: none; border-radius: 10px; padding: 8px 16px;
+  font-size: 14px; font-family: 'Inter', sans-serif;
+  cursor: pointer; text-decoration: none; transition: background .2s;
+}
+.btn-secondary:hover { background: var(--teal); color: var(--text-light); text-decoration: none; }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--white); color: var(--text-primary);
+  border: 1px solid var(--border); border-radius: 50px; padding: 12px 24px;
+  font-size: 14px; font-family: 'Inter', sans-serif;
+  cursor: pointer; text-decoration: none; transition: border-color .2s;
+}
+.btn-outline:hover { border-color: var(--teal-border); text-decoration: none; }
+
+/* ─── Footer ─── */
+footer.site-footer {
+  padding: 32px 0 24px; text-align: center;
+  font-size: 14px; color: var(--text-muted);
+  border-top: 1px solid var(--cream-darker);
+}
+footer.site-footer a {
+  color: var(--text-muted); text-decoration: none; margin: 0 8px;
+}
+footer.site-footer a:hover { text-decoration: underline; }
+
+/* ─── Responsive ─── */
+@media (max-width: 640px) {
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.4rem; }
+  .pills { gap: 6px; }
+  .pill { font-size: 13px; padding: 6px 12px 6px 8px; }
+  .header-nav a { font-size: 13px; padding: 4px 8px; }
+  .arena-table, .content table { font-size: 13px; }
+  .arena-table th, .arena-table td, .content th, .content td { padding: 8px; }
+}
+
+/* ─── Print ─── */
+@media print {
+  header.site-header { display: none; }
+  .nav-footer { display: none; }
+  footer.site-footer { display: none; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-brand">
+        <a href="index.html" class="logo">Copilot PM Course</a>
+      </div>
+      <nav class="header-nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#modules">Modules</a>
+        <a href="index.html#resources">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Course Home</a> &rsaquo; Level 1: Foundation &rsaquo; Module 1.1
+    </div>
+
+    <div class="pills">
+      <span class="pill"><span class="dot" style="background:var(--sage)"></span> 15 min</span>
+      <span class="pill"><span class="dot" style="background:var(--olive)"></span> Level 1: Foundation</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="section-white content">
+      <h1>Module 1.1: Welcome to Microsoft Copilot for Product Managers</h1>
+<p><strong>Duration:</strong> 15 minutes
+<strong>Prerequisites:</strong> Microsoft 365 Copilot Enterprise license</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<p>By the end of this module, you will:</p>
+<ol>
+<li>Understand what Microsoft Copilot is and how it helps PMs</li>
+<li>Know how to access Copilot (browser, Windows app, M365 apps)</li>
+<li>Meet Accenture&#39;s Internal Digital Products team - your role throughout this course</li>
+<li>Understand how this course is structured</li>
+<li>Feel confident that you can use Copilot without technical skills</li>
+</ol>
+<hr>
+<h2>Introduction</h2>
+<p>Welcome to the Microsoft Copilot PM Course!</p>
+<p>You&#39;re about to learn how to use Microsoft Copilot - an AI assistant that can save you <strong>10-20 hours per week</strong> as a Product Manager. Unlike traditional tools, Copilot integrates directly into the Microsoft 365 apps you already use: Word, Excel, PowerPoint, Outlook, and Teams.</p>
+<p>Throughout this course, you&#39;ll work as a <strong>Senior Product Owner</strong> at <strong>Accenture</strong> - one of the world&#39;s largest consulting firms with 700,000+ employees globally. You&#39;ll own two internal products: <strong>AKX</strong> (Accenture Knowledge Exchange) and <strong>ADH</strong> (Accenture Delivery Hub).</p>
+<p><strong>What makes this course different:</strong> All the files, documents, and context are already created for you. You&#39;re stepping into a real (contextualized) PM role with active products, real user personas, and actual work to do!</p>
+<hr>
+<h2>What is Microsoft Copilot?</h2>
+<p>Microsoft Copilot is an AI assistant powered by GPT-5 that&#39;s built into Microsoft 365. Here&#39;s what makes it special for PMs:</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>What It Means for PMs</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Chat Interface</strong></td>
+<td>Ask questions in plain English, get intelligent responses</td>
+</tr>
+<tr>
+<td><strong>File Analysis</strong></td>
+<td>Upload documents, spreadsheets, PDFs - Copilot extracts insights</td>
+</tr>
+<tr>
+<td><strong>M365 Integration</strong></td>
+<td>Works inside Word, Excel, PowerPoint, Outlook, Teams</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>Remembers your preferences and context across sessions</td>
+</tr>
+<tr>
+<td><strong>Researcher Agent</strong></td>
+<td>Performs deep research across web and your work data</td>
+</tr>
+<tr>
+<td><strong>Image Generation</strong></td>
+<td>Creates visuals with DALL-E 3 and Microsoft Designer</td>
+</tr>
+</tbody></table>
+<p><strong>Key Point:</strong> You don&#39;t need technical skills. You just talk to Copilot in plain English!</p>
+<hr>
+<h2>How to Access Copilot</h2>
+<p>You have several ways to access Microsoft Copilot:</p>
+<h3>1. Web Browser</h3>
+<p>Go to: <strong>copilot.microsoft.com</strong></p>
+<ul>
+<li>Sign in with your Microsoft 365 enterprise account</li>
+<li>Full chat interface with file upload</li>
+</ul>
+<h3>2. Windows Keyboard Shortcut</h3>
+<p>Press: <strong>Alt + Spacebar</strong></p>
+<ul>
+<li>Opens Copilot anywhere on Windows</li>
+<li>Hold for 2 seconds for voice input</li>
+</ul>
+<h3>3. Mac Keyboard Shortcut</h3>
+<p>Press: <strong>Option + Spacebar</strong></p>
+<ul>
+<li>Opens the Microsoft 365 Copilot app</li>
+</ul>
+<h3>4. Inside M365 Apps</h3>
+<p>Press: <strong>Alt + I</strong> (in Word, Excel, PowerPoint)</p>
+<ul>
+<li>Opens Copilot panel within the document</li>
+<li>Context-aware: understands the file you have open</li>
+</ul>
+<h3>5. Microsoft Teams</h3>
+<p>Click the Copilot icon in Teams</p>
+<ul>
+<li>Access chat, meeting summaries, and more</li>
+</ul>
+<hr>
+<h2>Exercise 1: Open Copilot</h2>
+<p>Let&#39;s make sure you can access Copilot.</p>
+<p><strong>Do this now:</strong></p>
+<ol>
+<li>Open your browser and go to <strong>copilot.microsoft.com</strong></li>
+<li>Sign in with your Microsoft 365 enterprise account</li>
+<li>You should see the Copilot chat interface</li>
+</ol>
+<p><strong>What you should see:</strong></p>
+<ul>
+<li>A chat input area at the bottom</li>
+<li>A left panel showing recent chats and agents</li>
+<li>Suggested prompts in the center</li>
+</ul>
+<p>If you see this, you&#39;re ready to continue!</p>
+<hr>
+<h2>Your Role: Senior Product Owner at Accenture</h2>
+<p>Throughout this course, you&#39;ll work as a <strong>Senior Product Owner</strong> in Accenture&#39;s Internal Digital Products team.</p>
+<h3>Company Overview</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Company</strong></td>
+<td>Accenture - Global management &amp; technology consulting firm</td>
+</tr>
+<tr>
+<td><strong>Employees</strong></td>
+<td>700,000+ globally</td>
+</tr>
+<tr>
+<td><strong>Revenue</strong></td>
+<td>$64+ billion annually</td>
+</tr>
+<tr>
+<td><strong>Your team</strong></td>
+<td>Internal Digital Products (25 people)</td>
+</tr>
+<tr>
+<td><strong>Your role</strong></td>
+<td>Senior Product Owner - AKX &amp; ADH</td>
+</tr>
+<tr>
+<td><strong>Report to</strong></td>
+<td>Jennifer Walsh (VP Internal Digital Products)</td>
+</tr>
+<tr>
+<td><strong>Sponsors</strong></td>
+<td>Richard Thorne (CKO), Maya Patel (CPO)</td>
+</tr>
+</tbody></table>
+<h3>Your Products</h3>
+<p><strong>AKX (Accenture Knowledge Exchange)</strong></p>
+<ul>
+<li>Internal knowledge management platform</li>
+<li>Helps consultants find past work, methodologies, and experts</li>
+<li>Current challenge: 43% weekly active users (target: 60%)</li>
+</ul>
+<p><strong>ADH (Accenture Delivery Hub)</strong></p>
+<ul>
+<li>Project delivery and resource management platform</li>
+<li>Helps delivery managers track projects and allocate resources</li>
+<li>Current challenge: 67% utilization visibility (target: 95%)</li>
+</ul>
+<h3>Your Users (3 Personas)</h3>
+<p>You&#39;ll make product decisions for these internal stakeholders throughout the course:</p>
+<p><strong>1. Priya Sharma - Partner &amp; Practice Lead</strong></p>
+<ul>
+<li>Needs: Fast expert discovery, proposal content, competitive intel</li>
+<li>Pain point: &quot;I can&#39;t find experts in 5 minutes, let alone 5 days&quot;</li>
+</ul>
+<p><strong>2. Marcus Johnson - Senior Consultant</strong></p>
+<ul>
+<li>Needs: Reusable templates, frameworks, content that actually helps</li>
+<li>Pain point: &quot;I know this analysis exists somewhere, but I can&#39;t find it&quot;</li>
+</ul>
+<p><strong>3. Elena Rodriguez - Delivery Manager</strong></p>
+<ul>
+<li>Needs: Real-time project health, resource visibility, automated reporting</li>
+<li>Pain point: &quot;I spend 4 hours a week on status reports that should be automated&quot;</li>
+</ul>
+<hr>
+<h2>Exercise 2: Ask Copilot About Your Role</h2>
+<p>Let&#39;s try your first Copilot interaction! We&#39;ve provided company context files that you can reference.</p>
+<p><strong>Do this now:</strong></p>
+<ol>
+<li>In Copilot chat, type the following prompt:</li>
+</ol>
+<pre><code>I&#39;m a Senior Product Owner at Accenture - one of the world&#39;s largest consulting
+firms with 700,000+ employees. I own two internal products:
+
+1. AKX (Accenture Knowledge Exchange) - a knowledge management platform
+   helping consultants find past work and experts. Current WAU: 43%, Target: 60%
+
+2. ADH (Accenture Delivery Hub) - a project delivery and resource management
+   platform. Current utilization visibility: 67%, Target: 95%
+
+My main user personas are:
+- Priya (Partner) - needs fast expert discovery for client pitches
+- Marcus (Consultant) - needs to find templates and stop recreating work
+- Elena (Delivery Manager) - needs automated status reporting
+
+What are 3 key questions I should be asking about AKX adoption?
+</code></pre>
+<ol start="2">
+<li>Read Copilot&#39;s response</li>
+<li>Notice how Copilot gives you thoughtful, PM-relevant suggestions</li>
+</ol>
+<p><strong>Congratulations!</strong> You just had your first PM conversation with Copilot!</p>
+<hr>
+<h2>How This Course Works</h2>
+<h3>Course Structure</h3>
+<p>The course has <strong>3 levels</strong> with multiple modules each:</p>
+<p><strong>Level 1: Foundation (10 modules)</strong></p>
+<ul>
+<li>1.1 Welcome (you are here!)</li>
+<li>1.2 Setting Up Your Workspace</li>
+<li>1.3 Your First PM Tasks</li>
+<li>1.4 Using Researcher &amp; Analyst Agents</li>
+<li>1.5 Persona Prompting for Different Perspectives</li>
+<li>1.6 Building Context with Copilot Memory</li>
+<li>1.7 Copilot Across M365 Apps</li>
+<li>1.8 Teams Integration</li>
+<li>1.9 Outlook Integration</li>
+<li>1.10 SharePoint &amp; Collaboration</li>
+</ul>
+<p><strong>Level 2: Advanced PM Workflows (3 modules)</strong></p>
+<ul>
+<li>2.1 Writing PRDs with Copilot</li>
+<li>2.2 Analyzing Product Data</li>
+<li>2.3 Product Strategy</li>
+</ul>
+<p><strong>Level 3: Product Visuals (2 modules)</strong></p>
+<ul>
+<li>3.1 Image Generation Basics</li>
+<li>3.2 PM Visuals (personas, diagrams, marketing)</li>
+</ul>
+<h3>What You&#39;ll Need</h3>
+<ul>
+<li><strong>Microsoft 365 Copilot Enterprise license</strong> (you have this)</li>
+<li><strong>OneDrive access</strong> (for file storage)</li>
+<li><strong>Word, Excel, PowerPoint</strong> (for integrated workflows)</li>
+<li><strong>Willingness to try things</strong> (we learn by doing!)</li>
+</ul>
+<h3>What You Won&#39;t Need</h3>
+<ul>
+<li>Coding skills (this is for PMs, not engineers)</li>
+<li>Technical expertise (just talk in plain English)</li>
+<li>Your own documents (all files are provided)</li>
+</ul>
+<hr>
+<h2>Time Savings You&#39;ll Gain</h2>
+<p>By the end of this course, you&#39;ll be able to:</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Without Copilot</th>
+<th>With Copilot</th>
+<th>Savings</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Process steering committee notes</td>
+<td>45 min</td>
+<td>3 min</td>
+<td>42 min</td>
+</tr>
+<tr>
+<td>Synthesize 8 stakeholder interviews</td>
+<td>3-4 hours</td>
+<td>5 min</td>
+<td>~3.5 hours</td>
+</tr>
+<tr>
+<td>Write status updates for 3 audiences</td>
+<td>60 min</td>
+<td>5 min</td>
+<td>55 min</td>
+</tr>
+<tr>
+<td>Competitive research (consulting firms)</td>
+<td>90 min</td>
+<td>10 min</td>
+<td>80 min</td>
+</tr>
+<tr>
+<td>Draft PRD with business case</td>
+<td>6 hours</td>
+<td>45 min</td>
+<td>5+ hours</td>
+</tr>
+</tbody></table>
+<p><strong>Estimated weekly savings: 5-8 hours</strong></p>
+<hr>
+<h2>Enterprise PM vs. External Product PM</h2>
+<p>This course focuses on <strong>internal enterprise product management</strong> - which differs from external B2B/B2C PM in important ways:</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>External Product</th>
+<th>Internal Enterprise Product</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Users</strong></td>
+<td>Paying customers</td>
+<td>Employees (no choice)</td>
+</tr>
+<tr>
+<td><strong>Success metric</strong></td>
+<td>Revenue, retention</td>
+<td>Adoption, efficiency, NPS</td>
+</tr>
+<tr>
+<td><strong>&quot;Sales&quot; process</strong></td>
+<td>Marketing &amp; sales</td>
+<td>Change management &amp; training</td>
+</tr>
+<tr>
+<td><strong>Competition</strong></td>
+<td>Other products</td>
+<td>Shadow IT, workarounds, status quo</td>
+</tr>
+<tr>
+<td><strong>Governance</strong></td>
+<td>Product leadership</td>
+<td>Steering committees, sponsors</td>
+</tr>
+<tr>
+<td><strong>Funding</strong></td>
+<td>Revenue-driven</td>
+<td>Budget allocation, business cases</td>
+</tr>
+</tbody></table>
+<p>Understanding this context will help you apply Copilot to enterprise-specific workflows like:</p>
+<ul>
+<li>Preparing steering committee presentations</li>
+<li>Writing business cases with ROI calculations</li>
+<li>Managing change across diverse stakeholder groups</li>
+<li>Navigating enterprise governance and decision-making</li>
+</ul>
+<hr>
+<h2>Module Complete!</h2>
+<p>You now know:</p>
+<ul>
+<li>What Microsoft Copilot is and how it helps PMs</li>
+<li>How to access Copilot (browser, shortcuts, M365 apps)</li>
+<li>Your role at Accenture (Senior Product Owner for AKX &amp; ADH)</li>
+<li>How this course is structured</li>
+<li>That you just talk to Copilot in plain English</li>
+</ul>
+<hr>
+<h2>Next Steps</h2>
+<p>When you&#39;re ready, continue to <strong>Module 1.2: Setting Up Your Copilot Workspace</strong></p>
+<p>In Module 1.2, you&#39;ll learn:</p>
+<ul>
+<li>How to set up your workspace for optimal productivity</li>
+<li>Using Copilot Chat alongside M365 apps</li>
+<li>File upload workflows</li>
+<li>OneDrive integration</li>
+</ul>
+<hr>
+<h2>Quick Reference: Keyboard Shortcuts</h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Windows</th>
+<th>Mac</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Open Copilot</td>
+<td>Alt + Spacebar</td>
+<td>Option + Spacebar</td>
+</tr>
+<tr>
+<td>Voice input</td>
+<td>Hold Alt + Spacebar (2 sec)</td>
+<td>Hold Option + Spacebar (2 sec)</td>
+</tr>
+<tr>
+<td>Copilot in apps</td>
+<td>Alt + I</td>
+<td>Option + I</td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>Ready for Module 1.2? Let&#39;s go!</strong></p>
+    </section>
+  </div>
+
+  <div class="container">
+    <div class="nav-footer">
+      <span></span>
+      <a href="index.html" class="btn-outline">Home</a>
+      <a href="module-1.2.html" class="btn-primary">1.2 Setting Up Your Workspace &rarr;</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <a href="index.html">Home</a> |
+    <a href="index.html#modules">Modules</a> |
+    <a href="index.html#resources">Resources</a>
+    <div style="margin-top:12px; font-size:12px;">Microsoft Copilot for Product Managers &middot; v2.0</div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 3.1: Image Generation Basics - Copilot PM Course</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --max-w: 780px;
+  --header-h: 55px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0 0 0.75rem;
+}
+h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 1.25rem 0 0.5rem;
+}
+h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 1rem 0 0.4rem;
+}
+
+a { color: var(--teal); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── Header ─── */
+header.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+}
+.header-inner {
+  width: 100%; max-width: var(--max-w); padding: 0 18px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand { display: flex; align-items: baseline; gap: 8px; }
+.header-brand .logo {
+  font-family: 'Playfair Display', serif; font-size: 1.15rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-brand .logo:hover { text-decoration: none; }
+.header-nav { display: flex; align-items: center; gap: 6px; }
+.header-nav a {
+  font-size: 14px; color: var(--text-primary); text-decoration: none;
+  padding: 6px 12px; border-radius: 9999px; transition: background .2s;
+}
+.header-nav a:hover { background: var(--cream); text-decoration: none; }
+
+/* ─── Container ─── */
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 18px; }
+
+/* ─── Breadcrumb ─── */
+.breadcrumb {
+  padding: calc(var(--header-h) + 24px) 0 12px;
+  font-size: 14px; color: var(--warm-gray-dark);
+}
+.breadcrumb a { color: var(--teal); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Pills ─── */
+.pills {
+  display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 24px;
+}
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px 8px 10px; border-radius: 40px;
+  font-size: 14px; font-weight: 500;
+  background: var(--cream); border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+.pill .dot {
+  width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+}
+
+/* ─── Section Rhythm ─── */
+.section-warm {
+  background: var(--cream); padding: 48px 0;
+}
+.section-white { padding: 48px 0; }
+
+/* ─── Content Typography ─── */
+.content p {
+  margin: 0.75rem 0; color: var(--text-secondary);
+}
+.content strong { color: var(--text-primary); }
+
+.content ul, .content ol {
+  margin: 0.75rem 0; padding-left: 1.5rem;
+}
+.content li {
+  margin: 0.3rem 0; color: var(--text-secondary);
+}
+.content li p { margin: 0.25rem 0; }
+
+.content a { color: var(--teal); border-bottom: 1px solid var(--teal-light); }
+.content a:hover { border-bottom-color: var(--teal); }
+
+/* ─── Callouts (blockquotes) ─── */
+.callout {
+  border-radius: 10px; padding: 16px 18px; margin: 16px 0;
+  font-size: 14px; line-height: 1.6; border: 1px solid;
+}
+.callout.strategy {
+  background: var(--teal-light); border-color: var(--teal-border);
+}
+.callout.strategy::before {
+  content: 'Key Point '; font-weight: 600; color: var(--teal-dark);
+}
+.content blockquote {
+  background: var(--teal-light); border: 1px solid var(--teal-border);
+  border-left: none; border-radius: 10px;
+  padding: 16px 18px; margin: 16px 0; font-size: 14px; line-height: 1.6;
+}
+.content blockquote p { color: var(--text-primary); margin: 0.25rem 0; }
+
+/* ─── Arena Tables ─── */
+.arena-table {
+  width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;
+}
+.arena-table th {
+  text-align: left; padding: 10px 12px; font-weight: 500;
+  color: var(--text-secondary); font-size: 13px;
+  border-bottom: 1px solid var(--border);
+}
+.arena-table td {
+  padding: 10px 12px; border-bottom: 1px solid var(--cream-darker);
+  vertical-align: top;
+}
+.arena-table tr:last-child td { border-bottom: none; }
+.content table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+.content th {
+  text-align: left; padding: 10px 12px; font-weight: 500;
+  color: var(--text-secondary); font-size: 13px;
+  border-bottom: 1px solid var(--border); background: transparent;
+}
+.content td {
+  padding: 10px 12px; border-bottom: 1px solid var(--cream-darker);
+  vertical-align: top; color: var(--text-secondary);
+}
+.content tr:last-child td { border-bottom: none; }
+.content tr:hover td { background: transparent; }
+
+/* ─── Code Blocks ─── */
+.content pre {
+  background: var(--text-primary); color: var(--cream);
+  padding: 16px 18px; border-radius: 10px;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 13px; line-height: 1.6; overflow-x: auto;
+  margin: 12px 0; white-space: pre-wrap; word-break: break-word;
+}
+.content pre code {
+  background: none; color: inherit; padding: 0; font-size: inherit;
+}
+.content code {
+  background: var(--cream); color: var(--teal-dark);
+  padding: 0.15rem 0.4rem; border-radius: 4px;
+  font-size: 0.88em; font-family: 'Fira Code', 'Consolas', monospace;
+}
+
+/* ─── HR as section divider ─── */
+.content hr {
+  border: none; border-top: 1px solid var(--cream-darker);
+  margin: 2.5rem 0;
+}
+
+/* ─── Images ─── */
+.content img {
+  max-width: 100%; border-radius: 10px; margin: 1rem 0;
+}
+
+/* ─── Nav Footer ─── */
+.nav-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 32px 0; gap: 1rem;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--text-primary); color: var(--text-light);
+  border: none; border-radius: 50px; padding: 14px 28px;
+  font-size: 16px; font-weight: 400; font-family: 'Inter', sans-serif;
+  cursor: pointer; text-decoration: none; transition: background .2s;
+}
+.btn-primary:hover { background: #3a3d44; color: var(--text-light); text-decoration: none; }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--teal-dark); color: var(--text-light);
+  border: none; border-radius: 10px; padding: 8px 16px;
+  font-size: 14px; font-family: 'Inter', sans-serif;
+  cursor: pointer; text-decoration: none; transition: background .2s;
+}
+.btn-secondary:hover { background: var(--teal); color: var(--text-light); text-decoration: none; }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--white); color: var(--text-primary);
+  border: 1px solid var(--border); border-radius: 50px; padding: 12px 24px;
+  font-size: 14px; font-family: 'Inter', sans-serif;
+  cursor: pointer; text-decoration: none; transition: border-color .2s;
+}
+.btn-outline:hover { border-color: var(--teal-border); text-decoration: none; }
+
+/* ─── Footer ─── */
+footer.site-footer {
+  padding: 32px 0 24px; text-align: center;
+  font-size: 14px; color: var(--text-muted);
+  border-top: 1px solid var(--cream-darker);
+}
+footer.site-footer a {
+  color: var(--text-muted); text-decoration: none; margin: 0 8px;
+}
+footer.site-footer a:hover { text-decoration: underline; }
+
+/* ─── Responsive ─── */
+@media (max-width: 640px) {
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.4rem; }
+  .pills { gap: 6px; }
+  .pill { font-size: 13px; padding: 6px 12px 6px 8px; }
+  .header-nav a { font-size: 13px; padding: 4px 8px; }
+  .arena-table, .content table { font-size: 13px; }
+  .arena-table th, .arena-table td, .content th, .content td { padding: 8px; }
+}
+
+/* ─── Print ─── */
+@media print {
+  header.site-header { display: none; }
+  .nav-footer { display: none; }
+  footer.site-footer { display: none; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-brand">
+        <a href="index.html" class="logo">Copilot PM Course</a>
+      </div>
+      <nav class="header-nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#modules">Modules</a>
+        <a href="index.html#resources">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Course Home</a> &rsaquo; Level 3: Product Visuals &rsaquo; Module 3.1
+    </div>
+
+    <div class="pills">
+      <span class="pill"><span class="dot" style="background:var(--sage)"></span> 20 min</span>
+      <span class="pill"><span class="dot" style="background:var(--olive)"></span> Level 3: Product Visuals</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="section-white content">
+      <h1>Module 3.1: Image Generation Basics with Copilot</h1>
+<p><strong>Duration:</strong> 20 minutes
+<strong>Prerequisites:</strong> Levels 1-2 completed</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<p>By the end of this module, you will:</p>
+<ol>
+<li>Understand Copilot&#39;s image generation capabilities</li>
+<li>Generate your first image with DALL-E 3</li>
+<li>Learn effective prompting for images</li>
+<li>Iterate and refine image outputs</li>
+<li>Understand credit limits and best practices</li>
+</ol>
+<hr>
+<h2>Image Generation in Copilot</h2>
+<p>Microsoft Copilot uses <strong>DALL-E 3</strong> and <strong>Microsoft Designer</strong> for image creation.</p>
+<h3>What You Can Create</h3>
+<ul>
+<li>Product mockups and wireframes</li>
+<li>User persona illustrations</li>
+<li>Diagrams and flowcharts</li>
+<li>Marketing visuals</li>
+<li>Presentation graphics</li>
+<li>Icons and simple graphics</li>
+</ul>
+<h3>Image Credits</h3>
+<table>
+<thead>
+<tr>
+<th>License</th>
+<th>Monthly Credits</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Free Copilot</td>
+<td>15 credits</td>
+</tr>
+<tr>
+<td>Copilot Pro</td>
+<td>100 credits</td>
+</tr>
+<tr>
+<td>M365 Copilot</td>
+<td>60+ credits</td>
+</tr>
+</tbody></table>
+<p>Each image generation uses 1 credit. Credits refresh monthly.</p>
+<hr>
+<h2>Your First Image</h2>
+<h3>Basic Prompt Structure</h3>
+<pre><code>Create an image of [SUBJECT] that is [STYLE], [MOOD], [ADDITIONAL DETAILS]
+</code></pre>
+<h3>Example</h3>
+<pre><code>Create an image of a modern project management dashboard
+that is clean and minimal, professional, showing tasks
+organized in columns with a blue and white color scheme
+</code></pre>
+<h3>Exercise 1: Generate Your First Image</h3>
+<p><strong>Do this now:</strong></p>
+<ol>
+<li>Open Copilot Chat</li>
+<li>Enter this prompt:</li>
+</ol>
+<pre><code>Create an image of a diverse remote team collaborating on a
+video call, shown on a laptop screen. The style should be
+modern and professional, with a clean office background.
+</code></pre>
+<ol start="3">
+<li>Wait for image generation</li>
+<li>Review the result</li>
+</ol>
+<p><strong>What to notice:</strong></p>
+<ul>
+<li>Image appears in the chat</li>
+<li>You can download it</li>
+<li>You can ask for variations</li>
+</ul>
+<hr>
+<h2>Effective Image Prompts</h2>
+<h3>The SSMD Framework</h3>
+<p><strong>S</strong> - Subject (What&#39;s in the image)
+<strong>S</strong> - Style (Artistic style)
+<strong>M</strong> - Mood (Feeling/atmosphere)
+<strong>D</strong> - Details (Specific elements)</p>
+<h3>Good vs. Bad Prompts</h3>
+<table>
+<thead>
+<tr>
+<th>Bad Prompt</th>
+<th>Good Prompt</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&quot;A dashboard&quot;</td>
+<td>&quot;A clean, modern SaaS dashboard with task cards, a sidebar navigation, and a blue/white color scheme, flat design style&quot;</td>
+</tr>
+<tr>
+<td>&quot;A person working&quot;</td>
+<td>&quot;A product manager presenting to stakeholders in a modern conference room, professional and confident, photographically realistic&quot;</td>
+</tr>
+<tr>
+<td>&quot;A flow chart&quot;</td>
+<td>&quot;A simple user onboarding flow diagram with 5 steps, minimal style, using icons and arrows, on a white background&quot;</td>
+</tr>
+</tbody></table>
+<h3>Style Options</h3>
+<table>
+<thead>
+<tr>
+<th>Style</th>
+<th>Description</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Photorealistic</strong></td>
+<td>Looks like a photo</td>
+<td>Team photos, product shots</td>
+</tr>
+<tr>
+<td><strong>Flat design</strong></td>
+<td>Clean, minimal, 2D</td>
+<td>UI mockups, icons</td>
+</tr>
+<tr>
+<td><strong>Isometric</strong></td>
+<td>3D-like from an angle</td>
+<td>Diagrams, infographics</td>
+</tr>
+<tr>
+<td><strong>Illustration</strong></td>
+<td>Hand-drawn style</td>
+<td>Personas, stories</td>
+</tr>
+<tr>
+<td><strong>Corporate</strong></td>
+<td>Professional, stock-like</td>
+<td>Presentations</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Iterating on Images</h2>
+<p>Often the first image isn&#39;t perfect. Here&#39;s how to iterate:</p>
+<h3>Request Variations</h3>
+<pre><code>Generate 3 variations of this image with different color schemes
+</code></pre>
+<h3>Make Specific Changes</h3>
+<pre><code>Regenerate this but:
+- Make the background lighter
+- Add more diversity to the team
+- Make it feel more energetic
+</code></pre>
+<h3>Start Fresh with Refinements</h3>
+<pre><code>Create a new image similar to the previous one but with [changes]
+</code></pre>
+<hr>
+<h2>Exercise 2: Image Iteration</h2>
+<p>Let&#39;s practice refining an image.</p>
+<p><strong>Step 1: Generate base image</strong></p>
+<pre><code>Create an image of a mobile app onboarding screen showing a
+welcome message, in a modern flat design style with a gradient
+purple to blue background
+</code></pre>
+<p><strong>Step 2: Request changes</strong></p>
+<pre><code>This is good, but please:
+- Add a friendly mascot character
+- Include progress dots at the bottom
+- Make the text placeholder visible
+</code></pre>
+<p><strong>Step 3: Create variations</strong></p>
+<pre><code>Generate 2 more variations: one with a green color scheme,
+one with an orange color scheme
+</code></pre>
+<hr>
+<h2>Microsoft Designer Integration</h2>
+<p>For more editing control, use Microsoft Designer.</p>
+<h3>What Designer Adds</h3>
+<ul>
+<li>Image editing and enhancement</li>
+<li>Background removal</li>
+<li>Text overlays</li>
+<li>Templates and layouts</li>
+<li>Brand kit integration</li>
+</ul>
+<h3>Accessing Designer</h3>
+<ol>
+<li>Go to designer.microsoft.com</li>
+<li>Sign in with your M365 account</li>
+<li>Create new designs or edit Copilot images</li>
+</ol>
+<h3>When to Use Designer</h3>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Quick image generation</td>
+<td>Copilot Chat</td>
+</tr>
+<tr>
+<td>Image with text overlays</td>
+<td>Designer</td>
+</tr>
+<tr>
+<td>Social media graphics</td>
+<td>Designer</td>
+</tr>
+<tr>
+<td>Brand-consistent visuals</td>
+<td>Designer</td>
+</tr>
+<tr>
+<td>Image editing/enhancement</td>
+<td>Designer</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Prompting Best Practices</h2>
+<h3>Be Specific</h3>
+<pre><code>&quot;A bar chart showing user growth from 1,000 to 10,000 users
+   over 6 months, with blue bars on a white background, clean
+   and corporate style&quot;
+</code></pre>
+<h3>Describe Composition</h3>
+<pre><code>&quot;A laptop on a desk, viewed from a 45-degree angle,
+   showing a dashboard on screen, with a coffee cup to
+   the right and a notepad to the left&quot;
+</code></pre>
+<h3>Specify Colors</h3>
+<pre><code>&quot;Use TaskFlow&#39;s brand colors: primary blue (#2563EB),
+   accent purple (#7C3AED), on a white (#FFFFFF) background&quot;
+</code></pre>
+<h3>Include Context</h3>
+<pre><code>&quot;This is for a SaaS product called TaskFlow that helps
+   remote teams manage projects. The image will be used
+   in a pitch deck for investors.&quot;
+</code></pre>
+<hr>
+<h2>Image Use Cases for PMs</h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Prompt Direction</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Pitch decks</strong></td>
+<td>Professional, clean, corporate photos</td>
+</tr>
+<tr>
+<td><strong>Personas</strong></td>
+<td>Illustrated or photorealistic portraits</td>
+</tr>
+<tr>
+<td><strong>Wireframes</strong></td>
+<td>Flat, minimal, UI-focused</td>
+</tr>
+<tr>
+<td><strong>Journey maps</strong></td>
+<td>Sequential, icon-based, clear flow</td>
+</tr>
+<tr>
+<td><strong>Competitive analysis</strong></td>
+<td>Comparison layouts, side-by-side</td>
+</tr>
+<tr>
+<td><strong>Marketing</strong></td>
+<td>Eye-catching, brand-aligned, emotional</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Limitations and Workarounds</h2>
+<h3>What DALL-E Struggles With</h3>
+<table>
+<thead>
+<tr>
+<th>Limitation</th>
+<th>Workaround</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Accurate text in images</td>
+<td>Add text in Designer after</td>
+</tr>
+<tr>
+<td>Exact UI details</td>
+<td>Use for concepts, not specs</td>
+</tr>
+<tr>
+<td>Brand-perfect logos</td>
+<td>Add logos in Designer</td>
+</tr>
+<tr>
+<td>Precise data visualizations</td>
+<td>Create in Excel, export</td>
+</tr>
+<tr>
+<td>Consistent characters</td>
+<td>Describe in detail each time</td>
+</tr>
+</tbody></table>
+<h3>Credit Conservation</h3>
+<ul>
+<li>Don&#39;t regenerate unnecessarily</li>
+<li>Be specific in first prompt</li>
+<li>Use iterations wisely</li>
+<li>Save successful prompts for reuse</li>
+</ul>
+<hr>
+<h2>Module Complete!</h2>
+<p>You now know:</p>
+<ul>
+<li>How Copilot generates images with DALL-E 3</li>
+<li>The SSMD framework for effective prompts</li>
+<li>How to iterate and refine images</li>
+<li>When to use Designer for more control</li>
+<li>Credit limits and best practices</li>
+</ul>
+<hr>
+<h2>Next Steps</h2>
+<p>Continue to <strong>Module 3.2: PM Visuals</strong></p>
+<p>In Module 3.2, you&#39;ll create specific PM visuals:</p>
+<ul>
+<li>User persona illustrations</li>
+<li>Journey maps and flows</li>
+<li>Product roadmap visuals</li>
+<li>Marketing and launch assets</li>
+</ul>
+<hr>
+<h2>Quick Reference: Prompt Elements</h2>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Style</td>
+<td>Photorealistic, flat design, isometric, illustration</td>
+</tr>
+<tr>
+<td>Mood</td>
+<td>Professional, friendly, energetic, calm</td>
+</tr>
+<tr>
+<td>Composition</td>
+<td>Close-up, wide shot, 45-degree angle</td>
+</tr>
+<tr>
+<td>Colors</td>
+<td>Specific hex codes, &quot;blue and white&quot;, &quot;warm tones&quot;</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>&quot;For a pitch deck&quot;, &quot;App store screenshot&quot;</td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>Ready to create PM-specific visuals? Let&#39;s go to Module 3.2!</strong></p>
+    </section>
+  </div>
+
+  <div class="container">
+    <div class="nav-footer">
+      <a href="module-2.3.html" class="btn-outline">&larr; 2.3 Product Strategy</a>
+      <a href="index.html" class="btn-outline">Home</a>
+      <a href="module-3.2.html" class="btn-primary">3.2 PM Visuals &rarr;</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <a href="index.html">Home</a> |
+    <a href="index.html#modules">Modules</a> |
+    <a href="index.html#resources">Resources</a>
+    <div style="margin-top:12px; font-size:12px;">Microsoft Copilot for Product Managers &middot; v2.0</div>
+  </footer>
+</body>
+</html>

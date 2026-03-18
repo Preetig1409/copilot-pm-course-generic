@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Testing Review &mdash; Summary &amp; Next Steps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --white: #ffffff;
+  --cream: #F7F6F5;
+  --cream-dark: #F3F1EF;
+  --cream-darker: #EEEDEA;
+  --warm-gray: #D9D9D9;
+  --warm-gray-dark: #898584;
+  --border: #D9D9D9;
+  --text-primary: #292C33;
+  --text-secondary: #6B7280;
+  --text-muted: #6A6A6A;
+  --text-light: #F8F7F6;
+  --teal: #487265;
+  --teal-light: #DDEFEF;
+  --teal-border: #568788;
+  --teal-dark: #407967;
+  --sage: #A0C3C4;
+  --olive: #AAB788;
+  --gold: #D4C68B;
+  --copper: #BC976A;
+  --bronze: #CAAB84;
+  --sand: #CB9F69;
+  --max-w: 780px;
+  --header-h: 55px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--white);
+}
+
+h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 500; letter-spacing: -0.05em; line-height: 1.15; }
+h2 { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 16px; }
+h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 10px; }
+h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
+
+a { color: var(--teal-dark); }
+
+header.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--header-h); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  width: 100%; max-width: var(--max-w); padding: 0 18px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-brand { display: flex; align-items: baseline; gap: 8px; }
+.header-brand .logo {
+  font-family: 'Playfair Display', serif; font-size: 1.15rem;
+  font-weight: 600; color: var(--text-primary); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.header-brand .byline { font-size: 11px; color: var(--warm-gray-dark); }
+.header-nav { display: flex; align-items: center; gap: 6px; }
+.header-nav a {
+  font-size: 14px; color: var(--text-primary); text-decoration: none;
+  padding: 6px 12px; border-radius: 9999px; transition: background .2s;
+}
+.header-nav a:hover { background: var(--cream); }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 18px; }
+.section-warm { background: var(--cream); padding: 48px 0; }
+.section-white { padding: 48px 0; }
+
+.hero {
+  padding: calc(var(--header-h) + 48px) 0 48px;
+  text-align: center;
+}
+.hero h1 { margin-bottom: 16px; }
+.hero .subtitle {
+  font-size: 1.05rem; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto 24px;
+}
+
+.pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 20px 0; }
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px 8px 10px; border-radius: 40px;
+  font-size: 14px; font-weight: 500;
+  background: var(--cream); border: 1px solid var(--border);
+  color: var(--text-primary); transition: all .2s;
+}
+.pill .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+.prompt-box {
+  max-width: 648px; margin: 0 auto 32px;
+  background: var(--cream); border: 1px solid var(--copper);
+  border-radius: 12px; padding: 20px; text-align: left;
+}
+.prompt-box .prompt-label {
+  font-size: 12px; font-weight: 500; color: var(--warm-gray-dark);
+  margin-bottom: 8px; text-transform: uppercase; letter-spacing: .04em;
+}
+.prompt-box .prompt-text {
+  font-size: 1rem; color: var(--text-primary); line-height: 1.6; font-style: italic;
+}
+
+.stat-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 24px 0;
+}
+.stat-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px; text-align: center;
+  transition: border-color .2s;
+}
+.stat-card:hover { border-color: var(--teal-border); }
+.stat-number {
+  font-family: 'Playfair Display', serif; font-size: 2.2rem;
+  font-weight: 600; color: var(--teal-dark); line-height: 1.1;
+}
+.stat-label {
+  font-size: 13px; color: var(--text-secondary); margin-top: 4px; font-weight: 500;
+}
+
+.bar-chart {
+  display: flex; align-items: flex-end; justify-content: center;
+  gap: 8px; height: 200px; margin: 24px 0 8px; padding: 0 12px;
+}
+.bar-col { display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; max-width: 100px; }
+.bar { width: 100%; border-radius: 6px 6px 0 0; transition: height .6s cubic-bezier(.4,0,.2,1); }
+.bar-label { font-size: 11px; color: var(--text-secondary); text-align: center; line-height: 1.3; }
+.bar-value { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+
+.arena-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+.arena-table th {
+  text-align: left; padding: 10px 12px; font-weight: 500;
+  color: var(--text-secondary); font-size: 13px;
+  border-bottom: 1px solid var(--border);
+}
+.arena-table td {
+  padding: 10px 12px; border-bottom: 1px solid var(--cream-darker); vertical-align: top;
+}
+.arena-table tr:last-child td { border-bottom: none; }
+.arena-table .row-good { background: #f0f7f4; }
+
+.callout {
+  border-radius: 10px; padding: 16px 18px; margin: 16px 0;
+  font-size: 14px; line-height: 1.6; border: 1px solid;
+}
+.callout.strategy { background: var(--teal-light); border-color: var(--teal-border); }
+.callout.strategy::before { content: 'Key Insight '; font-weight: 600; color: var(--teal-dark); }
+.callout.golden { background: #faf8f0; border-color: var(--gold); }
+.callout.golden::before { content: 'Thank You '; font-weight: 600; color: var(--sand); }
+.callout.warning { background: #faf6ef; border-color: var(--copper); }
+.callout.warning::before { content: 'Priority '; font-weight: 600; color: var(--copper); }
+
+.card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px; margin-bottom: 10px;
+  transition: border-color .2s;
+}
+.card:hover { border-color: var(--teal-border); }
+
+details.arena-details {
+  border: 1px solid var(--border); border-radius: 10px;
+  margin-bottom: 10px; background: var(--white); transition: border-color .2s;
+}
+details.arena-details:hover { border-color: var(--teal-border); }
+details.arena-details[open] { border-color: var(--teal-border); }
+details.arena-details > summary {
+  padding: 14px 18px; cursor: pointer; font-weight: 500;
+  font-size: 15px; list-style: none;
+  display: flex; align-items: center; gap: 8px;
+}
+details.arena-details > summary::before {
+  content: '\25B6'; font-size: .65rem; color: var(--teal);
+  transition: transform .2s;
+}
+details.arena-details[open] > summary::before { transform: rotate(90deg); }
+details.arena-details > summary::-webkit-details-marker { display: none; }
+details.arena-details > .detail-body { padding: 0 18px 18px; }
+
+.section-title { display: flex; align-items: center; gap: 12px; margin-bottom: .75rem; }
+.section-num {
+  flex-shrink: 0; width: 36px; height: 36px;
+  background: var(--text-primary); color: var(--text-light);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600;
+}
+
+.step-list { list-style: none; padding: 0; margin: 20px 0; }
+.step-list li {
+  display: flex; gap: 16px; padding: 20px 0;
+  border-bottom: 1px solid var(--cream-darker);
+}
+.step-list li:last-child { border-bottom: none; }
+.step-num {
+  flex-shrink: 0; width: 36px; height: 36px;
+  background: var(--text-primary); color: var(--text-light);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600;
+}
+.step-content h4 { margin: 0 0 6px; font-size: 1rem; }
+.step-content p { font-size: 14px; color: var(--text-secondary); margin: 0; }
+
+.flow {
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+  gap: .25rem; margin: 1.5rem 0;
+}
+.flow-step {
+  background: var(--cream); color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: .5rem 1rem; border-radius: 8px; font-size: .85rem;
+  text-align: center; font-weight: 500; min-width: 110px;
+}
+.flow-step.active-step {
+  background: var(--teal); color: var(--text-light); border-color: var(--teal-dark);
+}
+.flow-step.done-step {
+  background: var(--teal-light); border-color: var(--teal-border);
+}
+.flow-arrow { color: var(--warm-gray-dark); font-size: 1.2rem; }
+
+.complexity {
+  display: inline-block; padding: 3px 12px; border-radius: 62px;
+  font-size: .8rem; font-weight: 600;
+}
+.complexity.critical { background: var(--copper); color: var(--white); }
+.complexity.major { background: var(--gold); color: var(--text-primary); }
+.complexity.moderate { background: var(--sage); color: var(--text-primary); }
+.complexity.minor { background: var(--cream-dark); color: var(--text-secondary); }
+
+.progress-bar {
+  height: 6px; background: var(--cream-darker); border-radius: 3px;
+  overflow: hidden; margin-top: 4px;
+}
+.progress-bar .fill {
+  height: 100%; border-radius: 3px;
+  transition: width .6s cubic-bezier(.4,0,.2,1);
+}
+
+.team-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 20px 0;
+}
+.team-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px; transition: border-color .2s;
+}
+.team-card:hover { border-color: var(--teal-border); }
+.team-card .team-name {
+  font-family: 'Playfair Display', serif; font-size: 1.1rem;
+  font-weight: 500; margin-bottom: 4px;
+}
+.team-card .team-role { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+.team-card .team-stat { font-size: 14px; margin-bottom: 4px; }
+.team-card .team-stat strong { color: var(--teal-dark); }
+
+.roadmap-svg { width: 100%; max-width: 780px; margin: 1.5rem auto; display: block; }
+
+footer.site-footer {
+  padding: 32px 0 24px; text-align: center;
+  font-size: 14px; color: var(--text-muted);
+  border-top: 1px solid var(--cream-darker); margin-top: 24px;
+}
+footer.site-footer a { color: var(--text-muted); text-decoration: none; margin: 0 8px; }
+footer.site-footer a:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.4rem; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: 1fr; }
+  .flow { flex-direction: column; }
+  .flow-arrow { transform: rotate(90deg); }
+  .bar-chart { height: 150px; gap: 4px; }
+  .pills { gap: 6px; }
+  .pill { font-size: 13px; padding: 6px 12px 6px 8px; }
+  .header-nav a { font-size: 13px; padding: 4px 8px; }
+  .arena-table { font-size: 13px; }
+  .arena-table th, .arena-table td { padding: 8px; }
+}
+
+@media print {
+  header.site-header { display: none; }
+  .hero { padding-top: 24px; }
+  details.arena-details[open] > .detail-body { display: block !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <a href="#overview" class="logo">Testing Review</a>
+      <span class="byline">Copilot PM Course</span>
+    </div>
+    <nav class="header-nav">
+      <a href="#results">Results</a>
+      <a href="#teams">Teams</a>
+      <a href="#priorities">Priorities</a>
+      <a href="#next-steps">Next Steps</a>
+      <a href="#roadmap">Roadmap</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="overview">
+  <h1>Testing Review<br>Summary &amp; Next Steps</h1>
+  <p class="subtitle">A summary of our testing exercise, your validated findings, and the road ahead to launch.</p>
+  <div class="pills">
+    <span class="pill"><span class="dot" style="background:var(--sage)"></span> 4 Teams</span>
+    <span class="pill"><span class="dot" style="background:var(--olive)"></span> 15 Modules</span>
+    <span class="pill"><span class="dot" style="background:var(--gold)"></span> 10 Lenses</span>
+    <span class="pill"><span class="dot" style="background:var(--copper)"></span> 170 Findings</span>
+  </div>
+  <div class="prompt-box">
+    <div class="prompt-label">What we accomplished</div>
+    <div class="prompt-text">&ldquo;15 testers across 4 teams examined every module through 10 quality lenses. Each finding was analyzed for accuracy, clarity, and actionability. You then reviewed that analysis, agreed or refined it, and produced concrete actions. The result: 130 actionable improvements, validated by the people who found them.&rdquo;</div>
+  </div>
+</section>
+
+</div>
+
+<!-- ========== BY THE NUMBERS ========== -->
+<div class="section-warm">
+<div class="container">
+<section id="results">
+
+  <div class="section-title">
+    <span class="section-num">1</span>
+    <h2 style="margin:0;">By the Numbers</h2>
+  </div>
+
+  <div class="stat-grid" id="statGrid"></div>
+
+  <h3 style="margin-top:32px;">Findings by Team</h3>
+  <div class="bar-chart" id="teamChart"></div>
+
+  <h3 style="margin-top:32px;">Module Coverage</h3>
+  <p style="font-size:14px;color:var(--text-secondary);margin-bottom:12px;">Every module received feedback from multiple teams. Coverage ranges from 6 to 26 findings per module.</p>
+  <table class="arena-table" id="coverageTable">
+    <thead>
+      <tr>
+        <th>Module</th>
+        <th>Title</th>
+        <th>Team 1</th>
+        <th>Team 2</th>
+        <th>Team 3</th>
+        <th>Team 4</th>
+        <th>Total</th>
+        <th>Actionable</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div class="callout strategy" style="margin-top:20px;">
+    98% of you agreed with the analysis of your findings. Only 2 out of 170 findings needed clarification. This demonstrates both the quality of your observations and the reliability of the review process.
+  </div>
+
+</section>
+</div>
+</div>
+
+<!-- ========== TEAM RECOGNITION ========== -->
+<div class="container">
+<section class="section-white" id="teams">
+
+  <div class="section-title">
+    <span class="section-num">2</span>
+    <h2 style="margin:0;">Team Recognition</h2>
+  </div>
+
+  <div class="callout golden">
+    What you accomplished is rare. Most organizations test software with pass/fail. You tested learning content through 10 quality dimensions, as practitioners who actually ran the exercises. This testing program rivals professional QA frameworks.
+  </div>
+
+  <div class="team-grid" id="teamGrid"></div>
+
+</section>
+</div>
+
+<!-- ========== PRIORITY FINDINGS ========== -->
+<div class="section-warm">
+<div class="container">
+<section id="priorities">
+
+  <div class="section-title">
+    <span class="section-num">3</span>
+    <h2 style="margin:0;">Top Priority Findings</h2>
+  </div>
+
+  <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">15 priority themes emerged from cross-team analysis. These are ranked by severity and number of teams affected.</p>
+
+  <div id="priorityList"></div>
+
+  <h3 style="margin-top:32px;">Cross-Team Themes</h3>
+  <p style="font-size:14px;color:var(--text-secondary);margin-bottom:12px;">10 themes were independently discovered by multiple teams, confirming their validity.</p>
+  <div id="themesList"></div>
+
+</section>
+</div>
+</div>
+
+<!-- ========== NEXT STEPS ========== -->
+<div class="container">
+<section class="section-white" id="next-steps">
+
+  <div class="section-title">
+    <span class="section-num">4</span>
+    <h2 style="margin:0;">Action Plan</h2>
+  </div>
+
+  <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">Three phases to take us from validated findings to a deployed, field-ready course.</p>
+
+  <ol class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div class="step-content">
+        <h4>Implement Fixes &amp; Improvements</h4>
+        <p>Address all 130 actionable findings. Critical items (keyboard shortcuts, enterprise sensitivity) first, then major, then moderate. Each fix will reference the finding ID (e.g., T1-02) for traceability.</p>
+      </div>
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <div class="step-content">
+        <h4>Validation Round</h4>
+        <p>Share the updated course back with all 4 teams. Each team verifies their findings are addressed: bugs fixed, suggestions incorporated, or rationale provided for any deferred items. Lightweight pass &mdash; not a full re-test.</p>
+      </div>
+    </li>
+    <li>
+      <span class="step-num">3</span>
+      <div class="step-content">
+        <h4>Course Launch &amp; Field Deployment</h4>
+        <p>Deploy the compliant course to the field. Testers become champions who train Scrum Masters, who then train Product Owners. Value is realized only when people in the field are learning.</p>
+      </div>
+    </li>
+  </ol>
+
+  <div class="callout warning" style="margin-top:16px;">
+    We have created value through building this course. But we have not yet realized value. Value realization happens only when the course is deployed in the field and practitioners are learning from it. That is our north star.
+  </div>
+
+  <h3 style="margin-top:32px;">Your Role Going Forward</h3>
+
+  <div class="team-grid">
+    <div class="card">
+      <h4>As Validators</h4>
+      <p style="font-size:14px;color:var(--text-secondary);">Review the updated course to confirm your findings have been addressed. A quick check, not a full re-test.</p>
+    </div>
+    <div class="card">
+      <h4>As Champions</h4>
+      <p style="font-size:14px;color:var(--text-secondary);">Take the finished course to your teams and stakeholders. You know the material intimately &mdash; you tested every module.</p>
+    </div>
+    <div class="card">
+      <h4>As Multipliers</h4>
+      <p style="font-size:14px;color:var(--text-secondary);">Help other Scrum Masters and Agile Coaches deliver this training to Product Owners across the organization.</p>
+    </div>
+    <div class="card">
+      <h4>As Feedback Collectors</h4>
+      <p style="font-size:14px;color:var(--text-secondary);">Gather real-world feedback from field deployments. What works? What needs adjustment for specific contexts?</p>
+    </div>
+  </div>
+
+</section>
+</div>
+
+<!-- ========== ROADMAP ========== -->
+<div class="section-warm">
+<div class="container">
+<section id="roadmap">
+
+  <div class="section-title">
+    <span class="section-num">5</span>
+    <h2 style="margin:0;">Journey Roadmap</h2>
+  </div>
+
+  <p style="font-size:14px;color:var(--text-secondary);margin-bottom:8px;">From idea to impact &mdash; where we have been, where we are, and where we are going.</p>
+
+  <svg class="roadmap-svg" viewBox="0 0 780 520" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arrowTeal" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#487265"/>
+      </marker>
+      <marker id="arrowCopper" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#BC976A"/>
+      </marker>
+    </defs>
+
+    <!-- Phase labels -->
+    <text x="12" y="28" font-family="Playfair Display, serif" font-size="14" font-weight="600" fill="#292C33">COMPLETED</text>
+    <text x="12" y="248" font-family="Playfair Display, serif" font-size="14" font-weight="600" fill="#487265">WE ARE HERE</text>
+    <text x="12" y="368" font-family="Playfair Display, serif" font-size="14" font-weight="600" fill="#BC976A">AHEAD</text>
+
+    <!-- Phase 1: Completed row -->
+    <rect x="12" y="42" width="155" height="58" rx="10" fill="#DDEFEF" stroke="#568788" stroke-width="1.5"/>
+    <text x="89" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#292C33">Course Design</text>
+    <text x="89" y="82" text-anchor="middle" font-size="10" fill="#6B7280">15 modules, 3 levels</text>
+
+    <line x1="170" y1="71" x2="198" y2="71" stroke="#487265" stroke-width="1.5" marker-end="url(#arrowTeal)"/>
+
+    <rect x="200" y="42" width="155" height="58" rx="10" fill="#DDEFEF" stroke="#568788" stroke-width="1.5"/>
+    <text x="277" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#292C33">Testing Strategy</text>
+    <text x="277" y="82" text-anchor="middle" font-size="10" fill="#6B7280">10 lenses, 4 teams</text>
+
+    <line x1="358" y1="71" x2="386" y2="71" stroke="#487265" stroke-width="1.5" marker-end="url(#arrowTeal)"/>
+
+    <rect x="388" y="42" width="155" height="58" rx="10" fill="#DDEFEF" stroke="#568788" stroke-width="1.5"/>
+    <text x="465" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#292C33">Testing Execution</text>
+    <text x="465" y="82" text-anchor="middle" font-size="10" fill="#6B7280">170 findings captured</text>
+
+    <line x1="546" y1="71" x2="574" y2="71" stroke="#487265" stroke-width="1.5" marker-end="url(#arrowTeal)"/>
+
+    <rect x="576" y="42" width="185" height="58" rx="10" fill="#DDEFEF" stroke="#568788" stroke-width="1.5"/>
+    <text x="668" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#292C33">Analysis &amp; Review</text>
+    <text x="668" y="82" text-anchor="middle" font-size="10" fill="#6B7280">98% validated by testers</text>
+
+    <!-- Connector down -->
+    <line x1="668" y1="103" x2="668" y2="135" stroke="#487265" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+    <!-- Phase 2: Current row - larger, emphasized -->
+    <!-- Down arrow into current phase -->
+    <line x1="668" y1="135" x2="400" y2="170" stroke="#487265" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowTeal)"/>
+
+    <!-- Big "We Are Here" box -->
+    <rect x="120" y="172" width="540" height="60" rx="12" fill="#487265" stroke="#407967" stroke-width="2"/>
+    <text x="390" y="198" text-anchor="middle" font-size="15" font-weight="700" fill="#F8F7F6">Today: Share Results &amp; Align on Next Steps</text>
+    <text x="390" y="216" text-anchor="middle" font-size="11" fill="#A0C3C4">This meeting &mdash; March 2026</text>
+
+    <!-- Connector down from current -->
+    <line x1="390" y1="235" x2="390" y2="265" stroke="#BC976A" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowCopper)"/>
+
+    <!-- Phase 3: Future row 1 -->
+    <rect x="12" y="278" width="175" height="68" rx="10" fill="#F7F6F5" stroke="#BC976A" stroke-width="1.5"/>
+    <text x="99" y="302" text-anchor="middle" font-size="12" font-weight="700" fill="#292C33">Implement Fixes</text>
+    <text x="99" y="318" text-anchor="middle" font-size="10" fill="#6B7280">130 actionable items</text>
+    <text x="99" y="332" text-anchor="middle" font-size="10" fill="#6B7280">Critical fixes first</text>
+
+    <line x1="190" y1="312" x2="218" y2="312" stroke="#BC976A" stroke-width="1.5" marker-end="url(#arrowCopper)"/>
+
+    <rect x="220" y="278" width="175" height="68" rx="10" fill="#F7F6F5" stroke="#BC976A" stroke-width="1.5"/>
+    <text x="307" y="302" text-anchor="middle" font-size="12" font-weight="700" fill="#292C33">Validation Round</text>
+    <text x="307" y="318" text-anchor="middle" font-size="10" fill="#6B7280">Teams verify fixes</text>
+    <text x="307" y="332" text-anchor="middle" font-size="10" fill="#6B7280">Lightweight review</text>
+
+    <line x1="398" y1="312" x2="426" y2="312" stroke="#BC976A" stroke-width="1.5" marker-end="url(#arrowCopper)"/>
+
+    <rect x="428" y="278" width="175" height="68" rx="10" fill="#F7F6F5" stroke="#BC976A" stroke-width="1.5"/>
+    <text x="515" y="302" text-anchor="middle" font-size="12" font-weight="700" fill="#292C33">Course Finalized</text>
+    <text x="515" y="318" text-anchor="middle" font-size="10" fill="#6B7280">All issues resolved</text>
+    <text x="515" y="332" text-anchor="middle" font-size="10" fill="#6B7280">Production-ready</text>
+
+    <line x1="606" y1="312" x2="634" y2="312" stroke="#BC976A" stroke-width="1.5" marker-end="url(#arrowCopper)"/>
+
+    <rect x="636" y="278" width="130" height="68" rx="10" fill="#faf8f0" stroke="#D4C68B" stroke-width="1.5"/>
+    <text x="701" y="302" text-anchor="middle" font-size="12" font-weight="700" fill="#292C33">Launch</text>
+    <text x="701" y="318" text-anchor="middle" font-size="10" fill="#6B7280">Deploy to field</text>
+
+    <!-- Connector down from Launch -->
+    <line x1="701" y1="349" x2="701" y2="380" stroke="#D4C68B" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+    <!-- Phase 4: Value Realization row -->
+    <rect x="12" y="388" width="755" height="50" rx="10" fill="#faf8f0" stroke="#D4C68B" stroke-width="1.5"/>
+    <text x="390" y="410" text-anchor="middle" font-size="13" font-weight="700" fill="#292C33">VALUE REALIZATION: Field Deployment &amp; Feedback</text>
+    <text x="390" y="426" text-anchor="middle" font-size="11" fill="#6B7280">Testers become champions &rarr; Train Scrum Masters &rarr; Scrum Masters train Product Owners</text>
+
+    <!-- Bottom feedback loop -->
+    <line x1="390" y1="441" x2="390" y2="468" stroke="#D4C68B" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+    <rect x="200" y="470" width="380" height="40" rx="10" fill="#F7F6F5" stroke="#D9D9D9" stroke-width="1"/>
+    <text x="390" y="495" text-anchor="middle" font-size="11" fill="#6B7280">Collect field feedback &rarr; Iterate &amp; improve &rarr; Expand reach</text>
+  </svg>
+
+</section>
+</div>
+</div>
+
+<!-- ========== CLOSING ========== -->
+<div class="container">
+<section class="section-white">
+  <div style="text-align:center; max-width:560px; margin:0 auto;">
+    <h2>Thank You</h2>
+    <p style="font-size:14px;color:var(--text-secondary);margin-top:12px;">
+      Your work as testers has transformed this course. 170 observations, rigorously validated, now form the blueprint for a production-quality training program. The foundation is strong because of you.
+    </p>
+    <p style="font-size:14px;color:var(--text-secondary);margin-top:12px;">
+      The next chapter is about taking this to the field &mdash; and you are uniquely positioned to lead that. You know the material. You stress-tested it. You made it better. Now let's get it to the people who need it.
+    </p>
+    <div class="prompt-box" style="margin-top:24px;text-align:center;">
+      <div class="prompt-text" style="font-size:1.1rem;">&ldquo;From testing to teaching &mdash; the value is in the doing.&rdquo;</div>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer class="site-footer">
+  <a href="#overview">Top</a> |
+  <a href="#results">Results</a> |
+  <a href="#teams">Teams</a> |
+  <a href="#roadmap">Roadmap</a>
+  <div style="margin-top:12px; font-size:12px;">Microsoft Copilot for Product Managers &mdash; Course Testing Program 2026</div>
+</footer>
+
+<script>
+(function() {
+  "use strict";
+
+  // === STAT GRID ===
+  var stats = [
+    { number: "170", label: "Total Findings" },
+    { number: "130", label: "Actionable Items" },
+    { number: "98%", label: "Tester Agreement" },
+    { number: "15/15", label: "Modules Covered" }
+  ];
+  var statGrid = document.getElementById("statGrid");
+  stats.forEach(function(s) {
+    var card = document.createElement("div");
+    card.className = "stat-card";
+    var num = document.createElement("div");
+    num.className = "stat-number";
+    num.appendChild(document.createTextNode(s.number));
+    var lbl = document.createElement("div");
+    lbl.className = "stat-label";
+    lbl.appendChild(document.createTextNode(s.label));
+    card.appendChild(num);
+    card.appendChild(lbl);
+    statGrid.appendChild(card);
+  });
+
+  // === TEAM BAR CHART ===
+  var teamData = [
+    { label: "Team 1\nElon Musk", value: 20, color: "#A0C3C4" },
+    { label: "Team 2\nValueGuardAI", value: 38, color: "#AAB788" },
+    { label: "Team 3\nSarvam", value: 68, color: "#D4C68B" },
+    { label: "Team 4\nAI Native", value: 44, color: "#BC976A" }
+  ];
+  var maxVal = 68;
+  var chartEl = document.getElementById("teamChart");
+  teamData.forEach(function(d) {
+    var col = document.createElement("div");
+    col.className = "bar-col";
+    var val = document.createElement("div");
+    val.className = "bar-value";
+    val.appendChild(document.createTextNode(d.value));
+    var bar = document.createElement("div");
+    bar.className = "bar";
+    bar.style.backgroundColor = d.color;
+    bar.style.height = ((d.value / maxVal) * 160) + "px";
+    var lbl = document.createElement("div");
+    lbl.className = "bar-label";
+    var lines = d.label.split("\n");
+    lbl.appendChild(document.createTextNode(lines[0]));
+    if (lines[1]) {
+      lbl.appendChild(document.createElement("br"));
+      lbl.appendChild(document.createTextNode(lines[1]));
+    }
+    col.appendChild(val);
+    col.appendChild(bar);
+    col.appendChild(lbl);
+    chartEl.appendChild(col);
+  });
+
+  // === COVERAGE TABLE ===
+  var coverage = [
+    ["1.1", "Welcome to Copilot", 3, 12, 8, 3, 26, 24],
+    ["1.2", "Workspace Setup", 0, 3, 4, 1, 8, 6],
+    ["1.3", "First PM Tasks", 1, 1, 4, 3, 9, 7],
+    ["1.4", "Researcher & Analyst Agents", 0, 1, 4, 1, 6, 4],
+    ["1.5", "Persona Prompting", 1, 1, 4, 4, 10, 7],
+    ["1.6", "Building Context", 1, 1, 4, 4, 10, 7],
+    ["1.7", "Copilot Across M365", 5, 3, 4, 4, 16, 13],
+    ["1.8", "Teams Integration", 0, 1, 4, 2, 7, 4],
+    ["1.9", "Copilot in Outlook", 3, 1, 4, 2, 10, 9],
+    ["1.10", "SharePoint", 1, 0, 4, 4, 9, 4],
+    ["2.1", "Writing PRDs", 1, 4, 4, 4, 13, 10],
+    ["2.2", "Analyzing Data", 1, 0, 4, 3, 8, 6],
+    ["2.3", "Product Strategy", 0, 0, 4, 4, 8, 5],
+    ["3.1", "Image Generation", 2, 6, 8, 4, 20, 15],
+    ["3.2", "PM Visuals", 1, 3, 4, 1, 9, 9]
+  ];
+  var tbody = document.querySelector("#coverageTable tbody");
+  coverage.forEach(function(row) {
+    var tr = document.createElement("tr");
+    row.forEach(function(cell, i) {
+      var td = document.createElement("td");
+      if (i === 0) td.style.fontWeight = "600";
+      if (i >= 6) td.style.fontWeight = "600";
+      td.appendChild(document.createTextNode(cell));
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+  // Totals row
+  var totalTr = document.createElement("tr");
+  totalTr.style.borderTop = "2px solid var(--border)";
+  totalTr.style.fontWeight = "700";
+  ["TOTAL", "", "20", "37", "68", "44", "169", "130"].forEach(function(cell) {
+    var td = document.createElement("td");
+    td.appendChild(document.createTextNode(cell));
+    totalTr.appendChild(td);
+  });
+  tbody.appendChild(totalTr);
+
+  // === TEAM GRID ===
+  var teams = [
+    {
+      name: "Team 1: Elon Musk",
+      role: "\"Does it work?\" \u2014 Lenses L3 & L4",
+      findings: 20,
+      highlight: "Found keyboard shortcut inconsistencies across Word, Excel, and PowerPoint by actually testing each app"
+    },
+    {
+      name: "Team 2: ValueGuardAI",
+      role: "\"Does it teach?\" \u2014 Lenses L5 & L6",
+      findings: 38,
+      highlight: "Gold-standard feedback quality \u2014 specific quotes, cross-references, and actionable instructional design insights"
+    },
+    {
+      name: "Team 3: Sarvam",
+      role: "\"Does it matter?\" \u2014 Lenses L7 & L8",
+      findings: 68,
+      highlight: "Broadest coverage (10/15 modules), best organized with POC assignments, and only team capturing what works well"
+    },
+    {
+      name: "Team 4: AI Native",
+      role: "\"Does it deliver?\" \u2014 Lenses L9 & L10",
+      findings: 44,
+      highlight: "Excellent technical finds \u2014 cross-browser sync bugs, file upload limit mismatches, and honest coverage reporting"
+    }
+  ];
+  var teamGrid = document.getElementById("teamGrid");
+  teams.forEach(function(t) {
+    var card = document.createElement("div");
+    card.className = "team-card";
+    var name = document.createElement("div");
+    name.className = "team-name";
+    name.appendChild(document.createTextNode(t.name));
+    var role = document.createElement("div");
+    role.className = "team-role";
+    role.appendChild(document.createTextNode(t.role));
+    var stat = document.createElement("div");
+    stat.className = "team-stat";
+    var strong = document.createElement("strong");
+    strong.appendChild(document.createTextNode(t.findings + " findings"));
+    stat.appendChild(strong);
+    var highlight = document.createElement("p");
+    highlight.style.fontSize = "13px";
+    highlight.style.color = "var(--text-secondary)";
+    highlight.style.marginTop = "8px";
+    highlight.appendChild(document.createTextNode(t.highlight));
+    card.appendChild(name);
+    card.appendChild(role);
+    card.appendChild(stat);
+    card.appendChild(highlight);
+    teamGrid.appendChild(card);
+  });
+
+  // === PRIORITY FINDINGS ===
+  var priorities = [
+    { p: 1, theme: "Keyboard shortcuts inconsistent or not working", sev: "Critical", teams: 4, modules: "1.1, 1.7, 2.2", action: "Verify all shortcuts across Word, Excel, PowerPoint. Update text with correct shortcuts and add environment-specific notes." },
+    { p: 2, theme: "Enterprise data sensitivity / security warnings missing", sev: "Critical", teams: 3, modules: "1.2, 1.6, 1.7, 2.2, 2.3", action: "Add enterprise governance section: sensitivity labels, data handling policies. Create reusable Enterprise Readiness Checklist." },
+    { p: 3, theme: "Premature 'Level 1 Complete!' message", sev: "Major", teams: 1, modules: "1.7, 1.9", action: "Move congratulations to Module 1.10 only." },
+    { p: 4, theme: "PM vs PO/BA role ambiguity", sev: "Major", teams: 3, modules: "1.1, 1.2, 1.5, 1.10", action: "Decide on consistent terminology. Add note in Module 1.1 explaining usage." },
+    { p: 5, theme: "File upload limit claim inaccurate", sev: "Major", teams: 2, modules: "1.2, 1.3", action: "Verify actual limit and update all references." },
+    { p: 6, theme: "Memory/settings UI doesn't match steps", sev: "Major", teams: 3, modules: "1.6", action: "Verify current navigation path. Update steps and add screenshot." },
+    { p: 7, theme: "No assessments or success criteria", sev: "Major", teams: 2, modules: "All", action: "Add self-assessment to each module: quiz, checklist, or expected output example." },
+    { p: 8, theme: "Module length / cognitive overload", sev: "Moderate", teams: 2, modules: "2.1, 2.3, 3.2", action: "Add table of contents to long modules. Consider splitting Module 2.3." },
+    { p: 9, theme: "GPT-5 / model naming too specific", sev: "Moderate", teams: 2, modules: "1.1, 1.4", action: "Replace specific model names with generic references." },
+    { p: 10, theme: "Microsoft Designer access assumed", sev: "Moderate", teams: 3, modules: "3.1, 3.2", action: "Add as explicit prerequisite. Add fallback instructions." },
+    { p: 11, theme: "Image generation credit limits unexplained", sev: "Moderate", teams: 2, modules: "3.1, 3.2", action: "Explain credits, daily limits, and what happens when exhausted." },
+    { p: 12, theme: "Workflow Agent not available", sev: "Moderate", teams: 2, modules: "1.4", action: "Add availability note. Provide alternative approach." },
+    { p: 13, theme: "ContextIQ '/' not working in enterprise", sev: "Moderate", teams: 1, modules: "1.2", action: "Add enterprise restriction note. Provide alternative file reference method." },
+    { p: 14, theme: "Time savings claims inconsistent", sev: "Moderate", teams: 1, modules: "1.1", action: "Align numbers across module. Distinguish total vs. per-task savings." },
+    { p: 15, theme: "Missing screenshots for UI steps", sev: "Minor", teams: 3, modules: "Various", action: "Add screenshots for key UI interactions. Prioritize first-encounter moments." }
+  ];
+  var priorityList = document.getElementById("priorityList");
+  priorities.forEach(function(item) {
+    var details = document.createElement("details");
+    details.className = "arena-details";
+    var summary = document.createElement("summary");
+    var sevSpan = document.createElement("span");
+    sevSpan.className = "complexity " + item.sev.toLowerCase();
+    sevSpan.appendChild(document.createTextNode(item.sev));
+    var titleSpan = document.createElement("span");
+    titleSpan.style.marginLeft = "8px";
+    titleSpan.appendChild(document.createTextNode("P" + item.p + ": " + item.theme));
+    var metaSpan = document.createElement("span");
+    metaSpan.style.marginLeft = "auto";
+    metaSpan.style.fontSize = "13px";
+    metaSpan.style.color = "var(--warm-gray-dark)";
+    metaSpan.appendChild(document.createTextNode(item.teams + " team" + (item.teams > 1 ? "s" : "")));
+    summary.appendChild(sevSpan);
+    summary.appendChild(titleSpan);
+    summary.appendChild(metaSpan);
+    details.appendChild(summary);
+    var body = document.createElement("div");
+    body.className = "detail-body";
+    var modP = document.createElement("p");
+    modP.style.fontSize = "14px";
+    modP.style.marginBottom = "8px";
+    var modStrong = document.createElement("strong");
+    modStrong.appendChild(document.createTextNode("Modules: "));
+    modP.appendChild(modStrong);
+    modP.appendChild(document.createTextNode(item.modules));
+    var actP = document.createElement("p");
+    actP.style.fontSize = "14px";
+    var actStrong = document.createElement("strong");
+    actStrong.appendChild(document.createTextNode("Action: "));
+    actP.appendChild(actStrong);
+    actP.appendChild(document.createTextNode(item.action));
+    body.appendChild(modP);
+    body.appendChild(actP);
+    details.appendChild(body);
+    priorityList.appendChild(details);
+  });
+
+  // === CROSS-TEAM THEMES ===
+  var themes = [
+    { theme: "Keyboard shortcuts inconsistent", teams: "All 4 teams", confidence: "High" },
+    { theme: "PM vs PO/BA role ambiguity", teams: "Teams 2, 3, 4", confidence: "High" },
+    { theme: "Enterprise sensitivity warnings missing", teams: "Teams 3, 4", confidence: "High" },
+    { theme: "Time savings claims inconsistent", teams: "Teams 2, 4", confidence: "Medium" },
+    { theme: "File upload limit claims inaccurate", teams: "Teams 1, 2, 4", confidence: "High" },
+    { theme: "No assessments or success criteria", teams: "Teams 2, 3", confidence: "Medium" },
+    { theme: "Premature Level 1 Complete message", teams: "Team 2", confidence: "Medium" },
+    { theme: "Industry-specific exercises requested", teams: "Team 3", confidence: "Medium" },
+    { theme: "Microsoft Designer access assumed", teams: "Teams 2, 3, 4", confidence: "Medium" },
+    { theme: "Module length / cognitive overload", teams: "Teams 2, 4", confidence: "Medium" }
+  ];
+  var themesList = document.getElementById("themesList");
+  var table = document.createElement("table");
+  table.className = "arena-table";
+  var thead = document.createElement("thead");
+  var headRow = document.createElement("tr");
+  ["#", "Theme", "Teams", "Confidence"].forEach(function(h) {
+    var th = document.createElement("th");
+    th.appendChild(document.createTextNode(h));
+    headRow.appendChild(th);
+  });
+  thead.appendChild(headRow);
+  table.appendChild(thead);
+  var ttbody = document.createElement("tbody");
+  themes.forEach(function(t, i) {
+    var tr = document.createElement("tr");
+    if (t.confidence === "High") tr.className = "row-good";
+    [i + 1, t.theme, t.teams, t.confidence].forEach(function(cell) {
+      var td = document.createElement("td");
+      td.appendChild(document.createTextNode(cell));
+      tr.appendChild(td);
+    });
+    ttbody.appendChild(tr);
+  });
+  table.appendChild(ttbody);
+  themesList.appendChild(table);
+
+})();
+</script>
+</body>
+</html>

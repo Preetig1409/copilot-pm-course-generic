@@ -1,270 +1,67 @@
 {
   "course": {
-    "title": "Microsoft Copilot for Enterprise Product Managers",
+    "title": "The AI-Augmented Product Manager",
     "version": "2.0.0",
-    "description": "A comprehensive course teaching enterprise PMs to leverage Microsoft Copilot for internal product management at large organizations",
-    "targetAudience": "Enterprise Product Managers, Internal Digital Products Teams",
+    "description": "Master Microsoft Copilot for 10x PM impact — practitioner-tested workflows from Cagan, Torres, Doshi, and more",
+    "targetAudience": "Product Managers, Product Owners, Business Analysts — junior to experienced",
     "prerequisites": [
       "Microsoft 365 Copilot Enterprise license",
       "OneDrive access",
       "Basic familiarity with M365 apps"
     ],
-    "estimatedDuration": "6 hours",
-    "lastUpdated": "2026-01-19",
-    "context": {
-      "company": "Accenture",
-      "companyType": "Global consulting firm",
-      "employees": "700,000+",
-      "products": [
-        {
-          "name": "AKX (Accenture Knowledge Exchange)",
-          "type": "Knowledge management platform",
-          "currentMetric": "43% WAU",
-          "targetMetric": "60% WAU"
-        },
-        {
-          "name": "ADH (Accenture Delivery Hub)",
-          "type": "Project delivery and resource management",
-          "currentMetric": "67% utilization visibility",
-          "targetMetric": "95% utilization visibility"
-        }
-      ],
-      "personas": [
-        {
-          "name": "Priya Sharma",
-          "role": "Partner & Practice Lead",
-          "focus": "Expert discovery, competitive positioning, winning deals"
-        },
-        {
-          "name": "Marcus Johnson",
-          "role": "Senior Consultant",
-          "focus": "Finding templates, efficient workflows, daily productivity"
-        },
-        {
-          "name": "Elena Rodriguez",
-          "role": "Delivery Manager",
-          "focus": "Project visibility, resource planning, status reporting"
-        }
-      ]
-    }
+    "estimatedDuration": "11 hours",
+    "lastUpdated": "2026-03-18"
   },
   "levels": [
     {
-      "id": "1",
-      "title": "Foundation",
-      "description": "Core Copilot skills for enterprise PMs",
+      "id": "0",
+      "title": "The PM Craft",
+      "description": "Core PM skills through a practitioner lens — with Copilot from day one",
       "modules": [
-        {
-          "id": "1.1",
-          "title": "Welcome to Microsoft Copilot",
-          "duration": "15 min",
-          "path": "lesson-modules/1-fundamentals/1.1-welcome/MODULE.md",
-          "objectives": [
-            "Understand what Microsoft Copilot is",
-            "Access Copilot via browser and shortcuts",
-            "Meet Accenture and your enterprise PM role"
-          ]
-        },
-        {
-          "id": "1.2",
-          "title": "Setting Up Your Workspace",
-          "duration": "15 min",
-          "path": "lesson-modules/1-fundamentals/1.2-workspace-setup/MODULE.md",
-          "objectives": [
-            "Set up optimal workspace",
-            "Upload files to Copilot",
-            "Use ContextIQ and OneDrive"
-          ]
-        },
-        {
-          "id": "1.3",
-          "title": "Your First Enterprise PM Tasks",
-          "duration": "30 min",
-          "path": "lesson-modules/1-fundamentals/1.3-first-tasks/MODULE.md",
-          "objectives": [
-            "Process steering committee notes",
-            "Synthesize stakeholder interviews",
-            "Transform communications for different audiences"
-          ]
-        },
-        {
-          "id": "1.4",
-          "title": "Researcher & Analyst Agents",
-          "duration": "25 min",
-          "path": "lesson-modules/1-fundamentals/1.4-researcher-analyst-agents/MODULE.md",
-          "objectives": [
-            "Use Researcher for competitive intelligence",
-            "Use Analyst for adoption and ROI analysis",
-            "Combine agents for enterprise workflows"
-          ]
-        },
-        {
-          "id": "1.5",
-          "title": "Persona Prompting for Enterprise",
-          "duration": "20 min",
-          "path": "lesson-modules/1-fundamentals/1.5-persona-prompting/MODULE.md",
-          "objectives": [
-            "Create enterprise stakeholder persona prompts",
-            "Get multi-perspective feedback from MDs, CKOs, Consultants",
-            "Build a reusable enterprise prompt library"
-          ]
-        },
-        {
-          "id": "1.6",
-          "title": "Building Context with Memory",
-          "duration": "15 min",
-          "path": "lesson-modules/1-fundamentals/1.6-copilot-memory/MODULE.md",
-          "objectives": [
-            "Use Copilot Memory feature",
-            "Create context documents for enterprise products",
-            "Manage persistent context"
-          ]
-        },
-        {
-          "id": "1.7",
-          "title": "Copilot Across M365 Apps",
-          "duration": "15 min",
-          "path": "lesson-modules/1-fundamentals/1.7-m365-navigation/MODULE.md",
-          "objectives": [
-            "Use Copilot in Word, Excel, PowerPoint",
-            "Navigate between chat and in-app",
-            "Master keyboard shortcuts"
-          ]
-        },
-        {
-          "id": "1.8",
-          "title": "Copilot in Microsoft Teams",
-          "duration": "25 min",
-          "path": "lesson-modules/1-fundamentals/1.8-teams-integration/MODULE.md",
-          "objectives": [
-            "Get steering committee meeting summaries",
-            "Catch up on missed stakeholder meetings",
-            "Use Copilot in chats and channels"
-          ]
-        },
-        {
-          "id": "1.9",
-          "title": "Copilot in Outlook",
-          "duration": "20 min",
-          "path": "lesson-modules/1-fundamentals/1.9-outlook-integration/MODULE.md",
-          "objectives": [
-            "Draft executive communications",
-            "Summarize stakeholder email threads",
-            "Prepare for governance meetings"
-          ]
-        },
-        {
-          "id": "1.10",
-          "title": "Copilot in SharePoint & Collaboration",
-          "duration": "20 min",
-          "path": "lesson-modules/1-fundamentals/1.10-sharepoint-collaboration/MODULE.md",
-          "objectives": [
-            "Find enterprise documents using natural language",
-            "Summarize SharePoint sites and libraries",
-            "Track updates and integrate into workflows"
-          ]
-        }
+        { "id": "0.1", "title": "What Product Management Actually Is", "duration": "20 min", "path": "lesson-modules/0-pm-fundamentals/0.1-what-is-pm/MODULE.md" },
+        { "id": "0.2", "title": "Knowing Your Users — Beyond Persona Templates", "duration": "25 min", "path": "lesson-modules/0-pm-fundamentals/0.2-understanding-users/MODULE.md" },
+        { "id": "0.3", "title": "Prioritization That Actually Works", "duration": "25 min", "path": "lesson-modules/0-pm-fundamentals/0.3-discovery-prioritization/MODULE.md" },
+        { "id": "0.4", "title": "Writing Requirements That Engineers Love", "duration": "25 min", "path": "lesson-modules/0-pm-fundamentals/0.4-user-stories-requirements/MODULE.md" },
+        { "id": "0.5", "title": "Agile in Practice", "duration": "20 min", "path": "lesson-modules/0-pm-fundamentals/0.5-agile-scrum/MODULE.md" },
+        { "id": "0.6", "title": "Stakeholder Management — The Unwritten PM Skill", "duration": "25 min", "path": "lesson-modules/0-pm-fundamentals/0.6-stakeholder-communication/MODULE.md" }
+      ]
+    },
+    {
+      "id": "1",
+      "title": "Copilot as Teammate",
+      "description": "Master Copilot workflows for every PM pain point",
+      "modules": [
+        { "id": "1.1", "title": "Your AI Working Environment", "duration": "15 min", "path": "lesson-modules/1-copilot-teammate/1.1-ai-working-environment/MODULE.md" },
+        { "id": "1.2", "title": "Meeting Intelligence", "duration": "25 min", "path": "lesson-modules/1-copilot-teammate/1.2-meeting-intelligence/MODULE.md" },
+        { "id": "1.3", "title": "User Research Synthesis at Scale", "duration": "25 min", "path": "lesson-modules/1-copilot-teammate/1.3-user-research-synthesis/MODULE.md" },
+        { "id": "1.4", "title": "Communication That Lands", "duration": "25 min", "path": "lesson-modules/1-copilot-teammate/1.4-communication-that-lands/MODULE.md" },
+        { "id": "1.5", "title": "Copilot Across M365", "duration": "20 min", "path": "lesson-modules/1-copilot-teammate/1.5-m365-integrated-workflow/MODULE.md" },
+        { "id": "1.6", "title": "Deep Research with Agents", "duration": "25 min", "path": "lesson-modules/1-copilot-teammate/1.6-deep-research-agents/MODULE.md" },
+        { "id": "1.7", "title": "Building Context & Memory", "duration": "20 min", "path": "lesson-modules/1-copilot-teammate/1.7-context-and-memory/MODULE.md" },
+        { "id": "1.8", "title": "Teams & Outlook Mastery", "duration": "25 min", "path": "lesson-modules/1-copilot-teammate/1.8-teams-outlook-mastery/MODULE.md" }
       ]
     },
     {
       "id": "2",
-      "title": "Advanced Enterprise PM Workflows",
-      "description": "Complex enterprise PM tasks with Copilot",
+      "title": "Strategic PM with AI",
+      "description": "Strategic thinking, enterprise influence, and data-driven decisions",
       "modules": [
-        {
-          "id": "2.1",
-          "title": "Writing Enterprise PRDs",
-          "duration": "35 min",
-          "path": "lesson-modules/2-advanced-pm-work/2.1-write-prd/MODULE.md",
-          "objectives": [
-            "Build business cases with ROI calculations",
-            "Create stakeholder analysis and RACI matrices",
-            "Add governance and change management sections"
-          ]
-        },
-        {
-          "id": "2.2",
-          "title": "Analyzing Enterprise Product Data",
-          "duration": "30 min",
-          "path": "lesson-modules/2-advanced-pm-work/2.2-analyze-data/MODULE.md",
-          "objectives": [
-            "Analyze adoption funnels and utilization metrics",
-            "Validate pilot results with statistical rigor",
-            "Calculate ROI for steering committee presentations"
-          ]
-        },
-        {
-          "id": "2.3",
-          "title": "Enterprise Product Strategy",
-          "duration": "35 min",
-          "path": "lesson-modules/2-advanced-pm-work/2.3-product-strategy/MODULE.md",
-          "objectives": [
-            "Align strategy with corporate priorities",
-            "Navigate governance and steering committees",
-            "Develop portfolio-level thinking"
-          ]
-        }
+        { "id": "2.1", "title": "Writing PRDs That Get Buy-In", "duration": "35 min", "path": "lesson-modules/2-strategic-pm/2.1-prds-that-get-buyin/MODULE.md" },
+        { "id": "2.2", "title": "Data-Driven Decisions with AI", "duration": "30 min", "path": "lesson-modules/2-strategic-pm/2.2-data-driven-decisions/MODULE.md" },
+        { "id": "2.3", "title": "Product Strategy & Roadmapping", "duration": "35 min", "path": "lesson-modules/2-strategic-pm/2.3-strategy-and-roadmapping/MODULE.md" },
+        { "id": "2.4", "title": "Running Effective Product Reviews", "duration": "25 min", "path": "lesson-modules/2-strategic-pm/2.4-product-reviews/MODULE.md" },
+        { "id": "2.5", "title": "Navigating Organizational Politics", "duration": "25 min", "path": "lesson-modules/2-strategic-pm/2.5-navigating-politics/MODULE.md" }
       ]
     },
     {
       "id": "3",
-      "title": "Product Visuals",
-      "description": "Creating enterprise visuals with DALL-E and Designer",
+      "title": "The 10x PM",
+      "description": "Synthesis — visual communication, capstone project, and your AI toolkit",
       "modules": [
-        {
-          "id": "3.1",
-          "title": "Image Generation Basics",
-          "duration": "20 min",
-          "path": "lesson-modules/3-product-visuals/3.1-image-basics/MODULE.md",
-          "objectives": [
-            "Generate images with DALL-E 3",
-            "Write effective image prompts",
-            "Iterate and refine outputs"
-          ]
-        },
-        {
-          "id": "3.2",
-          "title": "Enterprise PM Visuals",
-          "duration": "25 min",
-          "path": "lesson-modules/3-product-visuals/3.2-pm-visuals/MODULE.md",
-          "objectives": [
-            "Create stakeholder persona illustrations",
-            "Generate adoption journeys and governance diagrams",
-            "Build internal launch and change management assets"
-          ]
-        }
-      ]
-    }
-  ],
-  "resources": [
-    {
-      "id": "company-context",
-      "title": "Company Context",
-      "files": [
-        { "id": "company", "title": "Company Overview", "path": "company-context/COMPANY.md" },
-        { "id": "personas", "title": "User Personas", "path": "company-context/PERSONAS.md" },
-        { "id": "product", "title": "Product Details", "path": "company-context/PRODUCT.md" },
-        { "id": "competitive", "title": "Competitive Landscape", "path": "company-context/COMPETITIVE.md" }
-      ]
-    },
-    {
-      "id": "prompt-library",
-      "title": "Prompt Library",
-      "files": [
-        { "id": "executive", "title": "Executive Persona", "path": "prompt-library/personas/executive.md" },
-        { "id": "engineer", "title": "Engineer Persona", "path": "prompt-library/personas/engineer.md" },
-        { "id": "user-researcher", "title": "User Researcher Persona", "path": "prompt-library/personas/user-researcher.md" },
-        { "id": "meeting-notes", "title": "Meeting Notes Template", "path": "prompt-library/templates/meeting-notes.md" },
-        { "id": "communication-transform", "title": "Communication Transform", "path": "prompt-library/templates/communication-transform.md" },
-        { "id": "user-research-synthesis", "title": "User Research Synthesis", "path": "prompt-library/templates/user-research-synthesis.md" }
-      ]
-    },
-    {
-      "id": "references",
-      "title": "References",
-      "files": [
-        { "id": "prompting-101", "title": "Prompting 101", "path": "prompt-library/references/prompting-101.md" },
-        { "id": "pm-resources", "title": "PM Learning Resources", "path": "prompt-library/references/pm-resources.md" }
+        { "id": "3.1", "title": "Visual Communication for PMs", "duration": "25 min", "path": "lesson-modules/3-ten-x-pm/3.1-visual-communication/MODULE.md" },
+        { "id": "3.2", "title": "The Capstone — Run a Product Cycle", "duration": "40 min", "path": "lesson-modules/3-ten-x-pm/3.2-capstone-product-cycle/MODULE.md" },
+        { "id": "3.3", "title": "Building Your Personal AI Toolkit", "duration": "20 min", "path": "lesson-modules/3-ten-x-pm/3.3-personal-ai-toolkit/MODULE.md" },
+        { "id": "3.4", "title": "What's Next — The AI-Era PM", "duration": "15 min", "path": "lesson-modules/3-ten-x-pm/3.4-whats-next/MODULE.md" }
       ]
     }
   ]
